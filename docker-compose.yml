@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  heatguard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: heatguard_app
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

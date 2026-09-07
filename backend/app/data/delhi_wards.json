@@ -1,0 +1,246 @@
+{
+  "type": "FeatureCollection",
+  "city": "National Capital Territory of Delhi",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "W-14",
+      "properties": {
+        "ward_id": "W-14",
+        "name": "Anand Parbat & Karol Bagh Industrial",
+        "name_hi": "आनंद पर्वत और करोल बाग औद्योगिक",
+        "zone": "Central Delhi",
+        "population": 284000,
+        "elderly_pct": 17.5,
+        "outdoor_labor_pct": 42.0,
+        "tin_roof_pct": 64.0,
+        "tree_canopy_pct": 4.2,
+        "hospital_beds_per_k": 1.2,
+        "baseline_daily_admissions": 45,
+        "uhi_temp_delta": 2.6,
+        "wind_attenuation": 0.45,
+        "center": [28.6612, 77.1754]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.1620, 28.6500],
+          [77.1880, 28.6500],
+          [77.1910, 28.6720],
+          [77.1650, 28.6730],
+          [77.1620, 28.6500]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "W-02",
+      "properties": {
+        "ward_id": "W-02",
+        "name": "Chanakyapuri Diplomatic Enclave",
+        "name_hi": "चाणक्यपुरी राजनयिक एन्क्लेव",
+        "zone": "New Delhi",
+        "population": 98000,
+        "elderly_pct": 14.0,
+        "outdoor_labor_pct": 4.5,
+        "tin_roof_pct": 2.0,
+        "tree_canopy_pct": 48.5,
+        "hospital_beds_per_k": 8.5,
+        "baseline_daily_admissions": 18,
+        "uhi_temp_delta": -2.4,
+        "wind_attenuation": 1.15,
+        "center": [28.5983, 77.1850]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.1700, 28.5850],
+          [77.2020, 28.5850],
+          [77.2050, 28.6120],
+          [77.1730, 28.6120],
+          [77.1700, 28.5850]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "W-06",
+      "properties": {
+        "ward_id": "W-06",
+        "name": "Chandni Chowk & Old Delhi Core",
+        "name_hi": "चांदनी चौक और पुरानी दिल्ली",
+        "zone": "North Delhi",
+        "population": 315000,
+        "elderly_pct": 19.2,
+        "outdoor_labor_pct": 48.0,
+        "tin_roof_pct": 38.0,
+        "tree_canopy_pct": 2.8,
+        "hospital_beds_per_k": 2.1,
+        "baseline_daily_admissions": 62,
+        "uhi_temp_delta": 2.8,
+        "wind_attenuation": 0.35,
+        "center": [28.6506, 77.2303]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.2180, 28.6410],
+          [77.2420, 28.6410],
+          [77.2450, 28.6620],
+          [77.2200, 28.6620],
+          [77.2180, 28.6410]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "W-21",
+      "properties": {
+        "ward_id": "W-21",
+        "name": "Okhla Phase II & Tehkhand",
+        "name_hi": "ओखला फेज II और तेहखंड",
+        "zone": "South East Delhi",
+        "population": 260000,
+        "elderly_pct": 13.5,
+        "outdoor_labor_pct": 52.0,
+        "tin_roof_pct": 58.0,
+        "tree_canopy_pct": 6.1,
+        "hospital_beds_per_k": 1.4,
+        "baseline_daily_admissions": 40,
+        "uhi_temp_delta": 2.4,
+        "wind_attenuation": 0.60,
+        "center": [28.5283, 77.2750]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.2600, 28.5150],
+          [77.2920, 28.5150],
+          [77.2950, 28.5420],
+          [77.2620, 28.5420],
+          [77.2600, 28.5150]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "W-09",
+      "properties": {
+        "ward_id": "W-09",
+        "name": "Rohini Sector 16-20",
+        "name_hi": "रोहिणी सेक्टर 16-20",
+        "zone": "North West Delhi",
+        "population": 240000,
+        "elderly_pct": 16.0,
+        "outdoor_labor_pct": 22.0,
+        "tin_roof_pct": 14.0,
+        "tree_canopy_pct": 15.2,
+        "hospital_beds_per_k": 2.8,
+        "baseline_daily_admissions": 35,
+        "uhi_temp_delta": 1.1,
+        "wind_attenuation": 0.85,
+        "center": [28.7350, 77.1080]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.0920, 28.7200],
+          [77.1250, 28.7200],
+          [77.1280, 28.7500],
+          [77.0950, 28.7500],
+          [77.0920, 28.7200]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "W-12",
+      "properties": {
+        "ward_id": "W-12",
+        "name": "Dwarka Sub-City Sector 6-10",
+        "name_hi": "द्वारका उप-शहर सेक्टर 6-10",
+        "zone": "South West Delhi",
+        "population": 210000,
+        "elderly_pct": 15.8,
+        "outdoor_labor_pct": 18.0,
+        "tin_roof_pct": 8.0,
+        "tree_canopy_pct": 22.0,
+        "hospital_beds_per_k": 3.4,
+        "baseline_daily_admissions": 28,
+        "uhi_temp_delta": 0.5,
+        "wind_attenuation": 1.05,
+        "center": [28.5830, 77.0600]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.0420, 28.5680],
+          [77.0780, 28.5680],
+          [77.0820, 28.5980],
+          [77.0450, 28.5980],
+          [77.0420, 28.5680]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "W-05",
+      "properties": {
+        "ward_id": "W-05",
+        "name": "Civil Lines & Delhi University",
+        "name_hi": "सिविल लाइंस और दिल्ली विश्वविद्यालय",
+        "zone": "Central North Delhi",
+        "population": 145000,
+        "elderly_pct": 14.5,
+        "outdoor_labor_pct": 12.0,
+        "tin_roof_pct": 6.0,
+        "tree_canopy_pct": 36.4,
+        "hospital_beds_per_k": 5.2,
+        "baseline_daily_admissions": 22,
+        "uhi_temp_delta": -1.2,
+        "wind_attenuation": 1.0,
+        "center": [28.6820, 77.2180]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.2020, 28.6680],
+          [77.2340, 28.6680],
+          [77.2360, 28.6960],
+          [77.2050, 28.6960],
+          [77.2020, 28.6680]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "W-18",
+      "properties": {
+        "ward_id": "W-18",
+        "name": "Najafgarh Semi-Rural Cluster",
+        "name_hi": "नजफगढ़ अर्ध-ग्रामीण क्लस्टर",
+        "zone": "West Delhi",
+        "population": 195000,
+        "elderly_pct": 16.5,
+        "outdoor_labor_pct": 46.0,
+        "tin_roof_pct": 32.0,
+        "tree_canopy_pct": 18.5,
+        "hospital_beds_per_k": 1.1,
+        "baseline_daily_admissions": 30,
+        "uhi_temp_delta": 1.8,
+        "wind_attenuation": 0.90,
+        "center": [28.6090, 76.9850]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [76.9680, 28.5920],
+          [77.0050, 28.5920],
+          [77.0080, 28.6250],
+          [76.9720, 28.6250],
+          [76.9680, 28.5920]
+        ]]
+      }
+    }
+  ]
+}

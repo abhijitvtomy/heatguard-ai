@@ -1,0 +1,254 @@
+{
+  "type": "FeatureCollection",
+  "city": "Bruhat Bengaluru Mahanagara Palike (BBMP)",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "BBMP-138",
+      "properties": {
+        "ward_id": "BBMP-138",
+        "name": "Shivajinagar & Majestic Bus Interchange",
+        "name_kn": "ಶಿವಾಜಿನಗರ ಮತ್ತು ಮೆಜೆಸ್ಟಿಕ್ ಬಸ್ ನಿಲ್ದಾಣ",
+        "name_hi": "शिवाजीनगर और मैजेस्टिक बस स्टैंड",
+        "zone": "East / Central Zone",
+        "population": 185000,
+        "elderly_pct": 18.2,
+        "outdoor_labor_pct": 48.5,
+        "tin_roof_pct": 52.0,
+        "tree_canopy_pct": 5.4,
+        "hospital_beds_per_k": 2.1,
+        "baseline_daily_admissions": 38,
+        "uhi_temp_delta": 2.8,
+        "wind_attenuation": 0.40,
+        "center": [12.9780, 77.5850]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.5680, 12.9680],
+          [77.6020, 12.9680],
+          [77.6050, 12.9920],
+          [77.5710, 12.9920],
+          [77.5680, 12.9680]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-41",
+      "properties": {
+        "ward_id": "BBMP-41",
+        "name": "Peenya Industrial Area & Jalahalli",
+        "name_kn": "ಪೀಣ್ಯ ಕೈಗಾರಿಕಾ ಪ್ರದೇಶ ಮತ್ತು ಜಾಲಹಳ್ಳಿ",
+        "name_hi": "पीण्या औद्योगिक क्षेत्र और जलाहल्ली",
+        "zone": "Rajarajeshwari Nagar Zone",
+        "population": 240000,
+        "elderly_pct": 11.5,
+        "outdoor_labor_pct": 58.0,
+        "tin_roof_pct": 68.0,
+        "tree_canopy_pct": 4.1,
+        "hospital_beds_per_k": 1.2,
+        "baseline_daily_admissions": 42,
+        "uhi_temp_delta": 3.2,
+        "wind_attenuation": 0.50,
+        "center": [13.0285, 77.5180]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.5020, 13.0120],
+          [77.5350, 13.0120],
+          [77.5380, 13.0450],
+          [77.5050, 13.0450],
+          [77.5020, 13.0120]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-85",
+      "properties": {
+        "ward_id": "BBMP-85",
+        "name": "Whitefield & ITPL Tech Corridor",
+        "name_kn": "ವೈಟ್‌ಫೀಲ್ಡ್ ಮತ್ತು ಐಟಿಪಿಎಲ್ ಟೆಕ್ ಕಾರಿಡಾರ್",
+        "name_hi": "व्हाइटफील्ड और आईटीपीएल टेक कॉरिडोर",
+        "zone": "Mahadevapura Zone",
+        "population": 290000,
+        "elderly_pct": 12.0,
+        "outdoor_labor_pct": 34.0,
+        "tin_roof_pct": 36.0,
+        "tree_canopy_pct": 9.2,
+        "hospital_beds_per_k": 2.8,
+        "baseline_daily_admissions": 32,
+        "uhi_temp_delta": 2.2,
+        "wind_attenuation": 0.75,
+        "center": [12.9698, 77.7499]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.7300, 12.9520],
+          [77.7700, 12.9520],
+          [77.7720, 12.9880],
+          [77.7320, 12.9880],
+          [77.7300, 12.9520]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-111",
+      "properties": {
+        "ward_id": "BBMP-111",
+        "name": "Malleshwaram & IISc Green Canopy",
+        "name_kn": "ಮಲ್ಲೇಶ್ವರಂ ಮತ್ತು ಐಐಎಸ್‌ಸಿ ಹಸಿರು ವಲಯ",
+        "name_hi": "मल्लेश्वरम और आईआईएससी ग्रीन बेल्ट",
+        "zone": "West Zone",
+        "population": 115000,
+        "elderly_pct": 21.4,
+        "outdoor_labor_pct": 8.5,
+        "tin_roof_pct": 4.0,
+        "tree_canopy_pct": 46.2,
+        "hospital_beds_per_k": 7.4,
+        "baseline_daily_admissions": 20,
+        "uhi_temp_delta": -2.2,
+        "wind_attenuation": 1.10,
+        "center": [13.0031, 77.5670]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.5520, 12.9900],
+          [77.5820, 12.9900],
+          [77.5850, 13.0180],
+          [77.5550, 13.0180],
+          [77.5520, 12.9900]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-151",
+      "properties": {
+        "ward_id": "BBMP-151",
+        "name": "Koramangala Commercial & Gig Hub",
+        "name_kn": "ಕೋರಮಂಗಲ ವಾಣಿಜ್ಯ ಮತ್ತು ಗಿಗ್ ಹಬ್",
+        "name_hi": "कोरमंगला वाणिज्यिक और गिग हब",
+        "zone": "South Zone",
+        "population": 160000,
+        "elderly_pct": 14.2,
+        "outdoor_labor_pct": 44.0,
+        "tin_roof_pct": 18.0,
+        "tree_canopy_pct": 21.0,
+        "hospital_beds_per_k": 4.6,
+        "baseline_daily_admissions": 26,
+        "uhi_temp_delta": 1.4,
+        "wind_attenuation": 0.85,
+        "center": [12.9352, 77.6245]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.6100, 12.9200],
+          [77.6400, 12.9200],
+          [77.6420, 12.9500],
+          [77.6120, 12.9500],
+          [77.6100, 12.9200]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-174",
+      "properties": {
+        "ward_id": "BBMP-174",
+        "name": "HSR Layout & Bellandur Lake Basin",
+        "name_kn": "ಎಚ್‌ಎಸ್‌ಆರ್ ಲೇಔಟ್ ಮತ್ತು ಬೆಳ್ಳಂದೂರು ಕೆರೆ ಪ್ರದೇಶ",
+        "name_hi": "एचएसआर लेआउट और बेलंदूर बेसिन",
+        "zone": "Bommanahalli Zone",
+        "population": 210000,
+        "elderly_pct": 13.0,
+        "outdoor_labor_pct": 32.0,
+        "tin_roof_pct": 24.0,
+        "tree_canopy_pct": 14.5,
+        "hospital_beds_per_k": 3.1,
+        "baseline_daily_admissions": 28,
+        "uhi_temp_delta": 1.6,
+        "wind_attenuation": 0.90,
+        "center": [12.9121, 77.6446]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.6300, 12.8980],
+          [77.6620, 12.8980],
+          [77.6650, 12.9260],
+          [77.6320, 12.9260],
+          [77.6300, 12.8980]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-198",
+      "properties": {
+        "ward_id": "BBMP-198",
+        "name": "Electronic City Phase 1 & Konappana",
+        "name_kn": "ಎಲೆಕ್ಟ್ರಾನಿಕ್ ಸಿಟಿ ಫೇಸ್ 1 ಮತ್ತು ಕೋನಪ್ಪನ",
+        "name_hi": "इलेक्ट्रॉनिक सिटी फेज 1",
+        "zone": "Anekal / South Outskirts",
+        "population": 175000,
+        "elderly_pct": 9.8,
+        "outdoor_labor_pct": 38.0,
+        "tin_roof_pct": 35.0,
+        "tree_canopy_pct": 16.0,
+        "hospital_beds_per_k": 2.2,
+        "baseline_daily_admissions": 24,
+        "uhi_temp_delta": 1.8,
+        "wind_attenuation": 0.95,
+        "center": [12.8452, 77.6602]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.6450, 12.8300],
+          [77.6780, 12.8300],
+          [77.6800, 12.8600],
+          [77.6480, 12.8600],
+          [77.6450, 12.8300]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-10",
+      "properties": {
+        "ward_id": "BBMP-10",
+        "name": "Yelahanka Satellite Town & Kogilu",
+        "name_kn": "ಯಲಹಂಕ ಉಪನಗರ ಮತ್ತು ಕೋಗಿಲು",
+        "name_hi": "यलहंका उपनगर और कोगिलु",
+        "zone": "Yelahanka Zone",
+        "population": 165000,
+        "elderly_pct": 17.0,
+        "outdoor_labor_pct": 28.0,
+        "tin_roof_pct": 20.0,
+        "tree_canopy_pct": 28.5,
+        "hospital_beds_per_k": 3.8,
+        "baseline_daily_admissions": 22,
+        "uhi_temp_delta": 0.2,
+        "wind_attenuation": 1.05,
+        "center": [13.1007, 77.5963]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.5800, 13.0850],
+          [77.6150, 13.0850],
+          [77.6180, 13.1160],
+          [77.5820, 13.1160],
+          [77.5800, 13.0850]
+        ]]
+      }
+    }
+  ]
+}
