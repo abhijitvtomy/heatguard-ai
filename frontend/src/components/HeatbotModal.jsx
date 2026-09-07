@@ -27,13 +27,19 @@ export default function HeatbotModal({ isOpen, onClose, language, selectedWard }
   const chatEndRef = useRef(null);
 
   const quickQuestions = mode === 'CITIZEN' ? [
+    "What is Heatguard AI and how does it work?",
+    "What is WBGT and why is regular temp misleading?",
     "Where is the nearest cooling center or water kiosk?",
-    "Is it safe for delivery riders to work this afternoon?",
-    "My grandfather feels dizzy and stopped sweating. What do I do?"
+    "Safe working hours for delivery riders & gig-workers?",
+    "How do I prepare WHO homemade ORS solution?",
+    "Heat stroke warning symptoms & emergency first aid?"
   ] : [
     "Which wards need water tankers right now?",
+    "How do you predict hospital admission surge?",
     "Draft an emergency work-stoppage SMS for contractors",
-    "What is the projected hospital bed surge in Bowring Hospital?"
+    "Explain the False Relief anomaly and rain trap",
+    "Statutory municipal circular & legal basis",
+    "Are physical sensors or hardware required?"
   ];
 
   useEffect(() => {
@@ -148,6 +154,45 @@ export default function HeatbotModal({ isOpen, onClose, language, selectedWard }
                   : 'bg-slate-800 text-slate-100 rounded-tl-none border border-slate-700/60'
               }`}>
                 {content}
+
+                {/* Contextual Action Shortcut */}
+                {!isUser && m.action_suggested === 'CALL_108_SOS' && (
+                  <div className="pt-2">
+                    <a
+                      href="tel:108"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-extrabold text-[11px] shadow-lg shadow-red-600/40 transition"
+                    >
+                      <PhoneCall className="w-3.5 h-3.5 animate-pulse" />
+                      <span>Dial 108 Emergency Ambulance</span>
+                    </a>
+                  </div>
+                )}
+
+                {!isUser && m.action_suggested === 'HIGHLIGHT_SHELTERS_ON_MAP' && (
+                  <div className="pt-2">
+                    <button
+                      onClick={onClose}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-bold text-[11px] shadow-md transition"
+                    >
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      <span>View Indira Canteens on GIS Map</span>
+                    </button>
+                  </div>
+                )}
+
+                {!isUser && m.action_suggested === 'OPEN_CIRCULAR_MODAL' && (
+                  <div className="pt-2">
+                    <a
+                      href={`${API_BASE}/api/circular/html`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-[11px] shadow-md transition"
+                    >
+                      <Sparkles className="w-3.5 h-3.5" />
+                      <span>View Official BBMP Circular</span>
+                    </a>
+                  </div>
+                )}
               </div>
               {isUser && (
                 <div className="w-7 h-7 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 flex-shrink-0 mt-0.5">

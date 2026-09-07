@@ -367,3 +367,19 @@ async def dispatch_emergency_alert(req: AlertDispatchRequest):
         "receipt_id": f"BBMP-TX-{int(time.time())}"
     }
 
+
+@app.post("/api/chat")
+async def chat_with_ai(req: ChatRequest):
+    """
+    Dual-Mode AI Heatbot Endpoint
+    Provides biometeorological guidance, hospital triage, and emergency municipal advice.
+    """
+    reply = ai_heatbot.process_message(
+        user_msg=req.message,
+        mode=req.mode,
+        language=req.language,
+        current_ward_id=req.ward_id or "BBMP-138"
+    )
+    return reply
+
+
