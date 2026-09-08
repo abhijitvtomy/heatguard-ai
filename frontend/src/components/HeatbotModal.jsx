@@ -12,6 +12,47 @@ import {
 } from 'lucide-react';
 import { API_BASE } from '../config';
 
+// Helper to format bold, code, and lists in chat messages
+function FormattedChatText({ text }) {
+  if (!text) return null;
+  const lines = text.split('\n');
+
+  return (
+    <div className="space-y-1">
+      {lines.map((line, idx) => {
+        if (!line.trim()) {
+          return <div key={idx} className="h-1.5" />;
+        }
+
+        // Parse inline bold (**bold**) and inline code (`code`)
+        const parts = line.split(/(\*\*.*?\*\*|`.*?`)/g);
+
+        return (
+          <div key={idx} className="min-h-[1.15rem]">
+            {parts.map((part, pIdx) => {
+              if (part.startsWith('**') && part.endsWith('**')) {
+                return (
+                  <strong key={pIdx} className="font-extrabold text-white">
+                    {part.slice(2, -2)}
+                  </strong>
+                );
+              }
+              if (part.startsWith('`') && part.endsWith('`')) {
+                return (
+                  <code key={pIdx} className="px-1 py-0.5 rounded bg-slate-950 font-mono text-[11px] text-amber-300 border border-slate-700/60">
+                    {part.slice(1, -1)}
+                  </code>
+                );
+              }
+              return part;
+            })}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function HeatbotModal({ isOpen, onClose, language, selectedWard }) {
   const [mode, setMode] = useState('CITIZEN'); // CITIZEN or OFFICER
   const [input, setInput] = useState('');
@@ -27,18 +68,22 @@ export default function HeatbotModal({ isOpen, onClose, language, selectedWard }
   const chatEndRef = useRef(null);
 
   const quickQuestions = mode === 'CITIZEN' ? [
-    "What is Heatguard AI and how does it work?",
+    "Hi, how can you help me?",
+    "How to stay cool today?",
+    "How much water should I drink?",
+    "What should I eat in hot weather?",
+    "What is the best AC temperature?",
+    "Tips for baby & elderly heat safety",
+    "Where is the nearest Indira Canteen / water point?",
+    "Safe working hours for delivery riders?",
     "What is WBGT and why is regular temp misleading?",
-    "Where is the nearest cooling center or water kiosk?",
-    "Safe working hours for delivery riders & gig-workers?",
-    "How do I prepare WHO homemade ORS solution?",
-    "Heat stroke warning symptoms & emergency first aid?"
+    "Heat stroke warning symptoms & first aid?"
   ] : [
     "Which wards need water tankers right now?",
     "How do you predict hospital admission surge?",
     "Draft an emergency work-stoppage SMS for contractors",
     "Explain the False Relief anomaly and rain trap",
-    "Statutory municipal circular & legal basis",
+    "Statutory municipal circular & legal basis under Sec 34",
     "Are physical sensors or hardware required?"
   ];
 
@@ -148,12 +193,17 @@ export default function HeatbotModal({ isOpen, onClose, language, selectedWard }
                   <Bot className="w-4 h-4" />
                 </div>
               )}
-              <div className={`p-3 rounded-2xl max-w-[85%] whitespace-pre-wrap leading-relaxed shadow-sm ${
+
+              <div className={`p-3 rounded-2xl max-w-[85%] leading-relaxed shadow-sm ${
                 isUser
                   ? 'bg-red-600 text-white rounded-tr-none'
                   : 'bg-slate-800 text-slate-100 rounded-tl-none border border-slate-700/60'
               }`}>
-                {content}
+                {isUser ? (
+                  <div className="whitespace-pre-wrap">{content}</div>
+                ) : (
+                  <FormattedChatText text={content} />
+                )}
 
                 {/* Contextual Action Shortcut */}
                 {!isUser && m.action_suggested === 'CALL_108_SOS' && (
@@ -194,6 +244,7 @@ export default function HeatbotModal({ isOpen, onClose, language, selectedWard }
                   </div>
                 )}
               </div>
+
               {isUser && (
                 <div className="w-7 h-7 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 flex-shrink-0 mt-0.5">
                   <User className="w-4 h-4" />
