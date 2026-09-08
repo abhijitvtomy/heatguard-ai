@@ -13,26 +13,27 @@ import { getAmbientTheme } from './utils/ambientTheme';
 import { translations } from './i18n/translations';
 import { Map, FileCheck, ShieldCheck, Trophy, Bot } from 'lucide-react';
 import { API_BASE } from './config';
+import { fallbackWardsData, fallbackWeatherData, fallbackSheltersData } from './data/fallbackData';
 
 export default function App() {
   const [scenario, setScenario] = useState('LIVE');
   const [language, setLanguage] = useState('en');
   const [activeTab, setActiveTab] = useState('map'); // map, actionPlan, audit, league
-  const [selectedWard, setSelectedWard] = useState(null);
+  const [selectedWard, setSelectedWard] = useState(fallbackWardsData?.wards?.[0] || null);
   const [showShelters, setShowShelters] = useState(true);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isJudgeModalOpen, setIsJudgeModalOpen] = useState(false);
 
-  // Live Data States
-  const [weatherData, setWeatherData] = useState(null);
-  const [wardsGeojson, setWardsGeojson] = useState(null);
-  const [shelters, setShelters] = useState([]);
+  // Live Data States (Instant ground-truth fallback for zero-latency rendering)
+  const [weatherData, setWeatherData] = useState(fallbackWeatherData);
+  const [wardsGeojson, setWardsGeojson] = useState(fallbackWardsData?.geojson || null);
+  const [shelters, setShelters] = useState(fallbackSheltersData || []);
   const [auditData, setAuditData] = useState(null);
   const [challengesData, setChallengesData] = useState(null);
   const [leaderboard, setLeaderboard] = useState([]);
   const [showdownData, setShowdownData] = useState([]);
   const [flashHeadline, setFlashHeadline] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const t = translations[language] || translations.en;
 

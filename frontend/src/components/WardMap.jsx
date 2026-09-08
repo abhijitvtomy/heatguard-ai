@@ -15,6 +15,7 @@ export default function WardMap({
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const geojsonLayerRef = useRef(null);
+  const labelsLayerRef = useRef(null);
   const sheltersLayerRef = useRef(null);
 
   const t = translations[language] || translations.en;
@@ -59,6 +60,10 @@ export default function WardMap({
 
     if (geojsonLayerRef.current) {
       map.removeLayer(geojsonLayerRef.current);
+    }
+    if (labelsLayerRef.current) {
+      map.removeLayer(labelsLayerRef.current);
+      labelsLayerRef.current = null;
     }
 
     const getColor = (tier) => {
@@ -127,6 +132,63 @@ export default function WardMap({
     }).addTo(map);
 
     geojsonLayerRef.current = layer;
+
+    // Add Floating Ward Temperature Badges across the Map
+    const labelsGroup = L.layerGroup();
+    wardsGeojson.features.forEach((feature) => {
+      const props = feature.properties || {};
+      const center = props.center;
+      if (!center || center.length !== 2) return;
+
+      const tier = props.effective_alert_tier || props.health_risk?.alert_tier || 'GREEN';
+      const temp = props.microclimate?.temperature_c != null ? props.microclimate.temperature_c : '--';
+      const isSelected = selectedWard && selectedWard.ward_id === props.ward_id;
+      const wardName =
+        language === 'kn' ? (props.name_kn || props.name) :
+        language === 'hi' ? (props.name_hi || props.name) :
+        props.name;
+      const shortName = wardName.split('&')[0].trim();
+
+      const badgeIcon = L.divIcon({
+        className: 'ward-temp-badge',
+        html: `
+          <div style="
+            background: rgba(15, 23, 42, 0.90);
+            backdrop-filter: blur(8px);
+            border: ${isSelected ? '2px solid #ffffff' : `1.5px solid ${getColor(tier)}`};
+            color: white;
+            padding: 3px 8px;
+            border-radius: 9999px;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 10.5px;
+            font-weight: 800;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+            cursor: pointer;
+            pointer-events: auto;
+            transform: translate(-50%, -50%);
+          ">
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: ${getColor(tier)}; box-shadow: 0 0 6px ${getColor(tier)}; flex-shrink: 0;"></span>
+            <span style="color: #f1f5f9; font-weight: 700;">${shortName}</span>
+            <span style="color: #fbbf24; font-weight: 900; font-family: monospace;">${temp}°C</span>
+          </div>
+        `,
+        iconSize: [0, 0],
+        iconAnchor: [0, 0]
+      });
+
+      const marker = L.marker(center, { icon: badgeIcon, interactive: true });
+      marker.on('click', () => {
+        setSelectedWard(props);
+      });
+      labelsGroup.addLayer(marker);
+    });
+
+    labelsGroup.addTo(map);
+    labelsLayerRef.current = labelsGroup;
   }, [wardsGeojson, selectedWard, language]);
 
   // Update Cooling Shelters & Water Points Pins
@@ -213,31 +275,34 @@ export default function WardMap({
       </div>
 
       {/* Bottom Floating Legend */}
-      <div className="absolute bottom-3 left-3 z-20 bg-slate-950/85 backdrop-blur-md p-2.5 rounded-xl border border-slate-800 shadow-xl text-[11px] text-slate-300">
-        <div className="font-bold mb-1.5 text-slate-200 flex items-center gap-1.5">
-          <Info className="w-3.5 h-3.5 text-slate-400" />
-          <span>{t.mapControls.legend}</span>
+      <div className="absolute bottom-3 left-3 z-20 bg-slate-950/90 backdrop-blur-md p-2.5 rounded-xl border border-slate-800 shadow-xl text-[11px] text-slate-300 max-w-[calc(100%-24px)]">
+        <div className="font-bold mb-1.5 text-slate-200 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5">
+            <Info className="w-3.5 h-3.5 text-slate-400" />
+            <span>{t.mapControls.legend}</span>
+          </div>
+          <span className="text-[10px] text-slate-400 font-mono hidden sm:inline">(WBGT / Microclimate)</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <div className="flex items-center gap-1">
             <span className="w-2.5 h-2.5 rounded-full bg-red-600 shadow-[0_0_6px_#dc2626]" />
-            <span>{"Critical (>34°C)"}</span>
+            <span className="font-bold text-red-400">Critical (&gt;34°C)</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="w-2.5 h-2.5 rounded-full bg-orange-500" />
-            <span>High</span>
+            <span className="text-orange-300">High (32–34°C)</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-            <span>Moderate</span>
+            <span className="text-yellow-300">Moderate (28–32°C)</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-600" />
-            <span>Safe</span>
+            <span className="text-emerald-300">Safe (&lt;28°C)</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="w-2.5 h-2.5 rounded-full bg-sky-500 shadow-[0_0_6px_#0284c7]" />
-            <span>Rain Relief</span>
+            <span className="text-sky-300">Rain Relief (&lt;24°C)</span>
           </div>
         </div>
       </div>
