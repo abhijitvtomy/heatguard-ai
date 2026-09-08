@@ -10,4 +10,8 @@ const isLocal = typeof window !== 'undefined' && (
   window.location.hostname.startsWith('10.')
 );
 
-export const API_BASE = import.meta.env.VITE_API_BASE_URL || (isLocal ? '' : 'https://heatguard-ai-dwv8.onrender.com');
+const envUrl = import.meta.env.VITE_API_BASE_URL;
+const validEnvUrl = envUrl && envUrl.startsWith('http') && !envUrl.includes('[SENSITIVE]') ? envUrl : null;
+
+export const API_BASE = validEnvUrl || (isLocal ? '' : 'https://heatguard-ai-dwv8.onrender.com');
+
