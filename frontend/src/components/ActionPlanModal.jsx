@@ -532,69 +532,75 @@ _Ref: BBMP Disaster Management Directorate (Order #CR-104)_`;
                   </div>
                 )}
 
-                {/* 1-Click Explainer Tag */}
-                <div className="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-emerald-950/30 border border-emerald-500/20 text-[11px] text-slate-300">
-                  <span className="flex items-center gap-1.5 text-emerald-300 font-bold">
-                    <Sparkles className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span>1-Click Broadcast Options:</span>
-                  </span>
-                  <span className="text-[10px] text-slate-400">
-                    Use <b>Group Share</b> for WhatsApp lists (10–256 people) or <b>Server SMS</b> for 1-click direct push.
-                  </span>
-                </div>
+                {/* 1-Click Queue Helper Banner */}
+                {nextUnsentContact ? (
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-950/70 to-slate-900 border border-emerald-500/50 flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-lg">
+                    <div>
+                      <div className="flex items-center gap-1.5 text-emerald-400 text-[11px] font-bold">
+                        <MessageSquare className="w-3.5 h-3.5 animate-pulse" />
+                        <span>Direct WhatsApp (No Contact Selection Needed!):</span>
+                      </div>
+                      <div className="font-extrabold text-white text-xs mt-0.5">
+                        Send to #{detectedPhones.indexOf(nextUnsentContact.phone) + 1}: {nextUnsentContact.name} (+91 {nextUnsentContact.phone})
+                      </div>
+                      <div className="text-[10px] text-slate-400 mt-0.5">
+                        Opens chat directly with this number & pre-types the red alert.
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => handleSendSingleWhatsApp(nextUnsentContact.phone)}
+                      className="flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-md shadow-emerald-600/30 transition flex-shrink-0"
+                    >
+                      <Send className="w-3.5 h-3.5" />
+                      <span>Open Chat & Send</span>
+                    </button>
+                  </div>
+                ) : (
+                  <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-center text-xs font-bold text-emerald-300 flex items-center justify-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    <span>All {detectedPhones.length} Emergency Responders have been contacted!</span>
+                  </div>
+                )}
 
-                {/* Primary Multi-Action Bar for 10+ People */}
+                {/* Multi-Action Controls */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
                   
                   {/* Action 1: Auto-Send All 10 via WhatsApp */}
                   <button
                     onClick={handleAutoSendAllWhatsApp}
                     disabled={autoSending || detectedPhones.length === 0}
-                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-extrabold shadow-lg shadow-emerald-600/30 transition disabled:opacity-50"
-                    title="Sequentially triggers WhatsApp chats for all 10 contacts"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 transition disabled:opacity-50"
+                    title="Sequentially opens WhatsApp chats for all 10 phone numbers"
                   >
-                    <Play className="w-3.5 h-3.5 fill-white" />
-                    <span>{autoSending ? `Broadcasting (${sentCount}/${detectedPhones.length})...` : `Auto-Send All (${detectedPhones.length})`}</span>
+                    <Play className="w-3.5 h-3.5 fill-emerald-400 text-emerald-400" />
+                    <span>{autoSending ? `Opening (${sentCount}/${detectedPhones.length})...` : `Auto-Open All (${detectedPhones.length})`}</span>
                   </button>
 
-                  {/* Action 2: WhatsApp Broadcast List / Group Share */}
-                  <button
-                    onClick={handleWhatsAppBroadcast}
-                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 transition"
-                    title="Opens WhatsApp to select your broadcast group of 10+ people"
-                  >
-                    <Share2 className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>WhatsApp Group Share</span>
-                  </button>
-
-                  {/* Action 3: Server Telecom SMS to all 10 */}
+                  {/* Action 2: Server Telecom SMS to all 10 */}
                   <button
                     disabled={isServerSending || detectedPhones.length === 0}
                     onClick={handleServerDirectSend}
                     className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-purple-700 hover:bg-purple-600 disabled:opacity-50 text-white text-xs font-extrabold shadow-md transition"
-                    title="Direct server telecom SMS broadcast to all numbers"
+                    title="Direct server telecom SMS broadcast to all numbers with zero redirection"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>{isServerSending ? "Transmitting..." : `Server SMS to All (${detectedPhones.length})`}</span>
                   </button>
+
+                  {/* Action 3: Generic WhatsApp Group / Broadcast List Share */}
+                  <button
+                    onClick={handleWhatsAppBroadcast}
+                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-semibold border border-slate-800 transition"
+                    title="Forwards alert to an existing WhatsApp Group or Broadcast List"
+                  >
+                    <Share2 className="w-3.5 h-3.5 text-slate-400" />
+                    <span>Group / List Forward</span>
+                  </button>
                 </div>
 
-                {/* 1-Tap Next Step Helper Button */}
-                {nextUnsentContact && (
-                  <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 flex items-center justify-between gap-3">
-                    <div className="text-xs">
-                      <div className="text-slate-400 text-[10px] uppercase font-bold tracking-wider">Next in Queue:</div>
-                      <div className="font-bold text-white">{nextUnsentContact.name} (+91 {nextUnsentContact.phone})</div>
-                    </div>
-                    <button
-                      onClick={() => handleSendSingleWhatsApp(nextUnsentContact.phone)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow transition flex-shrink-0"
-                    >
-                      <MessageSquare className="w-3.5 h-3.5" />
-                      <span>Send Next</span>
-                    </button>
-                  </div>
-                )}
+                <div className="text-[10px] text-slate-400 px-1">
+                  💡 <b>Pro Tip:</b> To send directly to your 10 entered numbers without searching in WhatsApp, click <b>"Open Chat & Send"</b> above or the individual <b>WhatsApp</b> buttons. <i>"Group / List Forward"</i> is for when you want to forward to an existing WhatsApp group.
+                </div>
 
               </div>
 
