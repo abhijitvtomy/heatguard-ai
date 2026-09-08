@@ -113,15 +113,34 @@ class GamificationEngine:
             "updated_profile": profile
         }
 
+    def update_user_profile(self, name: str, ward: str = "BBMP-151 (Koramangala)") -> Dict[str, Any]:
+        """
+        Updates the citizen forecaster's custom name and home ward.
+        """
+        profile = self.user_profiles["demo_user"]
+        if name and name.strip():
+            profile["name"] = name.strip()
+            clean = "".join(c for c in name.lower() if c.isalnum())
+            profile["handle"] = f"@{clean or 'citizen'}_blr"
+        if ward and ward.strip():
+            profile["ward"] = ward.strip()
+        return profile
+
     def get_leaderboard(self) -> List[Dict[str, Any]]:
         """
-        Returns the top 10 Bengaluru citizen forecasters.
+        Returns the top 10 Bengaluru citizen forecasters with dynamic user profile.
         """
+        curr_user = self.user_profiles["demo_user"]
+        user_name = curr_user.get("name", "Arjun Rao")
+        user_ward_short = curr_user.get("ward", "Koramangala").split(" ")[-1].replace("(", "").replace(")", "")
+        if not user_ward_short:
+            user_ward_short = "Koramangala"
+
         return [
             {"rank": 1, "name": "Pooja Hegde", "handle": "@pooja_clim", "ward": "Malleshwaram", "xp": 3450, "accuracy": "91.2%", "badge": "👑 Climate Vanguard"},
             {"rank": 2, "name": "Karthik Sundaram", "handle": "@karthik_blr", "ward": "Peenya", "xp": 3120, "accuracy": "89.5%", "badge": "🥇 Master Forecaster"},
             {"rank": 3, "name": "Fatima Zahra", "handle": "@fatima_z", "ward": "Shivajinagar", "xp": 2890, "accuracy": "88.0%", "badge": "🥈 Heatwave Detective"},
-            {"rank": 4, "name": "Arjun Rao (You)", "handle": "@arjun_blr", "ward": "Koramangala", "xp": 1420, "accuracy": "83.3%", "badge": "🛡️ Community Guardian"},
+            {"rank": 4, "name": f"{user_name} (You)", "handle": curr_user.get("handle", "@citizen_blr"), "ward": user_ward_short, "xp": curr_user.get("xp", 1420), "accuracy": f"{curr_user.get('accuracy_pct', 83.3)}%", "badge": "🛡️ Community Guardian"},
             {"rank": 5, "name": "Dr. Vinay Kumar", "handle": "@dr_vinay", "ward": "Whitefield", "xp": 1340, "accuracy": "81.0%", "badge": "🌡️ Wet-Bulb Scout"},
             {"rank": 6, "name": "Sneha Murthy", "handle": "@sneha_m", "ward": "Yelahanka", "xp": 1210, "accuracy": "79.5%", "badge": "🌱 Novice Watcher"}
         ]

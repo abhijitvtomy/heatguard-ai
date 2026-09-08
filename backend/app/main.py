@@ -76,6 +76,10 @@ class PredictionSubmission(BaseModel):
     challenge_id: str
     prediction_value: Any
 
+class ProfileUpdateRequest(BaseModel):
+    name: str
+    ward: Optional[str] = "BBMP-151 (Koramangala)"
+
 class BroadcastUpdate(BaseModel):
     headline_en: str
     headline_kn: Optional[str] = ""
@@ -233,6 +237,13 @@ async def submit_prediction(req: PredictionSubmission):
     """Records citizen climate forecast and awards XP."""
     res = gamification_engine.submit_prediction(req.user_id, req.challenge_id, req.prediction_value)
     return res
+
+
+@app.post("/api/gamification/profile")
+async def update_profile(req: ProfileUpdateRequest):
+    """Updates citizen forecaster profile name and ward."""
+    updated = gamification_engine.update_user_profile(req.name, req.ward)
+    return {"success": True, "profile": updated}
 
 
 @app.get("/api/gamification/leaderboard")

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Trophy, Award, Zap, Flame, Users, CheckCircle2, ChevronRight, HelpCircle } from 'lucide-react';
+import { Trophy, Award, Zap, Flame, Users, CheckCircle2, ChevronRight, HelpCircle, Edit3, Check, X, User } from 'lucide-react';
+import { API_BASE } from '../config';
 
 export default function CitizenLeague({
   challengesData,
@@ -11,14 +12,59 @@ export default function CitizenLeague({
   const [activePredictions, setActivePredictions] = useState({});
   const [submittedCards, setSubmittedCards] = useState({});
 
+  // User Profile Customization (Persisted to localStorage)
+  const initialName = localStorage.getItem('heatguard_user_name') || challengesData?.user_profile?.name || "Arjun Rao";
+  const initialWard = localStorage.getItem('heatguard_user_ward') || challengesData?.user_profile?.ward || "BBMP-151 (Koramangala)";
+
+  const [customName, setCustomName] = useState(initialName);
+  const [customWard, setCustomWard] = useState(initialWard);
+  const [isEditing, setIsEditing] = useState(false);
+  const [tempName, setTempName] = useState(initialName);
+  const [tempWard, setTempWard] = useState(initialWard);
+
   const challenges = challengesData?.challenges || [];
   const profile = challengesData?.user_profile || {
-    name: "Arjun Rao",
+    name: customName,
     xp: 1420,
     level: 4,
     level_title: "Heatwave Detective",
     accuracy_pct: 83.3,
     badges: []
+  };
+
+  const getInitials = (name) => {
+    if (!name) return "AR";
+    const parts = name.trim().split(/\s+/);
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  };
+
+  const handleStartEdit = () => {
+    setTempName(customName);
+    setTempWard(customWard);
+    setIsEditing(true);
+  };
+
+  const handleSaveProfile = async (e) => {
+    if (e) e.preventDefault();
+    const cleanName = tempName.trim() || customName;
+    const cleanWard = tempWard.trim() || customWard;
+
+    setCustomName(cleanName);
+    setCustomWard(cleanWard);
+    localStorage.setItem('heatguard_user_name', cleanName);
+    localStorage.setItem('heatguard_user_ward', cleanWard);
+    setIsEditing(false);
+
+    try {
+      await fetch(`${API_BASE}/api/gamification/profile`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: cleanName, ward: cleanWard })
+      });
+    } catch (err) {
+      console.log('Saved custom forecaster profile locally');
+    }
   };
 
   const handleSelectOption = (chalId, option) => {
@@ -31,58 +77,136 @@ export default function CitizenLeague({
     setSubmittedCards(prev => ({ ...prev, [chalId]: true }));
   };
 
+  const wardOptions = [
+    "BBMP-151 (Koramangala)",
+    "BBMP-41 (Peenya Industrial)",
+    "BBMP-138 (Shivajinagar & Majestic)",
+    "BBMP-85 (Whitefield IT Corridor)",
+    "BBMP-111 (Malleshwaram)",
+    "BBMP-174 (HSR & Bellandur)",
+    "BBMP-198 (Electronic City)",
+    "BBMP-10 (Yelahanka Satellite Town)"
+  ];
+
   return (
     <div className="space-y-6">
 
       {/* User Profile & XP Header Card */}
-      <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950/60 via-slate-900 to-slate-900 border border-purple-500/30 shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-2xl font-bold text-white shadow-lg shadow-purple-500/30">
-            AR
+      <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950/60 via-slate-900 to-slate-900 border border-purple-500/30 shadow-2xl flex flex-col gap-6">
+        
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-xl font-extrabold text-white shadow-lg shadow-purple-500/30 tracking-wider">
+              {getInitials(customName)}
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h2 className="text-lg font-extrabold text-white">{customName}</h2>
+                <button
+                  onClick={handleStartEdit}
+                  className="flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-lg bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 transition"
+                  title="Change your forecaster display name and ward"
+                >
+                  <Edit3 className="w-3 h-3" />
+                  <span>Edit Name</span>
+                </button>
+                <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40">
+                  Lvl {profile.level} • {profile.level_title}
+                </span>
+              </div>
+              <p className="text-xs text-slate-400 mt-1">
+                Bengaluru Ward: <span className="text-purple-300 font-semibold">{customWard}</span> • Accuracy: <span className="text-emerald-400 font-bold">{profile.accuracy_pct}%</span>
+              </p>
+            </div>
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-lg font-extrabold text-white">{profile.name}</h2>
-              <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40">
-                Lvl {profile.level} • {profile.level_title}
+
+          {/* XP Progress Bar */}
+          <div className="w-full md:w-72 space-y-1.5">
+            <div className="flex justify-between text-xs font-medium">
+              <span className="text-purple-300 flex items-center gap-1">
+                <Zap className="w-3.5 h-3.5 text-amber-400" />
+                <span>{profile.xp} XP Earned</span>
               </span>
+              <span className="text-slate-400">Next Level: 1600 XP</span>
             </div>
-            <p className="text-xs text-slate-400 mt-1">
-              Bengaluru Ward BBMP-151 • Accuracy: <span className="text-emerald-400 font-bold">{profile.accuracy_pct}%</span>
-            </p>
+            <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+              <div
+                style={{ width: `${Math.min(100, (profile.xp % 400) / 4)}%` }}
+                className="h-full bg-gradient-to-r from-purple-500 to-amber-400 rounded-full"
+              />
+            </div>
+          </div>
+
+          {/* User Badges */}
+          <div className="flex items-center gap-2">
+            {profile.badges?.map((b, i) => (
+              <div
+                key={i}
+                className="p-2 rounded-xl bg-slate-950/80 border border-slate-800 text-center"
+                title={`${b.name}: ${b.desc}`}
+              >
+                <span className="text-xl">{b.icon}</span>
+                <div className="text-[9px] text-slate-400 font-semibold mt-0.5 truncate max-w-[65px]">{b.name}</div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* XP Progress Bar */}
-        <div className="w-full md:w-72 space-y-1.5">
-          <div className="flex justify-between text-xs font-medium">
-            <span className="text-purple-300 flex items-center gap-1">
-              <Zap className="w-3.5 h-3.5 text-amber-400" />
-              <span>{profile.xp} XP Earned</span>
-            </span>
-            <span className="text-slate-400">Next Level: 1600 XP</span>
-          </div>
-          <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
-            <div
-              style={{ width: `${Math.min(100, (profile.xp % 400) / 4)}%` }}
-              className="h-full bg-gradient-to-r from-purple-500 to-amber-400 rounded-full"
-            />
-          </div>
-        </div>
-
-        {/* User Badges */}
-        <div className="flex items-center gap-2">
-          {profile.badges?.map((b, i) => (
-            <div
-              key={i}
-              className="p-2 rounded-xl bg-slate-950/80 border border-slate-800 text-center"
-              title={`${b.name}: ${b.desc}`}
-            >
-              <span className="text-xl">{b.icon}</span>
-              <div className="text-[9px] text-slate-400 font-semibold mt-0.5 truncate max-w-[65px]">{b.name}</div>
+        {/* Inline Profile Customization Form */}
+        {isEditing && (
+          <form 
+            onSubmit={handleSaveProfile}
+            className="p-4 rounded-xl bg-slate-950 border border-purple-500/50 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 animate-in fade-in"
+          >
+            <div className="flex-1 space-y-1">
+              <label className="text-[11px] font-bold text-purple-300 uppercase tracking-wider">
+                Your Forecaster Name / Judge Name
+              </label>
+              <input
+                type="text"
+                value={tempName}
+                onChange={(e) => setTempName(e.target.value)}
+                placeholder="e.g. Abhijit Tomy, Judge Sharma"
+                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                autoFocus
+              />
             </div>
-          ))}
-        </div>
+
+            <div className="sm:w-64 space-y-1">
+              <label className="text-[11px] font-bold text-purple-300 uppercase tracking-wider">
+                Your Home Ward
+              </label>
+              <select
+                value={tempWard}
+                onChange={(e) => setTempWard(e.target.value)}
+                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer"
+              >
+                {wardOptions.map((w) => (
+                  <option key={w} value={w}>{w}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex items-center gap-2 pt-2 sm:pt-4">
+              <button
+                type="submit"
+                className="flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md shadow-emerald-600/30 transition"
+              >
+                <Check className="w-3.5 h-3.5" />
+                <span>Save</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setIsEditing(false)}
+                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white text-xs font-bold transition"
+              >
+                <X className="w-3.5 h-3.5" />
+                <span>Cancel</span>
+              </button>
+            </div>
+          </form>
+        )}
+
       </div>
 
       {/* Daily Prediction Challenges */}
@@ -200,31 +324,48 @@ export default function CitizenLeague({
           </div>
 
           <div className="divide-y divide-slate-800/80">
-            {leaderboard?.map((u) => (
-              <div key={u.rank} className="py-2.5 flex items-center justify-between text-xs">
-                <div className="flex items-center gap-3">
-                  <span className={`w-5 font-mono font-bold text-center ${
-                    u.rank === 1 ? 'text-amber-400 text-sm' :
-                    u.rank === 2 ? 'text-slate-300 text-sm' :
-                    u.rank === 3 ? 'text-amber-600 text-sm' : 'text-slate-500'
-                  }`}>
-                    #{u.rank}
-                  </span>
-                  <div>
-                    <div className="font-bold text-white flex items-center gap-1.5">
-                      <span>{u.name}</span>
-                      <span className="text-[10px] text-slate-400">({u.ward})</span>
+            {leaderboard?.map((u) => {
+              const isCurrentUser = u.rank === 4 || (u.name && u.name.includes('(You)'));
+              const displayName = isCurrentUser ? `${customName} (You)` : u.name;
+              const displayWard = isCurrentUser ? (customWard.split(' ')[0] || u.ward) : u.ward;
+
+              return (
+                <div 
+                  key={u.rank} 
+                  className={`py-2.5 px-2 rounded-xl flex items-center justify-between text-xs transition ${
+                    isCurrentUser ? 'bg-purple-950/40 border border-purple-500/40 shadow-sm my-0.5' : ''
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className={`w-5 font-mono font-bold text-center ${
+                      u.rank === 1 ? 'text-amber-400 text-sm' :
+                      u.rank === 2 ? 'text-slate-300 text-sm' :
+                      u.rank === 3 ? 'text-amber-600 text-sm' : 
+                      isCurrentUser ? 'text-purple-400 font-extrabold' : 'text-slate-500'
+                    }`}>
+                      #{u.rank}
+                    </span>
+                    <div>
+                      <div className="font-bold text-white flex items-center gap-1.5">
+                        <span className={isCurrentUser ? 'text-purple-200 font-extrabold' : ''}>{displayName}</span>
+                        <span className="text-[10px] text-slate-400">({displayWard})</span>
+                        {isCurrentUser && (
+                          <span className="text-[9px] px-1.5 py-0.2 rounded bg-purple-500/30 text-purple-200 border border-purple-400/40 font-mono font-bold">
+                            YOU
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-[10px] text-purple-300">{u.badge}</div>
                     </div>
-                    <div className="text-[10px] text-purple-300">{u.badge}</div>
+                  </div>
+
+                  <div className="text-right font-mono">
+                    <div className="font-bold text-amber-400">{u.xp} XP</div>
+                    <div className="text-[10px] text-emerald-400">{u.accuracy} Acc</div>
                   </div>
                 </div>
-
-                <div className="text-right font-mono">
-                  <div className="font-bold text-amber-400">{u.xp} XP</div>
-                  <div className="text-[10px] text-emerald-400">{u.accuracy} Acc</div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
