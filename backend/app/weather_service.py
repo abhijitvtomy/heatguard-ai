@@ -142,8 +142,11 @@ class WeatherService:
             f"&timezone=Asia%2FKolkata&forecast_days=7"
         )
 
+        headers = {
+            "User-Agent": "HeatGuardAI/2.0 (BBMP Bengaluru Early Warning; info@heatguard.ai)"
+        }
         try:
-            async with httpx.AsyncClient(timeout=4.0) as client:
+            async with httpx.AsyncClient(timeout=10.0, follow_redirects=True, headers=headers) as client:
                 res = await client.get(url)
                 if res.status_code == 200:
                     data = res.json()
@@ -211,8 +214,10 @@ class WeatherService:
         except Exception as e:
             logger.warning(f"Open-Meteo live call failed ({str(e)}). Using robust pre-cached Bengaluru data.")
 
-        # Fallback to moderate summer advisory if API call is unreachable
-        return self.get_preset_scenario_data("MODERATE_ADVISORY")
+        if self.cache:
+            return self.cache
+        # Fallback to normal safe conditions if API is temporarily unreachable
+        return self.get_preset_scenario_data("NORMAL_SAFE")
 
     async def get_weather(self, scenario: str = "LIVE") -> Dict[str, Any]:
         """

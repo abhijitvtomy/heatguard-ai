@@ -83,48 +83,59 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
         </div>
       </div>
 
-      {/* 4 Biometeorological Gauges */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+      {/* 5 Biometeorological Gauges */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80">
+          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
+            <Thermometer className="w-3.5 h-3.5 text-amber-400" />
+            <span>Air Temperature</span>
+          </div>
+          <div className="text-xl font-extrabold text-amber-300 mt-1 font-mono">
+            {micro.temperature_c != null ? micro.temperature_c : '--'}°C
+          </div>
+          <div className="text-[10px] text-slate-500 mt-0.5">Dry-Bulb Ambient</div>
+        </div>
+
         <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80">
           <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
             <Flame className="w-3.5 h-3.5 text-red-400" />
             <span>WBGT (Heat Stress)</span>
           </div>
           <div className="text-xl font-extrabold text-red-400 mt-1 font-mono">
-            {micro.wbgt_c || '--'}°C
+            {micro.wbgt_c != null ? micro.wbgt_c : '--'}°C
           </div>
           <div className="text-[10px] text-slate-500 mt-0.5">ISO 7243 Outdoor</div>
         </div>
 
         <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80">
           <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-            <Thermometer className="w-3.5 h-3.5 text-orange-400" />
-            <span>Stull Wet-Bulb</span>
+            <Activity className="w-3.5 h-3.5 text-orange-400" />
+            <span>Heat Index</span>
           </div>
-          <div className="text-xl font-extrabold text-orange-300 mt-1 font-mono">
-            {micro.wet_bulb_c || '--'}°C
+          <div className="text-xl font-extrabold text-orange-400 mt-1 font-mono">
+            {micro.heat_index_c != null ? micro.heat_index_c : '--'}°C
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">Evaporation Limit</div>
+          <div className="text-[10px] text-slate-500 mt-0.5">NOAA Feels-Like</div>
         </div>
 
         <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80">
           <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-            <Activity className="w-3.5 h-3.5 text-yellow-400" />
-            <span>Heat Index</span>
+            <Droplet className="w-3.5 h-3.5 text-sky-400" />
+            <span>Humidity</span>
           </div>
-          <div className="text-xl font-extrabold text-yellow-400 mt-1 font-mono">
-            {micro.heat_index_c || '--'}°C
+          <div className="text-xl font-extrabold text-sky-300 mt-1 font-mono">
+            {micro.relative_humidity_pct != null ? micro.relative_humidity_pct : '--'}%
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">NOAA Steadman</div>
+          <div className="text-[10px] text-slate-500 mt-0.5">Relative Moisture</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80">
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 col-span-2 sm:col-span-1">
           <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
             <HeartPulse className="w-3.5 h-3.5 text-purple-400" />
             <span>HTSI Score</span>
           </div>
           <div className="text-xl font-extrabold text-purple-300 mt-1 font-mono">
-            {micro.htsi_score || '--'}/100
+            {micro.htsi_score != null ? micro.htsi_score : '--'}/100
           </div>
           <div className="text-[10px] text-slate-500 mt-0.5">Physiological Strain</div>
         </div>
