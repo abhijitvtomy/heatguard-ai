@@ -6,7 +6,7 @@ Bruhat Bengaluru Mahanagara Palike (BBMP) Early Warning & Health Impact Platform
 import json
 import os
 import time
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List, Union
 
 # Auto-load local backend/.env or .env.txt configuration if present
 for _fname in [".env", ".env.txt"]:
@@ -287,6 +287,7 @@ async def ingest_iot_sensor(telemetry: IoTTelemetry):
 class AlertDispatchRequest(BaseModel):
     channel: str = "WHATSAPP"  # or "SMS"
     phone_number: Optional[str] = None
+    phone_numbers: Optional[Union[List[str], str]] = None
     ward_id: str = "BBMP-41"
     language: str = "en"
     custom_message: Optional[str] = None
@@ -309,8 +310,20 @@ async def dispatch_emergency_alert(req: AlertDispatchRequest):
         "In emergency dial 108. -BBMP Disaster Management"
     )
 
-    # Parse and sanitize multiple phone numbers (split by comma, space, semicolon)
-    raw_tokens = re.split(r'[\s,;]+', req.phone_number or "")
+    # Parse and sanitize multiple phone numbers from phone_number, phone_numbers list/string
+    raw_candidates = []
+    if req.phone_numbers:
+        if isinstance(req.phone_numbers, list):
+            raw_candidates.extend(req.phone_numbers)
+        else:
+            raw_candidates.append(str(req.phone_numbers))
+    if req.phone_number:
+        raw_candidates.append(str(req.phone_number))
+
+    raw_tokens = []
+    for cand in raw_candidates:
+        raw_tokens.extend(re.split(r'[\s,;]+', str(cand)))
+
     valid_phones = []
     for token in raw_tokens:
         digits = "".join(filter(str.isdigit, token))
