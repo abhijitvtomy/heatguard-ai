@@ -532,6 +532,17 @@ _Ref: BBMP Disaster Management Directorate (Order #CR-104)_`;
                   </div>
                 )}
 
+                {/* 1-Click Explainer Tag */}
+                <div className="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-emerald-950/30 border border-emerald-500/20 text-[11px] text-slate-300">
+                  <span className="flex items-center gap-1.5 text-emerald-300 font-bold">
+                    <Sparkles className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span>1-Click Broadcast Options:</span>
+                  </span>
+                  <span className="text-[10px] text-slate-400">
+                    Use <b>Group Share</b> for WhatsApp lists (10–256 people) or <b>Server SMS</b> for 1-click direct push.
+                  </span>
+                </div>
+
                 {/* Primary Multi-Action Bar for 10+ People */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
                   
