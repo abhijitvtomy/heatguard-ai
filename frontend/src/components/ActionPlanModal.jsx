@@ -20,7 +20,8 @@ import {
   RotateCcw,
   Sparkles,
   UserPlus,
-  Radio
+  Radio,
+  Edit3
 } from 'lucide-react';
 import { translations } from '../i18n/translations';
 import { API_BASE } from '../config';
@@ -59,6 +60,22 @@ export default function ActionPlanModal({ scenario, language, onClose }) {
   const [isServerSending, setIsServerSending] = useState(false);
   const [serverDeliveryDetails, setServerDeliveryDetails] = useState(null);
 
+  // Alert Text State & Customizer
+  const defaultAlertEn = `🚨 *BBMP HEATWAVE RED ALERT (Ward 41 Peenya & Ward 138 Majestic)*
+⚠️ Outdoor WBGT has breached 34.8°C. Mandatory work stoppage ordered for construction & gig-workers between 11:30 AM - 4:00 PM.
+💧 Free chilled RO water & AC cooling available at all BBMP Indira Canteens.
+🚑 In case of heat dizziness or cessation of sweat, dial 108 immediately.
+_Ref: BBMP Disaster Management Directorate (Order #CR-104)_`;
+
+  const defaultAlertKn = `🚨 *ಬಿಬಿಎಂಪಿ ತೀವ್ರ ಶಾಖ ರೆಡ್ ಅಲರ್ಟ್ (ಪೀಣ್ಯ ಮತ್ತು ಮೆಜೆಸ್ಟಿಕ್)*
+⚠️ ಹೊರಾಂಗಣ WBGT 34.8°C ಮೀರಿದೆ. ಮಧ್ಯಾಹ್ನ 11:30 ರಿಂದ 4:00 ರವರೆಗೆ ಹೊರಾಂಗಣ ಕೆಲಸ ನಿಷೇಧಿಸಲಾಗಿದೆ.
+💧 ಇಂದಿರಾ ಕ್ಯಾಂಟೀನ್‌ಗಳಲ್ಲಿ ಉಚಿತ ಕುಡಿಯುವ ನೀರು ಮತ್ತು ತಂಪು ವಿಶ್ರಾಂತಿ ಕೇಂದ್ರಗಳು ಲಭ್ಯ.
+🚑 ತುರ್ತು ವೈದ್ಯಕೀಯ ಸೇವೆಗಾಗಿ ತಕ್ಷಣ 108 ಗೆ ಕರೆ ಮಾಡಿ.`;
+
+  const defaultAlert = language === 'kn' ? defaultAlertKn : defaultAlertEn;
+  const [customAlertText, setCustomAlertText] = useState(defaultAlert);
+  const [isEditingAlert, setIsEditingAlert] = useState(false);
+
   // Batch WhatsApp Sender States
   const [isBatchOpen, setIsBatchOpen] = useState(false);
   const [batchSentMap, setBatchSentMap] = useState({});
@@ -72,19 +89,7 @@ export default function ActionPlanModal({ scenario, language, onClose }) {
     window.open(`${API_BASE}/api/circular/html?scenario=${scenario}`, '_blank');
   };
 
-  // Formatted Alert Text for WhatsApp/SMS
-  const alertTextEn = `🚨 *BBMP HEATWAVE RED ALERT (Ward 41 Peenya & Ward 138 Majestic)*
-⚠️ Outdoor WBGT has breached 34.8°C. Mandatory work stoppage ordered for construction & gig-workers between 11:30 AM - 4:00 PM.
-💧 Free chilled RO water & AC cooling available at all BBMP Indira Canteens.
-🚑 In case of heat dizziness or cessation of sweat, dial 108 immediately.
-_Ref: BBMP Disaster Management Directorate (Order #CR-104)_`;
-
-  const alertTextKn = `🚨 *ಬಿಬಿಎಂಪಿ ತೀವ್ರ ಶಾಖ ರೆಡ್ ಅಲರ್ಟ್ (ಪೀಣ್ಯ ಮತ್ತು ಮೆಜೆಸ್ಟಿಕ್)*
-⚠️ ಹೊರಾಂಗಣ WBGT 34.8°C ಮೀರಿದೆ. ಮಧ್ಯಾಹ್ನ 11:30 ರಿಂದ 4:00 ರವರೆಗೆ ಹೊರಾಂಗಣ ಕೆಲಸ ನಿಷೇಧಿಸಲಾಗಿದೆ.
-💧 ಇಂದಿರಾ ಕ್ಯಾಂಟೀನ್‌ಗಳಲ್ಲಿ ಉಚಿತ ಕುಡಿಯುವ ನೀರು ಮತ್ತು ತಂಪು ವಿಶ್ರಾಂತಿ ಕೇಂದ್ರಗಳು ಲಭ್ಯ.
-🚑 ತುರ್ತು ವೈದ್ಯಕೀಯ ಸೇವೆಗಾಗಿ ತಕ್ಷಣ 108 ಗೆ ಕರೆ ಮಾಡಿ.`;
-
-  const finalAlertText = language === 'kn' ? alertTextKn : alertTextEn;
+  const finalAlertText = customAlertText || defaultAlert;
   const encodedText = encodeURIComponent(finalAlertText);
 
   // Helper to parse multiple Indian 10-digit phone numbers
@@ -387,21 +392,49 @@ _Ref: BBMP Disaster Management Directorate (Order #CR-104)_`;
                   <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
                   <span>Sender: <b>GOVT-BBMP-ALERT</b></span>
                 </span>
-                <span>TRAI Priority DLT Band</span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsEditingAlert(!isEditingAlert)}
+                    className="flex items-center gap-1 text-[10px] font-bold text-amber-400 hover:text-amber-300"
+                  >
+                    <Edit3 className="w-3 h-3" />
+                    <span>{isEditingAlert ? "Done Editing" : "Edit Alert Text"}</span>
+                  </button>
+                  <span className="text-[10px] text-slate-500">• TRAI DLT Band</span>
+                </div>
               </div>
 
-              <div className="bg-emerald-950/40 border border-emerald-500/30 p-3 rounded-xl text-xs space-y-1.5 text-slate-200">
-                <div className="font-bold text-emerald-400 flex items-center gap-1.5">
-                  <span>⚠️ BBMP HEATWAVE RED ALERT</span>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-red-600/30 text-red-300">LEVEL-3</span>
+              {isEditingAlert ? (
+                <div className="space-y-2 pt-1">
+                  <textarea
+                    rows={4}
+                    value={customAlertText}
+                    onChange={(e) => setCustomAlertText(e.target.value)}
+                    className="w-full bg-slate-900 border border-amber-500/50 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-amber-500 font-sans leading-relaxed"
+                  />
+                  <div className="flex justify-between items-center text-[10px]">
+                    <span className="text-slate-400">Edits update WhatsApp & SMS payload for all recipients.</span>
+                    <button
+                      type="button"
+                      onClick={() => setCustomAlertText(defaultAlert)}
+                      className="text-amber-400 hover:underline"
+                    >
+                      Reset to Official SOP
+                    </button>
+                  </div>
                 </div>
-                <p className="leading-relaxed">
-                  Outdoor WBGT has breached 34.8°C in Peenya & Majestic. Mandatory work stoppage ordered for construction & delivery workers (11:30 AM - 4:00 PM). Free drinking water & AC cooling available at all Indira Canteens.
-                </p>
-                <div className="text-[11px] text-slate-400 pt-1 border-t border-emerald-900/60 font-kannada">
-                  ಎಚ್ಚರಿಕೆ: ಪೀಣ್ಯ ಮತ್ತು ಮೆಜೆಸ್ಟಿಕ್‌ನಲ್ಲಿ ಅತಿ ತೀವ್ರ ಶಾಖ. ಮಧ್ಯಾಹ್ನ ಕೆಲಸ ನಿಷೇಧಿಸಲಾಗಿದೆ. ಇಂದಿರಾ ಕ್ಯಾಂಟೀನ್‌ನಲ್ಲಿ ಉಚಿತ ನೀರು ಲಭ್ಯ.
+              ) : (
+                <div className="bg-emerald-950/40 border border-emerald-500/30 p-3 rounded-xl text-xs space-y-1.5 text-slate-200">
+                  <div className="font-bold text-emerald-400 flex items-center gap-1.5">
+                    <span>⚠️ BBMP HEATWAVE RED ALERT</span>
+                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-red-600/30 text-red-300">LEVEL-3</span>
+                  </div>
+                  <p className="leading-relaxed whitespace-pre-wrap font-mono text-[11px]">
+                    {finalAlertText}
+                  </p>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Multi-Recipient Input Section */}
