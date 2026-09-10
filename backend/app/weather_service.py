@@ -211,14 +211,84 @@ class WeatherService:
                     self.cache = weather_pack
                     self.cache_timestamp = now
                     return weather_pack
+                else:
+                    raise RuntimeError(f"Open-Meteo returned status {res.status_code}")
         except Exception as e:
-            logger.warning(f"Open-Meteo live call failed ({str(e)}). Using robust pre-cached Bengaluru data.")
-            last_err = str(e)
-            if self.cache:
-                return self.cache
-            fallback = self.get_preset_scenario_data("NORMAL_SAFE")
-            fallback["debug_error"] = last_err
-            return fallback
+            logger.warning(f"Open-Meteo live call failed ({str(e)}). Attempting secondary real-time provider (wttr.in)...")
+            try:
+                return await self.fetch_live_wttr()
+            except Exception as e2:
+                logger.warning(f"Secondary live weather call failed ({str(e2)}). Using robust pre-cached Bengaluru data.")
+                if self.cache:
+                    return self.cache
+                fallback = self.get_preset_scenario_data("NORMAL_SAFE")
+                fallback["debug_error"] = f"{str(e)} | {str(e2)}"
+                return fallback
+
+        if self.cache:
+            return self.cache
+        return self.get_preset_scenario_data("NORMAL_SAFE")
+
+    async def fetch_live_wttr(self) -> Dict[str, Any]:
+        """
+        Secondary real-time weather provider using wttr.in JSON API for Bengaluru.
+        """
+        url = "https://wttr.in/Bengaluru?format=j1"
+        headers = {"User-Agent": "curl/7.68.0"}
+        async with httpx.AsyncClient(timeout=8.0, headers=headers) as client:
+            res = await client.get(url)
+            if res.status_code == 200:
+                data = res.json()
+                curr = data.get("current_condition", [{}])[0]
+                temp_curr = float(curr.get("temp_C", 28.0))
+                rh_curr = float(curr.get("humidity", 55.0))
+                wind_curr = round(float(curr.get("windspeedKmph", 10.0)) / 3.6, 2)
+                rain_curr = float(curr.get("precipMM", 0.0))
+
+                days_traj = []
+                d_names = ["Today", "Tomorrow", "Day +2", "Day +3", "Day +4"]
+                weather_days = data.get("weather", [])
+                for idx in range(5):
+                    if idx < len(weather_days):
+                        t_max = float(weather_days[idx].get("maxtempC", temp_curr + 1))
+                        t_min = float(weather_days[idx].get("mintempC", 21.0))
+                    else:
+                        t_max = round(temp_curr + idx * 0.4, 1)
+                        t_min = 21.0
+                    wbgt_est = calculate_wbgt_outdoor(t_max, 50.0, 2.5, 750.0)
+                    spike = max(0.0, round((wbgt_est - 26.5) * 4.2, 1))
+                    tier = "GREEN"
+                    if wbgt_est >= 34.0 or spike >= 30.0:
+                        tier = "RED"
+                    elif wbgt_est >= 31.5 or spike >= 20.0:
+                        tier = "ORANGE"
+                    elif wbgt_est >= 28.5 or spike >= 10.0:
+                        tier = "YELLOW"
+                    days_traj.append({
+                        "day": d_names[idx],
+                        "temp_max": round(t_max, 1),
+                        "temp_min": round(t_min, 1),
+                        "wbgt_max": wbgt_est,
+                        "risk_tier": tier,
+                        "hospital_spike": spike
+                    })
+
+                weather_pack = {
+                    "city": "Bengaluru (BBMP)",
+                    "mode": "LIVE_WTTR_IN",
+                    "ambient_temp_c": temp_curr,
+                    "relative_humidity_pct": rh_curr,
+                    "wind_speed_m_s": wind_curr,
+                    "solar_radiation_w_m2": 650.0,
+                    "precipitation_mm": rain_curr,
+                    "prev_hour_temp_c": temp_curr - 0.6,
+                    "prev_hour_rh_pct": rh_curr - 3.0,
+                    "forecast_5_days": days_traj
+                }
+                self.cache = weather_pack
+                self.cache_timestamp = time.time()
+                return weather_pack
+            raise RuntimeError(f"wttr.in returned HTTP {res.status_code}")
 
     async def get_weather(self, scenario: str = "LIVE") -> Dict[str, Any]:
         """
