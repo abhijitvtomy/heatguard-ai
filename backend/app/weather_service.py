@@ -213,11 +213,12 @@ class WeatherService:
                     return weather_pack
         except Exception as e:
             logger.warning(f"Open-Meteo live call failed ({str(e)}). Using robust pre-cached Bengaluru data.")
-
-        if self.cache:
-            return self.cache
-        # Fallback to normal safe conditions if API is temporarily unreachable
-        return self.get_preset_scenario_data("NORMAL_SAFE")
+            last_err = str(e)
+            if self.cache:
+                return self.cache
+            fallback = self.get_preset_scenario_data("NORMAL_SAFE")
+            fallback["debug_error"] = last_err
+            return fallback
 
     async def get_weather(self, scenario: str = "LIVE") -> Dict[str, Any]:
         """
