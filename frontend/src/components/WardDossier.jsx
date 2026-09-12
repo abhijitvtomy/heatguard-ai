@@ -85,48 +85,48 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
 
       {/* 5 Biometeorological Gauges */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80">
-          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-            <Thermometer className="w-3.5 h-3.5 text-amber-400" />
-            <span>Air Temperature</span>
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1 min-w-0">
+            <Thermometer className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span className="truncate">Air Temperature</span>
           </div>
           <div className="text-xl font-extrabold text-amber-300 mt-1 font-mono">
             {micro.temperature_c != null ? micro.temperature_c : '--'}°C
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">Dry-Bulb Ambient</div>
+          <div className="text-[10px] text-slate-500 mt-0.5 truncate">Dry-Bulb Ambient</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80">
-          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-            <Flame className="w-3.5 h-3.5 text-red-400" />
-            <span>WBGT (Heat Stress)</span>
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1 min-w-0">
+            <Flame className="w-3.5 h-3.5 text-red-400 shrink-0" />
+            <span className="truncate">WBGT Stress</span>
           </div>
           <div className="text-xl font-extrabold text-red-400 mt-1 font-mono">
             {micro.wbgt_c != null ? micro.wbgt_c : '--'}°C
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">ISO 7243 Outdoor</div>
+          <div className="text-[10px] text-slate-500 mt-0.5 truncate">ISO 7243 Outdoor</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80">
-          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-            <Activity className="w-3.5 h-3.5 text-orange-400" />
-            <span>Heat Index</span>
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1 min-w-0">
+            <Activity className="w-3.5 h-3.5 text-orange-400 shrink-0" />
+            <span className="truncate">Heat Index</span>
           </div>
           <div className="text-xl font-extrabold text-orange-400 mt-1 font-mono">
             {micro.heat_index_c != null ? micro.heat_index_c : '--'}°C
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">NOAA Feels-Like</div>
+          <div className="text-[10px] text-slate-500 mt-0.5 truncate">NOAA Feels-Like</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80">
-          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-            <Droplet className="w-3.5 h-3.5 text-sky-400" />
-            <span>Humidity</span>
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1 min-w-0">
+            <Droplet className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+            <span className="truncate">Humidity</span>
           </div>
           <div className="text-xl font-extrabold text-sky-300 mt-1 font-mono">
             {micro.relative_humidity_pct != null ? micro.relative_humidity_pct : '--'}%
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">Relative Moisture</div>
+          <div className="text-[10px] text-slate-500 mt-0.5 truncate">Relative Moisture</div>
         </div>
 
         {/* 5. HTSI Index Widget */}
@@ -137,7 +137,6 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
           let textColor = 'text-emerald-300';
           let iconColor = 'text-emerald-400';
           let barColor = 'bg-emerald-500';
-          let desc = 'Low Strain';
 
           if (score != null) {
             if (score >= 80) {
@@ -146,34 +145,31 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
               textColor = 'text-red-400';
               iconColor = 'text-red-400';
               barColor = 'bg-red-500';
-              desc = 'Severe Strain';
             } else if (score >= 60) {
               tier = 'HIGH';
               badgeColor = 'text-orange-400 bg-orange-500/10 border-orange-500/30';
               textColor = 'text-orange-400';
               iconColor = 'text-orange-400';
               barColor = 'bg-orange-500';
-              desc = 'Warning';
             } else if (score >= 40) {
               tier = 'MODERATE';
               badgeColor = 'text-amber-400 bg-amber-500/10 border-amber-500/30';
               textColor = 'text-amber-300';
               iconColor = 'text-amber-400';
               barColor = 'bg-amber-500';
-              desc = 'Advisory';
             }
           }
 
           return (
             <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 col-span-2 sm:col-span-1 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between">
-                  <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-                    <HeartPulse className={`w-3.5 h-3.5 ${iconColor}`} />
-                    <span>HTSI Index</span>
+                <div className="flex items-center justify-between gap-1">
+                  <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1 min-w-0">
+                    <HeartPulse className={`w-3.5 h-3.5 shrink-0 ${iconColor}`} />
+                    <span className="truncate">HTSI Index</span>
                   </div>
                   {score != null && (
-                    <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded border uppercase tracking-wider ${badgeColor}`}>
+                    <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded border uppercase tracking-wider shrink-0 ${badgeColor}`}>
                       {tier}
                     </span>
                   )}
@@ -193,9 +189,8 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
                     style={{ width: `${Math.min(100, Math.max(5, score || 0))}%` }}
                   />
                 </div>
-                <div className="text-[10px] text-slate-500 mt-1 flex justify-between items-center font-medium">
-                  <span>Thermal Strain</span>
-                  <span className={textColor}>{desc}</span>
+                <div className="text-[10px] text-slate-500 mt-1 truncate">
+                  Physiological Strain
                 </div>
               </div>
             </div>
