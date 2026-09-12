@@ -91,7 +91,7 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
             <span className="whitespace-nowrap font-medium">Air Temperature</span>
           </div>
           <div className="text-xl font-extrabold text-amber-300 mt-1 font-mono">
-            {micro.temperature_c != null ? micro.temperature_c : '--'}°C
+            {micro.temperature_c != null ? Number(micro.temperature_c).toFixed(1) : '--'}°C
           </div>
           <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">Dry-Bulb Ambient</div>
         </div>
@@ -102,7 +102,7 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
             <span className="whitespace-nowrap font-medium">WBGT Stress</span>
           </div>
           <div className="text-xl font-extrabold text-red-400 mt-1 font-mono">
-            {micro.wbgt_c != null ? micro.wbgt_c : '--'}°C
+            {micro.wbgt_c != null ? Number(micro.wbgt_c).toFixed(1) : '--'}°C
           </div>
           <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">ISO 7243 Outdoor</div>
         </div>
@@ -113,7 +113,7 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
             <span className="whitespace-nowrap font-medium">Heat Index</span>
           </div>
           <div className="text-xl font-extrabold text-orange-400 mt-1 font-mono">
-            {micro.heat_index_c != null ? micro.heat_index_c : '--'}°C
+            {micro.heat_index_c != null ? Number(micro.heat_index_c).toFixed(1) : '--'}°C
           </div>
           <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">NOAA Feels-Like</div>
         </div>
@@ -124,7 +124,7 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
             <span className="whitespace-nowrap font-medium">Humidity</span>
           </div>
           <div className="text-xl font-extrabold text-sky-300 mt-1 font-mono">
-            {micro.relative_humidity_pct != null ? micro.relative_humidity_pct : '--'}%
+            {micro.relative_humidity_pct != null ? Math.round(micro.relative_humidity_pct) : '--'}%
           </div>
           <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">Relative Moisture</div>
         </div>
@@ -163,22 +163,22 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
           return (
             <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 col-span-2 sm:col-span-1 lg:col-span-1 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between gap-1.5">
-                  <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5 whitespace-nowrap">
-                    <HeartPulse className={`w-3.5 h-3.5 shrink-0 ${iconColor}`} />
-                    <span>HTSI Index</span>
+                <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5 whitespace-nowrap">
+                  <HeartPulse className={`w-3.5 h-3.5 shrink-0 ${iconColor}`} />
+                  <span>HTSI Strain</span>
+                </div>
+                <div className="flex items-baseline justify-between mt-1">
+                  <div className="flex items-baseline gap-1 font-mono">
+                    <span className={`text-xl font-extrabold ${textColor}`}>
+                      {score != null ? score : '--'}
+                    </span>
+                    <span className="text-[10px] text-slate-500 font-semibold">/100</span>
                   </div>
                   {score != null && (
-                    <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded border uppercase tracking-wider shrink-0 ${badgeColor}`}>
+                    <span className={`text-[8px] font-mono font-bold px-1.5 py-0.5 rounded-full border uppercase tracking-wider shrink-0 ${badgeColor}`}>
                       {tier}
                     </span>
                   )}
-                </div>
-                <div className="flex items-baseline gap-1 mt-1 font-mono">
-                  <span className={`text-xl font-extrabold ${textColor}`}>
-                    {score != null ? score : '--'}
-                  </span>
-                  <span className="text-[11px] text-slate-500 font-semibold">/100</span>
                 </div>
               </div>
 
