@@ -85,7 +85,7 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
 
       {/* 5 Biometeorological Gauges */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-        <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
           <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5">
             <Thermometer className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span className="whitespace-nowrap font-medium">Air Temperature</span>
@@ -96,7 +96,7 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
           <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">Dry-Bulb Ambient</div>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
           <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5">
             <Flame className="w-3.5 h-3.5 text-red-400 shrink-0" />
             <span className="whitespace-nowrap font-medium">WBGT Stress</span>
@@ -107,7 +107,7 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
           <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">ISO 7243 Outdoor</div>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
           <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5">
             <Activity className="w-3.5 h-3.5 text-orange-400 shrink-0" />
             <span className="whitespace-nowrap font-medium">Heat Index</span>
@@ -118,7 +118,7 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
           <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">NOAA Feels-Like</div>
         </div>
 
-        <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
           <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5">
             <Droplet className="w-3.5 h-3.5 text-sky-400 shrink-0" />
             <span className="whitespace-nowrap font-medium">Humidity</span>
@@ -161,36 +161,32 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
           }
 
           return (
-            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 col-span-2 sm:col-span-1 lg:col-span-1 flex flex-col justify-between">
+            <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 col-span-2 sm:col-span-1 lg:col-span-1 flex flex-col justify-between">
               <div>
                 <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5 whitespace-nowrap">
                   <HeartPulse className={`w-3.5 h-3.5 shrink-0 ${iconColor}`} />
-                  <span>HTSI Strain</span>
+                  <span className="font-semibold text-slate-300">HTSI Index</span>
                 </div>
-                <div className="flex items-baseline justify-between mt-1">
-                  <div className="flex items-baseline gap-1 font-mono">
-                    <span className={`text-xl font-extrabold ${textColor}`}>
-                      {score != null ? score : '--'}
-                    </span>
-                    <span className="text-[10px] text-slate-500 font-semibold">/100</span>
-                  </div>
-                  {score != null && (
-                    <span className={`text-[8px] font-mono font-bold px-1.5 py-0.5 rounded-full border uppercase tracking-wider shrink-0 ${badgeColor}`}>
-                      {tier}
-                    </span>
-                  )}
+                <div className="flex items-baseline gap-1 mt-1 font-mono">
+                  <span className={`text-xl font-extrabold ${textColor}`}>
+                    {score != null ? Number(score).toFixed(1) : '--'}
+                  </span>
+                  <span className="text-[10px] text-slate-500 font-semibold">/100</span>
                 </div>
               </div>
 
-              <div className="mt-1.5">
-                <div className="w-full bg-slate-800/80 rounded-full h-1.5 overflow-hidden">
+              <div className="mt-1">
+                <div className="w-full bg-slate-800/80 rounded-full h-1 overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-700 ${barColor}`}
                     style={{ width: `${Math.min(100, Math.max(5, score || 0))}%` }}
                   />
                 </div>
-                <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">
-                  Physiological Strain
+                <div className="flex items-center justify-between text-[10px] mt-1 whitespace-nowrap">
+                  <span className="text-slate-500 text-[9px] font-medium">Strain</span>
+                  <span className={`text-[7.5px] font-mono font-bold px-1.5 py-0.5 rounded border uppercase tracking-wider leading-none shrink-0 ${badgeColor}`}>
+                    {tier}
+                  </span>
                 </div>
               </div>
             </div>

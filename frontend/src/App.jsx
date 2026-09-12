@@ -197,7 +197,7 @@ export default function App() {
       />
 
       {/* Main Container */}
-      <main className="relative z-10 flex-1 max-w-[1720px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+      <main className="relative z-10 flex-1 max-w-[1880px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         
         {/* Navigation Tabs */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1 border-b border-slate-800/80 text-xs font-bold">
@@ -253,7 +253,7 @@ export default function App() {
         {/* Tab 1: GIS Map & Ward Dossier */}
         {activeTab === 'map' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <div className="lg:col-span-6 xl:col-span-6">
+            <div className="lg:col-span-5 xl:col-span-5 2xl:col-span-5">
               <WardMap
                 wardsGeojson={wardsGeojson}
                 shelters={shelters}
@@ -265,7 +265,7 @@ export default function App() {
               />
             </div>
 
-            <div className="lg:col-span-6 xl:col-span-6">
+            <div className="lg:col-span-7 xl:col-span-7 2xl:col-span-7">
               <WardDossier
                 ward={selectedWard}
                 language={language}
