@@ -84,49 +84,49 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
       </div>
 
       {/* 5 Biometeorological Gauges */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
-          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1 min-w-0">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5">
             <Thermometer className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-            <span className="truncate">Air Temperature</span>
+            <span className="whitespace-nowrap font-medium">Air Temperature</span>
           </div>
           <div className="text-xl font-extrabold text-amber-300 mt-1 font-mono">
             {micro.temperature_c != null ? micro.temperature_c : '--'}°C
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5 truncate">Dry-Bulb Ambient</div>
+          <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">Dry-Bulb Ambient</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
-          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1 min-w-0">
+        <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5">
             <Flame className="w-3.5 h-3.5 text-red-400 shrink-0" />
-            <span className="truncate">WBGT Stress</span>
+            <span className="whitespace-nowrap font-medium">WBGT Stress</span>
           </div>
           <div className="text-xl font-extrabold text-red-400 mt-1 font-mono">
             {micro.wbgt_c != null ? micro.wbgt_c : '--'}°C
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5 truncate">ISO 7243 Outdoor</div>
+          <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">ISO 7243 Outdoor</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
-          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1 min-w-0">
+        <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5">
             <Activity className="w-3.5 h-3.5 text-orange-400 shrink-0" />
-            <span className="truncate">Heat Index</span>
+            <span className="whitespace-nowrap font-medium">Heat Index</span>
           </div>
           <div className="text-xl font-extrabold text-orange-400 mt-1 font-mono">
             {micro.heat_index_c != null ? micro.heat_index_c : '--'}°C
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5 truncate">NOAA Feels-Like</div>
+          <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">NOAA Feels-Like</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
-          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1 min-w-0">
+        <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 flex flex-col justify-between">
+          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5">
             <Droplet className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-            <span className="truncate">Humidity</span>
+            <span className="whitespace-nowrap font-medium">Humidity</span>
           </div>
           <div className="text-xl font-extrabold text-sky-300 mt-1 font-mono">
             {micro.relative_humidity_pct != null ? micro.relative_humidity_pct : '--'}%
           </div>
-          <div className="text-[10px] text-slate-500 mt-0.5 truncate">Relative Moisture</div>
+          <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">Relative Moisture</div>
         </div>
 
         {/* 5. HTSI Index Widget */}
@@ -161,12 +161,12 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
           }
 
           return (
-            <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 col-span-2 sm:col-span-1 flex flex-col justify-between">
+            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 col-span-2 sm:col-span-1 lg:col-span-1 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between gap-1">
-                  <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1 min-w-0">
+                <div className="flex items-center justify-between gap-1.5">
+                  <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5 whitespace-nowrap">
                     <HeartPulse className={`w-3.5 h-3.5 shrink-0 ${iconColor}`} />
-                    <span className="truncate">HTSI Index</span>
+                    <span>HTSI Index</span>
                   </div>
                   {score != null && (
                     <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded border uppercase tracking-wider shrink-0 ${badgeColor}`}>
@@ -189,7 +189,7 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
                     style={{ width: `${Math.min(100, Math.max(5, score || 0))}%` }}
                   />
                 </div>
-                <div className="text-[10px] text-slate-500 mt-1 truncate">
+                <div className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">
                   Physiological Strain
                 </div>
               </div>

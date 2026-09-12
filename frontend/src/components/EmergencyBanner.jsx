@@ -25,7 +25,7 @@ export default function EmergencyBanner({ headline, language, onUpdateHeadline }
 
   return (
     <div className="w-full bg-gradient-to-r from-red-950 via-red-900 to-rose-950 border-y border-red-700/60 shadow-lg text-white text-xs sm:text-sm font-medium py-2 px-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      <div className="max-w-[1720px] mx-auto flex items-center justify-between gap-3">
         
         {/* Flash Indicator */}
         <div className="flex items-center gap-2 flex-shrink-0 font-extrabold uppercase tracking-wide bg-red-600 px-2.5 py-1 rounded shadow text-white">
