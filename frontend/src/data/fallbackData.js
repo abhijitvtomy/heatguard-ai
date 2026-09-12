@@ -2,7 +2,7 @@ export const fallbackWardsData = {
   "scenario": "heatwave",
   "city_wide_status": {
     "tier": "GREEN",
-    "max_wbgt_c": 26.15,
+    "max_wbgt_c": 26.48,
     "mean_hospital_surge_pct": 0.0,
     "total_additional_beds_needed": 0,
     "rain_mm": 0.0
@@ -455,6 +455,246 @@ export const fallbackWardsData = {
         "tin_roof_pct": 20.0,
         "tree_canopy_pct": 28.5,
         "hospital_beds_per_k": 3.8
+      },
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f / \u0928\u094d\u092f\u0942\u0928\u0924\u092e \u0938\u094d\u0935\u093e\u0938\u094d\u0925\u094d\u092f \u091c\u094b\u0916\u093f\u092e",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "\u0916\u0941\u0932\u0947 \u092e\u0947\u0902 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0915\u093e\u092e \u091c\u093e\u0930\u0940 \u0930\u0916\u093e \u091c\u093e \u0938\u0915\u0924\u093e \u0939\u0948\u0964 \u092a\u094d\u0930\u0924\u093f \u0918\u0902\u091f\u0947 \u0906\u0927\u093e \u0932\u0940\u091f\u0930 \u092a\u093e\u0928\u0940 \u092a\u093f\u090f\u0902\u0964"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-153",
+      "name": "Jayanagar & Basavanagudi Heritage Parklands",
+      "name_kn": "\u0c9c\u0caf\u0ca8\u0c97\u0cb0 \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cac\u0cb8\u0cb5\u0ca8\u0c97\u0cc1\u0ca1\u0cbf \u0cb9\u0cb8\u0cbf\u0cb0\u0cc1 \u0cb5\u0cb2\u0caf",
+      "name_hi": "\u091c\u092f\u0928\u0917\u0930 \u0914\u0930 \u092c\u0938\u0935\u0928\u0917\u0941\u0921\u0940 \u0917\u094d\u0930\u0940\u0928 \u092c\u0947\u0932\u094d\u091f",
+      "zone": "South Zone",
+      "population": 175000,
+      "center": [
+        12.925,
+        77.5938
+      ],
+      "microclimate": {
+        "temperature_c": 26.0,
+        "relative_humidity_pct": 52.0,
+        "wind_speed_m_s": 3.23,
+        "wet_bulb_c": 19.17,
+        "heat_index_c": 26.01,
+        "wbgt_c": 21.93,
+        "htsi_score": 28.4,
+        "precipitation_mm": 0.0
+      },
+      "vulnerability": {
+        "elderly_pct": 23.5,
+        "outdoor_labor_pct": 18.0,
+        "tin_roof_pct": 6.0,
+        "tree_canopy_pct": 34.8,
+        "hospital_beds_per_k": 6.8
+      },
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f / \u0928\u094d\u092f\u0942\u0928\u0924\u092e \u0938\u094d\u0935\u093e\u0938\u094d\u0925\u094d\u092f \u091c\u094b\u0916\u093f\u092e",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "\u0916\u0941\u0932\u0947 \u092e\u0947\u0902 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0915\u093e\u092e \u091c\u093e\u0930\u0940 \u0930\u0916\u093e \u091c\u093e \u0938\u0915\u0924\u093e \u0939\u0948\u0964 \u092a\u094d\u0930\u0924\u093f \u0918\u0902\u091f\u0947 \u0906\u0927\u093e \u0932\u0940\u091f\u0930 \u092a\u093e\u0928\u0940 \u092a\u093f\u090f\u0902\u0964"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-139",
+      "name": "K.R. Market & Chickpet Commercial Quarters",
+      "name_kn": "\u0c95\u0cc6.\u0c86\u0cb0\u0ccd. \u0cae\u0cbe\u0cb0\u0cc1\u0c95\u0c9f\u0ccd\u0c9f\u0cc6 \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0c9a\u0cbf\u0c95\u0ccd\u0c95\u0caa\u0cc7\u0c9f\u0cc6 \u0cb5\u0ccd\u0caf\u0cbe\u0caa\u0cbe\u0cb0 \u0cb5\u0cb2\u0caf",
+      "name_hi": "\u0915\u0947.\u0906\u0930. \u092e\u093e\u0930\u094d\u0915\u0947\u091f \u0914\u0930 \u091a\u093f\u0915\u092a\u0947\u091f \u092c\u093e\u091c\u093e\u0930",
+      "zone": "South / Central Zone",
+      "population": 215000,
+      "center": [
+        12.966,
+        77.575
+      ],
+      "microclimate": {
+        "temperature_c": 30.6,
+        "relative_humidity_pct": 52.0,
+        "wind_speed_m_s": 1.19,
+        "wet_bulb_c": 23.17,
+        "heat_index_c": 32.34,
+        "wbgt_c": 26.48,
+        "htsi_score": 48.5,
+        "precipitation_mm": 0.0
+      },
+      "vulnerability": {
+        "elderly_pct": 14.8,
+        "outdoor_labor_pct": 64.0,
+        "tin_roof_pct": 62.0,
+        "tree_canopy_pct": 3.2,
+        "hospital_beds_per_k": 2.4
+      },
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f / \u0928\u094d\u092f\u0942\u0928\u0924\u092e \u0938\u094d\u0935\u093e\u0938\u094d\u0925\u094d\u092f \u091c\u094b\u0916\u093f\u092e",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "\u0916\u0941\u0932\u0947 \u092e\u0947\u0902 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0915\u093e\u092e \u091c\u093e\u0930\u0940 \u0930\u0916\u093e \u091c\u093e \u0938\u0915\u0924\u093e \u0939\u0948\u0964 \u092a\u094d\u0930\u0924\u093f \u0918\u0902\u091f\u0947 \u0906\u0927\u093e \u0932\u0940\u091f\u0930 \u092a\u093e\u0928\u0940 \u092a\u093f\u090f\u0902\u0964"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-82",
+      "name": "Indiranagar & HAL Defence Aerospace Hub",
+      "name_kn": "\u0c87\u0c82\u0ca6\u0cbf\u0cb0\u0cbe\u0ca8\u0c97\u0cb0 \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0c8e\u0c9a\u0ccd\u200c\u0c8e\u0c8e\u0cb2\u0ccd \u0cb5\u0cb2\u0caf",
+      "name_hi": "\u0907\u0902\u0926\u093f\u0930\u093e\u0928\u0917\u0930 \u0914\u0930 \u090f\u091a\u090f\u090f\u0932 \u0921\u093f\u092b\u0947\u0902\u0938 \u0939\u092c",
+      "zone": "East Zone",
+      "population": 155000,
+      "center": [
+        12.9719,
+        77.6412
+      ],
+      "microclimate": {
+        "temperature_c": 28.3,
+        "relative_humidity_pct": 52.0,
+        "wind_speed_m_s": 2.89,
+        "wet_bulb_c": 21.17,
+        "heat_index_c": 29.0,
+        "wbgt_c": 24.06,
+        "htsi_score": 38.0,
+        "precipitation_mm": 0.0
+      },
+      "vulnerability": {
+        "elderly_pct": 16.5,
+        "outdoor_labor_pct": 28.0,
+        "tin_roof_pct": 14.0,
+        "tree_canopy_pct": 22.4,
+        "hospital_beds_per_k": 5.2
+      },
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f / \u0928\u094d\u092f\u0942\u0928\u0924\u092e \u0938\u094d\u0935\u093e\u0938\u094d\u0925\u094d\u092f \u091c\u094b\u0916\u093f\u092e",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "\u0916\u0941\u0932\u0947 \u092e\u0947\u0902 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0915\u093e\u092e \u091c\u093e\u0930\u0940 \u0930\u0916\u093e \u091c\u093e \u0938\u0915\u0924\u093e \u0939\u0948\u0964 \u092a\u094d\u0930\u0924\u093f \u0918\u0902\u091f\u0947 \u0906\u0927\u093e \u0932\u0940\u091f\u0930 \u092a\u093e\u0928\u0940 \u092a\u093f\u090f\u0902\u0964"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-21",
+      "name": "Hebbal Flyover & Manyata Tech Basin",
+      "name_kn": "\u0cb9\u0cc6\u0cac\u0ccd\u0cac\u0cbe\u0cb3 \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cae\u0cbe\u0ca8\u0ccd\u0caf\u0ca4\u0cbe \u0c9f\u0cc6\u0c95\u0ccd \u0caa\u0cbe\u0cb0\u0ccd\u0c95\u0ccd",
+      "name_hi": "\u0939\u0947\u092c\u094d\u092c\u093e\u0932 \u0914\u0930 \u092e\u093e\u0928\u094d\u092f\u0924\u093e \u091f\u0947\u0915 \u092a\u093e\u0930\u094d\u0915",
+      "zone": "Byatarayanapura / North Zone",
+      "population": 225000,
+      "center": [
+        13.0358,
+        77.597
+      ],
+      "microclimate": {
+        "temperature_c": 29.1,
+        "relative_humidity_pct": 52.0,
+        "wind_speed_m_s": 3.06,
+        "wet_bulb_c": 21.87,
+        "heat_index_c": 30.05,
+        "wbgt_c": 24.77,
+        "htsi_score": 41.2,
+        "precipitation_mm": 0.0
+      },
+      "vulnerability": {
+        "elderly_pct": 11.8,
+        "outdoor_labor_pct": 42.0,
+        "tin_roof_pct": 32.0,
+        "tree_canopy_pct": 12.6,
+        "hospital_beds_per_k": 3.5
       },
       "health_risk": {
         "expected_surge_pct": 0.0,
@@ -1284,6 +1524,402 @@ export const fallbackWardsData = {
             ]
           ]
         }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-153",
+        "properties": {
+          "ward_id": "BBMP-153",
+          "name": "Jayanagar & Basavanagudi Heritage Parklands",
+          "name_kn": "\u0c9c\u0caf\u0ca8\u0c97\u0cb0 \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cac\u0cb8\u0cb5\u0ca8\u0c97\u0cc1\u0ca1\u0cbf \u0cb9\u0cb8\u0cbf\u0cb0\u0cc1 \u0cb5\u0cb2\u0caf",
+          "name_hi": "\u091c\u092f\u0928\u0917\u0930 \u0914\u0930 \u092c\u0938\u0935\u0928\u0917\u0941\u0921\u0940 \u0917\u094d\u0930\u0940\u0928 \u092c\u0947\u0932\u094d\u091f",
+          "zone": "South Zone",
+          "population": 175000,
+          "elderly_pct": 23.5,
+          "outdoor_labor_pct": 18.0,
+          "tin_roof_pct": 6.0,
+          "tree_canopy_pct": 34.8,
+          "hospital_beds_per_k": 6.8,
+          "baseline_daily_admissions": 22,
+          "uhi_temp_delta": -1.2,
+          "wind_attenuation": 0.95,
+          "center": [
+            12.925,
+            77.5938
+          ],
+          "microclimate": {
+            "temperature_c": 26.0,
+            "relative_humidity_pct": 52.0,
+            "wind_speed_m_s": 3.23,
+            "wet_bulb_c": 19.17,
+            "heat_index_c": 26.01,
+            "wbgt_c": 21.93,
+            "htsi_score": 28.4,
+            "precipitation_mm": 0.0
+          },
+          "vulnerability": {
+            "elderly_pct": 23.5,
+            "outdoor_labor_pct": 18.0,
+            "tin_roof_pct": 6.0,
+            "tree_canopy_pct": 34.8,
+            "hospital_beds_per_k": 6.8
+          },
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f / \u0928\u094d\u092f\u0942\u0928\u0924\u092e \u0938\u094d\u0935\u093e\u0938\u094d\u0925\u094d\u092f \u091c\u094b\u0916\u093f\u092e",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "\u0916\u0941\u0932\u0947 \u092e\u0947\u0902 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0915\u093e\u092e \u091c\u093e\u0930\u0940 \u0930\u0916\u093e \u091c\u093e \u0938\u0915\u0924\u093e \u0939\u0948\u0964 \u092a\u094d\u0930\u0924\u093f \u0918\u0902\u091f\u0947 \u0906\u0927\u093e \u0932\u0940\u091f\u0930 \u092a\u093e\u0928\u0940 \u092a\u093f\u090f\u0902\u0964"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.575,
+                12.91
+              ],
+              [
+                77.608,
+                12.91
+              ],
+              [
+                77.61,
+                12.94
+              ],
+              [
+                77.577,
+                12.94
+              ],
+              [
+                77.575,
+                12.91
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-139",
+        "properties": {
+          "ward_id": "BBMP-139",
+          "name": "K.R. Market & Chickpet Commercial Quarters",
+          "name_kn": "\u0c95\u0cc6.\u0c86\u0cb0\u0ccd. \u0cae\u0cbe\u0cb0\u0cc1\u0c95\u0c9f\u0ccd\u0c9f\u0cc6 \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0c9a\u0cbf\u0c95\u0ccd\u0c95\u0caa\u0cc7\u0c9f\u0cc6 \u0cb5\u0ccd\u0caf\u0cbe\u0caa\u0cbe\u0cb0 \u0cb5\u0cb2\u0caf",
+          "name_hi": "\u0915\u0947.\u0906\u0930. \u092e\u093e\u0930\u094d\u0915\u0947\u091f \u0914\u0930 \u091a\u093f\u0915\u092a\u0947\u091f \u092c\u093e\u091c\u093e\u0930",
+          "zone": "South / Central Zone",
+          "population": 215000,
+          "elderly_pct": 14.8,
+          "outdoor_labor_pct": 64.0,
+          "tin_roof_pct": 62.0,
+          "tree_canopy_pct": 3.2,
+          "hospital_beds_per_k": 2.4,
+          "baseline_daily_admissions": 48,
+          "uhi_temp_delta": 3.4,
+          "wind_attenuation": 0.35,
+          "center": [
+            12.966,
+            77.575
+          ],
+          "microclimate": {
+            "temperature_c": 30.6,
+            "relative_humidity_pct": 52.0,
+            "wind_speed_m_s": 1.19,
+            "wet_bulb_c": 23.17,
+            "heat_index_c": 32.34,
+            "wbgt_c": 26.48,
+            "htsi_score": 48.5,
+            "precipitation_mm": 0.0
+          },
+          "vulnerability": {
+            "elderly_pct": 14.8,
+            "outdoor_labor_pct": 64.0,
+            "tin_roof_pct": 62.0,
+            "tree_canopy_pct": 3.2,
+            "hospital_beds_per_k": 2.4
+          },
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f / \u0928\u094d\u092f\u0942\u0928\u0924\u092e \u0938\u094d\u0935\u093e\u0938\u094d\u0925\u094d\u092f \u091c\u094b\u0916\u093f\u092e",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "\u0916\u0941\u0932\u0947 \u092e\u0947\u0902 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0915\u093e\u092e \u091c\u093e\u0930\u0940 \u0930\u0916\u093e \u091c\u093e \u0938\u0915\u0924\u093e \u0939\u0948\u0964 \u092a\u094d\u0930\u0924\u093f \u0918\u0902\u091f\u0947 \u0906\u0927\u093e \u0932\u0940\u091f\u0930 \u092a\u093e\u0928\u0940 \u092a\u093f\u090f\u0902\u0964"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.562,
+                12.955
+              ],
+              [
+                77.585,
+                12.955
+              ],
+              [
+                77.588,
+                12.975
+              ],
+              [
+                77.565,
+                12.975
+              ],
+              [
+                77.562,
+                12.955
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-82",
+        "properties": {
+          "ward_id": "BBMP-82",
+          "name": "Indiranagar & HAL Defence Aerospace Hub",
+          "name_kn": "\u0c87\u0c82\u0ca6\u0cbf\u0cb0\u0cbe\u0ca8\u0c97\u0cb0 \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0c8e\u0c9a\u0ccd\u200c\u0c8e\u0c8e\u0cb2\u0ccd \u0cb5\u0cb2\u0caf",
+          "name_hi": "\u0907\u0902\u0926\u093f\u0930\u093e\u0928\u0917\u0930 \u0914\u0930 \u090f\u091a\u090f\u090f\u0932 \u0921\u093f\u092b\u0947\u0902\u0938 \u0939\u092c",
+          "zone": "East Zone",
+          "population": 155000,
+          "elderly_pct": 16.5,
+          "outdoor_labor_pct": 28.0,
+          "tin_roof_pct": 14.0,
+          "tree_canopy_pct": 22.4,
+          "hospital_beds_per_k": 5.2,
+          "baseline_daily_admissions": 25,
+          "uhi_temp_delta": 1.1,
+          "wind_attenuation": 0.85,
+          "center": [
+            12.9719,
+            77.6412
+          ],
+          "microclimate": {
+            "temperature_c": 28.3,
+            "relative_humidity_pct": 52.0,
+            "wind_speed_m_s": 2.89,
+            "wet_bulb_c": 21.17,
+            "heat_index_c": 29.0,
+            "wbgt_c": 24.06,
+            "htsi_score": 38.0,
+            "precipitation_mm": 0.0
+          },
+          "vulnerability": {
+            "elderly_pct": 16.5,
+            "outdoor_labor_pct": 28.0,
+            "tin_roof_pct": 14.0,
+            "tree_canopy_pct": 22.4,
+            "hospital_beds_per_k": 5.2
+          },
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f / \u0928\u094d\u092f\u0942\u0928\u0924\u092e \u0938\u094d\u0935\u093e\u0938\u094d\u0925\u094d\u092f \u091c\u094b\u0916\u093f\u092e",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "\u0916\u0941\u0932\u0947 \u092e\u0947\u0902 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0915\u093e\u092e \u091c\u093e\u0930\u0940 \u0930\u0916\u093e \u091c\u093e \u0938\u0915\u0924\u093e \u0939\u0948\u0964 \u092a\u094d\u0930\u0924\u093f \u0918\u0902\u091f\u0947 \u0906\u0927\u093e \u0932\u0940\u091f\u0930 \u092a\u093e\u0928\u0940 \u092a\u093f\u090f\u0902\u0964"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.625,
+                12.958
+              ],
+              [
+                77.658,
+                12.958
+              ],
+              [
+                77.66,
+                12.985
+              ],
+              [
+                77.627,
+                12.985
+              ],
+              [
+                77.625,
+                12.958
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-21",
+        "properties": {
+          "ward_id": "BBMP-21",
+          "name": "Hebbal Flyover & Manyata Tech Basin",
+          "name_kn": "\u0cb9\u0cc6\u0cac\u0ccd\u0cac\u0cbe\u0cb3 \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cae\u0cbe\u0ca8\u0ccd\u0caf\u0ca4\u0cbe \u0c9f\u0cc6\u0c95\u0ccd \u0caa\u0cbe\u0cb0\u0ccd\u0c95\u0ccd",
+          "name_hi": "\u0939\u0947\u092c\u094d\u092c\u093e\u0932 \u0914\u0930 \u092e\u093e\u0928\u094d\u092f\u0924\u093e \u091f\u0947\u0915 \u092a\u093e\u0930\u094d\u0915",
+          "zone": "Byatarayanapura / North Zone",
+          "population": 225000,
+          "elderly_pct": 11.8,
+          "outdoor_labor_pct": 42.0,
+          "tin_roof_pct": 32.0,
+          "tree_canopy_pct": 12.6,
+          "hospital_beds_per_k": 3.5,
+          "baseline_daily_admissions": 30,
+          "uhi_temp_delta": 1.9,
+          "wind_attenuation": 0.9,
+          "center": [
+            13.0358,
+            77.597
+          ],
+          "microclimate": {
+            "temperature_c": 29.1,
+            "relative_humidity_pct": 52.0,
+            "wind_speed_m_s": 3.06,
+            "wet_bulb_c": 21.87,
+            "heat_index_c": 30.05,
+            "wbgt_c": 24.77,
+            "htsi_score": 41.2,
+            "precipitation_mm": 0.0
+          },
+          "vulnerability": {
+            "elderly_pct": 11.8,
+            "outdoor_labor_pct": 42.0,
+            "tin_roof_pct": 32.0,
+            "tree_canopy_pct": 12.6,
+            "hospital_beds_per_k": 3.5
+          },
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f / \u0928\u094d\u092f\u0942\u0928\u0924\u092e \u0938\u094d\u0935\u093e\u0938\u094d\u0925\u094d\u092f \u091c\u094b\u0916\u093f\u092e",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "\u0916\u0941\u0932\u0947 \u092e\u0947\u0902 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0915\u093e\u092e \u091c\u093e\u0930\u0940 \u0930\u0916\u093e \u091c\u093e \u0938\u0915\u0924\u093e \u0939\u0948\u0964 \u092a\u094d\u0930\u0924\u093f \u0918\u0902\u091f\u0947 \u0906\u0927\u093e \u0932\u0940\u091f\u0930 \u092a\u093e\u0928\u0940 \u092a\u093f\u090f\u0902\u0964"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.585,
+                13.02
+              ],
+              [
+                77.622,
+                13.02
+              ],
+              [
+                77.625,
+                13.052
+              ],
+              [
+                77.588,
+                13.052
+              ],
+              [
+                77.585,
+                13.02
+              ]
+            ]
+          ]
+        }
       }
     ]
   }
@@ -1473,5 +2109,133 @@ export const fallbackSheltersData = [
     "has_paramedic": true,
     "operating_hours": "09:00 AM - 07:00 PM",
     "status": "OPEN"
+  },
+  {
+    "id": "BBMP-IC-06",
+    "ward_id": "BBMP-153",
+    "name": "Jayanagar 4th Block Complex Indira Canteen & Cooling Oasis",
+    "name_kn": "\u0c9c\u0caf\u0ca8\u0c97\u0cb0 4\u0ca8\u0cc7 \u0cac\u0ccd\u0cb2\u0cbe\u0c95\u0ccd \u0c87\u0c82\u0ca6\u0cbf\u0cb0\u0cbe \u0c95\u0ccd\u0caf\u0cbe\u0c82\u0c9f\u0cc0\u0ca8\u0ccd \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cb6\u0cc0\u0ca4\u0cb2 \u0c95\u0cc7\u0c82\u0ca6\u0ccd\u0cb0",
+    "name_hi": "\u091c\u092f\u0928\u0917\u0930 4th \u092c\u094d\u0932\u0949\u0915 \u0907\u0902\u0926\u093f\u0930\u093e \u0915\u0948\u0902\u091f\u0940\u0928 \u0935 \u0915\u0942\u0932\u093f\u0902\u0917 \u0913\u090f\u0938\u093f\u0938",
+    "type": "COOLING_SHELTER",
+    "address": "Opposite BDA Complex, 4th Block Jayanagar",
+    "lat": 12.926,
+    "lon": 77.5925,
+    "capacity_persons": 320,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "07:30 AM - 08:30 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-06",
+    "ward_id": "BBMP-153",
+    "name": "BWSSB Ashoka Pillar Chilled Drinking Water Kiosk",
+    "name_kn": "\u0cac\u0cbf\u0ca1\u0cac\u0ccd\u0cb2\u0ccd\u0caf\u0cc2\u0c8e\u0cb8\u0ccd\u200c\u0c8e\u0cb8\u0ccd\u200c\u0cac\u0cbf \u0c85\u0cb6\u0ccb\u0c95 \u0caa\u0cbf\u0cb2\u0ccd\u0cb2\u0cb0\u0ccd \u0c95\u0cc1\u0ca1\u0cbf\u0caf\u0cc1\u0cb5 \u0ca8\u0cc0\u0cb0\u0cbf\u0ca8 \u0c95\u0cc7\u0c82\u0ca6\u0ccd\u0cb0",
+    "name_hi": "\u092c\u0940\u0921\u092c\u094d\u0932\u094d\u092f\u0942\u090f\u0938\u090f\u0938\u092c\u0940 \u0905\u0936\u094b\u0915 \u092a\u093f\u0932\u0930 \u092a\u0947\u092f\u091c\u0932 \u0915\u0947\u0902\u0926\u094d\u0930",
+    "type": "WATER_KIOSK",
+    "address": "Near Ashoka Pillar Circle, Jayanagar 1st Block",
+    "lat": 12.932,
+    "lon": 77.587,
+    "capacity_liters": 10000,
+    "chilled_water": true,
+    "operating_hours": "24 Hours (Continuous)",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "BBMP-IC-07",
+    "ward_id": "BBMP-139",
+    "name": "K.R. Market City Wholesale Indira Canteen & High-Capacity Hydration Post",
+    "name_kn": "\u0c95\u0cc6.\u0c86\u0cb0\u0ccd. \u0cae\u0cbe\u0cb0\u0cc1\u0c95\u0c9f\u0ccd\u0c9f\u0cc6 \u0c87\u0c82\u0ca6\u0cbf\u0cb0\u0cbe \u0c95\u0ccd\u0caf\u0cbe\u0c82\u0c9f\u0cc0\u0ca8\u0ccd \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0ca4\u0cc1\u0cb0\u0ccd\u0ca4\u0cc1 \u0c9c\u0cb2 \u0cb8\u0cc7\u0cb5\u0cbe \u0c95\u0cc7\u0c82\u0ca6\u0ccd\u0cb0",
+    "name_hi": "\u0915\u0947.\u0906\u0930. \u092e\u093e\u0930\u094d\u0915\u0947\u091f \u0907\u0902\u0926\u093f\u0930\u093e \u0915\u0948\u0902\u091f\u0940\u0928 \u0935 \u0906\u092a\u093e\u0924\u0915\u093e\u0932\u0940\u0928 \u091c\u0932\u092f\u094b\u091c\u0928 \u0915\u0947\u0902\u0926\u094d\u0930",
+    "type": "COOLING_SHELTER",
+    "address": "Flower Market Yard, Kalasipalya, Bengaluru",
+    "lat": 12.9645,
+    "lon": 77.574,
+    "capacity_persons": 550,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "06:30 AM - 09:30 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-07",
+    "ward_id": "BBMP-139",
+    "name": "BWSSB Avenue Road / Chickpet High-Flow Water Dispenser",
+    "name_kn": "\u0cac\u0cbf\u0ca1\u0cac\u0ccd\u0cb2\u0ccd\u0caf\u0cc2\u0c8e\u0cb8\u0ccd\u200c\u0c8e\u0cb8\u0ccd\u200c\u0cac\u0cbf \u0c85\u0cb5\u0cc6\u0ca8\u0ccd\u0caf\u0cc2 \u0cb0\u0cb8\u0ccd\u0ca4\u0cc6 \u0c95\u0cc1\u0ca1\u0cbf\u0caf\u0cc1\u0cb5 \u0ca8\u0cc0\u0cb0\u0cbf\u0ca8 \u0c95\u0cbf\u0caf\u0ccb\u0cb8\u0ccd\u0c95\u0ccd",
+    "name_hi": "\u092c\u0940\u0921\u092c\u094d\u0932\u094d\u092f\u0942\u090f\u0938\u090f\u0938\u092c\u0940 \u090f\u0935\u0947\u0928\u094d\u092f\u0942 \u0930\u094b\u0921 \u092a\u0947\u092f\u091c\u0932 \u0915\u0947\u0902\u0926\u094d\u0930",
+    "type": "WATER_KIOSK",
+    "address": "Avenue Road Junction, Chickpet",
+    "lat": 12.968,
+    "lon": 77.5765,
+    "capacity_liters": 15000,
+    "chilled_water": true,
+    "operating_hours": "24 Hours (Continuous)",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "BBMP-IC-08",
+    "ward_id": "BBMP-82",
+    "name": "Indiranagar CMH Road Transit Indira Canteen",
+    "name_kn": "\u0c87\u0c82\u0ca6\u0cbf\u0cb0\u0cbe\u0ca8\u0c97\u0cb0 \u0cb8\u0cbf\u0c8e\u0c82\u0c8e\u0c9a\u0ccd \u0cb0\u0cb8\u0ccd\u0ca4\u0cc6 \u0c87\u0c82\u0ca6\u0cbf\u0cb0\u0cbe \u0c95\u0ccd\u0caf\u0cbe\u0c82\u0c9f\u0cc0\u0ca8\u0ccd",
+    "name_hi": "\u0907\u0902\u0926\u093f\u0930\u093e\u0928\u0917\u0930 \u0938\u0940\u090f\u092e\u090f\u091a \u0930\u094b\u0921 \u0907\u0902\u0926\u093f\u0930\u093e \u0915\u0948\u0902\u091f\u0940\u0928",
+    "type": "COOLING_SHELTER",
+    "address": "Near Indiranagar Metro Station, CMH Road",
+    "lat": 12.9785,
+    "lon": 77.643,
+    "capacity_persons": 280,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "07:30 AM - 08:30 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-08",
+    "ward_id": "BBMP-82",
+    "name": "BWSSB 100ft Road Gig-Worker Hydration Station",
+    "name_kn": "\u0cac\u0cbf\u0ca1\u0cac\u0ccd\u0cb2\u0ccd\u0caf\u0cc2\u0c8e\u0cb8\u0ccd\u200c\u0c8e\u0cb8\u0ccd\u200c\u0cac\u0cbf 100 \u0c85\u0ca1\u0cbf \u0cb0\u0cb8\u0ccd\u0ca4\u0cc6 \u0c9c\u0cb2 \u0c95\u0cc7\u0c82\u0ca6\u0ccd\u0cb0",
+    "name_hi": "\u092c\u0940\u0921\u092c\u094d\u0932\u094d\u092f\u0942\u090f\u0938\u090f\u0938\u092c\u0940 100 \u092b\u0940\u091f \u0930\u094b\u0921 \u092a\u0947\u092f\u091c\u0932 \u0938\u094d\u091f\u0947\u0936\u0928",
+    "type": "WATER_KIOSK",
+    "address": "12th Main Junction, 100ft Road Indiranagar",
+    "lat": 12.9719,
+    "lon": 77.6412,
+    "capacity_liters": 8000,
+    "chilled_water": true,
+    "operating_hours": "24 Hours (Continuous)",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "BBMP-IC-09",
+    "ward_id": "BBMP-21",
+    "name": "Hebbal Flyover Transit Hub Indira Canteen & Paramedic Aid Camp",
+    "name_kn": "\u0cb9\u0cc6\u0cac\u0ccd\u0cac\u0cbe\u0cb3 \u0cab\u0ccd\u0cb2\u0cc8\u0c93\u0cb5\u0cb0\u0ccd \u0c87\u0c82\u0ca6\u0cbf\u0cb0\u0cbe \u0c95\u0ccd\u0caf\u0cbe\u0c82\u0c9f\u0cc0\u0ca8\u0ccd \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0caa\u0ccd\u0cb0\u0cbe\u0ca5\u0cae\u0cbf\u0c95 \u0c9a\u0cbf\u0c95\u0cbf\u0ca4\u0ccd\u0cb8\u0cbe \u0cb6\u0cbf\u0cac\u0cbf\u0cb0",
+    "name_hi": "\u0939\u0947\u092c\u094d\u092c\u093e\u0932 \u092b\u094d\u0932\u093e\u0908\u0913\u0935\u0930 \u0907\u0902\u0926\u093f\u0930\u093e \u0915\u0948\u0902\u091f\u0940\u0928 \u0935 \u092a\u094d\u0930\u093e\u0925\u092e\u093f\u0915 \u0909\u092a\u091a\u093e\u0930 \u0936\u093f\u0935\u093f\u0930",
+    "type": "COOLING_SHELTER",
+    "address": "Under Hebbal Flyover Loop, Bellary Road",
+    "lat": 13.034,
+    "lon": 77.596,
+    "capacity_persons": 380,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "07:00 AM - 09:00 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-09",
+    "ward_id": "BBMP-21",
+    "name": "BWSSB Manyata Tech Park Entrance Chilled Water Bowser",
+    "name_kn": "\u0cac\u0cbf\u0ca1\u0cac\u0ccd\u0cb2\u0ccd\u0caf\u0cc2\u0c8e\u0cb8\u0ccd\u200c\u0c8e\u0cb8\u0ccd\u200c\u0cac\u0cbf \u0cae\u0cbe\u0ca8\u0ccd\u0caf\u0ca4\u0cbe \u0c9f\u0cc6\u0c95\u0ccd \u0caa\u0cbe\u0cb0\u0ccd\u0c95\u0ccd \u0ca8\u0cc0\u0cb0\u0cc1 \u0cb5\u0cbf\u0ca4\u0cb0\u0ca3\u0cbe \u0cb5\u0cbe\u0cb9\u0ca8",
+    "name_hi": "\u092c\u0940\u0921\u092c\u094d\u0932\u094d\u092f\u0942\u090f\u0938\u090f\u0938\u092c\u0940 \u092e\u093e\u0928\u094d\u092f\u0924\u093e \u091f\u0947\u0915 \u092a\u093e\u0930\u094d\u0915 \u092a\u0947\u092f\u091c\u0932 \u0915\u0947\u0902\u0926\u094d\u0930",
+    "type": "WATER_KIOSK",
+    "address": "Outer Ring Road, Gate 1 Manyata Tech Park",
+    "lat": 13.045,
+    "lon": 77.618,
+    "capacity_liters": 12000,
+    "chilled_water": true,
+    "operating_hours": "24 Hours (Continuous)",
+    "status": "ACTIVE"
   }
 ];

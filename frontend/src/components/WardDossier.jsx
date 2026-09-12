@@ -129,16 +129,78 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
           <div className="text-[10px] text-slate-500 mt-0.5">Relative Moisture</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 col-span-2 sm:col-span-1">
-          <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
-            <HeartPulse className="w-3.5 h-3.5 text-purple-400" />
-            <span>HTSI Score</span>
-          </div>
-          <div className="text-xl font-extrabold text-purple-300 mt-1 font-mono">
-            {micro.htsi_score != null ? micro.htsi_score : '--'}/100
-          </div>
-          <div className="text-[10px] text-slate-500 mt-0.5">Physiological Strain</div>
-        </div>
+        {/* 5. HTSI Index Widget */}
+        {(() => {
+          const score = micro.htsi_score != null ? Number(micro.htsi_score) : null;
+          let tier = 'SAFE';
+          let badgeColor = 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30';
+          let textColor = 'text-emerald-300';
+          let iconColor = 'text-emerald-400';
+          let barColor = 'bg-emerald-500';
+          let desc = 'Low Strain';
+
+          if (score != null) {
+            if (score >= 80) {
+              tier = 'CRITICAL';
+              badgeColor = 'text-red-400 bg-red-500/10 border-red-500/30';
+              textColor = 'text-red-400';
+              iconColor = 'text-red-400';
+              barColor = 'bg-red-500';
+              desc = 'Severe Strain';
+            } else if (score >= 60) {
+              tier = 'HIGH';
+              badgeColor = 'text-orange-400 bg-orange-500/10 border-orange-500/30';
+              textColor = 'text-orange-400';
+              iconColor = 'text-orange-400';
+              barColor = 'bg-orange-500';
+              desc = 'Warning';
+            } else if (score >= 40) {
+              tier = 'MODERATE';
+              badgeColor = 'text-amber-400 bg-amber-500/10 border-amber-500/30';
+              textColor = 'text-amber-300';
+              iconColor = 'text-amber-400';
+              barColor = 'bg-amber-500';
+              desc = 'Advisory';
+            }
+          }
+
+          return (
+            <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 col-span-2 sm:col-span-1 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
+                    <HeartPulse className={`w-3.5 h-3.5 ${iconColor}`} />
+                    <span>HTSI Index</span>
+                  </div>
+                  {score != null && (
+                    <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded border uppercase tracking-wider ${badgeColor}`}>
+                      {tier}
+                    </span>
+                  )}
+                </div>
+                <div className="flex items-baseline gap-1 mt-1 font-mono">
+                  <span className={`text-xl font-extrabold ${textColor}`}>
+                    {score != null ? score : '--'}
+                  </span>
+                  <span className="text-[11px] text-slate-500 font-semibold">/100</span>
+                </div>
+              </div>
+
+              <div className="mt-1.5">
+                <div className="w-full bg-slate-800/80 rounded-full h-1.5 overflow-hidden">
+                  <div
+                    className={`h-full rounded-full transition-all duration-700 ${barColor}`}
+                    style={{ width: `${Math.min(100, Math.max(5, score || 0))}%` }}
+                  />
+                </div>
+                <div className="text-[10px] text-slate-500 mt-1 flex justify-between items-center font-medium">
+                  <span>Thermal Strain</span>
+                  <span className={textColor}>{desc}</span>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
       </div>
 
       {/* Epidemiological Hospital Admission Surge Box */}

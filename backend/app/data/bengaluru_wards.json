@@ -249,6 +249,130 @@
           [77.5800, 13.0850]
         ]]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-153",
+      "properties": {
+        "ward_id": "BBMP-153",
+        "name": "Jayanagar & Basavanagudi Heritage Parklands",
+        "name_kn": "ಜಯನಗರ ಮತ್ತು ಬಸವನಗುಡಿ ಹಸಿರು ವಲಯ",
+        "name_hi": "जयनगर और बसवनगुडी ग्रीन बेल्ट",
+        "zone": "South Zone",
+        "population": 175000,
+        "elderly_pct": 23.5,
+        "outdoor_labor_pct": 18.0,
+        "tin_roof_pct": 6.0,
+        "tree_canopy_pct": 34.8,
+        "hospital_beds_per_k": 6.8,
+        "baseline_daily_admissions": 22,
+        "uhi_temp_delta": -1.2,
+        "wind_attenuation": 0.95,
+        "center": [12.9250, 77.5938]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.5750, 12.9100],
+          [77.6080, 12.9100],
+          [77.6100, 12.9400],
+          [77.5770, 12.9400],
+          [77.5750, 12.9100]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-139",
+      "properties": {
+        "ward_id": "BBMP-139",
+        "name": "K.R. Market & Chickpet Commercial Quarters",
+        "name_kn": "ಕೆ.ಆರ್. ಮಾರುಕಟ್ಟೆ ಮತ್ತು ಚಿಕ್ಕಪೇಟೆ ವ್ಯಾಪಾರ ವಲಯ",
+        "name_hi": "के.आर. मार्केट और चिकपेट बाजार",
+        "zone": "South / Central Zone",
+        "population": 215000,
+        "elderly_pct": 14.8,
+        "outdoor_labor_pct": 64.0,
+        "tin_roof_pct": 62.0,
+        "tree_canopy_pct": 3.2,
+        "hospital_beds_per_k": 2.4,
+        "baseline_daily_admissions": 48,
+        "uhi_temp_delta": 3.4,
+        "wind_attenuation": 0.35,
+        "center": [12.9660, 77.5750]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.5620, 12.9550],
+          [77.5850, 12.9550],
+          [77.5880, 12.9750],
+          [77.5650, 12.9750],
+          [77.5620, 12.9550]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-82",
+      "properties": {
+        "ward_id": "BBMP-82",
+        "name": "Indiranagar & HAL Defence Aerospace Hub",
+        "name_kn": "ಇಂದಿರಾನಗರ ಮತ್ತು ಎಚ್‌ಎಎಲ್ ವಲಯ",
+        "name_hi": "इंदिरानगर और एचएएल डिफेंस हब",
+        "zone": "East Zone",
+        "population": 155000,
+        "elderly_pct": 16.5,
+        "outdoor_labor_pct": 28.0,
+        "tin_roof_pct": 14.0,
+        "tree_canopy_pct": 22.4,
+        "hospital_beds_per_k": 5.2,
+        "baseline_daily_admissions": 25,
+        "uhi_temp_delta": 1.1,
+        "wind_attenuation": 0.85,
+        "center": [12.9719, 77.6412]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.6250, 12.9580],
+          [77.6580, 12.9580],
+          [77.6600, 12.9850],
+          [77.6270, 12.9850],
+          [77.6250, 12.9580]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-21",
+      "properties": {
+        "ward_id": "BBMP-21",
+        "name": "Hebbal Flyover & Manyata Tech Basin",
+        "name_kn": "ಹೆಬ್ಬಾಳ ಮತ್ತು ಮಾನ್ಯತಾ ಟೆಕ್ ಪಾರ್ಕ್",
+        "name_hi": "हेब्बाल और मान्यता टेक पार्क",
+        "zone": "Byatarayanapura / North Zone",
+        "population": 225000,
+        "elderly_pct": 11.8,
+        "outdoor_labor_pct": 42.0,
+        "tin_roof_pct": 32.0,
+        "tree_canopy_pct": 12.6,
+        "hospital_beds_per_k": 3.5,
+        "baseline_daily_admissions": 30,
+        "uhi_temp_delta": 1.9,
+        "wind_attenuation": 0.90,
+        "center": [13.0358, 77.5970]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [77.5850, 13.0200],
+          [77.6220, 13.0200],
+          [77.6250, 13.0520],
+          [77.5880, 13.0520],
+          [77.5850, 13.0200]
+        ]]
+      }
     }
   ]
 }

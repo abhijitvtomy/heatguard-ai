@@ -107,6 +107,19 @@ export default function App() {
 
   useEffect(() => {
     loadData(scenario);
+
+    // Auto-sync real-time weather telemetry every 60 seconds when in LIVE mode
+    // (Ensures fresh data and keeps Render cloud backend warm during presentation)
+    let syncTimer = null;
+    if (scenario === 'LIVE') {
+      syncTimer = setInterval(() => {
+        loadData('LIVE');
+      }, 60000);
+    }
+
+    return () => {
+      if (syncTimer) clearInterval(syncTimer);
+    };
   }, [scenario]);
 
   // Compute City Status & Ambient Atmospheric UI Theme
