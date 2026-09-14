@@ -31,6 +31,7 @@ export default function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isJudgeModalOpen, setIsJudgeModalOpen] = useState(false);
   const [isPanicModalOpen, setIsPanicModalOpen] = useState(false);
+  const [isMapMaximized, setIsMapMaximized] = useState(false);
 
   // Live Data States (Instant ground-truth fallback for zero-latency rendering)
   const [weatherData, setWeatherData] = useState(fallbackWeatherData);
@@ -307,7 +308,7 @@ export default function App() {
             />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-              <div className="lg:col-span-5 xl:col-span-5 2xl:col-span-5">
+              <div className={isMapMaximized ? "lg:col-span-12" : "lg:col-span-5 xl:col-span-5 2xl:col-span-5"}>
                 <WardMap
                   wardsGeojson={wardsGeojson}
                   shelters={shelters}
@@ -316,10 +317,12 @@ export default function App() {
                   language={language}
                   showShelters={showShelters}
                   setShowShelters={setShowShelters}
+                  isMaximized={isMapMaximized}
+                  onToggleMaximize={() => setIsMapMaximized(!isMapMaximized)}
                 />
               </div>
 
-              <div className="lg:col-span-7 xl:col-span-7 2xl:col-span-7">
+              <div className={isMapMaximized ? "lg:col-span-12" : "lg:col-span-7 xl:col-span-7 2xl:col-span-7"}>
                 <WardDossier
                   ward={selectedWard}
                   language={language}

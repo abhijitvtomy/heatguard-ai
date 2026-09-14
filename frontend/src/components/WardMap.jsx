@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import L from 'leaflet';
 import { translations } from '../i18n/translations';
-import { MapPin, Shield, Droplets, Info, Flame, AlertCircle, Navigation, Compass, ShieldCheck, TreePine, Clock } from 'lucide-react';
+import { 
+  MapPin, Shield, Droplets, Info, Flame, AlertCircle, Navigation, 
+  Compass, ShieldCheck, TreePine, Clock, Maximize2, Minimize2, 
+  ChevronDown, ChevronUp, X, Sparkles 
+} from 'lucide-react';
 import { driverCorridors } from '../data/coolRoutesData';
 
 export default function WardMap({
@@ -13,13 +17,17 @@ export default function WardMap({
   showShelters,
   setShowShelters,
   showHotspots: propShowHotspots,
-  setShowHotspots: propSetShowHotspots
+  setShowHotspots: propSetShowHotspots,
+  isMaximized = false,
+  onToggleMaximize
 }) {
   const [localShowHotspots, setLocalShowHotspots] = useState(true);
   const showHotspots = propShowHotspots !== undefined ? propShowHotspots : localShowHotspots;
   const setShowHotspots = propSetShowHotspots || setLocalShowHotspots;
+  
   const [showCoolRoutes, setShowCoolRoutes] = useState(false);
   const [activeCorridorId, setActiveCorridorId] = useState(driverCorridors[0]?.id || 'majestic-indiranagar');
+  const [isHotspotsExpanded, setIsHotspotsExpanded] = useState(false);
 
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
@@ -44,9 +52,23 @@ export default function WardMap({
         attributionControl: false
       });
 
-      L.control.zoom({ position: 'topright' }).addTo(map);
+      // Position Zoom Control at bottomright so it never clashes with top controls
+      L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-      // 100% Free OpenStreetMap tiles (Zero API Key required)
+      // Create dedicated Leaflet panes with strict z-index hierarchies
+      // Pane for cool routes (above ward polygon overlay)
+      if (!map.getPane('coolRoutesPane')) {
+        const coolRoutesPane = map.createPane('coolRoutesPane');
+        coolRoutesPane.style.zIndex = '650';
+      }
+
+      // Pane for labels and markers
+      if (!map.getPane('customMarkersPane')) {
+        const markersPane = map.createPane('customMarkersPane');
+        markersPane.style.zIndex = '670';
+      }
+
+      // 100% Free OpenStreetMap tiles
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; OpenStreetMap contributors'
@@ -56,13 +78,22 @@ export default function WardMap({
     }
 
     return () => {
-      // Cleanup on unmount
       if (mapInstanceRef.current) {
         mapInstanceRef.current.remove();
         mapInstanceRef.current = null;
       }
     };
   }, []);
+
+  // Invalidate Map size when Maximized or Minimized
+  useEffect(() => {
+    if (mapInstanceRef.current) {
+      const timer = setTimeout(() => {
+        mapInstanceRef.current?.invalidateSize();
+      }, 250);
+      return () => clearTimeout(timer);
+    }
+  }, [isMaximized]);
 
   // Update Ward Polygons when GeoJSON or Language changes
   useEffect(() => {
@@ -98,113 +129,94 @@ export default function WardMap({
           fillColor: getColor(tier),
           weight: isSelected ? 3.5 : 1.8,
           opacity: 0.9,
-          color: isSelected ? '#ffffff' : '#334155',
-          fillOpacity: isSelected ? 0.65 : 0.45,
-          dashArray: isSelected ? '' : '3'
+          color: isSelected ? '#ffffff' : '#0f172a',
+          fillOpacity: isSelected ? 0.75 : 0.52
         };
       },
-      onEachFeature: (feature, featureLayer) => {
+      onEachFeature: (feature, l) => {
         const props = feature.properties || {};
         const wardName =
           language === 'kn' ? (props.name_kn || props.name) :
           language === 'hi' ? (props.name_hi || props.name) :
           props.name;
 
-        // Hover effect
-        featureLayer.on({
-          mouseover: (e) => {
-            const l = e.target;
-            l.setStyle({ fillOpacity: 0.8, weight: 3 });
-          },
-          mouseout: (e) => {
-            if (!selectedWard || selectedWard.ward_id !== props.ward_id) {
-              layer.resetStyle(e.target);
-            }
-          },
+        // Interactive hover & selection
+        l.on({
           click: () => {
             setSelectedWard(props);
+          },
+          mouseover: (e) => {
+            const target = e.target;
+            target.setStyle({
+              fillOpacity: 0.85,
+              weight: 3,
+              color: '#38bdf8'
+            });
+            target.bringToFront();
+          },
+          mouseout: (e) => {
+            if (geojsonLayerRef.current) {
+              geojsonLayerRef.current.resetStyle(e.target);
+            }
           }
         });
 
-        // Popup content
-        const wbgt = props.microclimate?.wbgt_c || '--';
-        const temp = props.microclimate?.temperature_c || '--';
-        const spike = props.health_risk?.expected_surge_pct || 0;
-        const tier = props.effective_alert_tier || 'GREEN';
-        const vuln = props.vulnerability_score != null ? `${props.vulnerability_score} [${props.vulnerability_tier || 'MED'}]` : '--';
-
-        featureLayer.bindTooltip(`
-          <div style="font-family: system-ui; font-size: 11px; padding: 4px;">
-            <div style="font-weight: 800; color: #f8fafc; margin-bottom: 2px;">${wardName}</div>
-            <div style="color: #94a3b8;">Temp: <b>${temp}°C</b> | WBGT: <b>${wbgt}°C</b></div>
-            <div style="color: #fbbf24;">Vulnerability Score: <b>${vuln}</b></div>
-            <div style="color: #f87171; font-weight: 700;">Hosp Surge: +${spike}% [${tier}]</div>
+        // Tooltip
+        l.bindTooltip(`
+          <div style="font-family: system-ui; font-size: 11px; padding: 2px;">
+            <div style="font-weight: 800; color: #0f172a;">${props.ward_id}: ${wardName}</div>
+            <div style="color: #475569;">Temp: <b>${props.microclimate?.temperature_c != null ? props.microclimate.temperature_c : '--'}°C</b> | WBGT: <b>${props.microclimate?.wbgt_c != null ? props.microclimate.wbgt_c : '--'}°C</b></div>
+            <div style="color: #0f172a; font-weight: 600;">Status: <span style="color: ${getColor(props.effective_alert_tier)}; font-weight: 800;">${props.effective_alert_tier || 'SAFE'}</span></div>
           </div>
-        `, { sticky: true, className: 'leaflet-dark-tooltip' });
+        `, { sticky: true, className: 'leaflet-custom-tooltip' });
       }
-    }).addTo(map);
+    });
 
+    layer.addTo(map);
     geojsonLayerRef.current = layer;
 
-    // Add Floating Ward Temperature Badges across the Map
+    // Add Ward Number Badges
     const labelsGroup = L.layerGroup();
     wardsGeojson.features.forEach((feature) => {
       const props = feature.properties || {};
-      const center = props.center;
-      if (!center || center.length !== 2) return;
-
-      const tier = props.effective_alert_tier || props.health_risk?.alert_tier || 'GREEN';
-      const temp = props.microclimate?.temperature_c != null ? props.microclimate.temperature_c : '--';
-      const isSelected = selectedWard && selectedWard.ward_id === props.ward_id;
-      const wardName =
-        language === 'kn' ? (props.name_kn || props.name) :
-        language === 'hi' ? (props.name_hi || props.name) :
-        props.name;
-      const shortName = wardName.split('&')[0].trim();
-
-      const badgeIcon = L.divIcon({
-        className: 'ward-temp-badge',
-        html: `
-          <div style="
-            background: rgba(15, 23, 42, 0.90);
-            backdrop-filter: blur(8px);
-            border: ${isSelected ? '2px solid #ffffff' : `1.5px solid ${getColor(tier)}`};
-            color: white;
-            padding: 3px 8px;
-            border-radius: 9999px;
-            font-family: system-ui, -apple-system, sans-serif;
-            font-size: 10.5px;
-            font-weight: 800;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-            cursor: pointer;
-            pointer-events: auto;
-            transform: translate(-50%, -50%);
-          ">
-            <span style="width: 7px; height: 7px; border-radius: 50%; background: ${getColor(tier)}; box-shadow: 0 0 6px ${getColor(tier)}; flex-shrink: 0;"></span>
-            <span style="color: #f1f5f9; font-weight: 700;">${shortName}</span>
-            <span style="color: #fbbf24; font-weight: 900; font-family: monospace;">${temp}°C</span>
-          </div>
-        `,
-        iconSize: [0, 0],
-        iconAnchor: [0, 0]
-      });
-
-      const marker = L.marker(center, { icon: badgeIcon, interactive: true });
-      marker.on('click', () => {
-        setSelectedWard(props);
-      });
-      labelsGroup.addLayer(marker);
+      if (props.center) {
+        const wardNum = props.ward_id.replace('BBMP-', '');
+        const labelIcon = L.divIcon({
+          className: 'ward-map-label',
+          html: `
+            <div style="
+              background: rgba(15, 23, 42, 0.85);
+              color: #f8fafc;
+              border: 1px solid rgba(255, 255, 255, 0.3);
+              border-radius: 6px;
+              padding: 1px 4px;
+              font-size: 9px;
+              font-weight: 700;
+              text-align: center;
+              white-space: nowrap;
+              pointer-events: none;
+              box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            ">
+              W-${wardNum}
+            </div>
+          `,
+          iconSize: [28, 16],
+          iconAnchor: [14, 8]
+        });
+        labelsGroup.addLayer(L.marker(props.center, { icon: labelIcon, interactive: false }));
+      }
     });
 
     labelsGroup.addTo(map);
     labelsLayerRef.current = labelsGroup;
+
+    // Pan to selected ward if chosen
+    if (selectedWard && selectedWard.center) {
+      map.flyTo(selectedWard.center, 12, { duration: 0.8 });
+    }
   }, [wardsGeojson, selectedWard, language]);
 
-  // Update Cooling Shelters & Water Points Pins
+  // Render Shelters & Water Points
   useEffect(() => {
     const map = mapInstanceRef.current;
     if (!map) return;
@@ -219,23 +231,24 @@ export default function WardMap({
     const group = L.layerGroup();
 
     shelters.forEach((s) => {
-      const isCooling = s.type === 'COOLING_SHELTER';
-      const color = isCooling ? '#10b981' : '#38bdf8';
+      if (!s.lat || !s.lon) return;
 
+      const isCooling = s.type === 'INDIRA_CANTEEN' || s.type === 'COMMUNITY_COOLING_SHELTER';
       const customIcon = L.divIcon({
-        className: 'custom-shelter-marker',
+        className: 'shelter-marker-icon',
         html: `
           <div style="
-            background: ${color};
+            background: ${isCooling ? '#059669' : '#0284c7'};
+            border: 2px solid #ffffff;
+            border-radius: 9999px;
             width: 26px;
             height: 26px;
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 0 10px ${color};
             display: flex;
             align-items: center;
             justify-content: center;
-            color: black;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            cursor: pointer;
+            color: #ffffff;
             font-size: 13px;
           ">
             ${isCooling ? '❄️' : '💧'}
@@ -326,7 +339,7 @@ export default function WardMap({
     hotspotsLayerRef.current = group;
   }, [wardsGeojson, showHotspots]);
 
-  // Render Driver Cool Corridors & Asphalt Trap Overlay
+  // Render Driver Cool Corridors in DEDICATED HIGH-PRIORITY PANE
   useEffect(() => {
     const map = mapInstanceRef.current;
     if (!map) return;
@@ -341,68 +354,91 @@ export default function WardMap({
     const corridor = driverCorridors.find(c => c.id === activeCorridorId) || driverCorridors[0];
     if (!corridor) return;
 
+    // Ensure pane exists
+    if (!map.getPane('coolRoutesPane')) {
+      const pane = map.createPane('coolRoutesPane');
+      pane.style.zIndex = '650';
+    }
+
     const group = L.layerGroup();
 
-    // 1. Direct Asphalt Route (Red dashed polyline)
+    // 1. Direct Asphalt Route (Prominent red dashed line)
     const directLine = L.polyline(corridor.direct_route.coordinates, {
       color: '#ef4444',
-      weight: 4,
-      dashArray: '8, 8',
-      opacity: 0.85
+      weight: 5,
+      dashArray: '10, 10',
+      opacity: 0.95,
+      pane: 'coolRoutesPane'
     });
     directLine.bindTooltip(`
-      <div style="font-family: system-ui; padding: 4px; font-size: 11px;">
+      <div style="font-family: system-ui; padding: 5px; font-size: 11px;">
         <b style="color: #ef4444;">🔴 Direct Asphalt Route (Heat Trap)</b><br/>
-        Road Temp: <b>${corridor.direct_route.surface_temp_c}°C</b><br/>
-        WBGT: <b>${corridor.direct_route.wbgt_c}°C</b> (High Strain)
+        Road Surface Temp: <b>${corridor.direct_route.surface_temp_c}°C</b><br/>
+        WBGT Heat Strain: <b>${corridor.direct_route.wbgt_c}°C</b><br/>
+        Zero shade • High vehicle exhaust
       </div>
     `, { sticky: true });
     group.addLayer(directLine);
 
-    // 2. Recommended Cool Respite Route (Emerald solid polyline with glow)
+    // 2. Recommended Cool Route: Glowing background halo + solid emerald line
+    const coolGlow = L.polyline(corridor.cool_route.coordinates, {
+      color: '#34d399',
+      weight: 12,
+      opacity: 0.4,
+      pane: 'coolRoutesPane'
+    });
+    group.addLayer(coolGlow);
+
     const coolLine = L.polyline(corridor.cool_route.coordinates, {
       color: '#10b981',
       weight: 6,
-      opacity: 0.95
+      opacity: 1.0,
+      pane: 'coolRoutesPane'
     });
     coolLine.bindTooltip(`
-      <div style="font-family: system-ui; padding: 4px; font-size: 11px;">
-        <b style="color: #10b981;">🟢 Recommended Driver Cool Respite Route</b><br/>
-        Road Temp: <b>${corridor.cool_route.surface_temp_c}°C (${corridor.cool_route.temp_savings_c}°C Cooler)</b><br/>
-        Canopy Shade: <b>${corridor.cool_route.canopy_shade_pct}%</b> • Water Posts: <b>${corridor.cool_route.water_stops_count}</b>
+      <div style="font-family: system-ui; padding: 5px; font-size: 11px;">
+        <b style="color: #10b981;">🟢 Recommended Cool Respite Route</b><br/>
+        Road Temp: <b>${corridor.cool_route.surface_temp_c}°C (${corridor.cool_route.temp_savings_c}°C Relief)</b><br/>
+        Canopy Shade: <b>${corridor.cool_route.canopy_shade_pct}%</b> • Water Posts: <b>${corridor.cool_route.water_stops_count}</b><br/>
+        Leaves asphalt corridors for tree-lined avenues
       </div>
     `, { sticky: true });
     group.addLayer(coolLine);
 
-    // 3. Start and End Waypoint Markers
+    // 3. Start (A) and Destination (B) Markers
     const startCoord = corridor.cool_route.coordinates[0];
     const endCoord = corridor.cool_route.coordinates[corridor.cool_route.coordinates.length - 1];
 
     const startIcon = L.divIcon({
       className: 'route-start-icon',
-      html: `<div style="background: #10b981; color: white; font-weight: 800; font-size: 10px; border-radius: 9999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 0 8px #10b981;">A</div>`,
-      iconSize: [22, 22],
-      iconAnchor: [11, 11]
+      html: `<div style="background: #10b981; color: white; font-weight: 900; font-size: 11px; border-radius: 9999px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border: 2.5px solid white; box-shadow: 0 0 12px #10b981;">A</div>`,
+      iconSize: [28, 28],
+      iconAnchor: [14, 14]
     });
     const endIcon = L.divIcon({
       className: 'route-end-icon',
-      html: `<div style="background: #6366f1; color: white; font-weight: 800; font-size: 10px; border-radius: 9999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 0 8px #6366f1;">B</div>`,
-      iconSize: [22, 22],
-      iconAnchor: [11, 11]
+      html: `<div style="background: #6366f1; color: white; font-weight: 900; font-size: 11px; border-radius: 9999px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border: 2.5px solid white; box-shadow: 0 0 12px #6366f1;">B</div>`,
+      iconSize: [28, 28],
+      iconAnchor: [14, 14]
     });
 
-    group.addLayer(L.marker(startCoord, { icon: startIcon }));
-    group.addLayer(L.marker(endCoord, { icon: endIcon }));
+    const mStart = L.marker(startCoord, { icon: startIcon, pane: 'coolRoutesPane' });
+    mStart.bindPopup(`<b>Start Location:</b> ${corridor.title.split('→')[0]}`);
+    group.addLayer(mStart);
 
-    // 4. Water Waypoints along cool route
+    const mEnd = L.marker(endCoord, { icon: endIcon, pane: 'coolRoutesPane' });
+    mEnd.bindPopup(`<b>Destination:</b> ${corridor.title.split('→')[1]}`);
+    group.addLayer(mEnd);
+
+    // 4. Potable Water Waypoints along cool route
     (corridor.cool_route.water_stops || []).forEach(ws => {
       const waterIcon = L.divIcon({
         className: 'route-water-icon',
-        html: `<div style="background: #0284c7; color: white; font-size: 12px; border-radius: 9999px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border: 2px solid #bae6fd; box-shadow: 0 0 8px #38bdf8;">💧</div>`,
-        iconSize: [24, 24],
-        iconAnchor: [12, 12]
+        html: `<div style="background: #0284c7; color: white; font-size: 14px; border-radius: 9999px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border: 2px solid #bae6fd; box-shadow: 0 0 10px #38bdf8; cursor: pointer;">💧</div>`,
+        iconSize: [26, 26],
+        iconAnchor: [13, 13]
       });
-      const wm = L.marker([ws.lat, ws.lon], { icon: waterIcon });
+      const wm = L.marker([ws.lat, ws.lon], { icon: waterIcon, pane: 'coolRoutesPane' });
       wm.bindPopup(`
         <div style="font-family: system-ui; padding: 4px; font-size: 11px;">
           <b style="color: #0284c7;">💧 ${ws.name}</b><br/>
@@ -415,21 +451,27 @@ export default function WardMap({
     group.addTo(map);
     routesLayerRef.current = group;
 
-    // Zoom and pan to corridor bounds
-    const bounds = L.latLngBounds(corridor.cool_route.coordinates);
-    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 });
+    // Zoom and pan smoothly to corridor bounds
+    map.invalidateSize();
+    const allCoords = [
+      ...corridor.cool_route.coordinates,
+      ...corridor.direct_route.coordinates
+    ];
+    const bounds = L.latLngBounds(allCoords);
+    map.fitBounds(bounds, { padding: [60, 60], maxZoom: 14, animate: true });
   }, [showCoolRoutes, activeCorridorId]);
 
   return (
-    <div className="relative w-full h-[520px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-950">
-      {/* Map Element */}
+    <div className={`relative w-full ${isMaximized ? 'h-[720px]' : 'h-[530px]'} rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-950 transition-all duration-300`}>
+      {/* Leaflet Map Canvas */}
       <div ref={mapContainerRef} className="w-full h-full z-10 dark-tiles" />
 
-      {/* Top Floating Controls */}
-      <div className="absolute top-3 left-3 z-20 flex flex-wrap items-center gap-2">
+      {/* Top Floating Action Controls */}
+      <div className="absolute top-3 left-3 z-20 flex flex-wrap items-center gap-2 max-w-[calc(100%-120px)] sm:max-w-none">
+        {/* Toggle Shelters */}
         <button
           onClick={() => setShowShelters(!showShelters)}
-          className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border ${
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border ${
             showShelters
               ? 'bg-emerald-600/90 text-white border-emerald-400 shadow-emerald-600/30'
               : 'bg-slate-900/80 text-slate-300 border-slate-700 hover:bg-slate-800'
@@ -439,9 +481,10 @@ export default function WardMap({
           <span>{t.mapControls.showShelters}</span>
         </button>
 
+        {/* Toggle Hotspots */}
         <button
           onClick={() => setShowHotspots(!showHotspots)}
-          className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border ${
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border ${
             showHotspots
               ? 'bg-red-600/90 text-white border-red-400 shadow-red-600/30'
               : 'bg-slate-900/80 text-slate-300 border-slate-700 hover:bg-slate-800'
@@ -451,19 +494,118 @@ export default function WardMap({
           <span>{t.mapControls.showHotspots || "Live Hotspots"}</span>
         </button>
 
-        {/* Driver Cool Routes Mode Toggle */}
+        {/* Driver Cool Routes Toggle */}
         <button
           onClick={() => setShowCoolRoutes(!showCoolRoutes)}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border ${
             showCoolRoutes
-              ? 'bg-emerald-600/90 text-white border-emerald-400 shadow-emerald-600/30 ring-2 ring-emerald-400/50'
+              ? 'bg-emerald-600/95 text-white border-emerald-300 shadow-emerald-600/40 ring-2 ring-emerald-400/50'
               : 'bg-slate-900/80 text-slate-300 border-slate-700 hover:bg-slate-800'
           }`}
         >
           <Navigation className="w-3.5 h-3.5 text-emerald-400" />
           <span>🚗 Driver Cool Routes</span>
         </button>
+
+        {/* Maximize / Restore Map Toggle */}
+        {onToggleMaximize && (
+          <button
+            onClick={onToggleMaximize}
+            title={isMaximized ? "Restore split view" : "Maximize map to full width"}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border bg-slate-900/85 text-slate-200 border-slate-700 hover:bg-slate-800 hover:border-indigo-400"
+          >
+            {isMaximized ? (
+              <>
+                <Minimize2 className="w-3.5 h-3.5 text-indigo-400" />
+                <span>Restore View</span>
+              </>
+            ) : (
+              <>
+                <Maximize2 className="w-3.5 h-3.5 text-indigo-400" />
+                <span>Maximize Map</span>
+              </>
+            )}
+          </button>
+        )}
       </div>
+
+      {/* Floating Driver Cool Route Corridor Bar (Quick Switcher when Cool Routes active) */}
+      {showCoolRoutes && (
+        <div className="absolute top-14 left-3 z-20 flex flex-wrap items-center gap-1.5 max-w-[calc(100%-24px)]">
+          {driverCorridors.map((c) => (
+            <button
+              key={c.id}
+              onClick={() => setActiveCorridorId(c.id)}
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition backdrop-blur-md border shadow-md flex items-center gap-1 ${
+                activeCorridorId === c.id
+                  ? 'bg-emerald-600 text-white border-emerald-400 shadow-emerald-600/30'
+                  : 'bg-slate-900/90 text-slate-300 border-slate-700 hover:bg-slate-800'
+              }`}
+            >
+              <span>{c.title.split('→')[0].trim()} → {c.title.split('→')[1]?.trim()}</span>
+              <span className="text-[10px] opacity-80">({c.cool_route.temp_savings_c}°C)</span>
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Collapsible Top Right Hotspots Widget (NEVER blocks the map!) */}
+      {showHotspots && topHotspots.length > 0 && (
+        <div className="absolute top-3 right-3 z-20">
+          {isHotspotsExpanded ? (
+            /* Expanded Hotspots Card */
+            <div className="bg-slate-950/95 backdrop-blur-md p-3 rounded-2xl border border-red-900/60 shadow-2xl text-xs w-[260px] space-y-2 animate-in fade-in zoom-in-95 duration-150">
+              <div className="flex items-center justify-between pb-1.5 border-b border-slate-800">
+                <div className="flex items-center gap-1.5 font-extrabold text-red-400 text-xs">
+                  <Flame className="w-3.5 h-3.5 text-red-500 animate-pulse" />
+                  <span>{t.topHotspots || "Top Thermal Hotspots"}</span>
+                </div>
+                <button
+                  onClick={() => setIsHotspotsExpanded(false)}
+                  className="p-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition"
+                  title="Collapse Hotspots"
+                >
+                  <ChevronUp className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              <div className="space-y-1">
+                {topHotspots.map((h, i) => (
+                  <button
+                    key={h.ward_id || i}
+                    onClick={() => {
+                      setSelectedWard(h);
+                      if (h.center && mapInstanceRef.current) {
+                        mapInstanceRef.current.flyTo(h.center, 13);
+                      }
+                    }}
+                    className="w-full text-left flex items-center justify-between gap-2 p-1.5 rounded-lg hover:bg-slate-800/70 transition"
+                  >
+                    <div className="truncate text-[11px] text-slate-200 font-medium">
+                      <span className="text-red-400 font-bold mr-1">#{i + 1}</span>
+                      {h.name?.split('&')[0]?.trim()}
+                    </div>
+                    <span className="font-mono text-[10px] font-extrabold text-amber-300 shrink-0">
+                      {h.microclimate?.temperature_c != null ? `${Number(h.microclimate.temperature_c).toFixed(1)}°C` : '--'}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
+            /* Collapsed Compact Badge - Unobtrusive pill button */
+            <button
+              onClick={() => setIsHotspotsExpanded(true)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950/90 hover:bg-slate-900 border border-red-900/60 text-red-400 font-bold text-xs shadow-xl backdrop-blur-md transition transform hover:scale-105"
+              title="Click to expand Top Thermal Hotspots"
+            >
+              <Flame className="w-3.5 h-3.5 text-red-500 animate-pulse" />
+              <span>Top Hotspots (3)</span>
+              <ChevronDown className="w-3 h-3 text-slate-400" />
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Floating Driver Cool Route Navigation Comparison Drawer */}
       {showCoolRoutes && (
@@ -519,38 +661,6 @@ export default function WardMap({
               </div>
             );
           })()}
-        </div>
-      )}
-
-      {/* Top Right Floating Hotspots Leaderboard */}
-      {showHotspots && topHotspots.length > 0 && (
-        <div className="absolute top-3 right-3 z-20 bg-slate-950/90 backdrop-blur-md p-2.5 rounded-xl border border-red-900/50 shadow-xl text-xs hidden sm:block max-w-[250px]">
-          <div className="flex items-center gap-1.5 font-bold text-red-400 mb-1.5 pb-1 border-b border-slate-800">
-            <Flame className="w-3.5 h-3.5 text-red-500 animate-pulse" />
-            <span>{t.topHotspots || "Top Thermal Hotspots"}</span>
-          </div>
-          <div className="space-y-1">
-            {topHotspots.map((h, i) => (
-              <button
-                key={h.ward_id || i}
-                onClick={() => {
-                  setSelectedWard(h);
-                  if (h.center && mapInstanceRef.current) {
-                    mapInstanceRef.current.flyTo(h.center, 13);
-                  }
-                }}
-                className="w-full text-left flex items-center justify-between gap-2 p-1.5 rounded-lg hover:bg-slate-800/70 transition"
-              >
-                <div className="truncate text-[11px] text-slate-200 font-medium">
-                  <span className="text-red-400 font-bold mr-1">#{i + 1}</span>
-                  {h.name?.split('&')[0]?.trim()}
-                </div>
-                <span className="font-mono text-[10px] font-extrabold text-amber-300 shrink-0">
-                  {h.microclimate?.temperature_c != null ? `${Number(h.microclimate.temperature_c).toFixed(1)}°C` : '--'}
-                </span>
-              </button>
-            ))}
-          </div>
         </div>
       )}
 
