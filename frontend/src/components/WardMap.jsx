@@ -239,23 +239,23 @@ export default function WardMap({
         html: `
           <div style="
             background: ${isCooling ? '#059669' : '#0284c7'};
-            border: 2px solid #ffffff;
+            border: 1.5px solid #ffffff;
             border-radius: 9999px;
-            width: 26px;
-            height: 26px;
+            width: 22px;
+            height: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            box-shadow: 0 0 8px rgba(0,0,0,0.35);
             cursor: pointer;
             color: #ffffff;
-            font-size: 13px;
+            font-size: 11px;
           ">
             ${isCooling ? '❄️' : '💧'}
           </div>
         `,
-        iconSize: [26, 26],
-        iconAnchor: [13, 13]
+        iconSize: [22, 22],
+        iconAnchor: [11, 11]
       });
 
       const sName =
@@ -312,13 +312,13 @@ export default function WardMap({
         const pulseIcon = L.divIcon({
           className: 'hotspot-pulse-icon',
           html: `
-            <div style="position: relative; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-              <div style="position: absolute; width: 28px; height: 28px; border-radius: 9999px; background: rgba(239, 68, 68, 0.45); animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
-              <div style="position: relative; width: 22px; height: 22px; border-radius: 9999px; background: linear-gradient(135deg, #dc2626, #ea580c); border: 2px solid #fef08a; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 12px #dc2626; font-size: 11px;">🔥</div>
+            <div style="position: relative; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+              <div style="position: absolute; width: 22px; height: 22px; border-radius: 9999px; background: rgba(239, 68, 68, 0.35); animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
+              <div style="position: relative; width: 18px; height: 18px; border-radius: 9999px; background: linear-gradient(135deg, #dc2626, #ea580c); border: 1.5px solid #fef08a; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 8px #dc2626; font-size: 9px;">🔥</div>
             </div>
           `,
-          iconSize: [30, 30],
-          iconAnchor: [15, 15]
+          iconSize: [22, 22],
+          iconAnchor: [11, 11]
         });
 
         const m = L.marker(p.center, { icon: pulseIcon });
@@ -462,172 +462,178 @@ export default function WardMap({
   }, [showCoolRoutes, activeCorridorId]);
 
   return (
-    <div className={`relative w-full ${isMaximized ? 'h-[720px]' : 'h-[530px]'} rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-950 transition-all duration-300`}>
+    <div className={`relative w-full ${isMaximized ? 'h-[740px]' : 'h-[560px]'} rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-950 transition-all duration-300`}>
       {/* Leaflet Map Canvas */}
       <div ref={mapContainerRef} className="w-full h-full z-10 dark-tiles" />
 
-      {/* Top Floating Action Controls */}
-      <div className="absolute top-3 left-3 z-20 flex flex-wrap items-center gap-2 max-w-[calc(100%-120px)] sm:max-w-none">
-        {/* Toggle Shelters */}
-        <button
-          onClick={() => setShowShelters(!showShelters)}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border ${
-            showShelters
-              ? 'bg-emerald-600/90 text-white border-emerald-400 shadow-emerald-600/30'
-              : 'bg-slate-900/80 text-slate-300 border-slate-700 hover:bg-slate-800'
-          }`}
-        >
-          <Droplets className="w-3.5 h-3.5 text-sky-400" />
-          <span>{t.mapControls.showShelters}</span>
-        </button>
-
-        {/* Toggle Hotspots */}
-        <button
-          onClick={() => setShowHotspots(!showHotspots)}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border ${
-            showHotspots
-              ? 'bg-red-600/90 text-white border-red-400 shadow-red-600/30'
-              : 'bg-slate-900/80 text-slate-300 border-slate-700 hover:bg-slate-800'
-          }`}
-        >
-          <Flame className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
-          <span>{t.mapControls.showHotspots || "Live Hotspots"}</span>
-        </button>
-
-        {/* Driver Cool Routes Toggle */}
-        <button
-          onClick={() => setShowCoolRoutes(!showCoolRoutes)}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border ${
-            showCoolRoutes
-              ? 'bg-emerald-600/95 text-white border-emerald-300 shadow-emerald-600/40 ring-2 ring-emerald-400/50'
-              : 'bg-slate-900/80 text-slate-300 border-slate-700 hover:bg-slate-800'
-          }`}
-        >
-          <Navigation className="w-3.5 h-3.5 text-emerald-400" />
-          <span>🚗 Driver Cool Routes</span>
-        </button>
-
-        {/* Maximize / Restore Map Toggle */}
-        {onToggleMaximize && (
+      {/* Top Floating Navigation Bar: Single cohesive, non-wrapping row across map */}
+      <div className="absolute top-3 left-3 right-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
+        {/* Left Segmented Control Pill */}
+        <div className="pointer-events-auto flex items-center gap-1 bg-slate-950/90 backdrop-blur-md p-1 rounded-xl border border-slate-800/90 shadow-xl">
+          {/* Toggle Shelters */}
           <button
-            onClick={onToggleMaximize}
-            title={isMaximized ? "Restore split view" : "Maximize map to full width"}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border bg-slate-900/85 text-slate-200 border-slate-700 hover:bg-slate-800 hover:border-indigo-400"
+            onClick={() => setShowShelters(!showShelters)}
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition ${
+              showShelters
+                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+            }`}
+            title="Toggle cooling shelters and hydration kiosks"
           >
-            {isMaximized ? (
-              <>
-                <Minimize2 className="w-3.5 h-3.5 text-indigo-400" />
-                <span>Restore View</span>
-              </>
-            ) : (
-              <>
-                <Maximize2 className="w-3.5 h-3.5 text-indigo-400" />
-                <span>Maximize Map</span>
-              </>
-            )}
+            <Droplets className="w-3.5 h-3.5 text-sky-400" />
+            <span>Kiosks</span>
+            <span className={`text-[10px] px-1.5 py-0.2 rounded font-mono ${showShelters ? 'bg-emerald-700 text-white' : 'bg-slate-800 text-slate-400'}`}>
+              {shelters?.length || 26}
+            </span>
           </button>
-        )}
-      </div>
 
-      {/* Floating Driver Cool Route Corridor Bar (Quick Switcher when Cool Routes active) */}
-      {showCoolRoutes && (
-        <div className="absolute top-14 left-3 z-20 flex flex-wrap items-center gap-1.5 max-w-[calc(100%-24px)]">
-          {driverCorridors.map((c) => (
-            <button
-              key={c.id}
-              onClick={() => setActiveCorridorId(c.id)}
-              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition backdrop-blur-md border shadow-md flex items-center gap-1 ${
-                activeCorridorId === c.id
-                  ? 'bg-emerald-600 text-white border-emerald-400 shadow-emerald-600/30'
-                  : 'bg-slate-900/90 text-slate-300 border-slate-700 hover:bg-slate-800'
-              }`}
-            >
-              <span>{c.title.split('→')[0].trim()} → {c.title.split('→')[1]?.trim()}</span>
-              <span className="text-[10px] opacity-80">({c.cool_route.temp_savings_c}°C)</span>
-            </button>
-          ))}
+          {/* Toggle Hotspots */}
+          <button
+            onClick={() => setShowHotspots(!showHotspots)}
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition ${
+              showHotspots
+                ? 'bg-red-600 text-white shadow-md shadow-red-600/30'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+            }`}
+            title="Toggle live thermal hotspots"
+          >
+            <Flame className="w-3.5 h-3.5 text-amber-300" />
+            <span>Hotspots</span>
+          </button>
+
+          {/* Driver Cool Routes */}
+          <button
+            onClick={() => setShowCoolRoutes(!showCoolRoutes)}
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition ${
+              showCoolRoutes
+                ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+            }`}
+            title="Toggle driver cool respite routes"
+          >
+            <Navigation className="w-3.5 h-3.5 text-indigo-400" />
+            <span>Cool Routes</span>
+          </button>
         </div>
-      )}
 
-      {/* Collapsible Top Right Hotspots Widget (NEVER blocks the map!) */}
-      {showHotspots && topHotspots.length > 0 && (
-        <div className="absolute top-3 right-3 z-20">
-          {isHotspotsExpanded ? (
-            /* Expanded Hotspots Card */
-            <div className="bg-slate-950/95 backdrop-blur-md p-3 rounded-2xl border border-red-900/60 shadow-2xl text-xs w-[260px] space-y-2 animate-in fade-in zoom-in-95 duration-150">
-              <div className="flex items-center justify-between pb-1.5 border-b border-slate-800">
-                <div className="flex items-center gap-1.5 font-extrabold text-red-400 text-xs">
-                  <Flame className="w-3.5 h-3.5 text-red-500 animate-pulse" />
-                  <span>{t.topHotspots || "Top Thermal Hotspots"}</span>
-                </div>
-                <button
-                  onClick={() => setIsHotspotsExpanded(false)}
-                  className="p-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition"
-                  title="Collapse Hotspots"
-                >
-                  <ChevronUp className="w-3.5 h-3.5" />
-                </button>
-              </div>
+        {/* Right Group: Hotspots Flyout & Maximize Controls */}
+        <div className="pointer-events-auto flex items-center gap-1.5">
+          {showHotspots && topHotspots.length > 0 && (
+            <div className="relative">
+              <button
+                onClick={() => setIsHotspotsExpanded(!isHotspotsExpanded)}
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border text-xs font-bold shadow-xl backdrop-blur-md transition ${
+                  isHotspotsExpanded
+                    ? 'bg-red-600 text-white border-red-500 shadow-red-600/30'
+                    : 'bg-slate-950/90 text-red-400 border-red-900/60 hover:bg-slate-900'
+                }`}
+                title="View Top 3 Thermal Hotspots ranking"
+              >
+                <Flame className="w-3.5 h-3.5 text-red-400" />
+                <span className="hidden sm:inline">Top 3</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${isHotspotsExpanded ? 'rotate-180' : ''}`} />
+              </button>
 
-              <div className="space-y-1">
-                {topHotspots.map((h, i) => (
-                  <button
-                    key={h.ward_id || i}
-                    onClick={() => {
-                      setSelectedWard(h);
-                      if (h.center && mapInstanceRef.current) {
-                        mapInstanceRef.current.flyTo(h.center, 13);
-                      }
-                    }}
-                    className="w-full text-left flex items-center justify-between gap-2 p-1.5 rounded-lg hover:bg-slate-800/70 transition"
-                  >
-                    <div className="truncate text-[11px] text-slate-200 font-medium">
-                      <span className="text-red-400 font-bold mr-1">#{i + 1}</span>
-                      {h.name?.split('&')[0]?.trim()}
+              {/* Dropdown Flyout Card */}
+              {isHotspotsExpanded && (
+                <div className="absolute top-11 right-0 z-30 bg-slate-950/95 backdrop-blur-md p-3 rounded-2xl border border-red-900/70 shadow-2xl text-xs w-[250px] space-y-2 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="flex items-center justify-between pb-1.5 border-b border-slate-800">
+                    <div className="flex items-center gap-1.5 font-extrabold text-red-400 text-xs">
+                      <Flame className="w-3.5 h-3.5 text-red-500 animate-pulse" />
+                      <span>Top Thermal Hotspots</span>
                     </div>
-                    <span className="font-mono text-[10px] font-extrabold text-amber-300 shrink-0">
-                      {h.microclimate?.temperature_c != null ? `${Number(h.microclimate.temperature_c).toFixed(1)}°C` : '--'}
-                    </span>
-                  </button>
-                ))}
-              </div>
+                    <button
+                      onClick={() => setIsHotspotsExpanded(false)}
+                      className="p-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </div>
+                  <div className="space-y-1">
+                    {topHotspots.map((h, i) => (
+                      <button
+                        key={h.ward_id || i}
+                        onClick={() => {
+                          setSelectedWard(h);
+                          if (h.center && mapInstanceRef.current) {
+                            mapInstanceRef.current.flyTo(h.center, 13);
+                          }
+                          setIsHotspotsExpanded(false);
+                        }}
+                        className="w-full text-left flex items-center justify-between gap-2 p-1.5 rounded-lg hover:bg-slate-800/70 transition"
+                      >
+                        <div className="truncate text-[11px] text-slate-200 font-medium">
+                          <span className="text-red-400 font-bold mr-1">#{i + 1}</span>
+                          {h.name?.split('&')[0]?.trim()}
+                        </div>
+                        <span className="font-mono text-[10px] font-extrabold text-amber-300 shrink-0">
+                          {h.microclimate?.temperature_c != null ? `${Number(h.microclimate.temperature_c).toFixed(1)}°C` : '--'}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-          ) : (
-            /* Collapsed Compact Badge - Unobtrusive pill button */
+          )}
+
+          {onToggleMaximize && (
             <button
-              onClick={() => setIsHotspotsExpanded(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950/90 hover:bg-slate-900 border border-red-900/60 text-red-400 font-bold text-xs shadow-xl backdrop-blur-md transition transform hover:scale-105"
-              title="Click to expand Top Thermal Hotspots"
+              onClick={onToggleMaximize}
+              title={isMaximized ? "Restore split view" : "Maximize map to full width"}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-950/90 text-slate-200 border border-slate-700/80 hover:border-indigo-400 text-xs font-bold shadow-xl backdrop-blur-md transition hover:bg-slate-900"
             >
-              <Flame className="w-3.5 h-3.5 text-red-500 animate-pulse" />
-              <span>Top Hotspots (3)</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              {isMaximized ? (
+                <>
+                  <Minimize2 className="w-3.5 h-3.5 text-indigo-400" />
+                  <span className="hidden sm:inline">Restore</span>
+                </>
+              ) : (
+                <>
+                  <Maximize2 className="w-3.5 h-3.5 text-indigo-400" />
+                  <span className="hidden sm:inline">Maximize</span>
+                </>
+              )}
             </button>
           )}
         </div>
-      )}
+      </div>
 
       {/* Floating Driver Cool Route Navigation Comparison Drawer */}
       {showCoolRoutes && (
-        <div className="absolute bottom-4 left-3 right-3 sm:right-auto sm:max-w-md z-30 bg-slate-950/95 backdrop-blur-md p-4 rounded-2xl border border-emerald-500/50 shadow-2xl text-xs space-y-3">
+        <div className="absolute bottom-4 left-3 right-3 sm:right-auto sm:max-w-md z-30 bg-slate-950/95 backdrop-blur-md p-4 rounded-2xl border border-emerald-500/50 shadow-2xl text-xs space-y-3 animate-in fade-in slide-in-from-bottom-3 duration-200">
           <div className="flex items-center justify-between border-b border-slate-800 pb-2">
             <div className="flex items-center gap-2">
               <Navigation className="w-4 h-4 text-emerald-400" />
               <span className="font-bold text-white uppercase text-[11px] tracking-wide">
-                Driver Heat Respite Navigation
+                Driver Heat Respite Routes
               </span>
             </div>
-            <select
-              value={activeCorridorId}
-              onChange={(e) => setActiveCorridorId(e.target.value)}
-              className="bg-slate-900 border border-slate-700 text-white text-[11px] font-bold rounded-lg px-2 py-1 focus:ring-1 focus:ring-emerald-500 cursor-pointer"
+            <button
+              onClick={() => setShowCoolRoutes(false)}
+              className="text-slate-400 hover:text-white p-1 rounded-md bg-slate-800 hover:bg-slate-700 transition"
+              title="Close cool routes"
             >
-              {driverCorridors.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {c.title.split('→')[0].trim()} → {c.title.split('→')[1]?.trim()}
-                </option>
-              ))}
-            </select>
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          {/* Corridor Selection Tabs */}
+          <div className="grid grid-cols-2 gap-1.5">
+            {driverCorridors.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setActiveCorridorId(c.id)}
+                className={`p-1.5 rounded-lg text-[10px] font-bold transition text-left border ${
+                  activeCorridorId === c.id
+                    ? 'bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-600/30'
+                    : 'bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-800'
+                }`}
+              >
+                <div className="truncate font-semibold">{c.title}</div>
+                <div className="text-[9px] text-emerald-300 opacity-90 font-mono">-{c.cool_route.temp_savings_c}°C Cooler</div>
+              </button>
+            ))}
           </div>
 
           {/* Direct vs Cool Route Stats Grid */}
@@ -664,35 +670,32 @@ export default function WardMap({
         </div>
       )}
 
-      {/* Bottom Floating Legend */}
-      <div className="absolute bottom-3 left-3 z-20 bg-slate-950/90 backdrop-blur-md p-2.5 rounded-xl border border-slate-800 shadow-xl text-[11px] text-slate-300 max-w-[calc(100%-24px)]">
-        <div className="font-bold mb-1.5 text-slate-200 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-1.5">
-            <Info className="w-3.5 h-3.5 text-slate-400" />
-            <span>{t.mapControls.legend}</span>
-          </div>
-          <span className="text-[10px] text-slate-400 font-mono hidden sm:inline">(WBGT / Microclimate)</span>
+      {/* Bottom Floating Legend (Neat, horizontal, non-intrusive) */}
+      <div className="absolute bottom-3 left-3 z-20 bg-slate-950/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-800 shadow-xl text-[10px] text-slate-300 max-w-[calc(100%-80px)] flex flex-wrap items-center gap-2">
+        <div className="font-bold text-slate-200 flex items-center gap-1 shrink-0">
+          <Info className="w-3 h-3 text-slate-400" />
+          <span className="hidden sm:inline">Risk:</span>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex items-center gap-2">
           <div className="flex items-center gap-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-600 shadow-[0_0_6px_#dc2626]" />
-            <span className="font-bold text-red-400">Critical (&gt;34°C)</span>
+            <span className="w-2 h-2 rounded-full bg-red-600 shadow-[0_0_6px_#dc2626]" />
+            <span className="font-bold text-red-400">&gt;34°C</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-orange-500" />
-            <span className="text-orange-300">High (32–34°C)</span>
+            <span className="w-2 h-2 rounded-full bg-orange-500" />
+            <span className="text-orange-300">32–34°C</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-            <span className="text-yellow-300">Moderate (28–32°C)</span>
+            <span className="w-2 h-2 rounded-full bg-yellow-500" />
+            <span className="text-yellow-300">28–32°C</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600" />
-            <span className="text-emerald-300">Safe (&lt;28°C)</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-600" />
+            <span className="text-emerald-300">&lt;28°C</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-sky-500 shadow-[0_0_6px_#0284c7]" />
-            <span className="text-sky-300">Rain Relief (&lt;24°C)</span>
+            <span className="w-2 h-2 rounded-full bg-sky-500 shadow-[0_0_6px_#0284c7]" />
+            <span className="text-sky-300">&lt;24°C</span>
           </div>
         </div>
       </div>

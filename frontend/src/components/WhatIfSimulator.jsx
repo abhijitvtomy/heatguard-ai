@@ -188,13 +188,27 @@ export default function WhatIfSimulator({
     isAtmosphericOverride, tempOverride, rhOverride, windOverride, solarOverride
   ]);
 
+  // Live weather readings for active ward
+  const liveTemp = Number(activeWard?.microclimate?.temperature_c ?? activeWard?.microclimate?.ambient_temp_c ?? 34.0);
+  const liveRh = Number(activeWard?.microclimate?.relative_humidity_pct ?? 52.0);
+  const liveWind = Number(activeWard?.microclimate?.wind_speed_m_s ?? 1.4);
+  const liveSolar = Number(activeWard?.microclimate?.solar_radiation_w_m2 ?? 780.0);
+
+  const resetWeatherOverrides = () => {
+    setTempOverride(liveTemp);
+    setRhOverride(liveRh);
+    setWindOverride(liveWind);
+    setSolarOverride(liveSolar);
+    setIsAtmosphericOverride(false);
+  };
+
   // Presets
   const applyPreset = (type) => {
     if (type === 'MISSION_COOL') {
       setCoolRoofPct(75);
       setCanopyDeltaPct(20);
       setMistingDensity(35);
-      setIsAtmosphericOverride(false);
+      resetWeatherOverrides();
     } else if (type === 'EXTREME_HEAT') {
       setIsAtmosphericOverride(true);
       setTempOverride(41.5);
@@ -213,12 +227,14 @@ export default function WhatIfSimulator({
       setCoolRoofPct(0);
       setCanopyDeltaPct(0);
       setMistingDensity(0);
+    } else if (type === 'RESET_WEATHER') {
+      resetWeatherOverrides();
     } else {
-      // Reset
+      // Reset All
       setCoolRoofPct(40);
       setCanopyDeltaPct(12);
       setMistingDensity(15);
-      setIsAtmosphericOverride(false);
+      resetWeatherOverrides();
     }
   };
 
@@ -304,33 +320,46 @@ export default function WhatIfSimulator({
         <button
           onClick={() => applyPreset('MISSION_COOL')}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/40 text-emerald-300 text-xs font-bold transition shadow"
+          title="Simulate maximal urban cooling interventions (-3.4°C relief)"
         >
           <TreePine className="w-3.5 h-3.5" />
-          <span>Mission Cool Bengaluru (Max Resilience)</span>
+          <span>Mission Cool Bengaluru</span>
         </button>
 
         <button
           onClick={() => applyPreset('EXTREME_HEAT')}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-950/60 hover:bg-red-900/60 border border-red-500/40 text-red-300 text-xs font-bold transition shadow"
+          title="Stress test under severe heatwave conditions (+41.5°C, 950 W/m²)"
         >
           <Sun className="w-3.5 h-3.5" />
-          <span>Severe Heatwave Stress (+41.5°C)</span>
+          <span>Severe Heatwave (+41.5°C)</span>
         </button>
 
         <button
           onClick={() => applyPreset('MONSOON_RELIEF')}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-950/60 hover:bg-sky-900/60 border border-sky-500/40 text-sky-300 text-xs font-bold transition shadow"
+          title="Simulate high-humidity monsoon rain cooling"
         >
           <Droplets className="w-3.5 h-3.5" />
-          <span>Monsoon Saturation Relief</span>
+          <span>Monsoon Saturation</span>
+        </button>
+
+        <button
+          onClick={() => applyPreset('RESET_WEATHER')}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-950/80 hover:bg-sky-900 border border-sky-600/50 text-sky-300 text-xs font-bold transition shadow"
+          title="Reset temperature, humidity, wind, and solar radiation to ward's live weather readings"
+        >
+          <RotateCcw className="w-3.5 h-3.5 text-sky-400" />
+          <span>↺ Reset Weather (Live Baseline)</span>
         </button>
 
         <button
           onClick={() => applyPreset('RESET')}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-bold transition ml-auto"
+          title="Reset all intervention sliders and atmospheric parameters"
         >
-          <RotateCcw className="w-3.5 h-3.5" />
-          <span>Reset Parameters</span>
+          <RotateCcw className="w-3.5 h-3.5 text-slate-400" />
+          <span>Reset All</span>
         </button>
       </div>
 
@@ -453,9 +482,32 @@ export default function WhatIfSimulator({
 
             {isAtmosphericOverride && (
               <div className="pt-3 border-t border-slate-800/80 space-y-4">
+                {/* Reset All Weather Banner */}
+                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-950/80 border border-slate-800 text-[11px]">
+                  <span className="text-slate-400">Atmospheric Stress Active</span>
+                  <button
+                    onClick={resetWeatherOverrides}
+                    className="flex items-center gap-1 text-[10px] font-bold text-sky-400 hover:text-sky-300 bg-sky-950/70 hover:bg-sky-900/80 px-2 py-0.5 rounded-lg border border-sky-700/50 transition"
+                    title="Reset all 4 atmospheric parameters to live ward readings"
+                  >
+                    <RotateCcw className="w-3 h-3 text-sky-400" />
+                    <span>Reset All Weather to Live</span>
+                  </button>
+                </div>
+
+                {/* 1. Ambient Air Temperature */}
                 <div className="space-y-1">
-                  <div className="flex justify-between text-[11px]">
-                    <span className="text-slate-400">Ambient Air Temperature</span>
+                  <div className="flex justify-between items-center text-[11px]">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-slate-400">Ambient Air Temperature</span>
+                      <button
+                        onClick={() => setTempOverride(liveTemp)}
+                        className="text-[9px] font-mono text-slate-400 hover:text-red-400 underline decoration-dotted transition"
+                        title="Reset temperature to live ward reading"
+                      >
+                        ↺ Live ({liveTemp}°C)
+                      </button>
+                    </div>
                     <span className="font-mono font-bold text-red-300">{tempOverride}°C</span>
                   </div>
                   <input
@@ -465,13 +517,23 @@ export default function WhatIfSimulator({
                     step="0.5"
                     value={tempOverride}
                     onChange={(e) => setTempOverride(Number(e.target.value))}
-                    className="w-full accent-red-500 h-1.5 bg-slate-800 rounded-lg"
+                    className="w-full accent-red-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer"
                   />
                 </div>
 
+                {/* 2. Relative Humidity */}
                 <div className="space-y-1">
-                  <div className="flex justify-between text-[11px]">
-                    <span className="text-slate-400">Relative Humidity</span>
+                  <div className="flex justify-between items-center text-[11px]">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-slate-400">Relative Humidity</span>
+                      <button
+                        onClick={() => setRhOverride(liveRh)}
+                        className="text-[9px] font-mono text-slate-400 hover:text-sky-400 underline decoration-dotted transition"
+                        title="Reset relative humidity to live ward reading"
+                      >
+                        ↺ Live ({liveRh}%)
+                      </button>
+                    </div>
                     <span className="font-mono font-bold text-sky-300">{rhOverride}%</span>
                   </div>
                   <input
@@ -481,15 +543,22 @@ export default function WhatIfSimulator({
                     step="1"
                     value={rhOverride}
                     onChange={(e) => setRhOverride(Number(e.target.value))}
-                    className="w-full accent-sky-500 h-1.5 bg-slate-800 rounded-lg"
+                    className="w-full accent-sky-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer"
                   />
                 </div>
 
+                {/* 3 & 4. Wind Speed and Solar Irradiance */}
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <div className="flex justify-between text-[11px]">
-                      <span className="text-slate-400">Wind Speed</span>
-                      <span className="font-mono font-bold text-indigo-300">{windOverride} m/s</span>
+                    <div className="flex justify-between items-center text-[11px]">
+                      <span className="text-slate-400">Wind</span>
+                      <button
+                        onClick={() => setWindOverride(liveWind)}
+                        className="text-[9px] font-mono text-slate-400 hover:text-indigo-400 underline decoration-dotted transition"
+                        title="Reset wind speed to live ward reading"
+                      >
+                        ↺ ({liveWind}m/s)
+                      </button>
                     </div>
                     <input
                       type="range"
@@ -498,14 +567,23 @@ export default function WhatIfSimulator({
                       step="0.2"
                       value={windOverride}
                       onChange={(e) => setWindOverride(Number(e.target.value))}
-                      className="w-full accent-indigo-500 h-1.5 bg-slate-800 rounded-lg"
+                      className="w-full accent-indigo-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer"
                     />
+                    <div className="text-right font-mono font-bold text-indigo-300 text-[10px]">
+                      {windOverride} m/s
+                    </div>
                   </div>
 
                   <div className="space-y-1">
-                    <div className="flex justify-between text-[11px]">
-                      <span className="text-slate-400">Solar Irradiance</span>
-                      <span className="font-mono font-bold text-amber-300">{solarOverride} W/m²</span>
+                    <div className="flex justify-between items-center text-[11px]">
+                      <span className="text-slate-400">Solar</span>
+                      <button
+                        onClick={() => setSolarOverride(liveSolar)}
+                        className="text-[9px] font-mono text-slate-400 hover:text-amber-400 underline decoration-dotted transition"
+                        title="Reset solar radiation to live ward reading"
+                      >
+                        ↺ ({liveSolar}W)
+                      </button>
                     </div>
                     <input
                       type="range"
@@ -514,8 +592,11 @@ export default function WhatIfSimulator({
                       step="25"
                       value={solarOverride}
                       onChange={(e) => setSolarOverride(Number(e.target.value))}
-                      className="w-full accent-amber-500 h-1.5 bg-slate-800 rounded-lg"
+                      className="w-full accent-amber-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer"
                     />
+                    <div className="text-right font-mono font-bold text-amber-300 text-[10px]">
+                      {solarOverride} W/m²
+                    </div>
                   </div>
                 </div>
               </div>

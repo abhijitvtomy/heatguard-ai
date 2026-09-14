@@ -27,7 +27,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('map'); // map, simulator, community, guide, league, actionPlan, audit
   const [selectedWard, setSelectedWard] = useState(fallbackWardsData?.wards?.[0] || null);
   const [selectedHour, setSelectedHour] = useState(null);
-  const [showShelters, setShowShelters] = useState(true);
+  const [showShelters, setShowShelters] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isJudgeModalOpen, setIsJudgeModalOpen] = useState(false);
   const [isPanicModalOpen, setIsPanicModalOpen] = useState(false);
@@ -308,7 +308,7 @@ export default function App() {
             />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-              <div className={isMapMaximized ? "lg:col-span-12" : "lg:col-span-5 xl:col-span-5 2xl:col-span-5"}>
+              <div className={isMapMaximized ? "lg:col-span-12" : "lg:col-span-6 xl:col-span-6 2xl:col-span-6"}>
                 <WardMap
                   wardsGeojson={wardsGeojson}
                   shelters={shelters}
@@ -322,7 +322,7 @@ export default function App() {
                 />
               </div>
 
-              <div className={isMapMaximized ? "lg:col-span-12" : "lg:col-span-7 xl:col-span-7 2xl:col-span-7"}>
+              <div className={isMapMaximized ? "lg:col-span-12" : "lg:col-span-6 xl:col-span-6 2xl:col-span-6"}>
                 <WardDossier
                   ward={selectedWard}
                   language={language}
