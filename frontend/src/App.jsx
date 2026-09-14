@@ -4,6 +4,9 @@ import EmergencyBanner from './components/EmergencyBanner';
 import WardMap from './components/WardMap';
 import WardDossier from './components/WardDossier';
 import HeatRiskTimeline from './components/HeatRiskTimeline';
+import WhatIfSimulator from './components/WhatIfSimulator';
+import CommunityResponse from './components/CommunityResponse';
+import AccuracyFeedback from './components/AccuracyFeedback';
 import ActionPlanModal from './components/ActionPlanModal';
 import AccuracyLedger from './components/AccuracyLedger';
 import CitizenLeague from './components/CitizenLeague';
@@ -12,9 +15,9 @@ import JudgeAccessModal from './components/JudgeAccessModal';
 
 import { getAmbientTheme } from './utils/ambientTheme';
 import { translations } from './i18n/translations';
-import { Map, FileCheck, ShieldCheck, Trophy, Bot } from 'lucide-react';
+import { Map, FileCheck, ShieldCheck, Trophy, Bot, Sliders, Megaphone } from 'lucide-react';
 import { API_BASE } from './config';
-import { fallbackWardsData, fallbackWeatherData, fallbackSheltersData } from './data/fallbackData';
+import { fallbackWardsData, fallbackWeatherData, fallbackSheltersData, fallbackCommunityReports } from './data/fallbackData';
 
 export default function App() {
   const [scenario, setScenario] = useState('LIVE');
@@ -205,7 +208,7 @@ export default function App() {
         <div className="flex items-center gap-2 overflow-x-auto pb-1 border-b border-slate-800/80 text-xs font-bold">
           <button
             onClick={() => setActiveTab('map')}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition ${
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition shrink-0 ${
               activeTab === 'map'
                 ? 'bg-slate-800 text-white border border-slate-700 shadow-md'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
@@ -216,10 +219,46 @@ export default function App() {
           </button>
 
           <button
+            onClick={() => setActiveTab('simulator')}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition shrink-0 ${
+              activeTab === 'simulator'
+                ? 'bg-indigo-950/80 text-white border border-indigo-500/60 shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
+            }`}
+          >
+            <Sliders className="w-4 h-4 text-indigo-400" />
+            <span>{t.tabs.simulator || 'What-If Simulator'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('community')}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition shrink-0 ${
+              activeTab === 'community'
+                ? 'bg-sky-950/80 text-white border border-sky-500/60 shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
+            }`}
+          >
+            <Megaphone className="w-4 h-4 text-sky-400" />
+            <span>{t.tabs.community || 'Community Response'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('league')}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition shrink-0 ${
+              activeTab === 'league'
+                ? 'bg-purple-950/80 text-white border border-purple-500/60 shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
+            }`}
+          >
+            <Trophy className="w-4 h-4 text-purple-400" />
+            <span>{t.tabs.league}</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('actionPlan')}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition ${
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition shrink-0 ${
               activeTab === 'actionPlan'
-                ? 'bg-slate-800 text-white border border-slate-700 shadow-md'
+                ? 'bg-amber-950/80 text-white border border-amber-500/60 shadow-md'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
             }`}
           >
@@ -229,26 +268,14 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab('audit')}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition ${
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition shrink-0 ${
               activeTab === 'audit'
-                ? 'bg-slate-800 text-white border border-slate-700 shadow-md'
+                ? 'bg-emerald-950/80 text-white border border-emerald-500/60 shadow-md'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
             }`}
           >
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
             <span>{t.tabs.audit}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('league')}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition ${
-              activeTab === 'league'
-                ? 'bg-slate-800 text-white border border-slate-700 shadow-md'
-                : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
-            }`}
-          >
-            <Trophy className="w-4 h-4 text-purple-400" />
-            <span>{t.tabs.league}</span>
           </button>
         </div>
 
@@ -288,18 +315,22 @@ export default function App() {
           </div>
         )}
 
-        {/* Tab 2: Municipal Action Plan & Circular */}
-        {activeTab === 'actionPlan' && (
-          <ActionPlanModal
-            scenario={scenario}
+        {/* Tab 2: What-If Urban Policy & Climate Stress Simulator */}
+        {activeTab === 'simulator' && (
+          <WhatIfSimulator
+            wards={wardsGeojson?.features?.map(f => f.properties) || fallbackWardsData?.wards || []}
+            selectedWard={selectedWard}
             language={language}
-            onClose={() => setActiveTab('map')}
           />
         )}
 
-        {/* Tab 3: Model Transparency & Accuracy Ledger */}
-        {activeTab === 'audit' && (
-          <AccuracyLedger auditData={auditData} />
+        {/* Tab 3: Community Ground Response & Anomaly Desk */}
+        {activeTab === 'community' && (
+          <CommunityResponse
+            wards={wardsGeojson?.features?.map(f => f.properties) || fallbackWardsData?.wards || []}
+            initialReports={fallbackCommunityReports}
+            language={language}
+          />
         )}
 
         {/* Tab 4: Citizen Climate Prediction League */}
@@ -312,6 +343,23 @@ export default function App() {
             onSubmitPrediction={handleSubmitPrediction}
           />
         )}
+
+        {/* Tab 5: Municipal Action Plan & Circular */}
+        {activeTab === 'actionPlan' && (
+          <ActionPlanModal
+            scenario={scenario}
+            language={language}
+            onClose={() => setActiveTab('map')}
+          />
+        )}
+
+        {/* Tab 6: Model Transparency & Accuracy Ledger */}
+        {activeTab === 'audit' && (
+          <AccuracyLedger auditData={auditData} />
+        )}
+
+        {/* Continuous Platform Accuracy, Betterments & Flaws Feedback Widget */}
+        <AccuracyFeedback language={language} />
 
       </main>
 

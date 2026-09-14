@@ -919,6 +919,312 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-112",
+      "properties": {
+        "ward_id": "BBMP-112",
+        "name": "Domlur & Indiranagar 100ft Commercial Belt",
+        "name_kn": "ದೋಮ್ಲೂರು ಮತ್ತು ಇಂದಿರಾನಗರ ವಾಣಿಜ್ಯ ಪಟ್ಟಿ",
+        "name_hi": "डोम्लूर और इंदिरानगर कमर्शियल बेल्ट",
+        "zone": "East Zone",
+        "population": 155000,
+        "elderly_pct": 16.5,
+        "outdoor_labor_pct": 42.0,
+        "tin_roof_pct": 32.0,
+        "tree_canopy_pct": 14.2,
+        "hospital_beds_per_k": 3.2,
+        "baseline_daily_admissions": 26,
+        "uhi_temp_delta": 1.8,
+        "wind_attenuation": 0.65,
+        "center": [
+          12.961,
+          77.638
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.625,
+              12.951
+            ],
+            [
+              77.652,
+              12.951
+            ],
+            [
+              77.655,
+              12.972
+            ],
+            [
+              77.628,
+              12.972
+            ],
+            [
+              77.625,
+              12.951
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-7",
+      "properties": {
+        "ward_id": "BBMP-7",
+        "name": "Byatarayanapura Bellary Road Airport Gateway",
+        "name_kn": "ಬ್ಯಾಟರಾಯನಪುರ ಬಳ್ಳಾರಿ ರಸ್ತೆ ಹೆದ್ದಾರಿ ಕಾರಿಡಾರ್",
+        "name_hi": "ब्याटरायनपुरा बेल्लारी रोड हाईवे कॉरिडोर",
+        "zone": "Yelahanka Zone",
+        "population": 210000,
+        "elderly_pct": 13.5,
+        "outdoor_labor_pct": 54.0,
+        "tin_roof_pct": 48.0,
+        "tree_canopy_pct": 8.5,
+        "hospital_beds_per_k": 1.8,
+        "baseline_daily_admissions": 32,
+        "uhi_temp_delta": 2.2,
+        "wind_attenuation": 0.75,
+        "center": [
+          13.062,
+          77.592
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.575,
+              13.048
+            ],
+            [
+              77.608,
+              13.048
+            ],
+            [
+              77.612,
+              13.076
+            ],
+            [
+              77.578,
+              13.076
+            ],
+            [
+              77.575,
+              13.048
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-159",
+      "properties": {
+        "ward_id": "BBMP-159",
+        "name": "J.P. Nagar Cultural & Sarakki Lake Enclave",
+        "name_kn": "ಜೆ.ಪಿ. ನಗರ ಮತ್ತು ಸಾರಕ್ಕಿ ಕೆರೆ ಪರಿಸರ",
+        "name_hi": "जेपी नगर और सारक्की झील एन्क्लेव",
+        "zone": "South Zone",
+        "population": 195000,
+        "elderly_pct": 19.5,
+        "outdoor_labor_pct": 35.0,
+        "tin_roof_pct": 26.0,
+        "tree_canopy_pct": 18.4,
+        "hospital_beds_per_k": 3.8,
+        "baseline_daily_admissions": 28,
+        "uhi_temp_delta": 1.2,
+        "wind_attenuation": 0.7,
+        "center": [
+          12.908,
+          77.585
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.572,
+              12.895
+            ],
+            [
+              77.602,
+              12.895
+            ],
+            [
+              77.605,
+              12.922
+            ],
+            [
+              77.575,
+              12.922
+            ],
+            [
+              77.572,
+              12.895
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-14",
+      "properties": {
+        "ward_id": "BBMP-14",
+        "name": "Bagalgunte & Dasarahalli Industrial Corridor",
+        "name_kn": "ಬಾಗಲಗುಂಟೆ ಮತ್ತು ದಾಸರಹಳ್ಳಿ ಕೈಗಾರಿಕಾ ಕಾರಿಡಾರ್",
+        "name_hi": "बागलकुंटे और दासरहल्ली इंडस्ट्रियल कॉरिडोर",
+        "zone": "Dasarahalli Zone",
+        "population": 245000,
+        "elderly_pct": 11.2,
+        "outdoor_labor_pct": 65.0,
+        "tin_roof_pct": 68.0,
+        "tree_canopy_pct": 4.2,
+        "hospital_beds_per_k": 1.4,
+        "baseline_daily_admissions": 41,
+        "uhi_temp_delta": 2.9,
+        "wind_attenuation": 0.5,
+        "center": [
+          13.045,
+          77.512
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.495,
+              13.031
+            ],
+            [
+              77.528,
+              13.031
+            ],
+            [
+              77.532,
+              13.059
+            ],
+            [
+              77.498,
+              13.059
+            ],
+            [
+              77.495,
+              13.031
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-118",
+      "properties": {
+        "ward_id": "BBMP-118",
+        "name": "Vijayanagar & Magadi Road Wholesale Trade Hub",
+        "name_kn": "ವಿಜಯನಗರ ಮತ್ತು ಮಾಗಡಿ ರಸ್ತೆ ಸಗಟು ವಾಣಿಜ್ಯ ಕೇಂದ್ರ",
+        "name_hi": "विजयनगर और मागड़ी रोड होलसेल ट्रेड हब",
+        "zone": "West Zone",
+        "population": 220000,
+        "elderly_pct": 17.8,
+        "outdoor_labor_pct": 46.0,
+        "tin_roof_pct": 44.0,
+        "tree_canopy_pct": 9.8,
+        "hospital_beds_per_k": 2.7,
+        "baseline_daily_admissions": 35,
+        "uhi_temp_delta": 2.1,
+        "wind_attenuation": 0.55,
+        "center": [
+          12.971,
+          77.538
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.522,
+              12.958
+            ],
+            [
+              77.554,
+              12.958
+            ],
+            [
+              77.558,
+              12.985
+            ],
+            [
+              77.525,
+              12.985
+            ],
+            [
+              77.522,
+              12.958
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-150",
+      "properties": {
+        "ward_id": "BBMP-150",
+        "name": "Bellandur Eco-Park & Lake Technology Corridor",
+        "name_kn": "ಬೆಳ್ಳಂದೂರು ಇಕೋ-ಪಾರ್ಕ್ ಮತ್ತು ಕೆರೆ ತಂತ್ರಜ್ಞಾನ ಕಾರಿಡಾರ್",
+        "name_hi": "बेल्लंदूर इको-पार्क और लेक टेक्नोलॉजी कॉरिडोर",
+        "zone": "Mahadevapura Zone",
+        "population": 260000,
+        "elderly_pct": 10.5,
+        "outdoor_labor_pct": 52.0,
+        "tin_roof_pct": 40.0,
+        "tree_canopy_pct": 11.0,
+        "hospital_beds_per_k": 2.4,
+        "baseline_daily_admissions": 36,
+        "uhi_temp_delta": 2.3,
+        "wind_attenuation": 0.6,
+        "center": [
+          12.935,
+          77.674
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.658,
+              12.921
+            ],
+            [
+              77.692,
+              12.921
+            ],
+            [
+              77.695,
+              12.948
+            ],
+            [
+              77.661,
+              12.948
+            ],
+            [
+              77.658,
+              12.921
+            ]
+          ]
+        ]
+      }
     }
   ],
   "authority": "Metropolitan Heat Resilience Network"

@@ -2,22 +2,22 @@ export const fallbackWardsData = {
   "scenario": "LIVE",
   "city_wide_status": {
     "tier": "GREEN",
-    "max_wbgt_c": 27.03,
-    "mean_hospital_surge_pct": 0.1,
-    "total_additional_beds_needed": 3,
+    "max_wbgt_c": 26.84,
+    "mean_hospital_surge_pct": 0.0,
+    "total_additional_beds_needed": 1,
     "rain_mm": 0.3
   },
   "weather": {
     "city": "Bengaluru Metropolitan Region",
     "authority": "Metropolitan Heat Resilience Network",
     "mode": "LIVE_OPEN_METEO",
-    "ambient_temp_c": 25.9,
-    "relative_humidity_pct": 63.0,
-    "wind_speed_m_s": 1.94,
+    "ambient_temp_c": 24.2,
+    "relative_humidity_pct": 74.0,
+    "wind_speed_m_s": 1.28,
     "solar_radiation_w_m2": 621.8,
     "precipitation_mm": 0.3,
-    "prev_hour_temp_c": 25.299999999999997,
-    "prev_hour_rh_pct": 60.0,
+    "prev_hour_temp_c": 23.599999999999998,
+    "prev_hour_rh_pct": 71.0,
     "forecast_5_days": [
       {
         "day": "Today",
@@ -702,13 +702,13 @@ export const fallbackWardsData = {
         77.585
       ],
       "microclimate": {
-        "temperature_c": 28.7,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 0.78,
-        "wet_bulb_c": 23.3,
-        "heat_index_c": 30.97,
-        "wbgt_c": 26.39,
-        "htsi_score": 47.1,
+        "temperature_c": 27.0,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.51,
+        "wet_bulb_c": 23.39,
+        "heat_index_c": 29.2,
+        "wbgt_c": 26.18,
+        "htsi_score": 45.0,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -732,14 +732,14 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.8°C Urban Heat Island anomaly, while low wind ventilation (0.8 m/s) trapping hot air in street canyons, while 52% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.8°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.8°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.8°C Urban Heat Island anomaly, while low wind ventilation (0.5 m/s) trapping hot air in street canyons, while 52% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.8°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.5 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.8°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.5 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
         "drivers": {
-          "solar_radiation_pct": 26,
-          "moisture_humidity_pct": 17,
-          "wind_ventilation_pct": 13,
-          "urban_heat_island_pct": 29,
+          "solar_radiation_pct": 24,
+          "moisture_humidity_pct": 19,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 28,
           "canopy_buffer_pct": 15
         }
       },
@@ -788,13 +788,13 @@ export const fallbackWardsData = {
         77.518
       ],
       "microclimate": {
-        "temperature_c": 29.1,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 0.97,
-        "wet_bulb_c": 23.67,
-        "heat_index_c": 31.69,
-        "wbgt_c": 26.64,
-        "htsi_score": 48.7,
+        "temperature_c": 27.4,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.64,
+        "wet_bulb_c": 23.76,
+        "heat_index_c": 29.97,
+        "wbgt_c": 26.43,
+        "htsi_score": 46.6,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -818,32 +818,32 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.2°C Urban Heat Island anomaly, while low wind ventilation (1.0 m/s) trapping hot air in street canyons, while 68% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.2°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.2°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.2°C Urban Heat Island anomaly, while low wind ventilation (0.6 m/s) trapping hot air in street canyons, while 68% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.2°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.6 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.2°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.6 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
         "drivers": {
-          "solar_radiation_pct": 25,
-          "moisture_humidity_pct": 17,
-          "wind_ventilation_pct": 11,
-          "urban_heat_island_pct": 31,
-          "canopy_buffer_pct": 16
+          "solar_radiation_pct": 24,
+          "moisture_humidity_pct": 19,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 30,
+          "canopy_buffer_pct": 14
         }
       },
       "is_hotspot": false,
       "health_risk": {
-        "expected_surge_pct": 0.1,
+        "expected_surge_pct": 0.0,
         "confidence_interval_90": {
           "lower_bound_pct": 0.0,
-          "expected_pct": 0.1,
-          "upper_bound_pct": 2.7
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
         },
-        "additional_emergency_beds_needed": 1,
+        "additional_emergency_beds_needed": 0,
         "alert_tier": "GREEN",
         "tier_label_en": "NORMAL / LOW HEALTH RISK",
         "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
         "xai_attribution": {
-          "direct_thermal_stress_pct": 51.0,
-          "vulnerable_demographics_pct": 49.0,
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
           "lagged_cumulative_dose_pct": 0.0,
           "nocturnal_heat_entrapment_pct": 0.0
         }
@@ -874,13 +874,13 @@ export const fallbackWardsData = {
         77.7499
       ],
       "microclimate": {
-        "temperature_c": 28.1,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.46,
-        "wet_bulb_c": 22.76,
-        "heat_index_c": 29.95,
-        "wbgt_c": 25.51,
-        "htsi_score": 43.6,
+        "temperature_c": 26.4,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.96,
+        "wet_bulb_c": 22.82,
+        "heat_index_c": 28.11,
+        "wbgt_c": 25.24,
+        "htsi_score": 41.3,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -904,14 +904,14 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly, while low wind ventilation (1.0 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 29,
-          "moisture_humidity_pct": 20,
-          "wind_ventilation_pct": 9,
-          "urban_heat_island_pct": 28,
+          "solar_radiation_pct": 27,
+          "moisture_humidity_pct": 21,
+          "wind_ventilation_pct": 12,
+          "urban_heat_island_pct": 26,
           "canopy_buffer_pct": 14
         }
       },
@@ -960,13 +960,13 @@ export const fallbackWardsData = {
         77.567
       ],
       "microclimate": {
-        "temperature_c": 23.7,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 2.13,
-        "wet_bulb_c": 18.76,
-        "heat_index_c": 23.77,
-        "wbgt_c": 21.22,
-        "htsi_score": 24.2,
+        "temperature_c": 22.0,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 1.41,
+        "wet_bulb_c": 18.67,
+        "heat_index_c": 22.19,
+        "wbgt_c": 20.83,
+        "htsi_score": 21.7,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -994,9 +994,9 @@ export const fallbackWardsData = {
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -2.2°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 46% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -2.2°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 46% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 56,
-          "moisture_humidity_pct": 38,
-          "wind_ventilation_pct": 6,
+          "solar_radiation_pct": 47,
+          "moisture_humidity_pct": 37,
+          "wind_ventilation_pct": 15,
           "urban_heat_island_pct": 0,
           "canopy_buffer_pct": 5
         }
@@ -1046,13 +1046,13 @@ export const fallbackWardsData = {
         77.6245
       ],
       "microclimate": {
-        "temperature_c": 27.3,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.65,
-        "wet_bulb_c": 22.03,
-        "heat_index_c": 28.73,
-        "wbgt_c": 24.7,
-        "htsi_score": 39.9,
+        "temperature_c": 25.6,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 1.09,
+        "wet_bulb_c": 22.06,
+        "heat_index_c": 26.15,
+        "wbgt_c": 24.41,
+        "htsi_score": 36.8,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1076,14 +1076,14 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.6 m/s.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.1 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.1 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.1 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 35,
-          "moisture_humidity_pct": 23,
-          "wind_ventilation_pct": 9,
-          "urban_heat_island_pct": 26,
+          "solar_radiation_pct": 32,
+          "moisture_humidity_pct": 25,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 23,
           "canopy_buffer_pct": 7
         }
       },
@@ -1132,13 +1132,13 @@ export const fallbackWardsData = {
         77.6446
       ],
       "microclimate": {
-        "temperature_c": 27.5,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.75,
-        "wet_bulb_c": 22.21,
-        "heat_index_c": 29.02,
-        "wbgt_c": 24.86,
-        "htsi_score": 40.7,
+        "temperature_c": 25.8,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 1.15,
+        "wet_bulb_c": 22.25,
+        "heat_index_c": 26.37,
+        "wbgt_c": 24.57,
+        "htsi_score": 37.5,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1162,15 +1162,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.7 m/s.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.2 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.2 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.2 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 33,
-          "moisture_humidity_pct": 22,
-          "wind_ventilation_pct": 7,
-          "urban_heat_island_pct": 26,
-          "canopy_buffer_pct": 12
+          "solar_radiation_pct": 30,
+          "moisture_humidity_pct": 24,
+          "wind_ventilation_pct": 12,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 10
         }
       },
       "is_hotspot": false,
@@ -1218,13 +1218,13 @@ export const fallbackWardsData = {
         77.6602
       ],
       "microclimate": {
-        "temperature_c": 27.7,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.84,
-        "wet_bulb_c": 22.39,
-        "heat_index_c": 29.32,
-        "wbgt_c": 25.02,
-        "htsi_score": 41.5,
+        "temperature_c": 26.0,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 1.22,
+        "wet_bulb_c": 22.44,
+        "heat_index_c": 26.59,
+        "wbgt_c": 24.74,
+        "htsi_score": 38.3,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1248,15 +1248,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.8 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.2 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 33,
-          "moisture_humidity_pct": 22,
-          "wind_ventilation_pct": 6,
-          "urban_heat_island_pct": 28,
-          "canopy_buffer_pct": 11
+          "solar_radiation_pct": 30,
+          "moisture_humidity_pct": 24,
+          "wind_ventilation_pct": 11,
+          "urban_heat_island_pct": 25,
+          "canopy_buffer_pct": 10
         }
       },
       "is_hotspot": false,
@@ -1304,13 +1304,13 @@ export const fallbackWardsData = {
         77.5963
       ],
       "microclimate": {
-        "temperature_c": 26.1,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 2.04,
-        "wet_bulb_c": 20.94,
-        "heat_index_c": 26.41,
-        "wbgt_c": 23.49,
-        "htsi_score": 33.9,
+        "temperature_c": 24.4,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 1.34,
+        "wet_bulb_c": 20.93,
+        "heat_index_c": 24.83,
+        "wbgt_c": 23.15,
+        "htsi_score": 31.6,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1338,10 +1338,10 @@ export const fallbackWardsData = {
         "summary_kn": "ತಂಪಾದ ವಲಯ: 28% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: 28% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 45,
-          "moisture_humidity_pct": 30,
-          "wind_ventilation_pct": 6,
-          "urban_heat_island_pct": 18,
+          "solar_radiation_pct": 39,
+          "moisture_humidity_pct": 31,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 15,
           "canopy_buffer_pct": 5
         }
       },
@@ -1390,13 +1390,13 @@ export const fallbackWardsData = {
         77.5938
       ],
       "microclimate": {
-        "temperature_c": 24.7,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.84,
-        "wet_bulb_c": 19.67,
-        "heat_index_c": 24.87,
-        "wbgt_c": 22.22,
-        "htsi_score": 28.4,
+        "temperature_c": 23.0,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 1.22,
+        "wet_bulb_c": 19.61,
+        "heat_index_c": 23.29,
+        "wbgt_c": 21.86,
+        "htsi_score": 26.0,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1424,9 +1424,9 @@ export const fallbackWardsData = {
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -1.2°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 35% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -1.2°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 35% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 54,
+          "solar_radiation_pct": 46,
           "moisture_humidity_pct": 36,
-          "wind_ventilation_pct": 10,
+          "wind_ventilation_pct": 17,
           "urban_heat_island_pct": 0,
           "canopy_buffer_pct": 5
         }
@@ -1476,13 +1476,13 @@ export const fallbackWardsData = {
         77.575
       ],
       "microclimate": {
-        "temperature_c": 29.3,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 0.68,
-        "wet_bulb_c": 23.85,
-        "heat_index_c": 32.07,
-        "wbgt_c": 27.03,
-        "htsi_score": 50.1,
+        "temperature_c": 27.6,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.45,
+        "wet_bulb_c": 23.95,
+        "heat_index_c": 30.38,
+        "wbgt_c": 26.84,
+        "htsi_score": 48.2,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1506,24 +1506,24 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.4°C Urban Heat Island anomaly, while low wind ventilation (0.7 m/s) trapping hot air in street canyons, while 62% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.4°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.7 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 62% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.4°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.7 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 62% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.4°C Urban Heat Island anomaly, while low wind ventilation (0.4 m/s) trapping hot air in street canyons, while 62% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.4°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.4 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 62% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.4°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.4 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 62% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
         "drivers": {
-          "solar_radiation_pct": 24,
-          "moisture_humidity_pct": 16,
-          "wind_ventilation_pct": 13,
-          "urban_heat_island_pct": 31,
-          "canopy_buffer_pct": 16
+          "solar_radiation_pct": 23,
+          "moisture_humidity_pct": 18,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 30,
+          "canopy_buffer_pct": 15
         }
       },
       "is_hotspot": false,
       "health_risk": {
-        "expected_surge_pct": 0.9,
+        "expected_surge_pct": 0.5,
         "confidence_interval_90": {
           "lower_bound_pct": 0.0,
-          "expected_pct": 0.9,
-          "upper_bound_pct": 3.6
+          "expected_pct": 0.5,
+          "upper_bound_pct": 3.1
         },
         "additional_emergency_beds_needed": 1,
         "alert_tier": "GREEN",
@@ -1562,13 +1562,13 @@ export const fallbackWardsData = {
         77.6412
       ],
       "microclimate": {
-        "temperature_c": 27.0,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.65,
-        "wet_bulb_c": 21.76,
-        "heat_index_c": 28.3,
-        "wbgt_c": 24.42,
-        "htsi_score": 38.6,
+        "temperature_c": 25.3,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 1.09,
+        "wet_bulb_c": 21.78,
+        "heat_index_c": 25.82,
+        "wbgt_c": 24.12,
+        "htsi_score": 35.6,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1592,14 +1592,14 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.6 m/s.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.1 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.1 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.1 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 36,
-          "moisture_humidity_pct": 24,
-          "wind_ventilation_pct": 9,
-          "urban_heat_island_pct": 24,
+          "solar_radiation_pct": 33,
+          "moisture_humidity_pct": 26,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 21,
           "canopy_buffer_pct": 7
         }
       },
@@ -1648,13 +1648,13 @@ export const fallbackWardsData = {
         77.597
       ],
       "microclimate": {
-        "temperature_c": 27.8,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.75,
-        "wet_bulb_c": 22.48,
-        "heat_index_c": 29.48,
-        "wbgt_c": 25.14,
-        "htsi_score": 42.1,
+        "temperature_c": 26.1,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 1.15,
+        "wet_bulb_c": 22.54,
+        "heat_index_c": 27.61,
+        "wbgt_c": 24.86,
+        "htsi_score": 39.7,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1678,15 +1678,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.7 m/s.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.2 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.2 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.2 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 31,
-          "moisture_humidity_pct": 21,
-          "wind_ventilation_pct": 7,
-          "urban_heat_island_pct": 27,
-          "canopy_buffer_pct": 14
+          "solar_radiation_pct": 29,
+          "moisture_humidity_pct": 23,
+          "wind_ventilation_pct": 11,
+          "urban_heat_island_pct": 25,
+          "canopy_buffer_pct": 12
         }
       },
       "is_hotspot": false,
@@ -1734,13 +1734,13 @@ export const fallbackWardsData = {
         77.555
       ],
       "microclimate": {
-        "temperature_c": 28.0,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.26,
-        "wet_bulb_c": 22.67,
-        "heat_index_c": 29.79,
-        "wbgt_c": 25.48,
-        "htsi_score": 43.3,
+        "temperature_c": 26.3,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.83,
+        "wet_bulb_c": 22.73,
+        "heat_index_c": 27.94,
+        "wbgt_c": 25.23,
+        "htsi_score": 41.0,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1764,15 +1764,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.1°C Urban Heat Island anomaly.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.1°C ಶಾಖ ಹೆಚ್ಚಳ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.1°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.1°C Urban Heat Island anomaly, while low wind ventilation (0.8 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.1°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.1°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 29,
-          "moisture_humidity_pct": 19,
-          "wind_ventilation_pct": 10,
-          "urban_heat_island_pct": 27,
-          "canopy_buffer_pct": 15
+          "solar_radiation_pct": 27,
+          "moisture_humidity_pct": 21,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 25,
+          "canopy_buffer_pct": 14
         }
       },
       "is_hotspot": false,
@@ -1820,13 +1820,13 @@ export const fallbackWardsData = {
         77.552
       ],
       "microclimate": {
-        "temperature_c": 26.3,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.65,
+        "temperature_c": 24.6,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 1.09,
         "wet_bulb_c": 21.12,
-        "heat_index_c": 26.63,
-        "wbgt_c": 23.76,
-        "htsi_score": 34.9,
+        "heat_index_c": 25.05,
+        "wbgt_c": 23.45,
+        "htsi_score": 32.7,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1850,14 +1850,14 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.6 m/s.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.1 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.1 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.1 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 40,
-          "moisture_humidity_pct": 27,
-          "wind_ventilation_pct": 10,
-          "urban_heat_island_pct": 18,
+          "solar_radiation_pct": 36,
+          "moisture_humidity_pct": 28,
+          "wind_ventilation_pct": 15,
+          "urban_heat_island_pct": 16,
           "canopy_buffer_pct": 5
         }
       },
@@ -1906,13 +1906,13 @@ export const fallbackWardsData = {
         77.546
       ],
       "microclimate": {
-        "temperature_c": 28.8,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 0.97,
-        "wet_bulb_c": 23.39,
-        "heat_index_c": 31.15,
-        "wbgt_c": 26.36,
-        "htsi_score": 47.3,
+        "temperature_c": 27.1,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.64,
+        "wet_bulb_c": 23.48,
+        "heat_index_c": 29.39,
+        "wbgt_c": 26.14,
+        "htsi_score": 45.2,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -1936,14 +1936,14 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.9°C Urban Heat Island anomaly, while low wind ventilation (1.0 m/s) trapping hot air in street canyons, while 58% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.9°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 58% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.9°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 58% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.9°C Urban Heat Island anomaly, while low wind ventilation (0.6 m/s) trapping hot air in street canyons, while 58% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.9°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.6 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 58% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.9°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.6 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 58% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
         "drivers": {
-          "solar_radiation_pct": 26,
-          "moisture_humidity_pct": 17,
-          "wind_ventilation_pct": 12,
-          "urban_heat_island_pct": 30,
+          "solar_radiation_pct": 25,
+          "moisture_humidity_pct": 19,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 28,
           "canopy_buffer_pct": 15
         }
       },
@@ -1992,13 +1992,13 @@ export const fallbackWardsData = {
         77.702
       ],
       "microclimate": {
-        "temperature_c": 28.5,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.16,
-        "wet_bulb_c": 23.12,
-        "heat_index_c": 30.62,
-        "wbgt_c": 25.99,
-        "htsi_score": 45.7,
+        "temperature_c": 26.8,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.77,
+        "wet_bulb_c": 23.2,
+        "heat_index_c": 28.82,
+        "wbgt_c": 25.75,
+        "htsi_score": 43.5,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -2022,15 +2022,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.6°C Urban Heat Island anomaly, while low wind ventilation (1.2 m/s) trapping hot air in street canyons, while 61% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.6°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (1.2 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 61% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.6°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (1.2 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 61% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.6°C Urban Heat Island anomaly, while low wind ventilation (0.8 m/s) trapping hot air in street canyons, while 61% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.6°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 61% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.6°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 61% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
         "drivers": {
-          "solar_radiation_pct": 27,
-          "moisture_humidity_pct": 18,
-          "wind_ventilation_pct": 10,
-          "urban_heat_island_pct": 29,
-          "canopy_buffer_pct": 16
+          "solar_radiation_pct": 26,
+          "moisture_humidity_pct": 20,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 27,
+          "canopy_buffer_pct": 14
         }
       },
       "is_hotspot": false,
@@ -2078,13 +2078,13 @@ export const fallbackWardsData = {
         77.611
       ],
       "microclimate": {
-        "temperature_c": 27.1,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 1.46,
-        "wet_bulb_c": 21.85,
-        "heat_index_c": 28.44,
-        "wbgt_c": 24.57,
-        "htsi_score": 39.2,
+        "temperature_c": 25.4,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.96,
+        "wet_bulb_c": 21.88,
+        "heat_index_c": 25.93,
+        "wbgt_c": 24.29,
+        "htsi_score": 36.1,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -2108,15 +2108,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.0 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 34,
-          "moisture_humidity_pct": 23,
-          "wind_ventilation_pct": 10,
-          "urban_heat_island_pct": 23,
-          "canopy_buffer_pct": 10
+          "solar_radiation_pct": 31,
+          "moisture_humidity_pct": 25,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 21,
+          "canopy_buffer_pct": 9
         }
       },
       "is_hotspot": false,
@@ -2164,13 +2164,13 @@ export const fallbackWardsData = {
         77.631
       ],
       "microclimate": {
-        "temperature_c": 29.0,
-        "relative_humidity_pct": 63.0,
-        "wind_speed_m_s": 0.87,
-        "wet_bulb_c": 23.58,
-        "heat_index_c": 31.51,
-        "wbgt_c": 26.61,
-        "htsi_score": 48.4,
+        "temperature_c": 27.3,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.58,
+        "wet_bulb_c": 23.67,
+        "heat_index_c": 29.77,
+        "wbgt_c": 26.4,
+        "htsi_score": 46.3,
         "precipitation_mm": 0.3
       },
       "vulnerability": {
@@ -2194,32 +2194,548 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.1°C Urban Heat Island anomaly, while low wind ventilation (0.9 m/s) trapping hot air in street canyons, while 66% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.1°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.9 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 66% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.1°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.9 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 66% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.1°C Urban Heat Island anomaly, while low wind ventilation (0.6 m/s) trapping hot air in street canyons, while 66% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.1°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.6 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 66% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.1°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.6 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 66% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
         "drivers": {
-          "solar_radiation_pct": 25,
-          "moisture_humidity_pct": 17,
-          "wind_ventilation_pct": 12,
-          "urban_heat_island_pct": 31,
+          "solar_radiation_pct": 24,
+          "moisture_humidity_pct": 19,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 29,
           "canopy_buffer_pct": 15
         }
       },
       "is_hotspot": false,
       "health_risk": {
-        "expected_surge_pct": 0.1,
+        "expected_surge_pct": 0.0,
         "confidence_interval_90": {
           "lower_bound_pct": 0.0,
-          "expected_pct": 0.1,
-          "upper_bound_pct": 2.6
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
         },
-        "additional_emergency_beds_needed": 1,
+        "additional_emergency_beds_needed": 0,
         "alert_tier": "GREEN",
         "tier_label_en": "NORMAL / LOW HEALTH RISK",
         "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
         "xai_attribution": {
-          "direct_thermal_stress_pct": 42.3,
-          "vulnerable_demographics_pct": 57.7,
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-112",
+      "name": "Domlur & Indiranagar 100ft Commercial Belt",
+      "name_kn": "ದೋಮ್ಲೂರು ಮತ್ತು ಇಂದಿರಾನಗರ ವಾಣಿಜ್ಯ ಪಟ್ಟಿ",
+      "name_hi": "डोम्लूर और इंदिरानगर कमर्शियल बेल्ट",
+      "zone": "East Zone",
+      "population": 155000,
+      "center": [
+        12.961,
+        77.638
+      ],
+      "microclimate": {
+        "temperature_c": 26.0,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.83,
+        "wet_bulb_c": 22.44,
+        "heat_index_c": 26.59,
+        "wbgt_c": 24.94,
+        "htsi_score": 38.8,
+        "precipitation_mm": 0.3
+      },
+      "vulnerability": {
+        "elderly_pct": 16.5,
+        "outdoor_labor_pct": 42.0,
+        "tin_roof_pct": 32.0,
+        "tree_canopy_pct": 14.2,
+        "hospital_beds_per_k": 3.2
+      },
+      "vulnerability_score": 56.2,
+      "vulnerability_tier": "HIGH",
+      "vulnerability_details": {
+        "score": 56.2,
+        "tier": "HIGH",
+        "tier_label_en": "High Vulnerability",
+        "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "उच्च संवेदनशीलता",
+        "sensitivity_score": 62.1,
+        "exposure_score": 54.8,
+        "adaptive_deficit_score": 50.1
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.8 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 29,
+          "moisture_humidity_pct": 23,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 10
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-7",
+      "name": "Byatarayanapura Bellary Road Airport Gateway",
+      "name_kn": "ಬ್ಯಾಟರಾಯನಪುರ ಬಳ್ಳಾರಿ ರಸ್ತೆ ಹೆದ್ದಾರಿ ಕಾರಿಡಾರ್",
+      "name_hi": "ब्याटरायनपुरा बेल्लारी रोड हाईवे कॉरिडोर",
+      "zone": "Yelahanka Zone",
+      "population": 210000,
+      "center": [
+        13.062,
+        77.592
+      ],
+      "microclimate": {
+        "temperature_c": 26.4,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.96,
+        "wet_bulb_c": 22.82,
+        "heat_index_c": 28.11,
+        "wbgt_c": 25.24,
+        "htsi_score": 41.3,
+        "precipitation_mm": 0.3
+      },
+      "vulnerability": {
+        "elderly_pct": 13.5,
+        "outdoor_labor_pct": 54.0,
+        "tin_roof_pct": 48.0,
+        "tree_canopy_pct": 8.5,
+        "hospital_beds_per_k": 1.8
+      },
+      "vulnerability_score": 69.7,
+      "vulnerability_tier": "HIGH",
+      "vulnerability_details": {
+        "score": 69.7,
+        "tier": "HIGH",
+        "tier_label_en": "High Vulnerability",
+        "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "उच्च संवेदनशीलता",
+        "sensitivity_score": 67.4,
+        "exposure_score": 71.0,
+        "adaptive_deficit_score": 71.0
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly, while low wind ventilation (1.0 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 27,
+          "moisture_humidity_pct": 21,
+          "wind_ventilation_pct": 12,
+          "urban_heat_island_pct": 26,
+          "canopy_buffer_pct": 14
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-159",
+      "name": "J.P. Nagar Cultural & Sarakki Lake Enclave",
+      "name_kn": "ಜೆ.ಪಿ. ನಗರ ಮತ್ತು ಸಾರಕ್ಕಿ ಕೆರೆ ಪರಿಸರ",
+      "name_hi": "जेपी नगर और सारक्की झील एन्क्लेव",
+      "zone": "South Zone",
+      "population": 195000,
+      "center": [
+        12.908,
+        77.585
+      ],
+      "microclimate": {
+        "temperature_c": 25.4,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.9,
+        "wet_bulb_c": 21.88,
+        "heat_index_c": 25.93,
+        "wbgt_c": 24.32,
+        "htsi_score": 36.2,
+        "precipitation_mm": 0.3
+      },
+      "vulnerability": {
+        "elderly_pct": 19.5,
+        "outdoor_labor_pct": 35.0,
+        "tin_roof_pct": 26.0,
+        "tree_canopy_pct": 18.4,
+        "hospital_beds_per_k": 3.8
+      },
+      "vulnerability_score": 48.7,
+      "vulnerability_tier": "MODERATE",
+      "vulnerability_details": {
+        "score": 48.7,
+        "tier": "MODERATE",
+        "tier_label_en": "Moderate Vulnerability",
+        "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "मध्यम संवेदनशीलता",
+        "sensitivity_score": 61.0,
+        "exposure_score": 44.7,
+        "adaptive_deficit_score": 38.1
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.9 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.9 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.9 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 31,
+          "moisture_humidity_pct": 25,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 21,
+          "canopy_buffer_pct": 9
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-14",
+      "name": "Bagalgunte & Dasarahalli Industrial Corridor",
+      "name_kn": "ಬಾಗಲಗುಂಟೆ ಮತ್ತು ದಾಸರಹಳ್ಳಿ ಕೈಗಾರಿಕಾ ಕಾರಿಡಾರ್",
+      "name_hi": "बागलकुंटे और दासरहल्ली इंडस्ट्रियल कॉरिडोर",
+      "zone": "Dasarahalli Zone",
+      "population": 245000,
+      "center": [
+        13.045,
+        77.512
+      ],
+      "microclimate": {
+        "temperature_c": 27.1,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.64,
+        "wet_bulb_c": 23.48,
+        "heat_index_c": 29.39,
+        "wbgt_c": 26.14,
+        "htsi_score": 45.2,
+        "precipitation_mm": 0.3
+      },
+      "vulnerability": {
+        "elderly_pct": 11.2,
+        "outdoor_labor_pct": 65.0,
+        "tin_roof_pct": 68.0,
+        "tree_canopy_pct": 4.2,
+        "hospital_beds_per_k": 1.4
+      },
+      "vulnerability_score": 83.2,
+      "vulnerability_tier": "CRITICAL",
+      "vulnerability_details": {
+        "score": 83.2,
+        "tier": "CRITICAL",
+        "tier_label_en": "Critical Vulnerability",
+        "tier_label_kn": "ಅತ್ಯಂತ ಅಪಾಯಕಾರಿ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "अति संवेदनशील क्षेत्र",
+        "sensitivity_score": 73.0,
+        "exposure_score": 93.0,
+        "adaptive_deficit_score": 81.6
+      },
+      "causal_attribution": {
+        "driver_category": "HIGH_THERMAL_HOTSPOT",
+        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.9°C Urban Heat Island anomaly, while low wind ventilation (0.6 m/s) trapping hot air in street canyons, while 68% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.9°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.6 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.9°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.6 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "drivers": {
+          "solar_radiation_pct": 24,
+          "moisture_humidity_pct": 19,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 28,
+          "canopy_buffer_pct": 16
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-118",
+      "name": "Vijayanagar & Magadi Road Wholesale Trade Hub",
+      "name_kn": "ವಿಜಯನಗರ ಮತ್ತು ಮಾಗಡಿ ರಸ್ತೆ ಸಗಟು ವಾಣಿಜ್ಯ ಕೇಂದ್ರ",
+      "name_hi": "विजयनगर और मागड़ी रोड होलसेल ट्रेड हब",
+      "zone": "West Zone",
+      "population": 220000,
+      "center": [
+        12.971,
+        77.538
+      ],
+      "microclimate": {
+        "temperature_c": 26.3,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.7,
+        "wet_bulb_c": 22.73,
+        "heat_index_c": 27.94,
+        "wbgt_c": 25.32,
+        "htsi_score": 41.2,
+        "precipitation_mm": 0.3
+      },
+      "vulnerability": {
+        "elderly_pct": 17.8,
+        "outdoor_labor_pct": 46.0,
+        "tin_roof_pct": 44.0,
+        "tree_canopy_pct": 9.8,
+        "hospital_beds_per_k": 2.7
+      },
+      "vulnerability_score": 65.8,
+      "vulnerability_tier": "HIGH",
+      "vulnerability_details": {
+        "score": 65.8,
+        "tier": "HIGH",
+        "tier_label_en": "High Vulnerability",
+        "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "उच्च संवेदनशीलता",
+        "sensitivity_score": 67.5,
+        "exposure_score": 67.0,
+        "adaptive_deficit_score": 61.6
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.1°C Urban Heat Island anomaly, while low wind ventilation (0.7 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.1°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.7 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.1°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.7 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 27,
+          "moisture_humidity_pct": 21,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 25,
+          "canopy_buffer_pct": 13
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-150",
+      "name": "Bellandur Eco-Park & Lake Technology Corridor",
+      "name_kn": "ಬೆಳ್ಳಂದೂರು ಇಕೋ-ಪಾರ್ಕ್ ಮತ್ತು ಕೆರೆ ತಂತ್ರಜ್ಞಾನ ಕಾರಿಡಾರ್",
+      "name_hi": "बेल्लंदूर इको-पार्क और लेक टेक्नोलॉजी कॉरिडोर",
+      "zone": "Mahadevapura Zone",
+      "population": 260000,
+      "center": [
+        12.935,
+        77.674
+      ],
+      "microclimate": {
+        "temperature_c": 26.5,
+        "relative_humidity_pct": 74.0,
+        "wind_speed_m_s": 0.77,
+        "wet_bulb_c": 22.91,
+        "heat_index_c": 28.29,
+        "wbgt_c": 25.46,
+        "htsi_score": 42.0,
+        "precipitation_mm": 0.3
+      },
+      "vulnerability": {
+        "elderly_pct": 10.5,
+        "outdoor_labor_pct": 52.0,
+        "tin_roof_pct": 40.0,
+        "tree_canopy_pct": 11.0,
+        "hospital_beds_per_k": 2.4
+      },
+      "vulnerability_score": 63.0,
+      "vulnerability_tier": "HIGH",
+      "vulnerability_details": {
+        "score": 63.0,
+        "tier": "HIGH",
+        "tier_label_en": "High Vulnerability",
+        "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "उच्च संवेदनशीलता",
+        "sensitivity_score": 60.9,
+        "exposure_score": 65.6,
+        "adaptive_deficit_score": 61.9
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.3°C Urban Heat Island anomaly, while low wind ventilation (0.8 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.3°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.3°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 27,
+          "moisture_humidity_pct": 21,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 26,
+          "canopy_buffer_pct": 13
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
           "lagged_cumulative_dose_pct": 0.0,
           "nocturnal_heat_entrapment_pct": 0.0
         }
@@ -2266,13 +2782,13 @@ export const fallbackWardsData = {
             77.585
           ],
           "microclimate": {
-            "temperature_c": 28.7,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 0.78,
-            "wet_bulb_c": 23.3,
-            "heat_index_c": 30.97,
-            "wbgt_c": 26.39,
-            "htsi_score": 47.1,
+            "temperature_c": 27.0,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.51,
+            "wet_bulb_c": 23.39,
+            "heat_index_c": 29.2,
+            "wbgt_c": 26.18,
+            "htsi_score": 45.0,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -2296,14 +2812,14 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.8°C Urban Heat Island anomaly, while low wind ventilation (0.8 m/s) trapping hot air in street canyons, while 52% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.8°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.8°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.8°C Urban Heat Island anomaly, while low wind ventilation (0.5 m/s) trapping hot air in street canyons, while 52% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.8°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.5 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.8°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.5 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
             "drivers": {
-              "solar_radiation_pct": 26,
-              "moisture_humidity_pct": 17,
-              "wind_ventilation_pct": 13,
-              "urban_heat_island_pct": 29,
+              "solar_radiation_pct": 24,
+              "moisture_humidity_pct": 19,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 28,
               "canopy_buffer_pct": 15
             }
           },
@@ -2391,13 +2907,13 @@ export const fallbackWardsData = {
             77.518
           ],
           "microclimate": {
-            "temperature_c": 29.1,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 0.97,
-            "wet_bulb_c": 23.67,
-            "heat_index_c": 31.69,
-            "wbgt_c": 26.64,
-            "htsi_score": 48.7,
+            "temperature_c": 27.4,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.64,
+            "wet_bulb_c": 23.76,
+            "heat_index_c": 29.97,
+            "wbgt_c": 26.43,
+            "htsi_score": 46.6,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -2421,32 +2937,32 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.2°C Urban Heat Island anomaly, while low wind ventilation (1.0 m/s) trapping hot air in street canyons, while 68% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.2°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.2°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.2°C Urban Heat Island anomaly, while low wind ventilation (0.6 m/s) trapping hot air in street canyons, while 68% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.2°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.6 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.2°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.6 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
             "drivers": {
-              "solar_radiation_pct": 25,
-              "moisture_humidity_pct": 17,
-              "wind_ventilation_pct": 11,
-              "urban_heat_island_pct": 31,
-              "canopy_buffer_pct": 16
+              "solar_radiation_pct": 24,
+              "moisture_humidity_pct": 19,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 30,
+              "canopy_buffer_pct": 14
             }
           },
           "is_hotspot": false,
           "health_risk": {
-            "expected_surge_pct": 0.1,
+            "expected_surge_pct": 0.0,
             "confidence_interval_90": {
               "lower_bound_pct": 0.0,
-              "expected_pct": 0.1,
-              "upper_bound_pct": 2.7
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
             },
-            "additional_emergency_beds_needed": 1,
+            "additional_emergency_beds_needed": 0,
             "alert_tier": "GREEN",
             "tier_label_en": "NORMAL / LOW HEALTH RISK",
             "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
             "xai_attribution": {
-              "direct_thermal_stress_pct": 51.0,
-              "vulnerable_demographics_pct": 49.0,
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
               "lagged_cumulative_dose_pct": 0.0,
               "nocturnal_heat_entrapment_pct": 0.0
             }
@@ -2516,13 +3032,13 @@ export const fallbackWardsData = {
             77.7499
           ],
           "microclimate": {
-            "temperature_c": 28.1,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.46,
-            "wet_bulb_c": 22.76,
-            "heat_index_c": 29.95,
-            "wbgt_c": 25.51,
-            "htsi_score": 43.6,
+            "temperature_c": 26.4,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.96,
+            "wet_bulb_c": 22.82,
+            "heat_index_c": 28.11,
+            "wbgt_c": 25.24,
+            "htsi_score": 41.3,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -2546,14 +3062,14 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly, while low wind ventilation (1.0 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 29,
-              "moisture_humidity_pct": 20,
-              "wind_ventilation_pct": 9,
-              "urban_heat_island_pct": 28,
+              "solar_radiation_pct": 27,
+              "moisture_humidity_pct": 21,
+              "wind_ventilation_pct": 12,
+              "urban_heat_island_pct": 26,
               "canopy_buffer_pct": 14
             }
           },
@@ -2641,13 +3157,13 @@ export const fallbackWardsData = {
             77.567
           ],
           "microclimate": {
-            "temperature_c": 23.7,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 2.13,
-            "wet_bulb_c": 18.76,
-            "heat_index_c": 23.77,
-            "wbgt_c": 21.22,
-            "htsi_score": 24.2,
+            "temperature_c": 22.0,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 1.41,
+            "wet_bulb_c": 18.67,
+            "heat_index_c": 22.19,
+            "wbgt_c": 20.83,
+            "htsi_score": 21.7,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -2675,9 +3191,9 @@ export const fallbackWardsData = {
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -2.2°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 46% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -2.2°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 46% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 56,
-              "moisture_humidity_pct": 38,
-              "wind_ventilation_pct": 6,
+              "solar_radiation_pct": 47,
+              "moisture_humidity_pct": 37,
+              "wind_ventilation_pct": 15,
               "urban_heat_island_pct": 0,
               "canopy_buffer_pct": 5
             }
@@ -2766,13 +3282,13 @@ export const fallbackWardsData = {
             77.6245
           ],
           "microclimate": {
-            "temperature_c": 27.3,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.65,
-            "wet_bulb_c": 22.03,
-            "heat_index_c": 28.73,
-            "wbgt_c": 24.7,
-            "htsi_score": 39.9,
+            "temperature_c": 25.6,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 1.09,
+            "wet_bulb_c": 22.06,
+            "heat_index_c": 26.15,
+            "wbgt_c": 24.41,
+            "htsi_score": 36.8,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -2796,14 +3312,14 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.6 m/s.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.1 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.1 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.1 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 35,
-              "moisture_humidity_pct": 23,
-              "wind_ventilation_pct": 9,
-              "urban_heat_island_pct": 26,
+              "solar_radiation_pct": 32,
+              "moisture_humidity_pct": 25,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 23,
               "canopy_buffer_pct": 7
             }
           },
@@ -2891,13 +3407,13 @@ export const fallbackWardsData = {
             77.6446
           ],
           "microclimate": {
-            "temperature_c": 27.5,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.75,
-            "wet_bulb_c": 22.21,
-            "heat_index_c": 29.02,
-            "wbgt_c": 24.86,
-            "htsi_score": 40.7,
+            "temperature_c": 25.8,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 1.15,
+            "wet_bulb_c": 22.25,
+            "heat_index_c": 26.37,
+            "wbgt_c": 24.57,
+            "htsi_score": 37.5,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -2921,15 +3437,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.7 m/s.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.2 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.2 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.2 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 33,
-              "moisture_humidity_pct": 22,
-              "wind_ventilation_pct": 7,
-              "urban_heat_island_pct": 26,
-              "canopy_buffer_pct": 12
+              "solar_radiation_pct": 30,
+              "moisture_humidity_pct": 24,
+              "wind_ventilation_pct": 12,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 10
             }
           },
           "is_hotspot": false,
@@ -3016,13 +3532,13 @@ export const fallbackWardsData = {
             77.6602
           ],
           "microclimate": {
-            "temperature_c": 27.7,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.84,
-            "wet_bulb_c": 22.39,
-            "heat_index_c": 29.32,
-            "wbgt_c": 25.02,
-            "htsi_score": 41.5,
+            "temperature_c": 26.0,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 1.22,
+            "wet_bulb_c": 22.44,
+            "heat_index_c": 26.59,
+            "wbgt_c": 24.74,
+            "htsi_score": 38.3,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -3046,15 +3562,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.8 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.2 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 33,
-              "moisture_humidity_pct": 22,
-              "wind_ventilation_pct": 6,
-              "urban_heat_island_pct": 28,
-              "canopy_buffer_pct": 11
+              "solar_radiation_pct": 30,
+              "moisture_humidity_pct": 24,
+              "wind_ventilation_pct": 11,
+              "urban_heat_island_pct": 25,
+              "canopy_buffer_pct": 10
             }
           },
           "is_hotspot": false,
@@ -3141,13 +3657,13 @@ export const fallbackWardsData = {
             77.5963
           ],
           "microclimate": {
-            "temperature_c": 26.1,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 2.04,
-            "wet_bulb_c": 20.94,
-            "heat_index_c": 26.41,
-            "wbgt_c": 23.49,
-            "htsi_score": 33.9,
+            "temperature_c": 24.4,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 1.34,
+            "wet_bulb_c": 20.93,
+            "heat_index_c": 24.83,
+            "wbgt_c": 23.15,
+            "htsi_score": 31.6,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -3175,10 +3691,10 @@ export const fallbackWardsData = {
             "summary_kn": "ತಂಪಾದ ವಲಯ: 28% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: 28% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 45,
-              "moisture_humidity_pct": 30,
-              "wind_ventilation_pct": 6,
-              "urban_heat_island_pct": 18,
+              "solar_radiation_pct": 39,
+              "moisture_humidity_pct": 31,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 15,
               "canopy_buffer_pct": 5
             }
           },
@@ -3266,13 +3782,13 @@ export const fallbackWardsData = {
             77.5938
           ],
           "microclimate": {
-            "temperature_c": 24.7,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.84,
-            "wet_bulb_c": 19.67,
-            "heat_index_c": 24.87,
-            "wbgt_c": 22.22,
-            "htsi_score": 28.4,
+            "temperature_c": 23.0,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 1.22,
+            "wet_bulb_c": 19.61,
+            "heat_index_c": 23.29,
+            "wbgt_c": 21.86,
+            "htsi_score": 26.0,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -3300,9 +3816,9 @@ export const fallbackWardsData = {
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -1.2°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 35% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -1.2°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 35% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 54,
+              "solar_radiation_pct": 46,
               "moisture_humidity_pct": 36,
-              "wind_ventilation_pct": 10,
+              "wind_ventilation_pct": 17,
               "urban_heat_island_pct": 0,
               "canopy_buffer_pct": 5
             }
@@ -3391,13 +3907,13 @@ export const fallbackWardsData = {
             77.575
           ],
           "microclimate": {
-            "temperature_c": 29.3,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 0.68,
-            "wet_bulb_c": 23.85,
-            "heat_index_c": 32.07,
-            "wbgt_c": 27.03,
-            "htsi_score": 50.1,
+            "temperature_c": 27.6,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.45,
+            "wet_bulb_c": 23.95,
+            "heat_index_c": 30.38,
+            "wbgt_c": 26.84,
+            "htsi_score": 48.2,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -3421,24 +3937,24 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.4°C Urban Heat Island anomaly, while low wind ventilation (0.7 m/s) trapping hot air in street canyons, while 62% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.4°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.7 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 62% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.4°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.7 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 62% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.4°C Urban Heat Island anomaly, while low wind ventilation (0.4 m/s) trapping hot air in street canyons, while 62% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.4°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.4 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 62% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.4°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.4 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 62% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
             "drivers": {
-              "solar_radiation_pct": 24,
-              "moisture_humidity_pct": 16,
-              "wind_ventilation_pct": 13,
-              "urban_heat_island_pct": 31,
-              "canopy_buffer_pct": 16
+              "solar_radiation_pct": 23,
+              "moisture_humidity_pct": 18,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 30,
+              "canopy_buffer_pct": 15
             }
           },
           "is_hotspot": false,
           "health_risk": {
-            "expected_surge_pct": 0.9,
+            "expected_surge_pct": 0.5,
             "confidence_interval_90": {
               "lower_bound_pct": 0.0,
-              "expected_pct": 0.9,
-              "upper_bound_pct": 3.6
+              "expected_pct": 0.5,
+              "upper_bound_pct": 3.1
             },
             "additional_emergency_beds_needed": 1,
             "alert_tier": "GREEN",
@@ -3516,13 +4032,13 @@ export const fallbackWardsData = {
             77.6412
           ],
           "microclimate": {
-            "temperature_c": 27.0,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.65,
-            "wet_bulb_c": 21.76,
-            "heat_index_c": 28.3,
-            "wbgt_c": 24.42,
-            "htsi_score": 38.6,
+            "temperature_c": 25.3,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 1.09,
+            "wet_bulb_c": 21.78,
+            "heat_index_c": 25.82,
+            "wbgt_c": 24.12,
+            "htsi_score": 35.6,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -3546,14 +4062,14 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.6 m/s.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.1 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.1 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.1 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 36,
-              "moisture_humidity_pct": 24,
-              "wind_ventilation_pct": 9,
-              "urban_heat_island_pct": 24,
+              "solar_radiation_pct": 33,
+              "moisture_humidity_pct": 26,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 21,
               "canopy_buffer_pct": 7
             }
           },
@@ -3641,13 +4157,13 @@ export const fallbackWardsData = {
             77.597
           ],
           "microclimate": {
-            "temperature_c": 27.8,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.75,
-            "wet_bulb_c": 22.48,
-            "heat_index_c": 29.48,
-            "wbgt_c": 25.14,
-            "htsi_score": 42.1,
+            "temperature_c": 26.1,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 1.15,
+            "wet_bulb_c": 22.54,
+            "heat_index_c": 27.61,
+            "wbgt_c": 24.86,
+            "htsi_score": 39.7,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -3671,15 +4187,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.7 m/s.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.2 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.2 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.2 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 31,
-              "moisture_humidity_pct": 21,
-              "wind_ventilation_pct": 7,
-              "urban_heat_island_pct": 27,
-              "canopy_buffer_pct": 14
+              "solar_radiation_pct": 29,
+              "moisture_humidity_pct": 23,
+              "wind_ventilation_pct": 11,
+              "urban_heat_island_pct": 25,
+              "canopy_buffer_pct": 12
             }
           },
           "is_hotspot": false,
@@ -3766,13 +4282,13 @@ export const fallbackWardsData = {
             77.555
           ],
           "microclimate": {
-            "temperature_c": 28.0,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.26,
-            "wet_bulb_c": 22.67,
-            "heat_index_c": 29.79,
-            "wbgt_c": 25.48,
-            "htsi_score": 43.3,
+            "temperature_c": 26.3,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.83,
+            "wet_bulb_c": 22.73,
+            "heat_index_c": 27.94,
+            "wbgt_c": 25.23,
+            "htsi_score": 41.0,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -3796,15 +4312,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.1°C Urban Heat Island anomaly.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.1°C ಶಾಖ ಹೆಚ್ಚಳ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.1°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.1°C Urban Heat Island anomaly, while low wind ventilation (0.8 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.1°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.1°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 29,
-              "moisture_humidity_pct": 19,
-              "wind_ventilation_pct": 10,
-              "urban_heat_island_pct": 27,
-              "canopy_buffer_pct": 15
+              "solar_radiation_pct": 27,
+              "moisture_humidity_pct": 21,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 25,
+              "canopy_buffer_pct": 14
             }
           },
           "is_hotspot": false,
@@ -3891,13 +4407,13 @@ export const fallbackWardsData = {
             77.552
           ],
           "microclimate": {
-            "temperature_c": 26.3,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.65,
+            "temperature_c": 24.6,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 1.09,
             "wet_bulb_c": 21.12,
-            "heat_index_c": 26.63,
-            "wbgt_c": 23.76,
-            "htsi_score": 34.9,
+            "heat_index_c": 25.05,
+            "wbgt_c": 23.45,
+            "htsi_score": 32.7,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -3921,14 +4437,14 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.6 m/s.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.1 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.1 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.1 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 40,
-              "moisture_humidity_pct": 27,
-              "wind_ventilation_pct": 10,
-              "urban_heat_island_pct": 18,
+              "solar_radiation_pct": 36,
+              "moisture_humidity_pct": 28,
+              "wind_ventilation_pct": 15,
+              "urban_heat_island_pct": 16,
               "canopy_buffer_pct": 5
             }
           },
@@ -4016,13 +4532,13 @@ export const fallbackWardsData = {
             77.546
           ],
           "microclimate": {
-            "temperature_c": 28.8,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 0.97,
-            "wet_bulb_c": 23.39,
-            "heat_index_c": 31.15,
-            "wbgt_c": 26.36,
-            "htsi_score": 47.3,
+            "temperature_c": 27.1,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.64,
+            "wet_bulb_c": 23.48,
+            "heat_index_c": 29.39,
+            "wbgt_c": 26.14,
+            "htsi_score": 45.2,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -4046,14 +4562,14 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.9°C Urban Heat Island anomaly, while low wind ventilation (1.0 m/s) trapping hot air in street canyons, while 58% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.9°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 58% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.9°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 58% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.9°C Urban Heat Island anomaly, while low wind ventilation (0.6 m/s) trapping hot air in street canyons, while 58% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.9°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.6 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 58% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.9°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.6 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 58% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
             "drivers": {
-              "solar_radiation_pct": 26,
-              "moisture_humidity_pct": 17,
-              "wind_ventilation_pct": 12,
-              "urban_heat_island_pct": 30,
+              "solar_radiation_pct": 25,
+              "moisture_humidity_pct": 19,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 28,
               "canopy_buffer_pct": 15
             }
           },
@@ -4141,13 +4657,13 @@ export const fallbackWardsData = {
             77.702
           ],
           "microclimate": {
-            "temperature_c": 28.5,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.16,
-            "wet_bulb_c": 23.12,
-            "heat_index_c": 30.62,
-            "wbgt_c": 25.99,
-            "htsi_score": 45.7,
+            "temperature_c": 26.8,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.77,
+            "wet_bulb_c": 23.2,
+            "heat_index_c": 28.82,
+            "wbgt_c": 25.75,
+            "htsi_score": 43.5,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -4171,15 +4687,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.6°C Urban Heat Island anomaly, while low wind ventilation (1.2 m/s) trapping hot air in street canyons, while 61% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.6°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (1.2 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 61% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.6°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (1.2 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 61% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.6°C Urban Heat Island anomaly, while low wind ventilation (0.8 m/s) trapping hot air in street canyons, while 61% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.6°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 61% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.6°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 61% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
             "drivers": {
-              "solar_radiation_pct": 27,
-              "moisture_humidity_pct": 18,
-              "wind_ventilation_pct": 10,
-              "urban_heat_island_pct": 29,
-              "canopy_buffer_pct": 16
+              "solar_radiation_pct": 26,
+              "moisture_humidity_pct": 20,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 27,
+              "canopy_buffer_pct": 14
             }
           },
           "is_hotspot": false,
@@ -4266,13 +4782,13 @@ export const fallbackWardsData = {
             77.611
           ],
           "microclimate": {
-            "temperature_c": 27.1,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 1.46,
-            "wet_bulb_c": 21.85,
-            "heat_index_c": 28.44,
-            "wbgt_c": 24.57,
-            "htsi_score": 39.2,
+            "temperature_c": 25.4,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.96,
+            "wet_bulb_c": 21.88,
+            "heat_index_c": 25.93,
+            "wbgt_c": 24.29,
+            "htsi_score": 36.1,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -4296,15 +4812,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (621 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.0 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 34,
-              "moisture_humidity_pct": 23,
-              "wind_ventilation_pct": 10,
-              "urban_heat_island_pct": 23,
-              "canopy_buffer_pct": 10
+              "solar_radiation_pct": 31,
+              "moisture_humidity_pct": 25,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 21,
+              "canopy_buffer_pct": 9
             }
           },
           "is_hotspot": false,
@@ -4391,13 +4907,13 @@ export const fallbackWardsData = {
             77.631
           ],
           "microclimate": {
-            "temperature_c": 29.0,
-            "relative_humidity_pct": 63.0,
-            "wind_speed_m_s": 0.87,
-            "wet_bulb_c": 23.58,
-            "heat_index_c": 31.51,
-            "wbgt_c": 26.61,
-            "htsi_score": 48.4,
+            "temperature_c": 27.3,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.58,
+            "wet_bulb_c": 23.67,
+            "heat_index_c": 29.77,
+            "wbgt_c": 26.4,
+            "htsi_score": 46.3,
             "precipitation_mm": 0.3
           },
           "vulnerability": {
@@ -4421,32 +4937,32 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.1°C Urban Heat Island anomaly, while low wind ventilation (0.9 m/s) trapping hot air in street canyons, while 66% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.1°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.9 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 66% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.1°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.9 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 66% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.1°C Urban Heat Island anomaly, while low wind ventilation (0.6 m/s) trapping hot air in street canyons, while 66% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.1°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.6 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 66% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.1°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.6 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 66% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
             "drivers": {
-              "solar_radiation_pct": 25,
-              "moisture_humidity_pct": 17,
-              "wind_ventilation_pct": 12,
-              "urban_heat_island_pct": 31,
+              "solar_radiation_pct": 24,
+              "moisture_humidity_pct": 19,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 29,
               "canopy_buffer_pct": 15
             }
           },
           "is_hotspot": false,
           "health_risk": {
-            "expected_surge_pct": 0.1,
+            "expected_surge_pct": 0.0,
             "confidence_interval_90": {
               "lower_bound_pct": 0.0,
-              "expected_pct": 0.1,
-              "upper_bound_pct": 2.6
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
             },
-            "additional_emergency_beds_needed": 1,
+            "additional_emergency_beds_needed": 0,
             "alert_tier": "GREEN",
             "tier_label_en": "NORMAL / LOW HEALTH RISK",
             "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
             "xai_attribution": {
-              "direct_thermal_stress_pct": 42.3,
-              "vulnerable_demographics_pct": 57.7,
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
               "lagged_cumulative_dose_pct": 0.0,
               "nocturnal_heat_entrapment_pct": 0.0
             }
@@ -4492,6 +5008,756 @@ export const fallbackWardsData = {
             ]
           ]
         }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-112",
+        "properties": {
+          "ward_id": "BBMP-112",
+          "name": "Domlur & Indiranagar 100ft Commercial Belt",
+          "name_kn": "ದೋಮ್ಲೂರು ಮತ್ತು ಇಂದಿರಾನಗರ ವಾಣಿಜ್ಯ ಪಟ್ಟಿ",
+          "name_hi": "डोम्लूर और इंदिरानगर कमर्शियल बेल्ट",
+          "zone": "East Zone",
+          "population": 155000,
+          "elderly_pct": 16.5,
+          "outdoor_labor_pct": 42.0,
+          "tin_roof_pct": 32.0,
+          "tree_canopy_pct": 14.2,
+          "hospital_beds_per_k": 3.2,
+          "baseline_daily_admissions": 26,
+          "uhi_temp_delta": 1.8,
+          "wind_attenuation": 0.65,
+          "center": [
+            12.961,
+            77.638
+          ],
+          "microclimate": {
+            "temperature_c": 26.0,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.83,
+            "wet_bulb_c": 22.44,
+            "heat_index_c": 26.59,
+            "wbgt_c": 24.94,
+            "htsi_score": 38.8,
+            "precipitation_mm": 0.3
+          },
+          "vulnerability": {
+            "elderly_pct": 16.5,
+            "outdoor_labor_pct": 42.0,
+            "tin_roof_pct": 32.0,
+            "tree_canopy_pct": 14.2,
+            "hospital_beds_per_k": 3.2
+          },
+          "vulnerability_score": 56.2,
+          "vulnerability_tier": "HIGH",
+          "vulnerability_details": {
+            "score": 56.2,
+            "tier": "HIGH",
+            "tier_label_en": "High Vulnerability",
+            "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "उच्च संवेदनशीलता",
+            "sensitivity_score": 62.1,
+            "exposure_score": 54.8,
+            "adaptive_deficit_score": 50.1
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.8 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 29,
+              "moisture_humidity_pct": 23,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 10
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.625,
+                12.951
+              ],
+              [
+                77.652,
+                12.951
+              ],
+              [
+                77.655,
+                12.972
+              ],
+              [
+                77.628,
+                12.972
+              ],
+              [
+                77.625,
+                12.951
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-7",
+        "properties": {
+          "ward_id": "BBMP-7",
+          "name": "Byatarayanapura Bellary Road Airport Gateway",
+          "name_kn": "ಬ್ಯಾಟರಾಯನಪುರ ಬಳ್ಳಾರಿ ರಸ್ತೆ ಹೆದ್ದಾರಿ ಕಾರಿಡಾರ್",
+          "name_hi": "ब्याटरायनपुरा बेल्लारी रोड हाईवे कॉरिडोर",
+          "zone": "Yelahanka Zone",
+          "population": 210000,
+          "elderly_pct": 13.5,
+          "outdoor_labor_pct": 54.0,
+          "tin_roof_pct": 48.0,
+          "tree_canopy_pct": 8.5,
+          "hospital_beds_per_k": 1.8,
+          "baseline_daily_admissions": 32,
+          "uhi_temp_delta": 2.2,
+          "wind_attenuation": 0.75,
+          "center": [
+            13.062,
+            77.592
+          ],
+          "microclimate": {
+            "temperature_c": 26.4,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.96,
+            "wet_bulb_c": 22.82,
+            "heat_index_c": 28.11,
+            "wbgt_c": 25.24,
+            "htsi_score": 41.3,
+            "precipitation_mm": 0.3
+          },
+          "vulnerability": {
+            "elderly_pct": 13.5,
+            "outdoor_labor_pct": 54.0,
+            "tin_roof_pct": 48.0,
+            "tree_canopy_pct": 8.5,
+            "hospital_beds_per_k": 1.8
+          },
+          "vulnerability_score": 69.7,
+          "vulnerability_tier": "HIGH",
+          "vulnerability_details": {
+            "score": 69.7,
+            "tier": "HIGH",
+            "tier_label_en": "High Vulnerability",
+            "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "उच्च संवेदनशीलता",
+            "sensitivity_score": 67.4,
+            "exposure_score": 71.0,
+            "adaptive_deficit_score": 71.0
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly, while low wind ventilation (1.0 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 27,
+              "moisture_humidity_pct": 21,
+              "wind_ventilation_pct": 12,
+              "urban_heat_island_pct": 26,
+              "canopy_buffer_pct": 14
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.575,
+                13.048
+              ],
+              [
+                77.608,
+                13.048
+              ],
+              [
+                77.612,
+                13.076
+              ],
+              [
+                77.578,
+                13.076
+              ],
+              [
+                77.575,
+                13.048
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-159",
+        "properties": {
+          "ward_id": "BBMP-159",
+          "name": "J.P. Nagar Cultural & Sarakki Lake Enclave",
+          "name_kn": "ಜೆ.ಪಿ. ನಗರ ಮತ್ತು ಸಾರಕ್ಕಿ ಕೆರೆ ಪರಿಸರ",
+          "name_hi": "जेपी नगर और सारक्की झील एन्क्लेव",
+          "zone": "South Zone",
+          "population": 195000,
+          "elderly_pct": 19.5,
+          "outdoor_labor_pct": 35.0,
+          "tin_roof_pct": 26.0,
+          "tree_canopy_pct": 18.4,
+          "hospital_beds_per_k": 3.8,
+          "baseline_daily_admissions": 28,
+          "uhi_temp_delta": 1.2,
+          "wind_attenuation": 0.7,
+          "center": [
+            12.908,
+            77.585
+          ],
+          "microclimate": {
+            "temperature_c": 25.4,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.9,
+            "wet_bulb_c": 21.88,
+            "heat_index_c": 25.93,
+            "wbgt_c": 24.32,
+            "htsi_score": 36.2,
+            "precipitation_mm": 0.3
+          },
+          "vulnerability": {
+            "elderly_pct": 19.5,
+            "outdoor_labor_pct": 35.0,
+            "tin_roof_pct": 26.0,
+            "tree_canopy_pct": 18.4,
+            "hospital_beds_per_k": 3.8
+          },
+          "vulnerability_score": 48.7,
+          "vulnerability_tier": "MODERATE",
+          "vulnerability_details": {
+            "score": 48.7,
+            "tier": "MODERATE",
+            "tier_label_en": "Moderate Vulnerability",
+            "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "मध्यम संवेदनशीलता",
+            "sensitivity_score": 61.0,
+            "exposure_score": 44.7,
+            "adaptive_deficit_score": 38.1
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.9 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.9 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.9 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 31,
+              "moisture_humidity_pct": 25,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 21,
+              "canopy_buffer_pct": 9
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.572,
+                12.895
+              ],
+              [
+                77.602,
+                12.895
+              ],
+              [
+                77.605,
+                12.922
+              ],
+              [
+                77.575,
+                12.922
+              ],
+              [
+                77.572,
+                12.895
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-14",
+        "properties": {
+          "ward_id": "BBMP-14",
+          "name": "Bagalgunte & Dasarahalli Industrial Corridor",
+          "name_kn": "ಬಾಗಲಗುಂಟೆ ಮತ್ತು ದಾಸರಹಳ್ಳಿ ಕೈಗಾರಿಕಾ ಕಾರಿಡಾರ್",
+          "name_hi": "बागलकुंटे और दासरहल्ली इंडस्ट्रियल कॉरिडोर",
+          "zone": "Dasarahalli Zone",
+          "population": 245000,
+          "elderly_pct": 11.2,
+          "outdoor_labor_pct": 65.0,
+          "tin_roof_pct": 68.0,
+          "tree_canopy_pct": 4.2,
+          "hospital_beds_per_k": 1.4,
+          "baseline_daily_admissions": 41,
+          "uhi_temp_delta": 2.9,
+          "wind_attenuation": 0.5,
+          "center": [
+            13.045,
+            77.512
+          ],
+          "microclimate": {
+            "temperature_c": 27.1,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.64,
+            "wet_bulb_c": 23.48,
+            "heat_index_c": 29.39,
+            "wbgt_c": 26.14,
+            "htsi_score": 45.2,
+            "precipitation_mm": 0.3
+          },
+          "vulnerability": {
+            "elderly_pct": 11.2,
+            "outdoor_labor_pct": 65.0,
+            "tin_roof_pct": 68.0,
+            "tree_canopy_pct": 4.2,
+            "hospital_beds_per_k": 1.4
+          },
+          "vulnerability_score": 83.2,
+          "vulnerability_tier": "CRITICAL",
+          "vulnerability_details": {
+            "score": 83.2,
+            "tier": "CRITICAL",
+            "tier_label_en": "Critical Vulnerability",
+            "tier_label_kn": "ಅತ್ಯಂತ ಅಪಾಯಕಾರಿ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "अति संवेदनशील क्षेत्र",
+            "sensitivity_score": 73.0,
+            "exposure_score": 93.0,
+            "adaptive_deficit_score": 81.6
+          },
+          "causal_attribution": {
+            "driver_category": "HIGH_THERMAL_HOTSPOT",
+            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.9°C Urban Heat Island anomaly, while low wind ventilation (0.6 m/s) trapping hot air in street canyons, while 68% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.9°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.6 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.9°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.6 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "drivers": {
+              "solar_radiation_pct": 24,
+              "moisture_humidity_pct": 19,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 28,
+              "canopy_buffer_pct": 16
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.495,
+                13.031
+              ],
+              [
+                77.528,
+                13.031
+              ],
+              [
+                77.532,
+                13.059
+              ],
+              [
+                77.498,
+                13.059
+              ],
+              [
+                77.495,
+                13.031
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-118",
+        "properties": {
+          "ward_id": "BBMP-118",
+          "name": "Vijayanagar & Magadi Road Wholesale Trade Hub",
+          "name_kn": "ವಿಜಯನಗರ ಮತ್ತು ಮಾಗಡಿ ರಸ್ತೆ ಸಗಟು ವಾಣಿಜ್ಯ ಕೇಂದ್ರ",
+          "name_hi": "विजयनगर और मागड़ी रोड होलसेल ट्रेड हब",
+          "zone": "West Zone",
+          "population": 220000,
+          "elderly_pct": 17.8,
+          "outdoor_labor_pct": 46.0,
+          "tin_roof_pct": 44.0,
+          "tree_canopy_pct": 9.8,
+          "hospital_beds_per_k": 2.7,
+          "baseline_daily_admissions": 35,
+          "uhi_temp_delta": 2.1,
+          "wind_attenuation": 0.55,
+          "center": [
+            12.971,
+            77.538
+          ],
+          "microclimate": {
+            "temperature_c": 26.3,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.7,
+            "wet_bulb_c": 22.73,
+            "heat_index_c": 27.94,
+            "wbgt_c": 25.32,
+            "htsi_score": 41.2,
+            "precipitation_mm": 0.3
+          },
+          "vulnerability": {
+            "elderly_pct": 17.8,
+            "outdoor_labor_pct": 46.0,
+            "tin_roof_pct": 44.0,
+            "tree_canopy_pct": 9.8,
+            "hospital_beds_per_k": 2.7
+          },
+          "vulnerability_score": 65.8,
+          "vulnerability_tier": "HIGH",
+          "vulnerability_details": {
+            "score": 65.8,
+            "tier": "HIGH",
+            "tier_label_en": "High Vulnerability",
+            "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "उच्च संवेदनशीलता",
+            "sensitivity_score": 67.5,
+            "exposure_score": 67.0,
+            "adaptive_deficit_score": 61.6
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.1°C Urban Heat Island anomaly, while low wind ventilation (0.7 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.1°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.7 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.1°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.7 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 27,
+              "moisture_humidity_pct": 21,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 25,
+              "canopy_buffer_pct": 13
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.522,
+                12.958
+              ],
+              [
+                77.554,
+                12.958
+              ],
+              [
+                77.558,
+                12.985
+              ],
+              [
+                77.525,
+                12.985
+              ],
+              [
+                77.522,
+                12.958
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-150",
+        "properties": {
+          "ward_id": "BBMP-150",
+          "name": "Bellandur Eco-Park & Lake Technology Corridor",
+          "name_kn": "ಬೆಳ್ಳಂದೂರು ಇಕೋ-ಪಾರ್ಕ್ ಮತ್ತು ಕೆರೆ ತಂತ್ರಜ್ಞಾನ ಕಾರಿಡಾರ್",
+          "name_hi": "बेल्लंदूर इको-पार्क और लेक टेक्नोलॉजी कॉरिडोर",
+          "zone": "Mahadevapura Zone",
+          "population": 260000,
+          "elderly_pct": 10.5,
+          "outdoor_labor_pct": 52.0,
+          "tin_roof_pct": 40.0,
+          "tree_canopy_pct": 11.0,
+          "hospital_beds_per_k": 2.4,
+          "baseline_daily_admissions": 36,
+          "uhi_temp_delta": 2.3,
+          "wind_attenuation": 0.6,
+          "center": [
+            12.935,
+            77.674
+          ],
+          "microclimate": {
+            "temperature_c": 26.5,
+            "relative_humidity_pct": 74.0,
+            "wind_speed_m_s": 0.77,
+            "wet_bulb_c": 22.91,
+            "heat_index_c": 28.29,
+            "wbgt_c": 25.46,
+            "htsi_score": 42.0,
+            "precipitation_mm": 0.3
+          },
+          "vulnerability": {
+            "elderly_pct": 10.5,
+            "outdoor_labor_pct": 52.0,
+            "tin_roof_pct": 40.0,
+            "tree_canopy_pct": 11.0,
+            "hospital_beds_per_k": 2.4
+          },
+          "vulnerability_score": 63.0,
+          "vulnerability_tier": "HIGH",
+          "vulnerability_details": {
+            "score": 63.0,
+            "tier": "HIGH",
+            "tier_label_en": "High Vulnerability",
+            "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "उच्च संवेदनशीलता",
+            "sensitivity_score": 60.9,
+            "exposure_score": 65.6,
+            "adaptive_deficit_score": 61.9
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.3°C Urban Heat Island anomaly, while low wind ventilation (0.8 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.3°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.3°C का अर्बन हीट आइलैंड प्रभाव, तथा धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 27,
+              "moisture_humidity_pct": 21,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 26,
+              "canopy_buffer_pct": 13
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.658,
+                12.921
+              ],
+              [
+                77.692,
+                12.921
+              ],
+              [
+                77.695,
+                12.948
+              ],
+              [
+                77.661,
+                12.948
+              ],
+              [
+                77.658,
+                12.921
+              ]
+            ]
+          ]
+        }
       }
     ]
   }
@@ -4501,13 +5767,13 @@ export const fallbackWeatherData = {
   "city": "Bengaluru Metropolitan Region",
   "authority": "Metropolitan Heat Resilience Network",
   "mode": "LIVE_OPEN_METEO",
-  "ambient_temp_c": 25.9,
-  "relative_humidity_pct": 63.0,
-  "wind_speed_m_s": 1.94,
+  "ambient_temp_c": 24.2,
+  "relative_humidity_pct": 74.0,
+  "wind_speed_m_s": 1.28,
   "solar_radiation_w_m2": 621.8,
   "precipitation_mm": 0.3,
-  "prev_hour_temp_c": 25.299999999999997,
-  "prev_hour_rh_pct": 60.0,
+  "prev_hour_temp_c": 23.599999999999998,
+  "prev_hour_rh_pct": 71.0,
   "forecast_5_days": [
     {
       "day": "Today",
@@ -5222,5 +6488,232 @@ export const fallbackSheltersData = [
     "has_paramedic": true,
     "operating_hours": "07:00 AM - 09:00 PM",
     "status": "OPEN"
+  },
+  {
+    "id": "BBMP-IC-23",
+    "ward_id": "BBMP-112",
+    "name": "Domlur Flyover Transit Cooling & Hydration Center",
+    "name_kn": "ದೋಮ್ಲೂರು ಮೇಲ್ಸೇತುವೆ ಶೀತಲ ಮತ್ತು ಕುಡಿಯುವ ನೀರಿನ ಕೇಂದ್ರ",
+    "name_hi": "डोम्लूर फ्लाईओवर ट्रांजिट कूलिंग व जल केंद्र",
+    "type": "COOLING_SHELTER",
+    "address": "Intermediate Ring Road, Domlur Junction",
+    "lat": 12.961,
+    "lon": 77.638,
+    "capacity_persons": 220,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": false,
+    "operating_hours": "08:00 AM - 08:00 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-24",
+    "ward_id": "BBMP-7",
+    "name": "Byatarayanapura Bellary Highway Free Water Post",
+    "name_kn": "ಬ್ಯಾಟರಾಯನಪುರ ಹೆದ್ದಾರಿ ಉಚಿತ ಕುಡಿಯುವ ನೀರಿನ ಪೋಸ್ಟ್",
+    "name_hi": "ब्याटरायनपुरा हाईवे निःशुल्क पेयजल पोस्ट",
+    "type": "WATER_KIOSK",
+    "address": "Near Byatarayanapura BBMP Sub-division Office",
+    "lat": 13.062,
+    "lon": 77.592,
+    "capacity_liters": 8000,
+    "chilled_water": true,
+    "operating_hours": "24 Hours",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "BBMP-IC-25",
+    "ward_id": "BBMP-159",
+    "name": "J.P. Nagar Cultural Center Senior Respite Zone",
+    "name_kn": "ಜೆ.ಪಿ. ನಗರ ಸಾಂಸ್ಕೃತಿಕ ಕೇಂದ್ರ ಹಿರಿಯ ನಾಗರಿಕರ ವಿಶ್ರಾಂತಿ ತಾಣ",
+    "name_hi": "जेपी नगर सांस्कृतिक केंद्र वरिष्ठ नागरिक शीतलन क्षेत्र",
+    "type": "COOLING_SHELTER",
+    "address": "24th Main, 5th Phase, J.P. Nagar",
+    "lat": 12.908,
+    "lon": 77.585,
+    "capacity_persons": 280,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "08:00 AM - 09:00 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-26",
+    "ward_id": "BBMP-14",
+    "name": "Dasarahalli Heavy Fabrication Labor Water Dispenser",
+    "name_kn": "ದಾಸರಹಳ್ಳಿ ಕಾರ್ಮಿಕ ಕುಡಿಯುವ ನೀರಿನ ಕಿಯೋಸ್ಕ್",
+    "name_hi": "दासरहल्ली श्रमिक पेयजल डिस्पेंसर",
+    "type": "WATER_KIOSK",
+    "address": "Tumkur Road Service Line, Dasarahalli",
+    "lat": 13.045,
+    "lon": 77.512,
+    "capacity_liters": 10000,
+    "chilled_water": true,
+    "operating_hours": "24 Hours",
+    "status": "ACTIVE"
   }
 ];
+
+export const fallbackCommunityReports = [
+  {
+    "id": "HG-87562",
+    "ward_id": "BBMP-138",
+    "ward_name": "Shivajinagar & Majestic Bus Interchange",
+    "category": "LACK_OF_WATER",
+    "category_label": "Lack Of Water",
+    "location": "Near Metro Station",
+    "description": "Water dispenser is empty",
+    "urgency": "HIGH",
+    "status": "UNDER_REVIEW",
+    "status_label": "Under Municipal Review",
+    "reporter_name": "Anonymous Citizen",
+    "upvotes": 2,
+    "timestamp": "Just now",
+    "created_at": "2026-09-14T17:36:02Z"
+  },
+  {
+    "id": "HG-8812",
+    "ward_id": "BBMP-41",
+    "ward_name": "Peenya Industrial Area & Jalahalli",
+    "category": "WATER_DISPENSER_BROKEN",
+    "category_label": "Broken Water Dispenser / Dry Post",
+    "location": "Near Metro Gate 2 & 4th Cross Bus Shelter",
+    "description": "Free drinking water tap has been non-functional since morning. Over 300 industrial laborers queuing in extreme heat.",
+    "urgency": "CRITICAL",
+    "status": "DISPATCHED_TANKER",
+    "status_label": "Emergency Tanker Dispatched",
+    "reporter_name": "Ganesh K.",
+    "upvotes": 42,
+    "timestamp": "35 mins ago",
+    "created_at": "2026-09-14T11:45:00Z"
+  },
+  {
+    "id": "HG-8809",
+    "ward_id": "BBMP-138",
+    "ward_name": "Shivajinagar & Majestic Bus Interchange",
+    "category": "UNSHADED_LABOR_ZONE",
+    "category_label": "Unshaded Outdoor Work / Transit Hub",
+    "location": "Russell Market Wholesale Loading Docks",
+    "description": "Headloaders and cart pullers operating under direct solar radiation. Need immediate temporary canopy and ORS packets.",
+    "urgency": "HIGH",
+    "status": "INSPECTION_SCHEDULED",
+    "status_label": "Municipal Team On-Site",
+    "reporter_name": "Naveen R.",
+    "upvotes": 28,
+    "timestamp": "1 hour ago",
+    "created_at": "2026-09-14T11:15:00Z"
+  },
+  {
+    "id": "HG-8805",
+    "ward_id": "BBMP-36",
+    "ward_name": "Yeshwanthpur APMC Grain Market & Rail Basin",
+    "category": "LACK_OF_WATER",
+    "category_label": "Acute Drinking Water Scarcity",
+    "location": "Sub-yard 3, Loading Gate B",
+    "description": "Borewell pump failure. Wholesale market workers have no drinking water access in heavy physical work environment.",
+    "urgency": "CRITICAL",
+    "status": "DISPATCHED_TANKER",
+    "status_label": "12,000L Potable Bowser En Route",
+    "reporter_name": "Suresh Gowda",
+    "upvotes": 56,
+    "timestamp": "2 hours ago",
+    "created_at": "2026-09-14T10:30:00Z"
+  },
+  {
+    "id": "HG-8798",
+    "ward_id": "BBMP-89",
+    "ward_name": "Marathahalli Outer Ring Road & Tech Junction",
+    "category": "UNSHADED_LABOR_ZONE",
+    "category_label": "Unshaded Bus Stand & Labor Crossing",
+    "location": "Kalamandir Underpass Bus Stop",
+    "description": "Tin roof removed during flyover work, passengers and gig delivery workers waiting without any thermal respite.",
+    "urgency": "MEDIUM",
+    "status": "UNDER_REVIEW",
+    "status_label": "Under Ward Engineer Review",
+    "reporter_name": "Priya S.",
+    "upvotes": 19,
+    "timestamp": "3 hours ago",
+    "created_at": "2026-09-14T09:15:00Z"
+  },
+  {
+    "id": "HG-8791",
+    "ward_id": "BBMP-175",
+    "ward_name": "Bommanahalli Garment Cluster & Silk Board",
+    "category": "SHELTER_INACCESSIBLE",
+    "category_label": "Cooling Shelter Locked / Offline",
+    "location": "Indira Canteen Respite Hall, Silk Board Junction",
+    "description": "Cooling shelter hall was temporarily closed for sanitization during peak 1:00 PM heat.",
+    "urgency": "HIGH",
+    "status": "RESOLVED",
+    "status_label": "Reopened & Restocked with ORS",
+    "reporter_name": "Anand M.",
+    "upvotes": 35,
+    "timestamp": "4 hours ago",
+    "created_at": "2026-09-14T08:00:00Z"
+  }
+];
+
+export const fallbackFeedbackData = {
+  "total_reviews": 149,
+  "average_rating": 4.8,
+  "accuracy_satisfaction_pct": 96.2,
+  "verified_audits_count": 125,
+  "recent_reviews": [
+    {
+      "id": "FB-87562",
+      "rating": 5,
+      "category": "ACCURACY_TEMPERATURE",
+      "category_label": "Accuracy Temperature",
+      "ward_name": "Peenya",
+      "reviewer_name": "Anonymous User",
+      "comment": "Sensors matched physical ground truth perfectly.",
+      "timestamp": "Just now",
+      "status": "VERIFIED_AUDIT"
+    },
+    {
+      "id": "FB-101",
+      "rating": 5,
+      "category": "ACCURACY_TEMPERATURE",
+      "category_label": "Temperature & WBGT Accuracy",
+      "ward_name": "Shivajinagar & Majestic",
+      "reviewer_name": "Dr. K. Srinivas (Public Health)",
+      "comment": "The microclimate downscaled temperature was within 0.4°C of our on-site digital sling psychrometer. Causal driver breakdown matches urban canyon physics.",
+      "timestamp": "2 hours ago",
+      "status": "VERIFIED_AUDIT"
+    },
+    {
+      "id": "FB-102",
+      "rating": 5,
+      "category": "VULNERABILITY_SCORE",
+      "category_label": "Socio-Ecological HVS Score",
+      "ward_name": "Peenya Industrial Area",
+      "reviewer_name": "Rashmi Hegde (Urban Planning)",
+      "comment": "The HVS metric properly weighs tin-roof density and canopy deficit. It correctly identified Peenya and Yeshwanthpur as high-priority intervention zones.",
+      "timestamp": "4 hours ago",
+      "status": "VERIFIED_AUDIT"
+    },
+    {
+      "id": "FB-103",
+      "rating": 4,
+      "category": "BETTERMENT_FEATURE",
+      "category_label": "Betterment / Feature Request",
+      "ward_name": "Indiranagar & HAL",
+      "reviewer_name": "Aakash Verma (Citizen)",
+      "comment": "Accurate data. Suggestion: add an option for citizens to get automated WhatsApp broadcast advisories when their ward enters Orange/Red tier.",
+      "timestamp": "Yesterday",
+      "status": "LOGGED_ROADMAP"
+    },
+    {
+      "id": "FB-104",
+      "rating": 5,
+      "category": "HOTSPOT_DETECTION",
+      "category_label": "Hotspot Precision & Map Auras",
+      "ward_name": "Bommanahalli Garment Cluster",
+      "reviewer_name": "Manjunath B. (Gig Worker Union)",
+      "comment": "The pulsating hotspots on the map showed exactly where road workers were suffering heat exhaustion near Silk Board. Very useful for field teams.",
+      "timestamp": "2 days ago",
+      "status": "VERIFIED_AUDIT"
+    }
+  ]
+};

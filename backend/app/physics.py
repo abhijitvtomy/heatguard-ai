@@ -512,3 +512,146 @@ def generate_24h_diurnal_forecast(
 
     return forecast_points
 
+
+def simulate_urban_intervention(
+    base_temp_c: float,
+    base_rh_pct: float,
+    base_wind_m_s: float,
+    base_solar_w_m2: float,
+    ward_props: Dict[str, Any],
+    cool_roof_pct: float = 0.0,
+    tree_canopy_delta_pct: float = 0.0,
+    misting_density_per_sqkm: float = 0.0,
+    temp_override_c: Optional[float] = None,
+    rh_override_pct: Optional[float] = None,
+    wind_override_m_s: Optional[float] = None,
+    solar_override_w_m2: Optional[float] = None
+) -> Dict[str, Any]:
+    """
+    Simulates urban policy interventions and climate stress scenarios using
+    peer-reviewed thermodynamic, microclimate albedo, and evapotranspiration models.
+    """
+    t_in = float(temp_override_c if temp_override_c is not None else base_temp_c)
+    rh_in = float(rh_override_pct if rh_override_pct is not None else base_rh_pct)
+    wind_in = float(wind_override_m_s if wind_override_m_s is not None else base_wind_m_s)
+    solar_in = float(solar_override_w_m2 if solar_override_w_m2 is not None else base_solar_w_m2)
+
+    base_uhi = float(ward_props.get("uhi_temp_delta", 2.0))
+    base_canopy = float(ward_props.get("tree_canopy_pct", 12.0))
+    base_tin_roof = float(ward_props.get("tin_roof_pct", 35.0))
+    pop = int(ward_props.get("population", 180000))
+    labor_pct = float(ward_props.get("outdoor_labor_pct", 40.0))
+    outdoor_workers = int(pop * (labor_pct / 100.0))
+
+    # --- 1. Baseline Calculations ---
+    t_ward_base = t_in + (base_uhi * 0.45)
+    wbgt_base = calculate_wbgt_outdoor(t_ward_base, rh_in, wind_in, solar_in)
+    hi_base = calculate_heat_index(t_ward_base, rh_in)
+    tw_base = calculate_stull_wet_bulb(t_ward_base, rh_in)
+    htsi_base = calculate_htsi(wbgt_base, hi_base, tw_base)
+    hvs_base = calculate_vulnerability_score(ward_props)
+    work_rest_base = get_nioh_work_rest_cycle(wbgt_base)
+
+    # Baseline hospital admissions surge %
+    if wbgt_base >= 28.0:
+        surge_base = round(min(120.0, 2.0 + 1.6 * math.exp(0.38 * (wbgt_base - 28.0))), 1)
+    else:
+        surge_base = 2.0
+
+    # --- 2. Physical Intervention Deltas ---
+    # Cool Roof High-Albedo reflection (albedo 0.85):
+    # Reduces surface heat flux; delta T proportional to tin roof density and coverage %
+    delta_t_roof = (cool_roof_pct / 100.0) * (base_tin_roof / 100.0) * 3.4
+
+    # Tree Canopy Evapotranspiration & Shade:
+    # ~0.55°C per +10% canopy increase
+    delta_t_canopy = min(2.8, (tree_canopy_delta_pct / 10.0) * 0.58)
+
+    # Public Misting & Free Hydration Network:
+    # Micro-droplet evaporation absorbs latent heat of vaporization (2.45 MJ/kg)
+    delta_t_misting = (misting_density_per_sqkm / 50.0) * 1.15
+
+    total_delta_t = round(delta_t_roof + delta_t_canopy + delta_t_misting, 2)
+
+    # --- 3. Simulated Conditions ---
+    t_ward_sim = round(t_ward_base - total_delta_t, 2)
+    # Misting slightly raises humidity in immediate vicinity (+1-3%)
+    rh_sim = round(min(98.0, rh_in + ((misting_density_per_sqkm / 50.0) * 2.5)), 1)
+    # Reduced radiative load on black globe
+    solar_sim = round(max(50.0, solar_in * (1.0 - (tree_canopy_delta_pct / 100.0) * 0.45)), 1)
+
+    wbgt_sim = calculate_wbgt_outdoor(t_ward_sim, rh_sim, wind_in, solar_sim)
+    hi_sim = calculate_heat_index(t_ward_sim, rh_sim)
+    tw_sim = calculate_stull_wet_bulb(t_ward_sim, rh_sim)
+    htsi_sim = calculate_htsi(wbgt_sim, hi_sim, tw_sim)
+
+    # Simulated Ward Props for HVS recalculation
+    sim_ward_props = dict(ward_props)
+    sim_ward_props["tree_canopy_pct"] = min(60.0, base_canopy + tree_canopy_delta_pct)
+    sim_ward_props["tin_roof_pct"] = max(5.0, base_tin_roof * (1.0 - (cool_roof_pct / 100.0)))
+    sim_ward_props["uhi_temp_delta"] = max(0.2, base_uhi - (total_delta_t * 0.6))
+    hvs_sim = calculate_vulnerability_score(sim_ward_props)
+    work_rest_sim = get_nioh_work_rest_cycle(wbgt_sim)
+
+    if wbgt_sim >= 28.0:
+        surge_sim = round(min(120.0, 2.0 + 1.6 * math.exp(0.38 * (wbgt_sim - 28.0))), 1)
+    else:
+        surge_sim = 2.0
+
+    # Epidemiological & Productivity Savings
+    hospital_reduction_pct = round(max(0.0, surge_base - surge_sim), 1)
+    hospital_relief_ratio = round((hospital_reduction_pct / max(1.0, surge_base)) * 100.0, 1)
+
+    # Work hours saved per day per 10k workers
+    rest_base_min = work_rest_base.get("rest_mins", 0)
+    rest_sim_min = work_rest_sim.get("rest_mins", 0)
+    work_base_min = work_rest_base.get("work_mins", 60)
+    work_sim_min = work_rest_sim.get("work_mins", 60)
+    saved_minutes_per_hr = max(0, rest_base_min - rest_sim_min)
+    daily_hours_saved = round((saved_minutes_per_hr / 60.0) * 8.0 * (outdoor_workers / 1000.0), 0)
+
+    return {
+        "ward_id": ward_props.get("ward_id", "METRO-AVG"),
+        "ward_name": ward_props.get("name", "Metropolitan Area"),
+        "interventions": {
+            "cool_roof_pct": cool_roof_pct,
+            "tree_canopy_delta_pct": tree_canopy_delta_pct,
+            "misting_density_per_sqkm": misting_density_per_sqkm
+        },
+        "atmospheric_inputs": {
+            "ambient_temp_c": t_in,
+            "relative_humidity_pct": rh_in,
+            "wind_speed_m_s": wind_in,
+            "solar_radiation_w_m2": solar_in
+        },
+        "baseline": {
+            "temperature_c": round(t_ward_base, 1),
+            "wbgt_c": wbgt_base,
+            "htsi_score": htsi_base,
+            "hvs_score": hvs_base["score"],
+            "hvs_tier": hvs_base["tier"],
+            "hospital_surge_pct": surge_base,
+            "work_rest_ratio": f"{work_base_min}/{rest_base_min} mins",
+            "work_status": work_rest_base.get("status", "NORMAL_OPERATIONS")
+        },
+        "simulated": {
+            "temperature_c": round(t_ward_sim, 1),
+            "wbgt_c": wbgt_sim,
+            "htsi_score": htsi_sim,
+            "hvs_score": hvs_sim["score"],
+            "hvs_tier": hvs_sim["tier"],
+            "hospital_surge_pct": surge_sim,
+            "work_rest_ratio": f"{work_sim_min}/{rest_sim_min} mins",
+            "work_status": work_rest_sim.get("status", "NORMAL_OPERATIONS")
+        },
+        "impact": {
+            "delta_temperature_c": -total_delta_t,
+            "delta_wbgt_c": round(wbgt_sim - wbgt_base, 1),
+            "delta_hvs_score": round(hvs_sim["score"] - hvs_base["score"], 1),
+            "hospital_surge_reduction_pct": hospital_reduction_pct,
+            "hospital_relief_ratio_pct": hospital_relief_ratio,
+            "worker_hours_saved_daily": int(daily_hours_saved),
+            "outdoor_laborers_benefiting": outdoor_workers
+        }
+    }
+

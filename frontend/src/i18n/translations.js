@@ -23,10 +23,11 @@ export const translations = {
     causalDriversTitle: "Atmospheric & Microclimate Drivers",
     tabs: {
       map: "GIS Command Map",
-      dossier: "Ward Telemetry & Labor Safety",
+      simulator: "What-If Policy Simulator",
+      community: "Community Ground Response",
+      league: "Citizen Prediction League",
       actionPlan: "Municipal Action Plan",
       audit: "Model Transparency Audit",
-      league: "Citizen Prediction League",
       chat: "AI Heatbot Assistant"
     },
     metrics: {
@@ -83,10 +84,11 @@ export const translations = {
     causalDriversTitle: "ವಾತಾವರಣ ಮತ್ತು ಮೈಕ್ರೋಕ್ಲೈಮೇಟ್ ಕಾರಣಗಳು",
     tabs: {
       map: "ಜಿಐಎಸ್ ನಕ್ಷೆ",
-      dossier: "ವಾರ್ಡ್ ಮಾಹಿತಿ ಮತ್ತು ಕಾರ್ಮಿಕ ಸುರಕ್ಷತೆ",
+      simulator: "ವಾಟ್-ಇಫ್ ನೀತಿ ಸಿಮ್ಯುಲೇಟರ್",
+      community: "ಸಾರ್ವಜನಿಕ ತುರ್ತು ಪ್ರತಿಕ್ರಿಯೆ",
+      league: "ನಾಗರಿಕ ಮುನ್ಸೂಚನಾ ಲೀಗ್",
       actionPlan: "ನಗರ ಸಭಾ ಕ್ರಿಯಾ ಯೋಜನೆ",
       audit: "ಮಾದರಿ ಪಾರದರ್ಶಕತೆ ಮತ್ತು ನಿಖರತೆ",
-      league: "ನಾಗರಿಕ ಮುನ್ಸೂಚನಾ ಲೀಗ್",
       chat: "ಎಐ ಸಹಾಯಕ ಹೀಟ್‌ಬಾಟ್"
     },
     metrics: {
@@ -143,10 +145,11 @@ export const translations = {
     causalDriversTitle: "वायुमंडलीय और सूक्ष्म जलवायु कारक",
     tabs: {
       map: "जीआईएस कमांड मैप",
-      dossier: "वार्ड सूक्ष्म-जलवायु व श्रमिक सुरक्षा",
+      simulator: "व्हाट-इफ पॉलिसी सिमुलेटर",
+      community: "सामुदायिक ग्राउंड रिस्पांस",
+      league: "नागरिक जलवायु भविष्यवाणी लीग",
       actionPlan: "नगर निगम कार्ययोजना",
       audit: "मॉडल पारदर्शिता व सटीकता",
-      league: "नागरिक जलवायु भविष्यवाणी लीग",
       chat: "एआई हीटबॉट असिस्टेंट"
     },
     metrics: {
