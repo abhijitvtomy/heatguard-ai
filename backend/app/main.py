@@ -235,11 +235,16 @@ async def get_model_audit_ledger():
 
 
 @app.get("/api/circular/html", response_class=HTMLResponse)
-async def get_circular_html(scenario: str = Query("LIVE")):
+async def get_circular_html(
+    scenario: str = Query("LIVE"),
+    language: str = Query("en", description="Language: en, kn, hi")
+):
     """Generates official BBMP Municipal Heat Action Plan printable circular / PDF."""
     base_weather = await weather_service.get_weather(scenario)
     evaluated_wards = weather_service.downscale_to_wards(base_weather, BBMP_WARDS_GEOJSON)
-    html_content = generate_bbmp_official_circular_html(evaluated_wards, base_weather)
+    html_content = generate_bbmp_official_circular_html(
+        evaluated_wards, base_weather, language=language, scenario=scenario
+    )
     return HTMLResponse(content=html_content)
 
 

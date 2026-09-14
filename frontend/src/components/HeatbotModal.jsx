@@ -233,7 +233,7 @@ export default function HeatbotModal({ isOpen, onClose, language, selectedWard }
                 {!isUser && m.action_suggested === 'OPEN_CIRCULAR_MODAL' && (
                   <div className="pt-2">
                     <a
-                      href={`${API_BASE}/api/circular/html`}
+                      href={`${API_BASE}/api/circular/html?language=${language || 'en'}`}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-[11px] shadow-md transition"

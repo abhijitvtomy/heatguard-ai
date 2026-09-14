@@ -40,7 +40,7 @@ export default function ActionPlanModal({ scenario, language, onClose }) {
   };
 
   const handlePrintCircular = () => {
-    window.open(`${API_BASE}/api/circular/html?scenario=${scenario}`, '_blank');
+    window.open(`${API_BASE}/api/circular/html?scenario=${scenario}&language=${language || 'en'}`, '_blank');
   };
 
   // Formatted Alert Text for WhatsApp/SMS
