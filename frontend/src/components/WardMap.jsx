@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import L from 'leaflet';
 import { translations } from '../i18n/translations';
-import { MapPin, Shield, Droplets, Info } from 'lucide-react';
+import { MapPin, Shield, Droplets, Info, Flame, AlertCircle } from 'lucide-react';
 
 export default function WardMap({
   wardsGeojson,
@@ -10,13 +10,20 @@ export default function WardMap({
   setSelectedWard,
   language,
   showShelters,
-  setShowShelters
+  setShowShelters,
+  showHotspots: propShowHotspots,
+  setShowHotspots: propSetShowHotspots
 }) {
+  const [localShowHotspots, setLocalShowHotspots] = useState(true);
+  const showHotspots = propShowHotspots !== undefined ? propShowHotspots : localShowHotspots;
+  const setShowHotspots = propSetShowHotspots || setLocalShowHotspots;
+
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const geojsonLayerRef = useRef(null);
   const labelsLayerRef = useRef(null);
   const sheltersLayerRef = useRef(null);
+  const hotspotsLayerRef = useRef(null);
 
   const t = translations[language] || translations.en;
 
@@ -120,11 +127,13 @@ export default function WardMap({
         const temp = props.microclimate?.temperature_c || '--';
         const spike = props.health_risk?.expected_surge_pct || 0;
         const tier = props.effective_alert_tier || 'GREEN';
+        const vuln = props.vulnerability_score != null ? `${props.vulnerability_score} [${props.vulnerability_tier || 'MED'}]` : '--';
 
         featureLayer.bindTooltip(`
           <div style="font-family: system-ui; font-size: 11px; padding: 4px;">
             <div style="font-weight: 800; color: #f8fafc; margin-bottom: 2px;">${wardName}</div>
             <div style="color: #94a3b8;">Temp: <b>${temp}°C</b> | WBGT: <b>${wbgt}°C</b></div>
+            <div style="color: #fbbf24;">Vulnerability Score: <b>${vuln}</b></div>
             <div style="color: #f87171; font-weight: 700;">Hosp Surge: +${spike}% [${tier}]</div>
           </div>
         `, { sticky: true, className: 'leaflet-dark-tooltip' });
@@ -242,7 +251,7 @@ export default function WardMap({
         <div style="font-family: system-ui; padding: 6px; font-size: 12px; color: #1e293b; max-width: 220px;">
           <div style="font-weight: 800; font-size: 13px; color: #0f172a; margin-bottom: 4px;">${sName}</div>
           <div style="font-size: 11px; color: #475569; margin-bottom: 6px;">${s.address}</div>
-          <div style="margin-bottom: 4px;"><b>Type:</b> ${isCooling ? 'BBMP Indira Canteen (Cooling)' : 'BWSSB Free Water Post'}</div>
+          <div style="margin-bottom: 4px;"><b>Type:</b> ${isCooling ? 'Designated Public Cooling Shelter' : 'Potable Public Water Post'}</div>
           <div><b>Hours:</b> ${s.operating_hours}</div>
           <div style="margin-top: 6px; font-weight: bold; color: #16a34a;">● Status: ${s.status}</div>
         </div>
@@ -253,6 +262,65 @@ export default function WardMap({
     group.addTo(map);
     sheltersLayerRef.current = group;
   }, [shelters, showShelters, language]);
+
+  // Compute Top 3 Real-Time Thermal Hotspots
+  const topHotspots = useMemo(() => {
+    if (!wardsGeojson?.features?.length) return [];
+    const list = [...wardsGeojson.features].map(f => f.properties || {});
+    list.sort((a, b) => {
+      const tempA = a.microclimate?.temperature_c || 0;
+      const tempB = b.microclimate?.temperature_c || 0;
+      return tempB - tempA;
+    });
+    return list.slice(0, 3);
+  }, [wardsGeojson]);
+
+  // Render Real-Time Hotspot Pulsating Halos
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map) return;
+
+    if (hotspotsLayerRef.current) {
+      map.removeLayer(hotspotsLayerRef.current);
+      hotspotsLayerRef.current = null;
+    }
+
+    if (!showHotspots || !wardsGeojson?.features?.length) return;
+
+    const group = L.layerGroup();
+    wardsGeojson.features.forEach(f => {
+      const p = f.properties || {};
+      const isHot = p.is_hotspot || (p.microclimate?.temperature_c >= 33.5) || (p.uhi_temp_delta >= 2.0);
+      if (isHot && p.center) {
+        const pulseIcon = L.divIcon({
+          className: 'hotspot-pulse-icon',
+          html: `
+            <div style="position: relative; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+              <div style="position: absolute; width: 28px; height: 28px; border-radius: 9999px; background: rgba(239, 68, 68, 0.45); animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
+              <div style="position: relative; width: 22px; height: 22px; border-radius: 9999px; background: linear-gradient(135deg, #dc2626, #ea580c); border: 2px solid #fef08a; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 12px #dc2626; font-size: 11px;">🔥</div>
+            </div>
+          `,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15]
+        });
+
+        const m = L.marker(p.center, { icon: pulseIcon });
+        m.on('click', () => setSelectedWard(p));
+        m.bindTooltip(`
+          <div style="font-family: system-ui; font-size: 11px; padding: 4px;">
+            <div style="font-weight: 800; color: #ef4444; margin-bottom: 2px;">🔥 Active Thermal Hotspot</div>
+            <div style="font-weight: 700; color: #f8fafc;">${p.name}</div>
+            <div style="color: #fbbf24;">Temp: <b>${p.microclimate?.temperature_c}°C</b> (+${p.uhi_temp_delta}°C UHI)</div>
+            <div style="color: #f87171;">Vulnerability: <b>${p.vulnerability_score || '--'}</b></div>
+          </div>
+        `, { className: 'leaflet-dark-tooltip' });
+        group.addLayer(m);
+      }
+    });
+
+    group.addTo(map);
+    hotspotsLayerRef.current = group;
+  }, [wardsGeojson, showHotspots]);
 
   return (
     <div className="relative w-full h-[520px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-950">
@@ -272,7 +340,51 @@ export default function WardMap({
           <Droplets className="w-3.5 h-3.5 text-sky-400" />
           <span>{t.mapControls.showShelters}</span>
         </button>
+
+        <button
+          onClick={() => setShowHotspots(!showHotspots)}
+          className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border ${
+            showHotspots
+              ? 'bg-red-600/90 text-white border-red-400 shadow-red-600/30'
+              : 'bg-slate-900/80 text-slate-300 border-slate-700 hover:bg-slate-800'
+          }`}
+        >
+          <Flame className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+          <span>{t.mapControls.showHotspots || "Live Hotspots"}</span>
+        </button>
       </div>
+
+      {/* Top Right Floating Hotspots Leaderboard */}
+      {showHotspots && topHotspots.length > 0 && (
+        <div className="absolute top-3 right-3 z-20 bg-slate-950/90 backdrop-blur-md p-2.5 rounded-xl border border-red-900/50 shadow-xl text-xs hidden sm:block max-w-[250px]">
+          <div className="flex items-center gap-1.5 font-bold text-red-400 mb-1.5 pb-1 border-b border-slate-800">
+            <Flame className="w-3.5 h-3.5 text-red-500 animate-pulse" />
+            <span>{t.topHotspots || "Top Thermal Hotspots"}</span>
+          </div>
+          <div className="space-y-1">
+            {topHotspots.map((h, i) => (
+              <button
+                key={h.ward_id || i}
+                onClick={() => {
+                  setSelectedWard(h);
+                  if (h.center && mapInstanceRef.current) {
+                    mapInstanceRef.current.flyTo(h.center, 13);
+                  }
+                }}
+                className="w-full text-left flex items-center justify-between gap-2 p-1.5 rounded-lg hover:bg-slate-800/70 transition"
+              >
+                <div className="truncate text-[11px] text-slate-200 font-medium">
+                  <span className="text-red-400 font-bold mr-1">#{i + 1}</span>
+                  {h.name?.split('&')[0]?.trim()}
+                </div>
+                <span className="font-mono text-[10px] font-extrabold text-amber-300 shrink-0">
+                  {h.microclimate?.temperature_c != null ? `${Number(h.microclimate.temperature_c).toFixed(1)}°C` : '--'}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Bottom Floating Legend */}
       <div className="absolute bottom-3 left-3 z-20 bg-slate-950/90 backdrop-blur-md p-2.5 rounded-xl border border-slate-800 shadow-xl text-[11px] text-slate-300 max-w-[calc(100%-24px)]">

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import EmergencyBanner from './components/EmergencyBanner';
 import WardMap from './components/WardMap';
 import WardDossier from './components/WardDossier';
+import HeatRiskTimeline from './components/HeatRiskTimeline';
 import ActionPlanModal from './components/ActionPlanModal';
 import AccuracyLedger from './components/AccuracyLedger';
 import CitizenLeague from './components/CitizenLeague';
@@ -20,6 +21,7 @@ export default function App() {
   const [language, setLanguage] = useState('en');
   const [activeTab, setActiveTab] = useState('map'); // map, actionPlan, audit, league
   const [selectedWard, setSelectedWard] = useState(fallbackWardsData?.wards?.[0] || null);
+  const [selectedHour, setSelectedHour] = useState(null);
   const [showShelters, setShowShelters] = useState(true);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isJudgeModalOpen, setIsJudgeModalOpen] = useState(false);
@@ -252,26 +254,36 @@ export default function App() {
 
         {/* Tab 1: GIS Map & Ward Dossier */}
         {activeTab === 'map' && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <div className="lg:col-span-5 xl:col-span-5 2xl:col-span-5">
-              <WardMap
-                wardsGeojson={wardsGeojson}
-                shelters={shelters}
-                selectedWard={selectedWard}
-                setSelectedWard={setSelectedWard}
-                language={language}
-                showShelters={showShelters}
-                setShowShelters={setShowShelters}
-              />
-            </div>
+          <div className="space-y-6">
+            {/* 24-Hour Diurnal Heat Risk Progression Timeline */}
+            <HeatRiskTimeline
+              timelineData={weatherData?.diurnal_forecast_24h || fallbackWeatherData?.diurnal_forecast_24h || []}
+              selectedHour={selectedHour}
+              onSelectHour={setSelectedHour}
+              language={language}
+            />
 
-            <div className="lg:col-span-7 xl:col-span-7 2xl:col-span-7">
-              <WardDossier
-                ward={selectedWard}
-                language={language}
-                forecast5Days={weatherData?.forecast_5_days}
-                onOpenCircular={() => setActiveTab('actionPlan')}
-              />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              <div className="lg:col-span-5 xl:col-span-5 2xl:col-span-5">
+                <WardMap
+                  wardsGeojson={wardsGeojson}
+                  shelters={shelters}
+                  selectedWard={selectedWard}
+                  setSelectedWard={setSelectedWard}
+                  language={language}
+                  showShelters={showShelters}
+                  setShowShelters={setShowShelters}
+                />
+              </div>
+
+              <div className="lg:col-span-7 xl:col-span-7 2xl:col-span-7">
+                <WardDossier
+                  ward={selectedWard}
+                  language={language}
+                  forecast5Days={weatherData?.forecast_5_days}
+                  onOpenCircular={() => setActiveTab('actionPlan')}
+                />
+              </div>
             </div>
           </div>
         )}
@@ -328,7 +340,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="relative z-10 border-t border-slate-900 bg-slate-950/80 py-4 text-center text-xs text-slate-500 font-mono">
-        HEATGUARD AI • Developed for Smart India Hackathon (SIH) • Bruhat Bengaluru Mahanagara Palike (BBMP)
+        HEATGUARD AI • Metropolitan Heat Intelligence & Climate Resilience Platform • Smart India Hackathon (SIH)
       </footer>
 
     </div>

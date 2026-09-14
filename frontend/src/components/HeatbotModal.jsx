@@ -239,7 +239,7 @@ export default function HeatbotModal({ isOpen, onClose, language, selectedWard }
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-[11px] shadow-md transition"
                     >
                       <Sparkles className="w-3.5 h-3.5" />
-                      <span>View Official BBMP Circular</span>
+                      <span>View Official Heat Action Circular</span>
                     </a>
                   </div>
                 )}

@@ -42,7 +42,7 @@ export default function Navbar({
                 {t.appTitle}
               </span>
               <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-red-500/20 text-red-300 border border-red-500/30">
-                BBMP v2.0
+                ENTERPRISE v2.0
               </span>
             </div>
             <p className="text-[11px] text-slate-400 font-medium hidden sm:block">

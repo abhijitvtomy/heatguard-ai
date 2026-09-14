@@ -10,7 +10,7 @@ Implements peer-reviewed meteorological formulations:
 """
 
 import math
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, Optional, List
 
 
 def calculate_stull_wet_bulb(temp_c: float, rh_pct: float) -> float:
@@ -239,3 +239,276 @@ def detect_weather_anomalies(
         "has_anomaly": len(anomalies) > 0,
         "anomalies": anomalies
     }
+
+
+def calculate_vulnerability_score(ward_props: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Computes standardized Socio-Ecological Heat Vulnerability Score (HVS 0-100).
+    Synthesizes:
+    - Sensitivity: Elderly % (weight 0.45) + Outdoor Labor % (weight 0.55)
+    - Exposure: Informal Tin Roof % (weight 0.55) + Microclimate UHI Delta (weight 0.45)
+    - Adaptive Capacity Deficit: Canopy Deficit (weight 0.60) + Hospital Bed Deficit (weight 0.40)
+    """
+    elderly_pct = float(ward_props.get("elderly_pct", 15.0))
+    labor_pct = float(ward_props.get("outdoor_labor_pct", 30.0))
+    tin_roof_pct = float(ward_props.get("tin_roof_pct", 25.0))
+    canopy_pct = float(ward_props.get("tree_canopy_pct", 15.0))
+    beds_k = float(ward_props.get("hospital_beds_per_k", 2.5))
+    uhi_delta = float(ward_props.get("uhi_temp_delta", 1.0))
+
+    # 1. Sensitivity Index (0 - 100)
+    # Elderly capped at 30%, Labor capped at 70%
+    sens_elderly = min(100.0, (elderly_pct / 28.0) * 100.0)
+    sens_labor = min(100.0, (labor_pct / 65.0) * 100.0)
+    sensitivity = (0.45 * sens_elderly) + (0.55 * sens_labor)
+
+    # 2. Exposure Index (0 - 100)
+    # Tin roofs capped at 75%, UHI delta bounded -2°C to +4°C
+    exp_tin = min(100.0, (tin_roof_pct / 70.0) * 100.0)
+    exp_uhi = min(100.0, max(0.0, (uhi_delta + 1.5) / 5.0) * 100.0)
+    exposure = (0.55 * exp_tin) + (0.45 * exp_uhi)
+
+    # 3. Adaptive Capacity Deficit (0 - 100)
+    # Target canopy 35%, Target beds 5.0 per 1k
+    def_canopy = min(100.0, max(0.0, (35.0 - canopy_pct) / 35.0) * 100.0)
+    def_beds = min(100.0, max(0.0, (5.0 - beds_k) / 5.0) * 100.0)
+    adaptive_deficit = (0.60 * def_canopy) + (0.40 * def_beds)
+
+    # 4. Composite Heat Vulnerability Score (HVS 0 - 100)
+    hvs = (0.35 * sensitivity) + (0.40 * exposure) + (0.25 * adaptive_deficit)
+    hvs = round(max(5.0, min(98.0, hvs)), 1)
+
+    if hvs >= 75.0:
+        tier = "CRITICAL"
+        tier_label_en = "Critical Vulnerability"
+        tier_label_kn = "ಅತ್ಯಂತ ಅಪಾಯಕಾರಿ ದುರ್ಬಲತೆ"
+        tier_label_hi = "अति संवेदनशील क्षेत्र"
+    elif hvs >= 55.0:
+        tier = "HIGH"
+        tier_label_en = "High Vulnerability"
+        tier_label_kn = "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ"
+        tier_label_hi = "उच्च संवेदनशीलता"
+    elif hvs >= 35.0:
+        tier = "MODERATE"
+        tier_label_en = "Moderate Vulnerability"
+        tier_label_kn = "ಮಧ್ಯಮ ದುರ್ಬಲತೆ"
+        tier_label_hi = "मध्यम संवेदनशीलता"
+    else:
+        tier = "LOW"
+        tier_label_en = "Low Vulnerability (Resilient)"
+        tier_label_kn = "ಕಡಿಮೆ ದುರ್ಬಲತೆ (ಸುರಕ್ಷಿತ)"
+        tier_label_hi = "कम संवेदनशीलता (सुरक्षित)"
+
+    return {
+        "score": hvs,
+        "tier": tier,
+        "tier_label_en": tier_label_en,
+        "tier_label_kn": tier_label_kn,
+        "tier_label_hi": tier_label_hi,
+        "sensitivity_score": round(sensitivity, 1),
+        "exposure_score": round(exposure, 1),
+        "adaptive_deficit_score": round(adaptive_deficit, 1)
+    }
+
+
+def generate_microclimate_causal_attribution(
+    temp_c: float,
+    rh_pct: float,
+    wind_speed_m_s: float,
+    solar_rad_w_m2: float,
+    uhi_delta: float,
+    canopy_pct: float,
+    tin_roof_pct: float,
+    is_rain: bool = False
+) -> Dict[str, Any]:
+    """
+    Identifies the exact atmospheric & physical drivers determining whether a ward has
+    high, moderate, or low temperature / thermal strain.
+    """
+    if is_rain:
+        return {
+            "driver_category": "CONVECTIVE_PRECIPITATION_RELIEF",
+            "summary_en": f"Active rainfall and cloud cover have suppressed solar irradiance to {int(solar_rad_w_m2)} W/m². Evaporative rain cooling overrides the built-environment heat island.",
+            "summary_kn": f"ಸಕ್ರಿಯ ಮಳೆ ಮತ್ತು ಮೋಡ ಕವಿದ ವಾತಾವರಣವು ಸೌರ ವಿಕಿರಣವನ್ನು {int(solar_rad_w_m2)} W/m² ಗೆ ಇಳಿಸಿದೆ. ಮಳೆಯಿಂದಾಗಿ ಉಷ್ಣಾಂಶ ತಗ್ಗಿದೆ.",
+            "summary_hi": f"सक्रिय वर्षा और बादलों ने सौर विकिरण को {int(solar_rad_w_m2)} W/m² तक घटा दिया है। बारिश ने गर्मी के प्रभाव को निष्प्रभावी कर दिया है।",
+            "drivers": {
+                "solar_radiation_pct": 10,
+                "moisture_humidity_pct": 20,
+                "wind_ventilation_pct": 45,
+                "urban_heat_island_pct": 10,
+                "canopy_buffer_pct": 15
+            }
+        }
+
+    # Analyze relative physical weights
+    solar_impact = min(100.0, (solar_rad_w_m2 / 900.0) * 40.0)
+    humidity_impact = min(100.0, (rh_pct / 85.0) * 25.0)
+    wind_stagnation = min(100.0, max(0.0, (2.5 - wind_speed_m_s) / 2.5) * 20.0)
+    uhi_impact = min(100.0, max(0.0, (uhi_delta + 1.2) / 4.5) * 35.0)
+    canopy_deficit = min(100.0, max(0.0, (30.0 - canopy_pct) / 30.0) * 20.0)
+    tin_roof_impact = min(100.0, (tin_roof_pct / 70.0) * 25.0)
+
+    total_driver = solar_impact + humidity_impact + wind_stagnation + uhi_impact + canopy_deficit + 0.1
+    pct_solar = round((solar_impact / total_driver) * 100)
+    pct_moisture = round((humidity_impact / total_driver) * 100)
+    pct_wind = round((wind_stagnation / total_driver) * 100)
+    pct_uhi = round((uhi_impact / total_driver) * 100)
+    pct_canopy = max(5, 100 - (pct_solar + pct_moisture + pct_wind + pct_uhi))
+
+    # Causal diagnostic reasoning
+    reasons_en = []
+    reasons_kn = []
+    reasons_hi = []
+
+    if uhi_delta >= 2.0:
+        reasons_en.append(f"concrete and asphalt surfaces generating a +{uhi_delta}°C Urban Heat Island anomaly")
+        reasons_kn.append(f"ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +{uhi_delta}°C ಶಾಖ ಹೆಚ್ಚಳ")
+        reasons_hi.append(f"कंक्रीट और डामर की सतहों से +{uhi_delta}°C का अर्बन हीट आइलैंड प्रभाव")
+    elif uhi_delta < 0:
+        reasons_en.append(f"local parklands and green cover providing a {uhi_delta}°C cooling buffer")
+        reasons_kn.append(f"ಉದ್ಯಾನವನಗಳು {uhi_delta}°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ")
+        reasons_hi.append(f"स्थानीय हरित क्षेत्र {uhi_delta}°C का प्राकृतिक शीतलन प्रदान करते हैं")
+
+    if solar_rad_w_m2 >= 700:
+        reasons_en.append(f"intense solar radiation ({int(solar_rad_w_m2)} W/m²) causing rapid surface overheating")
+        reasons_kn.append(f"ತೀವ್ರ ಸೂರ್ಯನ ಬಿಸಿಲು ({int(solar_rad_w_m2)} W/m²) ತಾಪಮಾನವನ್ನು ಹೆಚ್ಚಿಸಿದೆ")
+        reasons_hi.append(f"तीव्र सौर विकिरण ({int(solar_rad_w_m2)} W/m²) सतह को तेजी से गर्म कर रहा है")
+
+    if wind_speed_m_s < 1.2:
+        reasons_en.append(f"low wind ventilation ({round(wind_speed_m_s, 1)} m/s) trapping hot air in street canyons")
+        reasons_kn.append(f"ಕಡಿಮೆ ಗಾಳಿಯು ({round(wind_speed_m_s, 1)} m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ")
+        reasons_hi.append(f"धीमी हवा ({round(wind_speed_m_s, 1)} m/s) संकरी गलियों में गर्मी को रोक रही है")
+
+    if rh_pct >= 55.0 and temp_c >= 30.0:
+        reasons_en.append(f"elevated humidity ({round(rh_pct)}%) suppressing sweat evaporation")
+        reasons_kn.append(f"ಹೆಚ್ಚಿನ ತೇವಾಂಶವು ({round(rh_pct)}%) ಬೆವರು ಆರುವುದನ್ನು ತಡೆಯುತ್ತದೆ")
+        reasons_hi.append(f"अधिक नमी ({round(rh_pct)}%) पसीना सूखने में रुकावट डालती है")
+
+    if tin_roof_pct >= 50.0:
+        reasons_en.append(f"{round(tin_roof_pct)}% tin roofs radiating secondary infrared heat into informal homes")
+        reasons_kn.append(f"{round(tin_roof_pct)}% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ")
+        reasons_hi.append(f"{round(tin_roof_pct)}% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं")
+
+    if canopy_pct >= 25.0:
+        reasons_en.append(f"{round(canopy_pct)}% tree canopy shading roadways and releasing moisture")
+        reasons_kn.append(f"{round(canopy_pct)}% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ")
+        reasons_hi.append(f"{round(canopy_pct)}% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है")
+
+    # Defensive fallback if no extreme threshold was triggered
+    if not reasons_en:
+        reasons_en.append(f"ambient solar irradiance ({int(solar_rad_w_m2)} W/m²) remains within seasonal norms")
+        reasons_en.append(f"urban ventilation is operating at {round(wind_speed_m_s, 1)} m/s")
+        reasons_kn.append(f"ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ")
+        reasons_hi.append(f"मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है")
+
+    # Construct synthesized diagnostic sentences
+    if temp_c >= 34.0 or uhi_delta >= 2.5:
+        category = "HIGH_THERMAL_HOTSPOT"
+        summary_en = "Critical Hotspot: High temperature is driven by " + ", while ".join(reasons_en[:3]) + "."
+        summary_kn = "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: " + ", ಮತ್ತು ".join(reasons_kn[:3]) + "."
+        summary_hi = "अत्यधिक गर्म हॉटस्पॉट: " + ", तथा ".join(reasons_hi[:3]) + " के कारण तापमान अधिक है।"
+    elif temp_c <= 29.0 or uhi_delta <= 0:
+        category = "MICROCLIMATE_COOLING_ZONE"
+        summary_en = "Cooling Buffer: Favorable microclimate is maintained as " + ", while ".join(reasons_en[:3]) + "."
+        summary_kn = "ತಂಪಾದ ವಲಯ: " + ", ಮತ್ತು ".join(reasons_kn[:3]) + "."
+        summary_hi = "शीतल माइक्रोक्लाइमेट: " + ", तथा ".join(reasons_hi[:3]) + " तापमान को नियंत्रित रखते हैं।"
+    else:
+        category = "BALANCED_MODERATE_TEMPERATURE"
+        summary_en = "Moderate Advisory: Temperature reflects a balance where " + ", while ".join(reasons_en[:3]) + "."
+        summary_kn = "ಮಧ್ಯಮ ತಾಪಮಾನ: " + ", ಮತ್ತು ".join(reasons_kn[:3]) + "."
+        summary_hi = "मध्यम तापमान: " + ", तथा ".join(reasons_hi[:3]) + " से तापमान संतुलित है।"
+
+    return {
+        "driver_category": category,
+        "summary_en": summary_en,
+        "summary_kn": summary_kn,
+        "summary_hi": summary_hi,
+        "drivers": {
+            "solar_radiation_pct": pct_solar,
+            "moisture_humidity_pct": pct_moisture,
+            "wind_ventilation_pct": pct_wind,
+            "urban_heat_island_pct": pct_uhi,
+            "canopy_buffer_pct": pct_canopy
+        }
+    }
+
+
+def generate_24h_diurnal_forecast(
+    base_temp_c: float,
+    base_rh_pct: float,
+    base_wind_m_s: float,
+    hourly_api_data: Optional[Dict[str, Any]] = None
+) -> List[Dict[str, Any]]:
+    """
+    Produces a 24-hour diurnal heat progression curve (00:00 to 23:00).
+    Uses legitimate Open-Meteo hourly forecast if provided, or calibrated diurnal physics curve.
+    """
+    forecast_points = []
+    
+    has_live_hourly = (
+        hourly_api_data
+        and "temperature_2m" in hourly_api_data
+        and len(hourly_api_data["temperature_2m"]) >= 24
+    )
+
+    for h in range(24):
+        hour_str = f"{h:02d}:00"
+        ampm = "AM" if h < 12 else "PM"
+        display_hour = f"{12 if h % 12 == 0 else h % 12}:00 {ampm}"
+
+        if has_live_hourly:
+            t_hour = float(hourly_api_data["temperature_2m"][h])
+            rh_hour = float(hourly_api_data["relative_humidity_2m"][h]) if "relative_humidity_2m" in hourly_api_data else base_rh_pct
+            wind_hour = round(float(hourly_api_data["wind_speed_10m"][h]) / 3.6, 2) if "wind_speed_10m" in hourly_api_data else base_wind_m_s
+            solar_hour = max(0.0, float(hourly_api_data.get("direct_normal_irradiance", [0.0]*24)[h]))
+            rain_hour = float(hourly_api_data.get("precipitation", [0.0]*24)[h])
+        else:
+            # Physical Diurnal Bell Curve (T_min at 05:00, T_max at 14:30)
+            # Solar peak at 12:30 (up to 880 W/m2)
+            solar_phase = max(0.0, math.sin(max(0.0, (h - 6.0) / 12.0) * math.pi)) if 6 <= h <= 18 else 0.0
+            solar_hour = round(solar_phase * 850.0, 1)
+            
+            # Diurnal temperature curve
+            temp_range = 8.5
+            temp_phase = math.sin(((h - 9.0) / 24.0) * 2.0 * math.pi)
+            t_hour = round(base_temp_c + (temp_phase * (temp_range / 2.0)), 1)
+            rh_hour = round(max(20.0, min(95.0, base_rh_pct - (temp_phase * 15.0))), 1)
+            wind_hour = round(max(0.6, base_wind_m_s + (solar_phase * 1.2)), 2)
+            rain_hour = 0.0
+
+        wbgt_hour = calculate_wbgt_outdoor(t_hour, rh_hour, wind_hour, solar_hour)
+        hi_hour = calculate_heat_index(t_hour, rh_hour)
+        htsi_hour = calculate_htsi(wbgt_hour, hi_hour, calculate_stull_wet_bulb(t_hour, rh_hour))
+
+        if rain_hour >= 3.0:
+            tier = "BLUE"
+            phase_label = "RAIN_RELIEF"
+        elif wbgt_hour >= 34.0 or htsi_hour >= 80.0:
+            tier = "RED"
+            phase_label = "CRITICAL_PEAK"
+        elif wbgt_hour >= 31.5 or htsi_hour >= 60.0:
+            tier = "ORANGE"
+            phase_label = "HIGH_STRESS"
+        elif wbgt_hour >= 28.5 or htsi_hour >= 40.0:
+            tier = "YELLOW"
+            phase_label = "MODERATE_HEAT"
+        else:
+            tier = "GREEN"
+            phase_label = "SAFE_ZONE"
+
+        forecast_points.append({
+            "hour": h,
+            "hour_label": display_hour,
+            "time_iso": hour_str,
+            "temperature_c": round(t_hour, 1),
+            "wbgt_c": wbgt_hour,
+            "relative_humidity_pct": rh_hour,
+            "wind_speed_m_s": wind_hour,
+            "solar_radiation_w_m2": solar_hour,
+            "htsi_score": htsi_hour,
+            "risk_tier": tier,
+            "phase": phase_label
+        })
+
+    return forecast_points
+

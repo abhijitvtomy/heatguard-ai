@@ -59,7 +59,7 @@ export default function EmergencyBanner({ headline, language, onUpdateHeadline }
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div className="flex items-center gap-2 text-red-400 font-extrabold text-base">
                 <Megaphone className="w-5 h-5" />
-                <span>BBMP Emergency Citizen Broadcast Console</span>
+                <span>Metropolitan Emergency Citizen Broadcast Console</span>
               </div>
               <button onClick={() => setIsEditing(false)} className="text-slate-400 hover:text-white">
                 <X className="w-5 h-5" />

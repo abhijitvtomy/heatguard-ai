@@ -133,7 +133,7 @@ async def get_wards_evaluation(scenario: str = Query("LIVE", description="Scenar
     # Also return GeoJSON FeatureCollection with enriched properties for Leaflet
     enriched_geojson = {
         "type": "FeatureCollection",
-        "city": "Bengaluru (BBMP)",
+        "city": "Bengaluru Metropolitan Region",
         "features": []
     }
 
@@ -173,6 +173,8 @@ async def get_wards_evaluation(scenario: str = Query("LIVE", description="Scenar
             "total_additional_beds_needed": sum(w["health_risk"]["additional_emergency_beds_needed"] for w in evaluated_wards),
             "rain_mm": rain
         },
+        "weather": base_weather,
+        "diurnal_forecast_24h": base_weather.get("diurnal_forecast_24h", []),
         "wards": evaluated_wards,
         "geojson": enriched_geojson
     }

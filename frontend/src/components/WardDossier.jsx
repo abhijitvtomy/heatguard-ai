@@ -9,7 +9,10 @@ import {
   Users,
   Building,
   HeartPulse,
-  FileText
+  FileText,
+  ShieldAlert,
+  Sun,
+  ShieldCheck
 } from 'lucide-react';
 import { translations } from '../i18n/translations';
 
@@ -39,11 +42,26 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
   const ci = health.confidence_interval_90 || {};
   const tier = ward.effective_alert_tier || 'GREEN';
 
+  // Causal drivers localized
+  const causal = ward.causal_attribution || {};
+  const drivers = causal.drivers || {};
+  const causalSummary =
+    language === 'kn' ? (causal.summary_kn || causal.summary_en) :
+    language === 'hi' ? (causal.summary_hi || causal.summary_en) :
+    (causal.summary_en || "Atmospheric conditions reflect steady localized microclimate equilibrium.");
+
+  // Vulnerability Score
+  const vulnScore = ward.vulnerability_score != null ? ward.vulnerability_score : 50.0;
+  const vulnTier = ward.vulnerability_tier || 'MODERATE';
+  const vulnDetails = ward.vulnerability_details || {};
+
   // Labor advisory localized
   const laborAdvisory =
     language === 'kn' ? (labor.advisory_kn || labor.advisory_en) :
     language === 'hi' ? (labor.advisory_hi || labor.advisory_en) :
     labor.advisory_en;
+
+  const wardDisplayId = ward.ward_id ? ward.ward_id.replace('BBMP-', 'WARD ') : 'WARD';
 
   return (
     <div className="space-y-4">
@@ -53,9 +71,14 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
         <div>
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
-              {ward.ward_id}
+              {wardDisplayId}
             </span>
             <h2 className="text-lg font-extrabold text-white">{wardName}</h2>
+            {ward.is_hotspot && (
+              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-red-500/20 text-red-300 border border-red-500/40 animate-pulse flex items-center gap-1">
+                🔥 Hotspot
+              </span>
+            )}
           </div>
           <p className="text-xs text-slate-400 mt-1">
             Zone: <span className="text-slate-300 font-semibold">{ward.zone}</span> • Population: <span className="text-slate-300 font-semibold">{(ward.population || 0).toLocaleString()}</span>
@@ -192,6 +215,110 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
             </div>
           );
         })()}
+      </div>
+
+      {/* Atmospheric & Microclimate Causal Drivers (Explaining Why Temperature is High/Low/Moderate) */}
+      <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950/20 border border-slate-800 shadow-xl space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2">
+          <div className="flex items-center gap-2">
+            <Sun className="w-4 h-4 text-amber-400" />
+            <span className="text-xs font-bold text-slate-200">
+              {t.causalDriversTitle || "Atmospheric & Microclimate Drivers"}
+            </span>
+          </div>
+          <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border uppercase tracking-wider ${
+            causal.driver_category === 'HIGH_THERMAL_HOTSPOT' ? 'bg-red-500/20 text-red-300 border-red-500/40' :
+            causal.driver_category === 'MICROCLIMATE_COOLING_ZONE' ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' :
+            causal.driver_category === 'CONVECTIVE_PRECIPITATION_RELIEF' ? 'bg-sky-500/20 text-sky-300 border-sky-500/40' :
+            'bg-amber-500/20 text-amber-300 border-amber-500/40'
+          }`}>
+            ● {causal.driver_category ? causal.driver_category.replace(/_/g, ' ') : 'BALANCED MICROCLIMATE'}
+          </span>
+        </div>
+
+        {/* Natural Language Diagnostic Reason */}
+        <p className="text-xs text-slate-300 bg-slate-950/70 p-3 rounded-xl border border-slate-800/80 leading-relaxed">
+          {causalSummary}
+        </p>
+
+        {/* Physical Driver Attribution Breakdown Bars */}
+        <div className="space-y-1.5 pt-0.5">
+          <div className="text-[10px] text-slate-400 font-medium flex justify-between">
+            <span>Physical Factor Attribution</span>
+            <span className="font-mono">Solar: {drivers.solar_radiation_pct || 30}% • UHI: {drivers.urban_heat_island_pct || 25}% • Moisture: {drivers.moisture_humidity_pct || 20}%</span>
+          </div>
+          <div className="h-2 w-full bg-slate-800/80 rounded-full overflow-hidden flex">
+            <div style={{ width: `${drivers.solar_radiation_pct || 30}%` }} className="bg-yellow-500" title="Solar Radiation Load" />
+            <div style={{ width: `${drivers.urban_heat_island_pct || 25}%` }} className="bg-red-500" title="Urban Heat Island Albedo" />
+            <div style={{ width: `${drivers.moisture_humidity_pct || 20}%` }} className="bg-sky-500" title="Humidity Moisture Trap" />
+            <div style={{ width: `${drivers.wind_ventilation_pct || 15}%` }} className="bg-indigo-500" title="Wind Stagnation" />
+            <div style={{ width: `${drivers.canopy_buffer_pct || 10}%` }} className="bg-emerald-500" title="Canopy Buffer" />
+          </div>
+          <div className="flex flex-wrap items-center gap-3 text-[9px] text-slate-400 pt-1">
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-500" /> Solar Rad ({drivers.solar_radiation_pct || 30}%)</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500" /> UHI Albedo ({drivers.urban_heat_island_pct || 25}%)</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-sky-500" /> Moisture Trap ({drivers.moisture_humidity_pct || 20}%)</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-indigo-500" /> Stagnant Wind ({drivers.wind_ventilation_pct || 15}%)</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-emerald-500" /> Canopy ({drivers.canopy_buffer_pct || 10}%)</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Socio-Ecological Heat Vulnerability Score (HVS) */}
+      <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-3">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div className="flex items-center gap-2">
+            <ShieldAlert className="w-4 h-4 text-purple-400" />
+            <span className="text-xs font-bold text-slate-200">
+              {t.vulnerabilityScore || "Socio-Ecological Heat Vulnerability Score (HVS)"}
+            </span>
+          </div>
+          <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border uppercase tracking-wider ${
+            vulnTier === 'CRITICAL' ? 'bg-red-500/20 text-red-300 border-red-500/40' :
+            vulnTier === 'HIGH' ? 'bg-orange-500/20 text-orange-300 border-orange-500/40' :
+            vulnTier === 'MODERATE' ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/40' :
+            'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+          }`}>
+            ● {vulnTier} VULNERABILITY
+          </span>
+        </div>
+
+        <div className="flex items-baseline gap-2 font-mono">
+          <span className="text-3xl font-black text-purple-400">
+            {vulnScore != null ? Number(vulnScore).toFixed(1) : '--'}
+          </span>
+          <span className="text-xs text-slate-500 font-semibold">/ 100</span>
+          <span className="text-xs text-slate-400 ml-2 font-sans hidden sm:inline">
+            (Demographic Sensitivity, Built Exposure & Adaptive Deficit)
+          </span>
+        </div>
+
+        {/* 3 Sub-Indices Grid */}
+        <div className="grid grid-cols-3 gap-2 text-center pt-1">
+          <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/80">
+            <div className="text-[10px] text-slate-400">Sensitivity</div>
+            <div className="text-base font-extrabold text-amber-400 font-mono mt-0.5">
+              {vulnDetails.sensitivity_score != null ? `${vulnDetails.sensitivity_score}` : '--'}
+            </div>
+            <div className="text-[9px] text-slate-500 mt-0.5">Elderly & Labor</div>
+          </div>
+
+          <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/80">
+            <div className="text-[10px] text-slate-400">Exposure</div>
+            <div className="text-base font-extrabold text-red-400 font-mono mt-0.5">
+              {vulnDetails.exposure_score != null ? `${vulnDetails.exposure_score}` : '--'}
+            </div>
+            <div className="text-[9px] text-slate-500 mt-0.5">Tin Roofs & UHI</div>
+          </div>
+
+          <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/80">
+            <div className="text-[10px] text-slate-400">Adaptive Deficit</div>
+            <div className="text-base font-extrabold text-purple-400 font-mono mt-0.5">
+              {vulnDetails.adaptive_deficit_score != null ? `${vulnDetails.adaptive_deficit_score}` : '--'}
+            </div>
+            <div className="text-[9px] text-slate-500 mt-0.5">Canopy & Hospital Beds</div>
+          </div>
+        </div>
       </div>
 
       {/* Epidemiological Hospital Admission Surge Box */}

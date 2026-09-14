@@ -1,8 +1,8 @@
 export const translations = {
   en: {
     appTitle: "HEATGUARD AI",
-    subTitle: "Bengaluru BBMP Early Warning & Health Impact Platform",
-    liveCityStatus: "BBMP City Threat Status",
+    subTitle: "Metropolitan Hyperlocal Early Warning & Thermal Resilience Platform",
+    liveCityStatus: "Metropolitan Threat Status",
     scenario: "Scenario",
     liveWeather: "Live Open-Meteo",
     simHeatwave: "Simulate Heatwave (Red)",
@@ -13,6 +13,14 @@ export const translations = {
     moderateAdvisory: "MODERATE ADVISORY",
     normalSafe: "NORMAL / SAFE",
     rainRelief: "RAIN & MONSOON RELIEF",
+    hotspots: "Live Hotspots",
+    topHotspots: "Top Thermal Hotspots",
+    vulnerabilityScore: "Vulnerability Score",
+    timelineTitle: "24-Hour Diurnal Heat Progression",
+    timelineSubtitle: "Live diurnal curve modeling thermal stress shift from morning to peak afternoon and nocturnal heat entrapment",
+    playSimulation: "Play Diurnal Simulation",
+    pauseSimulation: "Pause",
+    causalDriversTitle: "Atmospheric & Microclimate Drivers",
     tabs: {
       map: "GIS Command Map",
       dossier: "Ward Telemetry & Labor Safety",
@@ -41,8 +49,9 @@ export const translations = {
     },
     mapControls: {
       legend: "Heat Risk Legend",
-      showShelters: "Show Indira Canteens & Water Tanks",
-      clickWard: "Click any ward polygon to inspect localized microclimate and hospital surge risk."
+      showShelters: "Show Cooling Centers & Water Kiosks",
+      showHotspots: "Live Thermal Hotspots",
+      clickWard: "Click any ward polygon to inspect localized microclimate, causal drivers, and hospital surge risk."
     },
     actions: {
       exportPdf: "Export Official Circular (PDF)",
@@ -52,8 +61,8 @@ export const translations = {
   },
   kn: {
     appTitle: "ಹೀಟ್‌ಗಾರ್ಡ್ ಎಐ",
-    subTitle: "ಬೆಂಗಳೂರು ಬಿಬಿಎಂಪಿ ಬಿಸಿಗಾಳಿ ಮುನ್ನೆಚ್ಚರಿಕೆ ಮತ್ತು ಆರೋಗ್ಯ ರಕ್ಷಣೆ ವೇದಿಕೆ",
-    liveCityStatus: "ಬಿಬಿಎಂಪಿ ನಗರ ಅಪಾಯದ ಸ್ಥಿತಿ",
+    subTitle: "ನಗರ ಪ್ರದೇಶದ ಬಿಸಿಗಾಳಿ ಮುನ್ನೆಚ್ಚರಿಕೆ ಮತ್ತು ಹವಾಮಾನ ಸ್ಥಿತಿಸ್ಥಾಪಕತ್ವ ವೇದಿಕೆ",
+    liveCityStatus: "ನಗರ ಮಟ್ಟದ ಅಪಾಯದ ಸ್ಥಿತಿ",
     scenario: "ಸನ್ನಿವೇಶ",
     liveWeather: "ಲೈವ್ ಓಪನ್-ಮೆಟಿಯೊ",
     simHeatwave: "ಬಿಸಿಗಾಳಿ ಸಿಮ್ಯುಲೇಶನ್ (ಕೆಂಪು)",
@@ -64,10 +73,18 @@ export const translations = {
     moderateAdvisory: "ಮಧ್ಯಮ ಶಾಖ ಎಚ್ಚರಿಕೆ",
     normalSafe: "ಸಾಮಾನ್ಯ / ಸುರಕ್ಷಿತ",
     rainRelief: "ಮಳೆ ಮತ್ತು ಶೀತಲ ಪರಿಹಾರ",
+    hotspots: "ಲೈವ್ ಹಾಟ್‌ಸ್ಪಾಟ್‌ಗಳು",
+    topHotspots: "ಪ್ರಮುಖ ಉಷ್ಣ ಹಾಟ್‌ಸ್ಪಾಟ್‌ಗಳು",
+    vulnerabilityScore: "ದುರ್ಬಲತೆ ಸೂಚ್ಯಂಕ",
+    timelineTitle: "24-ಗಂಟೆಗಳ ದೈನಂದಿನ ಶಾಖದ ಪ್ರಗತಿ",
+    timelineSubtitle: "ಬೆಳಗಿನಿಂದ ಮಧ್ಯಾಹ್ನದ ಗರಿಷ್ಠ ಶಾಖದವರೆಗೆ ಹವಾಮಾನ ಒತ್ತಡದ ಲೈವ್ ಸಿಮ್ಯುಲೇಶನ್",
+    playSimulation: "ದೈನಂದಿನ ಸಿಮ್ಯುಲೇಶನ್ ಪ್ಲೇ ಮಾಡಿ",
+    pauseSimulation: "ವಿರಾಮ",
+    causalDriversTitle: "ವಾತಾವರಣ ಮತ್ತು ಮೈಕ್ರೋಕ್ಲೈಮೇಟ್ ಕಾರಣಗಳು",
     tabs: {
       map: "ಜಿಐಎಸ್ ನಕ್ಷೆ",
       dossier: "ವಾರ್ಡ್ ಮಾಹಿತಿ ಮತ್ತು ಕಾರ್ಮಿಕ ಸುರಕ್ಷತೆ",
-      actionPlan: "ಬಿಬಿಎಂಪಿ ಕ್ರಿಯಾ ಯೋಜನೆ",
+      actionPlan: "ನಗರ ಸಭಾ ಕ್ರಿಯಾ ಯೋಜನೆ",
       audit: "ಮಾದರಿ ಪಾರದರ್ಶಕತೆ ಮತ್ತು ನಿಖರತೆ",
       league: "ನಾಗರಿಕ ಮುನ್ಸೂಚನಾ ಲೀಗ್",
       chat: "ಎಐ ಸಹಾಯಕ ಹೀಟ್‌ಬಾಟ್"
@@ -92,8 +109,9 @@ export const translations = {
     },
     mapControls: {
       legend: "ಶಾಖ ಅಪಾಯದ ವಿವರಣೆ",
-      showShelters: "ಇಂದಿರಾ ಕ್ಯಾಂಟೀನ್ ಮತ್ತು ನೀರಿನ ಟ್ಯಾಂಕರ್ ತೋರಿಸಿ",
-      clickWard: "ಸ್ಥಳೀಯ ತಾಪಮಾನ ಮತ್ತು ಆಸ್ಪತ್ರೆ ಅಪಾಯವನ್ನು ನೋಡಲು ವಾರ್ಡ್ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ."
+      showShelters: "ಶೀತಲ ವಿಶ್ರಾಂತಿ ಕೇಂದ್ರಗಳು ಮತ್ತು ನೀರಿನ ಕಿಯೋಸ್ಕ್",
+      showHotspots: "ಲೈವ್ ಉಷ್ಣ ಹಾಟ್‌ಸ್ಪಾಟ್‌ಗಳು",
+      clickWard: "ಸ್ಥಳೀಯ ತಾಪಮಾನ, ಕಾರಣಗಳು ಮತ್ತು ಆಸ್ಪತ್ರೆ ಅಪಾಯವನ್ನು ನೋಡಲು ವಾರ್ಡ್ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ."
     },
     actions: {
       exportPdf: "ಅಧಿಕೃತ ಆದೇಶ ಡೌನ್‌ಲೋಡ್ (PDF)",
@@ -103,8 +121,8 @@ export const translations = {
   },
   hi: {
     appTitle: "हीटगार्ड एआई",
-    subTitle: "बेंगलुरु बीबीएमपी लू पूर्व-चेतावनी व स्वास्थ्य सुरक्षा प्रणाली",
-    liveCityStatus: "बीबीएमपी शहर का जोखिम स्तर",
+    subTitle: "महानगरीय अति-स्थानीय लू पूर्व-चेतावनी व जलवायु सुरक्षा प्रणाली",
+    liveCityStatus: "महानगर जोखिम स्तर",
     scenario: "मौसम परिदृश्य",
     liveWeather: "लाइव वेदर (Open-Meteo)",
     simHeatwave: "भीषण लू (रेड अलर्ट)",
@@ -115,6 +133,14 @@ export const translations = {
     moderateAdvisory: "मध्यम लू चेतावनी",
     normalSafe: "सामान्य व सुरक्षित",
     rainRelief: "बारिश से तापमान में राहत",
+    hotspots: "लाइव हॉटस्पॉट",
+    topHotspots: "प्रमुख थर्मल हॉटस्पॉट",
+    vulnerabilityScore: "संवेदनशीलता स्कोर",
+    timelineTitle: "24-घंटे का दैनिक ताप वक्र",
+    timelineSubtitle: "सुबह से दोपहर के चरम तापमान और रात में गर्मी के संचय का लाइव मॉडल",
+    playSimulation: "दैनिक सिमुलेशन चलाएं",
+    pauseSimulation: "रोकें",
+    causalDriversTitle: "वायुमंडलीय और सूक्ष्म जलवायु कारक",
     tabs: {
       map: "जीआईएस कमांड मैप",
       dossier: "वार्ड सूक्ष्म-जलवायु व श्रमिक सुरक्षा",
@@ -143,8 +169,9 @@ export const translations = {
     },
     mapControls: {
       legend: "लू जोखिम संकेतक",
-      showShelters: "इंदिरा कैंटीन व जल टैंकर दिखाएं",
-      clickWard: "विस्तृत सूक्ष्म-जलवायु देखने के लिए वार्ड पर क्लिक करें।"
+      showShelters: "शीतलन केंद्र व शीतल जल केंद्र",
+      showHotspots: "लाइव थर्मल हॉटस्पॉट",
+      clickWard: "विस्तृत सूक्ष्म-जलवायु व कारणों को देखने के लिए वार्ड पर क्लिक करें।"
     },
     actions: {
       exportPdf: "आधिकारिक परिपत्र डाउनलोड (PDF)",

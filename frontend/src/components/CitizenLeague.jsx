@@ -14,7 +14,7 @@ export default function CitizenLeague({
 
   // User Profile Customization (Persisted to localStorage)
   const initialName = localStorage.getItem('heatguard_user_name') || challengesData?.user_profile?.name || "Arjun Rao";
-  const initialWard = localStorage.getItem('heatguard_user_ward') || challengesData?.user_profile?.ward || "BBMP-151 (Koramangala)";
+  const initialWard = localStorage.getItem('heatguard_user_ward') || challengesData?.user_profile?.ward || "Ward 151 (Koramangala)";
 
   const [customName, setCustomName] = useState(initialName);
   const [customWard, setCustomWard] = useState(initialWard);
@@ -78,14 +78,24 @@ export default function CitizenLeague({
   };
 
   const wardOptions = [
-    "BBMP-151 (Koramangala)",
-    "BBMP-41 (Peenya Industrial)",
-    "BBMP-138 (Shivajinagar & Majestic)",
-    "BBMP-85 (Whitefield IT Corridor)",
-    "BBMP-111 (Malleshwaram)",
-    "BBMP-174 (HSR & Bellandur)",
-    "BBMP-198 (Electronic City)",
-    "BBMP-10 (Yelahanka Satellite Town)"
+    "Ward 151 (Koramangala)",
+    "Ward 41 (Peenya Industrial)",
+    "Ward 138 (Shivajinagar & Majestic)",
+    "Ward 85 (Whitefield IT Corridor)",
+    "Ward 111 (Malleshwaram)",
+    "Ward 174 (HSR & Bellandur)",
+    "Ward 198 (Electronic City)",
+    "Ward 10 (Yelahanka Satellite Town)",
+    "Ward 153 (Jayanagar 4th Block)",
+    "Ward 139 (K.R. Market & Chamarajpet)",
+    "Ward 82 (Ulsoor Lake & MG Road)",
+    "Ward 21 (Hebbal Flyover & Outer Ring)",
+    "Ward 128 (Rajajinagar Industrial & Metro)",
+    "Ward 165 (Banashankari & Padmanabhanagar)",
+    "Ward 36 (Yeshwanthpur APMC Grain Market)",
+    "Ward 89 (Marathahalli Outer Ring Road)",
+    "Ward 176 (BTM Layout & Madiwala Lake)",
+    "Ward 175 (Bommanahalli Garment Cluster)"
   ];
 
   return (

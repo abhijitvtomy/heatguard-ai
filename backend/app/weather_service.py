@@ -16,7 +16,10 @@ from app.physics import (
     calculate_wbgt_outdoor,
     calculate_htsi,
     get_nioh_work_rest_cycle,
-    detect_weather_anomalies
+    detect_weather_anomalies,
+    calculate_vulnerability_score,
+    generate_microclimate_causal_attribution,
+    generate_24h_diurnal_forecast
 )
 from app.ml_engine import risk_engine
 
@@ -43,8 +46,9 @@ class WeatherService:
 
         if scenario_name == "HEATWAVE_EXTREME":
             # Record-breaking Bengaluru Heatwave (e.g. April 2024: 39.2°C, UHI peak, dry Cauvery basin)
-            return {
-                "city": "Bengaluru (BBMP)",
+            base = {
+                "city": "Bengaluru Metropolitan Region",
+                "authority": "Metropolitan Heat Resilience Network",
                 "mode": "SIMULATED_HEATWAVE_CRITICAL",
                 "ambient_temp_c": 39.2,
                 "relative_humidity_pct": 58.0,
@@ -61,11 +65,14 @@ class WeatherService:
                     {"day": "Day +4", "temp_max": 36.8, "temp_min": 26.5, "wbgt_max": 31.2, "risk_tier": "YELLOW", "hospital_spike": 18.5},
                 ]
             }
+            base["diurnal_forecast_24h"] = generate_24h_diurnal_forecast(base["ambient_temp_c"], base["relative_humidity_pct"], base["wind_speed_m_s"])
+            return base
 
         elif scenario_name == "MONSOON_RAIN":
             # Bengaluru Monsoon Cloudburst & Thermal Relief
-            return {
-                "city": "Bengaluru (BBMP)",
+            base = {
+                "city": "Bengaluru Metropolitan Region",
+                "authority": "Metropolitan Heat Resilience Network",
                 "mode": "SIMULATED_MONSOON_RELIEF",
                 "ambient_temp_c": 24.5,
                 "relative_humidity_pct": 92.0,
@@ -82,11 +89,14 @@ class WeatherService:
                     {"day": "Day +4", "temp_max": 29.0, "temp_min": 23.0, "wbgt_max": 26.5, "risk_tier": "GREEN", "hospital_spike": 5.2},
                 ]
             }
+            base["diurnal_forecast_24h"] = generate_24h_diurnal_forecast(base["ambient_temp_c"], base["relative_humidity_pct"], base["wind_speed_m_s"])
+            return base
 
         elif scenario_name == "MODERATE_ADVISORY":
             # Typical Pre-Monsoon warm afternoon in Bengaluru
-            return {
-                "city": "Bengaluru (BBMP)",
+            base = {
+                "city": "Bengaluru Metropolitan Region",
+                "authority": "Metropolitan Heat Resilience Network",
                 "mode": "SIMULATED_MODERATE_ADVISORY",
                 "ambient_temp_c": 33.8,
                 "relative_humidity_pct": 44.0,
@@ -103,10 +113,13 @@ class WeatherService:
                     {"day": "Day +4", "temp_max": 32.0, "temp_min": 23.0, "wbgt_max": 27.8, "risk_tier": "GREEN", "hospital_spike": 7.5},
                 ]
             }
+            base["diurnal_forecast_24h"] = generate_24h_diurnal_forecast(base["ambient_temp_c"], base["relative_humidity_pct"], base["wind_speed_m_s"])
+            return base
 
         else:  # NORMAL_SAFE
-            return {
-                "city": "Bengaluru (BBMP)",
+            base = {
+                "city": "Bengaluru Metropolitan Region",
+                "authority": "Metropolitan Heat Resilience Network",
                 "mode": "SIMULATED_NORMAL_SAFE",
                 "ambient_temp_c": 27.2,
                 "relative_humidity_pct": 52.0,
@@ -123,6 +136,8 @@ class WeatherService:
                     {"day": "Day +4", "temp_max": 27.5, "temp_min": 19.8, "wbgt_max": 24.6, "risk_tier": "GREEN", "hospital_spike": 2.2},
                 ]
             }
+            base["diurnal_forecast_24h"] = generate_24h_diurnal_forecast(base["ambient_temp_c"], base["relative_humidity_pct"], base["wind_speed_m_s"])
+            return base
 
     async def fetch_live_open_meteo(self) -> Dict[str, Any]:
         """
@@ -195,8 +210,16 @@ class WeatherService:
                             "hospital_spike": spike
                         })
 
+                    diurnal_traj = generate_24h_diurnal_forecast(
+                        base_temp_c=temp_curr,
+                        base_rh_pct=rh_curr,
+                        base_wind_m_s=wind_curr,
+                        hourly_api_data=hourly
+                    )
+
                     weather_pack = {
-                        "city": "Bengaluru (BBMP)",
+                        "city": "Bengaluru Metropolitan Region",
+                        "authority": "Metropolitan Heat Resilience Network",
                         "mode": "LIVE_OPEN_METEO",
                         "ambient_temp_c": temp_curr,
                         "relative_humidity_pct": rh_curr,
@@ -205,7 +228,8 @@ class WeatherService:
                         "precipitation_mm": rain_curr,
                         "prev_hour_temp_c": temp_curr - 0.6,
                         "prev_hour_rh_pct": rh_curr - 3.0,
-                        "forecast_5_days": days_traj
+                        "forecast_5_days": days_traj,
+                        "diurnal_forecast_24h": diurnal_traj
                     }
 
                     self.cache = weather_pack
@@ -273,8 +297,15 @@ class WeatherService:
                         "hospital_spike": spike
                     })
 
+                diurnal_traj = generate_24h_diurnal_forecast(
+                    base_temp_c=temp_curr,
+                    base_rh_pct=rh_curr,
+                    base_wind_m_s=wind_curr
+                )
+
                 weather_pack = {
-                    "city": "Bengaluru (BBMP)",
+                    "city": "Bengaluru Metropolitan Region",
+                    "authority": "Metropolitan Heat Resilience Network",
                     "mode": "LIVE_WTTR_IN",
                     "ambient_temp_c": temp_curr,
                     "relative_humidity_pct": rh_curr,
@@ -283,7 +314,8 @@ class WeatherService:
                     "precipitation_mm": rain_curr,
                     "prev_hour_temp_c": temp_curr - 0.6,
                     "prev_hour_rh_pct": rh_curr - 3.0,
-                    "forecast_5_days": days_traj
+                    "forecast_5_days": days_traj,
+                    "diurnal_forecast_24h": diurnal_traj
                 }
                 self.cache = weather_pack
                 self.cache_timestamp = time.time()
@@ -359,10 +391,28 @@ class WeatherService:
                 wind_speed_m_s=wind_ward
             )
 
+            # 6. Socio-Ecological Heat Vulnerability Score (HVS 0 - 100)
+            vuln_data = calculate_vulnerability_score(props)
+
+            # 7. Microclimate Causal Drivers & Diagnostic Attribution
+            causal_diag = generate_microclimate_causal_attribution(
+                temp_c=t_ward,
+                rh_pct=rh_ward,
+                wind_speed_m_s=wind_ward,
+                solar_rad_w_m2=solar_base,
+                uhi_delta=delta_uhi,
+                canopy_pct=float(props.get("tree_canopy_pct", 15.0)),
+                tin_roof_pct=float(props.get("tin_roof_pct", 20.0)),
+                is_rain=(rain_base >= 3.0)
+            )
+
             # Override tier if raining
             effective_tier = health_impact["alert_tier"]
             if rain_base >= 3.0:
                 effective_tier = "BLUE"
+
+            # Hotspot determination: Requires elevated heat (t_ward >= 33.0 or RED/ORANGE tier, or UHI >= 2.0 with temp >= 31.5) and no active rain
+            is_hotspot = bool((t_ward >= 33.0 or effective_tier in ["RED", "ORANGE"] or (delta_uhi >= 2.0 and t_ward >= 31.5)) and rain_base < 3.0)
 
             evaluated_wards.append({
                 "ward_id": ward_id,
@@ -389,6 +439,11 @@ class WeatherService:
                     "tree_canopy_pct": props.get("tree_canopy_pct"),
                     "hospital_beds_per_k": props.get("hospital_beds_per_k")
                 },
+                "vulnerability_score": vuln_data["score"],
+                "vulnerability_tier": vuln_data["tier"],
+                "vulnerability_details": vuln_data,
+                "causal_attribution": causal_diag,
+                "is_hotspot": is_hotspot,
                 "health_risk": health_impact,
                 "effective_alert_tier": effective_tier,
                 "work_rest_safety": work_rest,
