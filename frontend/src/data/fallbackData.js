@@ -6655,65 +6655,10 @@ export const fallbackCommunityReports = [
 ];
 
 export const fallbackFeedbackData = {
-  "total_reviews": 149,
-  "average_rating": 4.8,
-  "accuracy_satisfaction_pct": 96.2,
-  "verified_audits_count": 125,
-  "recent_reviews": [
-    {
-      "id": "FB-87562",
-      "rating": 5,
-      "category": "ACCURACY_TEMPERATURE",
-      "category_label": "Accuracy Temperature",
-      "ward_name": "Peenya",
-      "reviewer_name": "Anonymous User",
-      "comment": "Sensors matched physical ground truth perfectly.",
-      "timestamp": "Just now",
-      "status": "VERIFIED_AUDIT"
-    },
-    {
-      "id": "FB-101",
-      "rating": 5,
-      "category": "ACCURACY_TEMPERATURE",
-      "category_label": "Temperature & WBGT Accuracy",
-      "ward_name": "Shivajinagar & Majestic",
-      "reviewer_name": "Dr. K. Srinivas (Public Health)",
-      "comment": "The microclimate downscaled temperature was within 0.4°C of our on-site digital sling psychrometer. Causal driver breakdown matches urban canyon physics.",
-      "timestamp": "2 hours ago",
-      "status": "VERIFIED_AUDIT"
-    },
-    {
-      "id": "FB-102",
-      "rating": 5,
-      "category": "VULNERABILITY_SCORE",
-      "category_label": "Socio-Ecological HVS Score",
-      "ward_name": "Peenya Industrial Area",
-      "reviewer_name": "Rashmi Hegde (Urban Planning)",
-      "comment": "The HVS metric properly weighs tin-roof density and canopy deficit. It correctly identified Peenya and Yeshwanthpur as high-priority intervention zones.",
-      "timestamp": "4 hours ago",
-      "status": "VERIFIED_AUDIT"
-    },
-    {
-      "id": "FB-103",
-      "rating": 4,
-      "category": "BETTERMENT_FEATURE",
-      "category_label": "Betterment / Feature Request",
-      "ward_name": "Indiranagar & HAL",
-      "reviewer_name": "Aakash Verma (Citizen)",
-      "comment": "Accurate data. Suggestion: add an option for citizens to get automated WhatsApp broadcast advisories when their ward enters Orange/Red tier.",
-      "timestamp": "Yesterday",
-      "status": "LOGGED_ROADMAP"
-    },
-    {
-      "id": "FB-104",
-      "rating": 5,
-      "category": "HOTSPOT_DETECTION",
-      "category_label": "Hotspot Precision & Map Auras",
-      "ward_name": "Bommanahalli Garment Cluster",
-      "reviewer_name": "Manjunath B. (Gig Worker Union)",
-      "comment": "The pulsating hotspots on the map showed exactly where road workers were suffering heat exhaustion near Silk Board. Very useful for field teams.",
-      "timestamp": "2 days ago",
-      "status": "VERIFIED_AUDIT"
-    }
-  ]
+  "total_reviews": 0,
+  "average_rating": 0.0,
+  "accuracy_satisfaction_pct": 0.0,
+  "verified_audits_count": 0,
+  "recent_reviews": []
 };
+

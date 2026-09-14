@@ -604,8 +604,8 @@ def _load_user_feedback():
             pass
     return {
         "total_reviews": 0,
-        "average_rating": 4.8,
-        "accuracy_satisfaction_pct": 96.0,
+        "average_rating": 0.0,
+        "accuracy_satisfaction_pct": 0.0,
         "verified_audits_count": 0,
         "recent_reviews": []
     }
@@ -626,10 +626,6 @@ async def submit_user_feedback(req: UserFeedbackSubmission):
     reviews = data.get("recent_reviews", [])
     
     clamped_rating = max(1, min(5, req.rating))
-    total_prev = data.get("total_reviews", 100)
-    avg_prev = data.get("average_rating", 4.8)
-    new_total = total_prev + 1
-    new_avg = round(((avg_prev * total_prev) + clamped_rating) / new_total, 2)
 
     fb_id = f"FB-{int(time.time() % 100000):05d}"
     new_entry = {
@@ -645,10 +641,15 @@ async def submit_user_feedback(req: UserFeedbackSubmission):
     }
 
     reviews.insert(0, new_entry)
+    new_total = len(reviews)
+    new_avg = round(sum(r["rating"] for r in reviews) / new_total, 1)
+    satisfaction_pct = round((sum(1 for r in reviews if r.get("rating", 0) >= 4) / new_total) * 100, 1)
+
     data["total_reviews"] = new_total
     data["average_rating"] = new_avg
-    data["verified_audits_count"] = data.get("verified_audits_count", 100) + 1
-    data["recent_reviews"] = reviews[:25]  # Keep last 25
+    data["accuracy_satisfaction_pct"] = satisfaction_pct
+    data["verified_audits_count"] = new_total
+    data["recent_reviews"] = reviews[:50]  # Keep last 50 genuine reviews
 
     _save_user_feedback(data)
 

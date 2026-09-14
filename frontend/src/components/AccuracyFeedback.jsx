@@ -15,12 +15,12 @@ export default function AccuracyFeedback({ language = 'en' }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  // Live Consensus Stats & Reviews
+  // Live Consensus Stats & Reviews (100% Genuine User Submissions)
   const [feedbackStats, setFeedbackStats] = useState({
-    total_reviews: 148,
-    average_rating: 4.8,
-    accuracy_satisfaction_pct: 96.2,
-    verified_audits_count: 124,
+    total_reviews: 0,
+    average_rating: 0,
+    accuracy_satisfaction_pct: 0,
+    verified_audits_count: 0,
     recent_reviews: []
   });
 
@@ -101,7 +101,7 @@ export default function AccuracyFeedback({ language = 'en' }) {
           <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-800 text-center min-w-[100px]">
             <div className="flex items-center justify-center gap-1 text-amber-400 text-base font-extrabold font-mono">
               <Star className="w-4 h-4 fill-current" />
-              <span>{feedbackStats.average_rating || 4.8}</span>
+              <span>{feedbackStats.total_reviews > 0 ? feedbackStats.average_rating : '--'}</span>
               <span className="text-xs text-slate-500 font-normal">/5</span>
             </div>
             <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wide">
@@ -111,7 +111,7 @@ export default function AccuracyFeedback({ language = 'en' }) {
 
           <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-800 text-center min-w-[100px]">
             <div className="text-base font-extrabold font-mono text-emerald-400">
-              {feedbackStats.accuracy_satisfaction_pct || 96.2}%
+              {feedbackStats.total_reviews > 0 ? `${feedbackStats.accuracy_satisfaction_pct}%` : '--'}
             </div>
             <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wide">
               Ground Truth Fit
@@ -120,7 +120,7 @@ export default function AccuracyFeedback({ language = 'en' }) {
 
           <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-800 text-center min-w-[100px] hidden sm:block">
             <div className="text-base font-extrabold font-mono text-sky-400">
-              {feedbackStats.total_reviews || 148}+
+              {feedbackStats.total_reviews || 0}
             </div>
             <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wide">
               Audits Logged
@@ -257,33 +257,43 @@ export default function AccuracyFeedback({ language = 'en' }) {
           </div>
 
           <div className="space-y-2.5 max-h-[280px] overflow-y-auto pr-1">
-            {(feedbackStats.recent_reviews || []).slice(0, 3).map((fb, idx) => (
-              <div
-                key={fb.id || idx}
-                className="p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs space-y-1.5"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-amber-400">
-                    {Array.from({ length: fb.rating || 5 }).map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-current" />
-                    ))}
-                    <span className="text-[10px] font-bold text-slate-400 ml-1">
-                      {fb.category_label || fb.category?.replace(/_/g, ' ')}
-                    </span>
+            {feedbackStats.recent_reviews && feedbackStats.recent_reviews.length > 0 ? (
+              feedbackStats.recent_reviews.slice(0, 5).map((fb, idx) => (
+                <div
+                  key={fb.id || idx}
+                  className="p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-xs space-y-1.5 animate-in fade-in"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1 text-amber-400">
+                      {Array.from({ length: fb.rating || 5 }).map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-current" />
+                      ))}
+                      <span className="text-[10px] font-bold text-slate-400 ml-1">
+                        {fb.category_label || fb.category?.replace(/_/g, ' ')}
+                      </span>
+                    </div>
+                    <span className="text-[9px] font-mono text-slate-500">{fb.timestamp || 'Recent'}</span>
                   </div>
-                  <span className="text-[9px] font-mono text-slate-500">{fb.timestamp || 'Recent'}</span>
-                </div>
 
-                <p className="text-[11px] text-slate-300 italic">
-                  "{fb.comment}"
+                  <p className="text-[11px] text-slate-300 italic">
+                    "{fb.comment}"
+                  </p>
+
+                  <div className="text-[10px] text-slate-400 flex items-center justify-between pt-0.5">
+                    <span className="font-semibold text-slate-300">{fb.reviewer_name}</span>
+                    <span className="font-mono text-indigo-400">{fb.ward_name}</span>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="p-6 rounded-2xl bg-slate-950/60 border border-slate-800/80 text-center space-y-2">
+                <MessageSquarePlus className="w-8 h-8 text-slate-600 mx-auto" />
+                <div className="text-xs font-bold text-slate-300">No Audits Logged Yet</div>
+                <p className="text-[11px] text-slate-400 leading-relaxed">
+                  Be the first evaluator or citizen to test and log microclimate accuracy feedback using the form on the left.
                 </p>
-
-                <div className="text-[10px] text-slate-400 flex items-center justify-between pt-0.5">
-                  <span className="font-semibold text-slate-300">{fb.reviewer_name}</span>
-                  <span className="font-mono text-indigo-400">{fb.ward_name}</span>
-                </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
 
