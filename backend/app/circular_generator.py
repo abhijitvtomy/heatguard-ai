@@ -178,7 +178,7 @@ def generate_bbmp_official_circular_html(
     </table>
 
     <div class="directives">
-        <div style="font-weight: bold; font-size: 14px; margin-top: 15px;">MANDATORY EXECUTIVE DIRECTIVES:</div>
+        <div style="font-weight: bold; font-size: 14px; margin-top: 15px;">SECTION 1: MANDATORY EXECUTIVE DIRECTIVES (DISASTER MANAGEMENT ACT)</div>
         <ol>
             <li><strong>Labor & Construction Stoppage:</strong> All ongoing construction projects, road works, and heavy outdoor manual labor across Peenya (BBMP-41), Shivajinagar (BBMP-138), and Whitefield (BBMP-85) are hereby ordered to <strong>cease operations between 11:30 AM and 04:00 PM</strong> daily until further review. Non-compliance shall attract penal action under Section 51 of the Disaster Management Act.</li>
             <li><strong>Emergency Drinking Water Mobilization:</strong> The Chief Engineer, BWSSB, is directed to deploy <strong>25 additional Cauvery water bowsers</strong> immediately to Majestic Bus Interchange, Kalasipalya, and Peenya labor chowks with free chilled drinking water distribution.</li>
@@ -186,6 +186,71 @@ def generate_bbmp_official_circular_html(
             <li><strong>BBMP Indira Canteen Activation:</strong> All 175+ Indira Canteens across Bengaluru are designated as <strong>Official Public Heat Respite & Cooling Centers</strong>. Canteens shall remain open continuously from 07:30 AM to 08:30 PM with free drinking water and functional air-coolers/fans.</li>
             <li><strong>Gig-Worker Safety Mandate:</strong> E-commerce and food delivery aggregators (Swiggy, Zomato, Zepto, Blinkit, Amazon) are instructed to enforce mandatory 15-minute rest intervals every hour for delivery executives between 12:00 PM and 04:00 PM.</li>
         </ol>
+    </div>
+
+    <div style="margin-top: 20px; border-top: 1px dashed #666; padding-top: 15px;">
+        <div style="font-weight: bold; font-size: 14px; color: #8b0000; text-transform: uppercase;">
+            SECTION 2: METEOROLOGICAL ETIOLOGY & CLINICAL HARM SPECTRUM
+        </div>
+        <div style="font-size: 13px; margin-top: 8px; text-align: justify; line-height: 1.5;">
+            <strong>A. Urban Thermodynamic Causes:</strong> The critical biometeorological conditions in Bengaluru are induced by a convergence of 
+            anticyclonic boundary-layer subsidence, high solar irradiance (>850 W/m²), and the <strong>Urban Heat Island (UHI) Effect</strong>. 
+            Dense impervious surfaces (asphalt albedo 0.10–0.15, dense concrete masonry) store substantial shortwave solar radiation during daylight hours 
+            and release it as continuous nocturnal longwave sensible heat flux, preventing nighttime ambient cooling. 
+            Coupled with the depletion of vegetative canopies (reduced evapotranspiration) and localized anthropogenic emissions from vehicular congestion, 
+            the <strong>Wet-Bulb Globe Temperature (WBGT)</strong> exceeds physiological human thermodynamic equilibrium thresholds.
+        </div>
+        <div style="font-size: 13px; margin-top: 8px; text-align: justify; line-height: 1.5;">
+            <strong>B. Clinical Spectrum of Heat Illness & Physiological Harms:</strong>
+            <ul style="margin: 6px 0; padding-left: 20px;">
+                <li><strong>Heat Cramps (Mild):</strong> Profuse diaphoresis causing acute water and sodium depletion, producing painful, involuntary contractions in large skeletal muscle groups.</li>
+                <li><strong>Heat Syncope (Mild to Moderate):</strong> Orthostatic pooling of peripheral blood due to intense cutaneous vasodilation, causing transient cerebral hypoxia and sudden fainting episodes.</li>
+                <li><strong>Heat Exhaustion (Moderate to Severe):</strong> Core body temperature rises to 38.0°C–40.0°C. Characterized by profuse perspiration, severe cephalalgia (headache), vertigo, nausea, tachycardia, tachypnea, and hypotension.</li>
+                <li><strong>Heat Stroke (CRITICAL MEDICAL EMERGENCY):</strong> Core body temperature accelerates past <strong>40.5°C (104.9°F)</strong> with failure of thermoregulatory homeostasis. Manifests through central nervous system dysfunction, delirium, seizures, anhidrosis (cessation of sweating), multi-organ failure, rhabdomyolysis, and acute kidney injury. Fatality risk reaches 40%–70% without immediate immersion in ice baths and rapid emergency intervention.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px; border-top: 1px dashed #666; padding-top: 15px;">
+        <div style="font-weight: bold; font-size: 14px; color: #1e3a8a; text-transform: uppercase;">
+            SECTION 3: MANDATORY CITIZEN PRECAUTIONS & WORKER MITIGATION PROTOCOLS
+        </div>
+        <table class="data-table" style="font-size: 12.5px;">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Target Domain</th>
+                    <th style="width: 40%;">Mandatory Life-Saving Actions (DOs)</th>
+                    <th style="width: 35%;">Prohibited Behaviors (DON'Ts)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Hydration & Electrolytes</strong></td>
+                    <td>Drink 3.5 to 4.5 liters of clean water daily. Consume natural electrolytes: tender coconut water, buttermilk (majjige), lemon water with salt, and WHO-formula ORS solution even without thirst sensation.</td>
+                    <td>Do NOT consume alcohol, aerated sugary soft drinks, or excessive caffeinated beverages, which accelerate systemic dehydration.</td>
+                </tr>
+                <tr>
+                    <td><strong>Outdoor Commuters & Drivers</strong></td>
+                    <td>Navigate via cool canopy-shaded transit routes. Utilize reflective vehicle windshield screens. Schedule mandatory 15-minute rest breaks in shaded zones or Indira Canteen cooling centers every 60 minutes.</td>
+                    <td>Do NOT remain stationary in parked unventilated motor vehicles under direct sunlight. Never leave children or pets inside locked cars.</td>
+                </tr>
+                <tr>
+                    <td><strong>Clothing & Sun Protection</strong></td>
+                    <td>Wear lightweight, loose-fitting, light-colored, breathable cotton garments. Wear wide-brimmed hats, carry umbrellas, and wear UV400-rated sunglasses when outdoors.</td>
+                    <td>Avoid dark synthetic, tight-fitting fabrics (polyester/nylon) that trap sensible heat and prevent dermal perspiration evaporation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Vulnerable Demographics</strong></td>
+                    <td>Senior citizens (65+), infants, pregnant mothers, and individuals with cardiovascular or renal comorbidities must remain inside ventilated, shaded rooms between 11:30 AM and 04:00 PM.</td>
+                    <td>Do NOT engage in strenuous physical exercise or heavy manual exertion during peak solar irradiance hours.</td>
+                </tr>
+                <tr>
+                    <td><strong>Emergency SOS Protocol</strong></td>
+                    <td>Immediately dial <strong>108 (State Ambulance Emergency Service)</strong> if any individual exhibits confusion, slurred speech, unconsciousness, or skin that feels burning hot and dry. Apply cold wet towels to the neck, groin, and axillae while awaiting emergency dispatch.</td>
+                    <td>Do NOT administer oral fluids to an unconscious or vomiting patient to prevent acute pulmonary aspiration.</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <div class="signature-block">

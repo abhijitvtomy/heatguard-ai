@@ -10,24 +10,27 @@ import AccuracyFeedback from './components/AccuracyFeedback';
 import ActionPlanModal from './components/ActionPlanModal';
 import AccuracyLedger from './components/AccuracyLedger';
 import CitizenLeague from './components/CitizenLeague';
+import HeatwaveGuide from './components/HeatwaveGuide';
+import PanicModal from './components/PanicModal';
 import HeatbotModal from './components/HeatbotModal';
 import JudgeAccessModal from './components/JudgeAccessModal';
 
 import { getAmbientTheme } from './utils/ambientTheme';
 import { translations } from './i18n/translations';
-import { Map, FileCheck, ShieldCheck, Trophy, Bot, Sliders, Megaphone } from 'lucide-react';
+import { Map, FileCheck, ShieldCheck, Trophy, Bot, Sliders, Megaphone, BookOpen } from 'lucide-react';
 import { API_BASE } from './config';
 import { fallbackWardsData, fallbackWeatherData, fallbackSheltersData, fallbackCommunityReports } from './data/fallbackData';
 
 export default function App() {
   const [scenario, setScenario] = useState('LIVE');
   const [language, setLanguage] = useState('en');
-  const [activeTab, setActiveTab] = useState('map'); // map, actionPlan, audit, league
+  const [activeTab, setActiveTab] = useState('map'); // map, simulator, community, guide, league, actionPlan, audit
   const [selectedWard, setSelectedWard] = useState(fallbackWardsData?.wards?.[0] || null);
   const [selectedHour, setSelectedHour] = useState(null);
   const [showShelters, setShowShelters] = useState(true);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isJudgeModalOpen, setIsJudgeModalOpen] = useState(false);
+  const [isPanicModalOpen, setIsPanicModalOpen] = useState(false);
 
   // Live Data States (Instant ground-truth fallback for zero-latency rendering)
   const [weatherData, setWeatherData] = useState(fallbackWeatherData);
@@ -192,6 +195,7 @@ export default function App() {
         onRefresh={() => loadData(scenario)}
         loading={loading}
         onOpenJudgeModal={() => setIsJudgeModalOpen(true)}
+        onOpenPanicModal={() => setIsPanicModalOpen(true)}
       />
 
       {/* Emergency Flash Bulletin Ticker */}
@@ -240,6 +244,18 @@ export default function App() {
           >
             <Megaphone className="w-4 h-4 text-sky-400" />
             <span>{t.tabs.community || 'Community Response'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('guide')}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition shrink-0 ${
+              activeTab === 'guide'
+                ? 'bg-rose-950/80 text-white border border-rose-500/60 shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
+            }`}
+          >
+            <BookOpen className="w-4 h-4 text-rose-400" />
+            <span>{t.tabs.guide || 'Heatwave 101 Guide'}</span>
           </button>
 
           <button
@@ -333,7 +349,16 @@ export default function App() {
           />
         )}
 
-        {/* Tab 4: Citizen Climate Prediction League */}
+        {/* Tab 4: Heatwave 101 Public Resilience & Clinical Guide */}
+        {activeTab === 'guide' && (
+          <HeatwaveGuide
+            language={language}
+            onOpenPanicModal={() => setIsPanicModalOpen(true)}
+            onNavigateTab={setActiveTab}
+          />
+        )}
+
+        {/* Tab 5: Citizen Climate Prediction League */}
         {activeTab === 'league' && (
           <CitizenLeague
             challengesData={challengesData}
@@ -344,7 +369,7 @@ export default function App() {
           />
         )}
 
-        {/* Tab 5: Municipal Action Plan & Circular */}
+        {/* Tab 6: Municipal Action Plan & Circular */}
         {activeTab === 'actionPlan' && (
           <ActionPlanModal
             scenario={scenario}
@@ -353,7 +378,7 @@ export default function App() {
           />
         )}
 
-        {/* Tab 6: Model Transparency & Accuracy Ledger */}
+        {/* Tab 7: Model Transparency & Accuracy Ledger */}
         {activeTab === 'audit' && (
           <AccuracyLedger auditData={auditData} />
         )}
@@ -362,6 +387,14 @@ export default function App() {
         <AccuracyFeedback language={language} />
 
       </main>
+
+      {/* Emergency 108 Heatwave SOS Panic Modal */}
+      <PanicModal
+        isOpen={isPanicModalOpen}
+        onClose={() => setIsPanicModalOpen(false)}
+        selectedWard={selectedWard}
+        language={language}
+      />
 
       {/* Floating AI Heatbot Trigger */}
       <button

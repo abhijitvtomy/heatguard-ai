@@ -11,7 +11,8 @@ export default function Navbar({
   ambientTheme,
   onRefresh,
   loading,
-  onOpenJudgeModal
+  onOpenJudgeModal,
+  onOpenPanicModal
 }) {
   const t = translations[language] || translations.en;
 
@@ -99,6 +100,16 @@ export default function Navbar({
             className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-red-400' : ''}`} />
+          </button>
+
+          {/* Emergency SOS Panic Button */}
+          <button
+            onClick={onOpenPanicModal}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-red-600 via-rose-600 to-red-700 hover:from-red-500 hover:to-rose-500 text-white font-extrabold text-xs shadow-lg shadow-red-600/40 transition transform active:scale-95 border border-red-400/40 animate-pulse"
+            title="Emergency Heat Stroke SOS & 108 Ambulance Dispatch"
+          >
+            <span className="w-2 h-2 rounded-full bg-white animate-ping mr-0.5" />
+            <span>🚨 SOS PANIC</span>
           </button>
 
           {/* Judge Live Link & QR Code Button */}

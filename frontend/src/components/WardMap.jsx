@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import L from 'leaflet';
 import { translations } from '../i18n/translations';
-import { MapPin, Shield, Droplets, Info, Flame, AlertCircle } from 'lucide-react';
+import { MapPin, Shield, Droplets, Info, Flame, AlertCircle, Navigation, Compass, ShieldCheck, TreePine, Clock } from 'lucide-react';
+import { driverCorridors } from '../data/coolRoutesData';
 
 export default function WardMap({
   wardsGeojson,
@@ -17,6 +18,8 @@ export default function WardMap({
   const [localShowHotspots, setLocalShowHotspots] = useState(true);
   const showHotspots = propShowHotspots !== undefined ? propShowHotspots : localShowHotspots;
   const setShowHotspots = propSetShowHotspots || setLocalShowHotspots;
+  const [showCoolRoutes, setShowCoolRoutes] = useState(false);
+  const [activeCorridorId, setActiveCorridorId] = useState(driverCorridors[0]?.id || 'majestic-indiranagar');
 
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
@@ -24,6 +27,7 @@ export default function WardMap({
   const labelsLayerRef = useRef(null);
   const sheltersLayerRef = useRef(null);
   const hotspotsLayerRef = useRef(null);
+  const routesLayerRef = useRef(null);
 
   const t = translations[language] || translations.en;
 
@@ -322,6 +326,100 @@ export default function WardMap({
     hotspotsLayerRef.current = group;
   }, [wardsGeojson, showHotspots]);
 
+  // Render Driver Cool Corridors & Asphalt Trap Overlay
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map) return;
+
+    if (routesLayerRef.current) {
+      map.removeLayer(routesLayerRef.current);
+      routesLayerRef.current = null;
+    }
+
+    if (!showCoolRoutes) return;
+
+    const corridor = driverCorridors.find(c => c.id === activeCorridorId) || driverCorridors[0];
+    if (!corridor) return;
+
+    const group = L.layerGroup();
+
+    // 1. Direct Asphalt Route (Red dashed polyline)
+    const directLine = L.polyline(corridor.direct_route.coordinates, {
+      color: '#ef4444',
+      weight: 4,
+      dashArray: '8, 8',
+      opacity: 0.85
+    });
+    directLine.bindTooltip(`
+      <div style="font-family: system-ui; padding: 4px; font-size: 11px;">
+        <b style="color: #ef4444;">🔴 Direct Asphalt Route (Heat Trap)</b><br/>
+        Road Temp: <b>${corridor.direct_route.surface_temp_c}°C</b><br/>
+        WBGT: <b>${corridor.direct_route.wbgt_c}°C</b> (High Strain)
+      </div>
+    `, { sticky: true });
+    group.addLayer(directLine);
+
+    // 2. Recommended Cool Respite Route (Emerald solid polyline with glow)
+    const coolLine = L.polyline(corridor.cool_route.coordinates, {
+      color: '#10b981',
+      weight: 6,
+      opacity: 0.95
+    });
+    coolLine.bindTooltip(`
+      <div style="font-family: system-ui; padding: 4px; font-size: 11px;">
+        <b style="color: #10b981;">🟢 Recommended Driver Cool Respite Route</b><br/>
+        Road Temp: <b>${corridor.cool_route.surface_temp_c}°C (${corridor.cool_route.temp_savings_c}°C Cooler)</b><br/>
+        Canopy Shade: <b>${corridor.cool_route.canopy_shade_pct}%</b> • Water Posts: <b>${corridor.cool_route.water_stops_count}</b>
+      </div>
+    `, { sticky: true });
+    group.addLayer(coolLine);
+
+    // 3. Start and End Waypoint Markers
+    const startCoord = corridor.cool_route.coordinates[0];
+    const endCoord = corridor.cool_route.coordinates[corridor.cool_route.coordinates.length - 1];
+
+    const startIcon = L.divIcon({
+      className: 'route-start-icon',
+      html: `<div style="background: #10b981; color: white; font-weight: 800; font-size: 10px; border-radius: 9999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 0 8px #10b981;">A</div>`,
+      iconSize: [22, 22],
+      iconAnchor: [11, 11]
+    });
+    const endIcon = L.divIcon({
+      className: 'route-end-icon',
+      html: `<div style="background: #6366f1; color: white; font-weight: 800; font-size: 10px; border-radius: 9999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 0 8px #6366f1;">B</div>`,
+      iconSize: [22, 22],
+      iconAnchor: [11, 11]
+    });
+
+    group.addLayer(L.marker(startCoord, { icon: startIcon }));
+    group.addLayer(L.marker(endCoord, { icon: endIcon }));
+
+    // 4. Water Waypoints along cool route
+    (corridor.cool_route.water_stops || []).forEach(ws => {
+      const waterIcon = L.divIcon({
+        className: 'route-water-icon',
+        html: `<div style="background: #0284c7; color: white; font-size: 12px; border-radius: 9999px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border: 2px solid #bae6fd; box-shadow: 0 0 8px #38bdf8;">💧</div>`,
+        iconSize: [24, 24],
+        iconAnchor: [12, 12]
+      });
+      const wm = L.marker([ws.lat, ws.lon], { icon: waterIcon });
+      wm.bindPopup(`
+        <div style="font-family: system-ui; padding: 4px; font-size: 11px;">
+          <b style="color: #0284c7;">💧 ${ws.name}</b><br/>
+          <span>${ws.desc}</span>
+        </div>
+      `);
+      group.addLayer(wm);
+    });
+
+    group.addTo(map);
+    routesLayerRef.current = group;
+
+    // Zoom and pan to corridor bounds
+    const bounds = L.latLngBounds(corridor.cool_route.coordinates);
+    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 });
+  }, [showCoolRoutes, activeCorridorId]);
+
   return (
     <div className="relative w-full h-[520px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-950">
       {/* Map Element */}
@@ -352,7 +450,77 @@ export default function WardMap({
           <Flame className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
           <span>{t.mapControls.showHotspots || "Live Hotspots"}</span>
         </button>
+
+        {/* Driver Cool Routes Mode Toggle */}
+        <button
+          onClick={() => setShowCoolRoutes(!showCoolRoutes)}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-lg backdrop-blur-md border ${
+            showCoolRoutes
+              ? 'bg-emerald-600/90 text-white border-emerald-400 shadow-emerald-600/30 ring-2 ring-emerald-400/50'
+              : 'bg-slate-900/80 text-slate-300 border-slate-700 hover:bg-slate-800'
+          }`}
+        >
+          <Navigation className="w-3.5 h-3.5 text-emerald-400" />
+          <span>🚗 Driver Cool Routes</span>
+        </button>
       </div>
+
+      {/* Floating Driver Cool Route Navigation Comparison Drawer */}
+      {showCoolRoutes && (
+        <div className="absolute bottom-4 left-3 right-3 sm:right-auto sm:max-w-md z-30 bg-slate-950/95 backdrop-blur-md p-4 rounded-2xl border border-emerald-500/50 shadow-2xl text-xs space-y-3">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+            <div className="flex items-center gap-2">
+              <Navigation className="w-4 h-4 text-emerald-400" />
+              <span className="font-bold text-white uppercase text-[11px] tracking-wide">
+                Driver Heat Respite Navigation
+              </span>
+            </div>
+            <select
+              value={activeCorridorId}
+              onChange={(e) => setActiveCorridorId(e.target.value)}
+              className="bg-slate-900 border border-slate-700 text-white text-[11px] font-bold rounded-lg px-2 py-1 focus:ring-1 focus:ring-emerald-500 cursor-pointer"
+            >
+              {driverCorridors.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.title.split('→')[0].trim()} → {c.title.split('→')[1]?.trim()}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Direct vs Cool Route Stats Grid */}
+          {(() => {
+            const activeCorridor = driverCorridors.find(c => c.id === activeCorridorId) || driverCorridors[0];
+            return (
+              <div className="space-y-2.5">
+                <div className="grid grid-cols-2 gap-2 text-center">
+                  <div className="p-2.5 rounded-xl bg-red-950/40 border border-red-500/30 space-y-1">
+                    <div className="text-[10px] font-bold text-red-300 uppercase">🔴 Direct Asphalt Route</div>
+                    <div className="text-sm font-extrabold text-red-400 font-mono">{activeCorridor.direct_route.surface_temp_c}°C</div>
+                    <div className="text-[9px] text-slate-400">WBGT: {activeCorridor.direct_route.wbgt_c}°C • 0 Water</div>
+                  </div>
+
+                  <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 space-y-1">
+                    <div className="text-[10px] font-bold text-emerald-300 uppercase">🟢 Recommended Cool Route</div>
+                    <div className="text-sm font-extrabold text-emerald-400 font-mono">
+                      {activeCorridor.cool_route.surface_temp_c}°C <span className="text-[10px]">({activeCorridor.cool_route.temp_savings_c}°C)</span>
+                    </div>
+                    <div className="text-[9px] text-slate-300">
+                      {activeCorridor.cool_route.canopy_shade_pct}% Tree Shade • {activeCorridor.cool_route.water_stops_count} Free Water Posts
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 bg-slate-900/80 px-2.5 py-1.5 rounded-lg border border-slate-800">
+                  <span>Drive: +{activeCorridor.cool_route.duration_mins - activeCorridor.direct_route.duration_mins} mins</span>
+                  <span className="text-emerald-400 font-bold">✓ Avoids Asphalt Solar Trap</span>
+                  <span className="text-sky-400">{activeCorridor.cool_route.water_stops_count} Hydration Stops</span>
+                </div>
+              </div>
+            );
+          })()}
+        </div>
+      )}
 
       {/* Top Right Floating Hotspots Leaderboard */}
       {showHotspots && topHotspots.length > 0 && (
