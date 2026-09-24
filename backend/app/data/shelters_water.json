@@ -418,5 +418,57 @@
     "chilled_water": true,
     "operating_hours": "24 Hours",
     "status": "ACTIVE"
+  },
+  {
+    "id": "BBMP-IC-27",
+    "name": "Indira Canteen Vasanth Nagar",
+    "ward_id": "BBMP-60",
+    "type": "INDIRA_CANTEEN",
+    "capacity_people": 160,
+    "chilled_water_available": true,
+    "ac_present": true,
+    "lat": 12.992,
+    "lon": 77.589,
+    "status": "OPEN",
+    "hours": "07:30 - 20:30"
+  },
+  {
+    "id": "BWSSB-TK-28",
+    "name": "BWSSB Cauvery Kiosk Puttenahalli Lake",
+    "ward_id": "BBMP-177",
+    "type": "BWSSB_WATER_KIOSK",
+    "capacity_people": 250,
+    "chilled_water_available": true,
+    "ac_present": false,
+    "lat": 12.897,
+    "lon": 77.577,
+    "status": "OPEN",
+    "hours": "24/7"
+  },
+  {
+    "id": "BBMP-IC-29",
+    "name": "Indira Canteen Murugeshpalya (Old Airport Rd)",
+    "ward_id": "BBMP-113",
+    "type": "INDIRA_CANTEEN",
+    "capacity_people": 180,
+    "chilled_water_available": true,
+    "ac_present": true,
+    "lat": 12.959,
+    "lon": 77.659,
+    "status": "OPEN",
+    "hours": "07:30 - 20:30"
+  },
+  {
+    "id": "BWSSB-TK-30",
+    "name": "BWSSB RO Dispenser New BEL Road",
+    "ward_id": "BBMP-18",
+    "type": "BWSSB_WATER_KIOSK",
+    "capacity_people": 220,
+    "chilled_water_available": true,
+    "ac_present": false,
+    "lat": 13.036,
+    "lon": 77.576,
+    "status": "OPEN",
+    "hours": "24/7"
   }
 ]

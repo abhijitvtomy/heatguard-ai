@@ -39,10 +39,10 @@
 * **Interactive POIs:** GPS coordinates for BBMP Indira Canteens (Cooling Shelters) and BWSSB Cauvery Free Drinking Water Kiosks.
 
 ### D. Multi-Channel Municipal Dispatcher (`ActionPlanModal.jsx` & `main.py`)
-* **Multi-Judge WhatsApp Dispatcher:** Supports comma-separated phone numbers, parses Indian 10-digit formats, renders 1-tap direct chat buttons for each judge, and offers a multi-contact broadcast link.
-* **Direct Server SMS:** Connected to Fast2SMS gateway via `/api/alerts/dispatch`.
-* **On-Screen Judge QR Code Scanner:** Instant smartphone camera QR code that opens WhatsApp with the pre-formatted BBMP Heat Action Plan alert.
-* **1-Click Official Municipal Circular:** Gazette-formatted BBMP Heat Action Plan order under Sec 30/34 of the Disaster Management Act, 2005 (printable as PDF).
+* **Multi-Judge WhatsApp Dispatcher:** Deep-link (`wa.me`) transmission parsing Indian 10-digit formats with 1-tap direct dispatch buttons and rich Markdown alert formatting without saving contacts.
+* **Universal On-Screen Dynamic QR Scanner:** Camera-scannable QR code immediately loading the formatted BBMP Heat Action Directive into WhatsApp on any smartphone.
+* **1-Click Official Municipal Circular:** Gazette-formatted administrative heatwave order under Sec 30/34 of the Disaster Management Act, 2005 with full multilingual support (**English**, **Kannada**, **Hindi**) and 1-click printable PDF generation.
+*(Note: External commercial SMS gateways like Fast2SMS were dropped due to DLT registration hurdles, carrier DND filtering, and balance dependencies).*
 
 ### E. Dual-Mode AI Heatbot Copilot (`chatbot.py` & `HeatbotModal.jsx`)
 * **Citizen Mode & Officer Mode:** Trilingual support in English, Kannada (ಕನ್ನಡ), and Hindi (हिन्दी).

@@ -1225,6 +1225,312 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-60",
+      "properties": {
+        "ward_id": "BBMP-60",
+        "name": "Vasanth Nagar & High Grounds Cantonment",
+        "name_kn": "ವಸಂತ ನಗರ ಮತ್ತು ಹೈಗ್ರೌಂಡ್ಸ್ ಕಂಟೋನ್ಮೆಂಟ್",
+        "name_hi": "वसंत नगर व हाई ग्राउंड्स छावनी",
+        "zone": "Central Zone",
+        "population": 165000,
+        "elderly_pct": 22.5,
+        "outdoor_labor_pct": 24.0,
+        "tin_roof_pct": 18.0,
+        "tree_canopy_pct": 28.0,
+        "hospital_beds_per_k": 4.5,
+        "baseline_daily_admissions": 25,
+        "uhi_temp_delta": 0.8,
+        "wind_attenuation": 0.88,
+        "center": [
+          12.99,
+          77.588
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.575,
+              12.978
+            ],
+            [
+              77.602,
+              12.978
+            ],
+            [
+              77.604,
+              13.002
+            ],
+            [
+              77.577,
+              13.002
+            ],
+            [
+              77.575,
+              12.978
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-177",
+      "properties": {
+        "ward_id": "BBMP-177",
+        "name": "J.P. Nagar 7th Phase & Puttenahalli",
+        "name_kn": "ಜೆ.ಪಿ. ನಗರ 7ನೇ ಹಂತ ಮತ್ತು ಪುಟ್ಟೇನಹಳ್ಳಿ",
+        "name_hi": "जेपी नगर 7वां चरण व पुट्टेनाहल्ली",
+        "zone": "South Zone",
+        "population": 215000,
+        "elderly_pct": 18.0,
+        "outdoor_labor_pct": 32.0,
+        "tin_roof_pct": 28.0,
+        "tree_canopy_pct": 14.5,
+        "hospital_beds_per_k": 3.0,
+        "baseline_daily_admissions": 30,
+        "uhi_temp_delta": 1.8,
+        "wind_attenuation": 0.72,
+        "center": [
+          12.895,
+          77.575
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.56,
+              12.88
+            ],
+            [
+              77.59,
+              12.88
+            ],
+            [
+              77.592,
+              12.91
+            ],
+            [
+              77.562,
+              12.91
+            ],
+            [
+              77.56,
+              12.88
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-113",
+      "properties": {
+        "ward_id": "BBMP-113",
+        "name": "Konena Agrahara & Old Airport Road",
+        "name_kn": "ಕೋನೇನ ಅಗ್ರಹಾರ ಮತ್ತು ಹಳೆ ವಿಮಾನ ನಿಲ್ದಾಣ ರಸ್ತೆ",
+        "name_hi": "कोनेना अग्रहारा व पुराना एयरपोर्ट रोड",
+        "zone": "East Zone",
+        "population": 190000,
+        "elderly_pct": 13.5,
+        "outdoor_labor_pct": 46.0,
+        "tin_roof_pct": 48.0,
+        "tree_canopy_pct": 9.2,
+        "hospital_beds_per_k": 3.2,
+        "baseline_daily_admissions": 32,
+        "uhi_temp_delta": 2.4,
+        "wind_attenuation": 0.6,
+        "center": [
+          12.958,
+          77.658
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.642,
+              12.945
+            ],
+            [
+              77.674,
+              12.945
+            ],
+            [
+              77.676,
+              12.972
+            ],
+            [
+              77.644,
+              12.972
+            ],
+            [
+              77.642,
+              12.945
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-12",
+      "properties": {
+        "ward_id": "BBMP-12",
+        "name": "Shettihalli & Chikkabanavara Lake Basin",
+        "name_kn": "ಶೆಟ್ಟಿಹಳ್ಳಿ ಮತ್ತು ಚಿಕ್ಕಬಾಣಾವರ ಕೆರೆ ಪ್ರದೇಶ",
+        "name_hi": "शेट्टीहल्ली व चिक्काबाणवारा झील बेसिन",
+        "zone": "Dasarahalli Zone",
+        "population": 178000,
+        "elderly_pct": 12.0,
+        "outdoor_labor_pct": 52.0,
+        "tin_roof_pct": 52.0,
+        "tree_canopy_pct": 8.0,
+        "hospital_beds_per_k": 2.1,
+        "baseline_daily_admissions": 29,
+        "uhi_temp_delta": 2.0,
+        "wind_attenuation": 0.65,
+        "center": [
+          13.068,
+          77.512
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.495,
+              13.052
+            ],
+            [
+              77.528,
+              13.052
+            ],
+            [
+              77.53,
+              13.084
+            ],
+            [
+              77.498,
+              13.084
+            ],
+            [
+              77.495,
+              13.052
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-197",
+      "properties": {
+        "ward_id": "BBMP-197",
+        "name": "Begur & Hulimavu Bannerghatta Corridor",
+        "name_kn": "ಬೇಗೂರು ಮತ್ತು ಹುಳಿಮಾವು ಬನ್ನೇರುಘಟ್ಟ ರಸ್ತೆ",
+        "name_hi": "बेगूर व हुलीमावू बन्नेरघट्टा कॉरिडोर",
+        "zone": "Bommanahalli Zone",
+        "population": 230000,
+        "elderly_pct": 14.5,
+        "outdoor_labor_pct": 44.0,
+        "tin_roof_pct": 42.0,
+        "tree_canopy_pct": 11.0,
+        "hospital_beds_per_k": 2.8,
+        "baseline_daily_admissions": 36,
+        "uhi_temp_delta": 2.2,
+        "wind_attenuation": 0.68,
+        "center": [
+          12.875,
+          77.625
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.608,
+              12.858
+            ],
+            [
+              77.642,
+              12.858
+            ],
+            [
+              77.645,
+              12.892
+            ],
+            [
+              77.61,
+              12.892
+            ],
+            [
+              77.608,
+              12.858
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BBMP-18",
+      "properties": {
+        "ward_id": "BBMP-18",
+        "name": "Radhakrishna Temple & Sanjaynagar BEL Road",
+        "name_kn": "ರಾಧಾಕೃಷ್ಣ ದೇವಸ್ಥಾನ ಮತ್ತು ಸಂಜಯನಗರ ಬಿಇಎಲ್ ರಸ್ತೆ",
+        "name_hi": "राधाकृष्ण मंदिर व संजयनगर बीईएल रोड",
+        "zone": "North Zone",
+        "population": 182000,
+        "elderly_pct": 20.0,
+        "outdoor_labor_pct": 29.0,
+        "tin_roof_pct": 20.0,
+        "tree_canopy_pct": 22.0,
+        "hospital_beds_per_k": 4.8,
+        "baseline_daily_admissions": 26,
+        "uhi_temp_delta": 1.1,
+        "wind_attenuation": 0.8,
+        "center": [
+          13.035,
+          77.575
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.56,
+              13.02
+            ],
+            [
+              77.59,
+              13.02
+            ],
+            [
+              77.592,
+              13.05
+            ],
+            [
+              77.562,
+              13.05
+            ],
+            [
+              77.56,
+              13.02
+            ]
+          ]
+        ]
+      }
     }
   ],
   "authority": "Metropolitan Heat Resilience Network"

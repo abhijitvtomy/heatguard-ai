@@ -483,7 +483,7 @@ export default function WardMap({
             <Droplets className="w-3.5 h-3.5 text-sky-400" />
             <span>Kiosks</span>
             <span className={`text-[10px] px-1.5 py-0.2 rounded font-mono ${showShelters ? 'bg-emerald-700 text-white' : 'bg-slate-800 text-slate-400'}`}>
-              {shelters?.length || 26}
+              {shelters?.length || 30}
             </span>
           </button>
 
