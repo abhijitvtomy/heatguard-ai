@@ -59,6 +59,19 @@ export const translations = {
       exportPdf: "Export Official Circular (PDF)",
       publishAlert: "Publish Flash Headline",
       simulateSms: "Simulate WhatsApp / SMS Dispatch"
+    },
+    wardSearch: {
+      placeholder: "Search 30 BBMP wards (e.g. 138, Shivajinagar, Mahadevapura)...",
+      noResults: "No matching wards found",
+      allWards: "All Wards",
+      hotspotsOnly: "Hotspots",
+      criticalOnly: "Red Alert",
+      quickSelect: "Quick Ward Jump",
+      searchLabel: "Search Wards",
+      changeWard: "Change Ward",
+      wardsAvailable: "30 BBMP Wards Monitored",
+      climaticTitle: "Hyperlocal Climatic Telemetry & Heat Stress",
+      selectPrompt: "Search or select any ward to view real-time microclimate and heat stress data."
     }
   },
   kn: {
@@ -121,6 +134,19 @@ export const translations = {
       exportPdf: "ಅಧಿಕೃತ ಆದೇಶ ಡೌನ್‌ಲೋಡ್ (PDF)",
       publishAlert: "ತುರ್ತು ಸಂದೇಶ ಪ್ರಕಟಿಸಿ",
       simulateSms: "ವಾಟ್ಸಾಪ್ / ಎಸ್‌ಎಂಎಸ್ ಕಳುಹಿಸಿ"
+    },
+    wardSearch: {
+      placeholder: "30 ಬಿಬಿಎಂಪಿ ವಾರ್ಡ್‌ಗಳನ್ನು ಹುಡುಕಿ (ಉದಾ. 138, ಶಿವಾಜಿನಗರ)...",
+      noResults: "ಯಾವುದೇ ವಾರ್ಡ್ ಕಂಡುಬಂದಿಲ್ಲ",
+      allWards: "ಎಲ್ಲಾ ವಾರ್ಡ್‌ಗಳು",
+      hotspotsOnly: "ಉಷ್ಣ ಹಾಟ್‌ಸ್ಪಾಟ್",
+      criticalOnly: "ರೆಡ್ ಅಲರ್ಟ್",
+      quickSelect: "ತ್ವರಿತ ವಾರ್ಡ್ ಆಯ್ಕೆ",
+      searchLabel: "ವಾರ್ಡ್ ಹುಡುಕಿ",
+      changeWard: "ವಾರ್ಡ್ ಬದಲಾಯಿಸಿ",
+      wardsAvailable: "30 ಬಿಬಿಎಂಪಿ ವಾರ್ಡ್‌ಗಳು",
+      climaticTitle: "ಸ್ಥಳೀಯ ಹವಾಮಾನ ಮತ್ತು ಉಷ್ಣ ಒತ್ತಡ ಮಾಪಕಗಳು",
+      selectPrompt: "ಲೈವ್ ಹವಾಮಾನ ಮತ್ತು ಉಷ್ಣ ಒತ್ತಡ ಡೇಟಾ ನೋಡಲು ವಾರ್ಡ್ ಹುಡುಕಿ ಅಥವಾ ಆಯ್ಕೆಮಾಡಿ."
     }
   },
   hi: {
@@ -183,6 +209,19 @@ export const translations = {
       exportPdf: "आधिकारिक परिपत्र डाउनलोड (PDF)",
       publishAlert: "फ्लैश हेडलाइन प्रसारित करें",
       simulateSms: "व्हाट्सएप / एसएमएस अलर्ट भेजें"
+    },
+    wardSearch: {
+      placeholder: "30 बीबीएमपी वार्ड खोजें (उदा. 138, शिवाजीनगर, साउथ)...",
+      noResults: "कोई वार्ड नहीं मिला",
+      allWards: "सभी वार्ड",
+      hotspotsOnly: "थर्मल हॉटस्पॉट",
+      criticalOnly: "रेड अलर्ट",
+      quickSelect: "त्वरित वार्ड चयन",
+      searchLabel: "वार्ड खोजें",
+      changeWard: "वार्ड बदलें",
+      wardsAvailable: "30 बीबीएमपी वार्ड",
+      climaticTitle: "अति-स्थानीय सूक्ष्म जलवायु और हीट स्ट्रेस डेटा",
+      selectPrompt: "लाइव मौसम व हीट स्ट्रेस डेटा देखने के लिए वार्ड खोजें या चुनें।"
     }
   }
 };

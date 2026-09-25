@@ -325,6 +325,8 @@ export default function App() {
               <div className={isMapMaximized ? "lg:col-span-12" : "lg:col-span-6 xl:col-span-6 2xl:col-span-6"}>
                 <WardDossier
                   ward={selectedWard}
+                  allWards={wardsGeojson?.features?.map(f => f.properties) || fallbackWardsData?.wards || []}
+                  onSelectWard={setSelectedWard}
                   language={language}
                   forecast5Days={weatherData?.forecast_5_days}
                   onOpenCircular={() => setActiveTab('actionPlan')}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import {
   Flame,
   Thermometer,
@@ -12,19 +12,345 @@ import {
   FileText,
   ShieldAlert,
   Sun,
-  ShieldCheck
+  ShieldCheck,
+  Search,
+  X,
+  ChevronDown,
+  Check,
+  MapPin
 } from 'lucide-react';
 import { translations } from '../i18n/translations';
 
-export default function WardDossier({ ward, language, forecast5Days, onOpenCircular }) {
+export default function WardDossier({
+  ward,
+  allWards = [],
+  onSelectWard = () => {},
+  language,
+  forecast5Days,
+  onOpenCircular
+}) {
   const t = translations[language] || translations.en;
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('ALL'); // 'ALL', 'HOTSPOT', 'RED'
+  const [highlightedIndex, setHighlightedIndex] = useState(0);
+  const searchContainerRef = useRef(null);
+  const searchInputRef = useRef(null);
+  const listRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target)) {
+        setIsSearchOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Filter wards by search query & category
+  const filteredWards = useMemo(() => {
+    if (!Array.isArray(allWards) || allWards.length === 0) return [];
+    const q = searchQuery.trim().toLowerCase();
+
+    return allWards.filter((w) => {
+      if (!w) return false;
+
+      // Filter tags
+      if (activeFilter === 'HOTSPOT' && !w.is_hotspot) return false;
+      if (activeFilter === 'RED' && w.effective_alert_tier !== 'RED') return false;
+
+      if (!q) return true;
+
+      // Match 1: Ward ID (e.g. BBMP-138, 138, W-138)
+      const wid = (w.ward_id || '').toLowerCase();
+      const widDigits = wid.replace(/[^0-9]/g, '');
+      const qDigits = q.replace(/[^0-9]/g, '');
+      if (qDigits && widDigits.includes(qDigits)) return true;
+      if (wid.includes(q)) return true;
+
+      // Match 2: Name across languages
+      const nameEn = (w.name || '').toLowerCase();
+      const nameKn = (w.name_kn || '').toLowerCase();
+      const nameHi = (w.name_hi || '').toLowerCase();
+      if (nameEn.includes(q) || nameKn.includes(q) || nameHi.includes(q)) return true;
+
+      // Match 3: Zone
+      const zone = (w.zone || '').toLowerCase();
+      if (zone.includes(q)) return true;
+
+      return false;
+    });
+  }, [allWards, searchQuery, activeFilter]);
+
+  const handleSelectWard = (targetWard) => {
+    if (targetWard && onSelectWard) {
+      onSelectWard(targetWard);
+    }
+    setIsSearchOpen(false);
+    setSearchQuery('');
+  };
+
+  const handleKeyDown = (e) => {
+    if (!isSearchOpen && (e.key === 'ArrowDown' || e.key === 'Enter')) {
+      setIsSearchOpen(true);
+      return;
+    }
+
+    if (e.key === 'Escape') {
+      setIsSearchOpen(false);
+      return;
+    }
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setHighlightedIndex((prev) => {
+        const next = prev < filteredWards.length - 1 ? prev + 1 : 0;
+        if (listRef.current?.children[next]) {
+          listRef.current.children[next].scrollIntoView({ block: 'nearest' });
+        }
+        return next;
+      });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setHighlightedIndex((prev) => {
+        const next = prev > 0 ? prev - 1 : filteredWards.length - 1;
+        if (listRef.current?.children[next]) {
+          listRef.current.children[next].scrollIntoView({ block: 'nearest' });
+        }
+        return next;
+      });
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (filteredWards[highlightedIndex]) {
+        handleSelectWard(filteredWards[highlightedIndex]);
+      }
+    }
+  };
+
+  // Reusable Ward Search & Selector Bar
+  const renderSearchBar = () => (
+    <div ref={searchContainerRef} className="relative z-30">
+      <div className="p-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl backdrop-blur-md">
+        <div className="flex flex-col sm:flex-row gap-2">
+          {/* Search Input Box */}
+          <div className="relative flex-1">
+            <Search className="w-4 h-4 text-amber-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <input
+              ref={searchInputRef}
+              type="text"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setIsSearchOpen(true);
+                setHighlightedIndex(0);
+              }}
+              onFocus={() => setIsSearchOpen(true)}
+              onKeyDown={handleKeyDown}
+              placeholder={t.wardSearch?.placeholder || "Search 30 BBMP wards (e.g. 138, Shivajinagar, Mahadevapura)..."}
+              className="w-full pl-10 pr-9 py-2 rounded-xl bg-slate-800/90 border border-slate-700/80 text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/50 transition font-medium"
+            />
+            {searchQuery ? (
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery('');
+                  searchInputRef.current?.focus();
+                }}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-white rounded-md transition"
+                title="Clear search"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-white rounded-md transition"
+                title="Open ward list"
+              >
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isSearchOpen ? 'rotate-180 text-amber-400' : ''}`} />
+              </button>
+            )}
+          </div>
+
+          {/* Quick Filter Badges */}
+          <div className="flex items-center gap-1.5 shrink-0 overflow-x-auto pb-0.5 sm:pb-0">
+            <button
+              type="button"
+              onClick={() => {
+                setActiveFilter('ALL');
+                setIsSearchOpen(true);
+              }}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition border ${
+                activeFilter === 'ALL'
+                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-sm'
+                  : 'bg-slate-800/60 text-slate-400 border-slate-700/60 hover:text-slate-200'
+              }`}
+            >
+              {t.wardSearch?.allWards || "All"} ({allWards.length || 30})
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setActiveFilter(activeFilter === 'HOTSPOT' ? 'ALL' : 'HOTSPOT');
+                setIsSearchOpen(true);
+              }}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition border flex items-center gap-1 ${
+                activeFilter === 'HOTSPOT'
+                  ? 'bg-red-500/20 text-red-300 border-red-500/40 shadow-sm'
+                  : 'bg-slate-800/60 text-slate-400 border-slate-700/60 hover:text-red-300'
+              }`}
+            >
+              <span>🔥</span>
+              <span>{t.wardSearch?.hotspotsOnly || "Hotspots"}</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setActiveFilter(activeFilter === 'RED' ? 'ALL' : 'RED');
+                setIsSearchOpen(true);
+              }}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition border flex items-center gap-1 ${
+                activeFilter === 'RED'
+                  ? 'bg-red-600/30 text-red-200 border-red-500/50 shadow-sm'
+                  : 'bg-slate-800/60 text-slate-400 border-slate-700/60 hover:text-slate-200'
+              }`}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse"></span>
+              <span>{t.wardSearch?.criticalOnly || "Red Alert"}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Search Results Dropdown Overlay */}
+      {isSearchOpen && (
+        <div className="absolute top-full left-0 right-0 mt-2 z-50 rounded-2xl bg-slate-900/95 border border-slate-700 shadow-2xl backdrop-blur-xl overflow-hidden max-h-80 flex flex-col animate-in fade-in slide-in-from-top-2 duration-150">
+          <div className="px-3 py-2 bg-slate-800/80 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400">
+            <span className="font-semibold text-slate-300">
+              {filteredWards.length} {filteredWards.length === 1 ? 'Ward' : 'Wards'} {activeFilter !== 'ALL' ? `(${activeFilter})` : ''}
+            </span>
+            <span className="text-[11px] text-slate-400 hidden sm:inline">
+              Use ↑↓ arrows to navigate, Enter to jump
+            </span>
+          </div>
+
+          <div ref={listRef} className="overflow-y-auto divide-y divide-slate-800/60 py-1 max-h-72">
+            {filteredWards.length === 0 ? (
+              <div className="p-6 text-center text-slate-400 text-xs">
+                <AlertTriangle className="w-6 h-6 text-amber-400/80 mx-auto mb-2" />
+                <p className="font-semibold text-slate-300">
+                  {t.wardSearch?.noResults || "No matching wards found"}
+                </p>
+                <p className="text-[11px] text-slate-400 mt-1">
+                  Try searching with ward number (e.g. 138, 41, 151, 60), name, or zone.
+                </p>
+              </div>
+            ) : (
+              filteredWards.map((w, idx) => {
+                const isSelected = ward && w.ward_id === ward.ward_id;
+                const isHighlighted = idx === highlightedIndex;
+                const wName =
+                  language === 'kn' ? (w.name_kn || w.name) :
+                  language === 'hi' ? (w.name_hi || w.name) :
+                  w.name;
+                const wDisplayId = w.ward_id ? w.ward_id.replace('BBMP-', 'W-') : 'W';
+                const wTier = w.effective_alert_tier || 'GREEN';
+                const wTemp = w.microclimate?.temperature_c;
+
+                return (
+                  <button
+                    key={w.ward_id || idx}
+                    type="button"
+                    onClick={() => handleSelectWard(w)}
+                    onMouseEnter={() => setHighlightedIndex(idx)}
+                    className={`w-full px-3 py-2.5 text-left flex items-center justify-between gap-3 transition ${
+                      isHighlighted ? 'bg-slate-800/90 text-white' : 'hover:bg-slate-800/50 text-slate-200'
+                    } ${isSelected ? 'border-l-4 border-amber-400 bg-amber-500/10' : ''}`}
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded border shrink-0 ${
+                        wTier === 'RED' ? 'bg-red-500/20 text-red-300 border-red-500/40' :
+                        wTier === 'ORANGE' ? 'bg-orange-500/20 text-orange-300 border-orange-500/40' :
+                        wTier === 'YELLOW' ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/40' :
+                        wTier === 'BLUE' ? 'bg-sky-500/20 text-sky-300 border-sky-500/40' :
+                        'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                      }`}>
+                        {wDisplayId}
+                      </span>
+                      <div className="truncate">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-xs sm:text-sm font-semibold truncate text-white">
+                            {wName}
+                          </span>
+                          {w.is_hotspot && (
+                            <span className="text-[10px] text-red-400 font-bold shrink-0">🔥</span>
+                          )}
+                        </div>
+                        <p className="text-[11px] text-slate-400 truncate">
+                          {w.zone} • {(w.population || 0).toLocaleString()} people
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 shrink-0">
+                      {wTemp != null && (
+                        <span className="text-xs font-mono font-bold text-amber-300 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/50">
+                          {Number(wTemp).toFixed(1)}°C
+                        </span>
+                      )}
+                      <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase border ${
+                        wTier === 'RED' ? 'bg-red-500/20 text-red-300 border-red-500/30' :
+                        wTier === 'ORANGE' ? 'bg-orange-500/20 text-orange-300 border-orange-500/30' :
+                        wTier === 'YELLOW' ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' :
+                        wTier === 'BLUE' ? 'bg-sky-500/20 text-sky-300 border-sky-500/30' :
+                        'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                      }`}>
+                        {wTier}
+                      </span>
+                      {isSelected && (
+                        <Check className="w-4 h-4 text-amber-400 shrink-0" />
+                      )}
+                    </div>
+                  </button>
+                );
+              })
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 
   if (!ward) {
     return (
-      <div className="h-full flex items-center justify-center p-8 bg-slate-900/60 rounded-2xl border border-slate-800 text-center">
-        <div>
+      <div className="space-y-4">
+        {renderSearchBar()}
+        <div className="p-8 bg-slate-900/60 rounded-2xl border border-slate-800 text-center">
           <Building className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-          <p className="text-sm font-semibold text-slate-400">{t.mapControls.clickWard}</p>
+          <h3 className="text-base font-bold text-white mb-1">
+            {t.wardSearch?.selectPrompt || "Search or select any ward to view real-time microclimate and heat stress data."}
+          </h3>
+          <p className="text-xs text-slate-400 max-w-md mx-auto mb-4">
+            {t.mapControls.clickWard}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {allWards.slice(0, 6).map((w) => (
+              <button
+                key={w.ward_id}
+                type="button"
+                onClick={() => handleSelectWard(w)}
+                className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition"
+              >
+                {w.name}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -66,6 +392,9 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
   return (
     <div className="space-y-4">
       
+      {/* Ward Quick Search Bar */}
+      {renderSearchBar()}
+
       {/* Ward Header Banner */}
       <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
@@ -104,6 +433,31 @@ export default function WardDossier({ ward, language, forecast5Days, onOpenCircu
             <span>PDF Circular</span>
           </button>
         </div>
+      </div>
+
+      {/* Climatic Telemetry & Biometeorological Section Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-1 pt-1">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-300">
+            {t.wardSearch?.climaticTitle || "Hyperlocal Climatic Telemetry & Heat Stress"}
+          </h3>
+          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-amber-300 border border-slate-700">
+            {wardDisplayId}
+          </span>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => {
+            setIsSearchOpen(true);
+            searchInputRef.current?.focus();
+          }}
+          className="text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 transition self-start sm:self-auto bg-slate-900/60 hover:bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-800"
+        >
+          <Search className="w-3.5 h-3.5" />
+          <span>{t.wardSearch?.changeWard || "Change Ward"}</span>
+        </button>
       </div>
 
       {/* 5 Biometeorological Gauges */}
