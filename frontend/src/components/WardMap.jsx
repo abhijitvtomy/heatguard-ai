@@ -177,7 +177,7 @@ export default function WardMap({
     };
   }, [customStart, customEnd, routeTab, shelters]);
 
-  // Invalidate Map size when Maximized, Minimized, or toggling Cool Routes
+  // Invalidate Map size when Maximized or Minimized
   useEffect(() => {
     if (mapInstanceRef.current) {
       const timer = setTimeout(() => {
@@ -185,7 +185,7 @@ export default function WardMap({
       }, 150);
       return () => clearTimeout(timer);
     }
-  }, [isMaximized, showCoolRoutes]);
+  }, [isMaximized]);
 
   // Update Ward Polygons when GeoJSON or Language changes
   useEffect(() => {
@@ -436,221 +436,112 @@ export default function WardMap({
     hotspotsLayerRef.current = group;
   }, [wardsGeojson, showHotspots]);
 
-  // Render Driver Cool Corridors (Custom Point-to-Point OR Preset Corridor) in DEDICATED HIGH-PRIORITY PANE
+  // Render Driver Cool Corridors (Custom Point-to-Point OR Preset Corridor)
   useEffect(() => {
-    const map = mapInstanceRef.current;
-    if (!map) return;
+    try {
+      const map = mapInstanceRef.current;
+      if (!map) return;
 
-    if (routesLayerRef.current) {
-      map.removeLayer(routesLayerRef.current);
-      routesLayerRef.current = null;
-    }
-
-    if (!showCoolRoutes) return;
-
-    // Ensure pane exists
-    if (!map.getPane('coolRoutesPane')) {
-      const pane = map.createPane('coolRoutesPane');
-      pane.style.zIndex = '650';
-    }
-
-    const group = L.layerGroup();
-
-    if (routeTab === 'CUSTOM' && customRouteResult) {
-      const res = customRouteResult;
-
-      // 1. Direct Asphalt Route (Red dashed line)
-      const directLine = L.polyline(res.direct_route.coordinates, {
-        color: '#ef4444',
-        weight: 5,
-        dashArray: '10, 10',
-        opacity: 0.95,
-        pane: 'coolRoutesPane'
-      });
-      directLine.bindTooltip(`
-        <div style="font-family: system-ui; padding: 5px; font-size: 11px;">
-          <b style="color: #ef4444;">🔴 Direct Asphalt Route (Solar Heat Trap)</b><br/>
-          Distance: <b>${res.direct_route.distance_km} km</b> • ETA: <b>${res.direct_route.duration_mins} mins</b><br/>
-          Road Surface Temp: <b>${res.direct_route.surface_temp_c}°C</b><br/>
-          WBGT Heat Strain: <b>${res.direct_route.wbgt_c}°C</b><br/>
-          Canopy Shade: <b>${res.direct_route.canopy_shade_pct}%</b>
-        </div>
-      `, { sticky: true });
-      group.addLayer(directLine);
-
-      // 2. Recommended Cool Route: Glowing background halo + solid emerald line
-      const coolGlow = L.polyline(res.cool_route.coordinates, {
-        color: '#34d399',
-        weight: 12,
-        opacity: 0.4,
-        pane: 'coolRoutesPane'
-      });
-      group.addLayer(coolGlow);
-
-      const coolLine = L.polyline(res.cool_route.coordinates, {
-        color: '#10b981',
-        weight: 6,
-        opacity: 1.0,
-        pane: 'coolRoutesPane'
-      });
-      coolLine.bindTooltip(`
-        <div style="font-family: system-ui; padding: 5px; font-size: 11px;">
-          <b style="color: #10b981;">🟢 Recommended Cool Respite Route</b><br/>
-          <span style="color:#059669; font-weight:600;">${res.via_name}</span><br/>
-          Distance: <b>${res.cool_route.distance_km} km</b> • ETA: <b>${res.cool_route.duration_mins} mins</b><br/>
-          Road Temp: <b>${res.cool_route.surface_temp_c}°C (-${Math.abs(res.cool_route.temp_savings_c)}°C Relief)</b><br/>
-          Canopy Shade: <b>${res.cool_route.canopy_shade_pct}%</b> • Hydration Stops: <b>${res.cool_route.water_stops_count}</b>
-        </div>
-      `, { sticky: true });
-      group.addLayer(coolLine);
-
-      // 3. Draggable Marker A (Origin)
-      const startIcon = L.divIcon({
-        className: 'route-start-icon',
-        html: `<div style="background: #10b981; color: white; font-weight: 900; font-size: 12px; border-radius: 9999px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border: 2.5px solid white; box-shadow: 0 0 14px #10b981; cursor: grab;">A</div>`,
-        iconSize: [30, 30],
-        iconAnchor: [15, 15]
-      });
-      const mStart = L.marker(customStart, { icon: startIcon, draggable: true, pane: 'coolRoutesPane' });
-      mStart.on('dragend', (e) => {
-        const p = e.target.getLatLng();
-        setCustomStart([Number(p.lat.toFixed(5)), Number(p.lng.toFixed(5))]);
-        setCustomStartLabel(`Point A (${p.lat.toFixed(3)}, ${p.lng.toFixed(3)})`);
-      });
-      mStart.bindPopup(`<b>Start (A):</b> ${customStartLabel}<br/><span style="font-size:10px; color:#64748b;">(Drag marker to move origin)</span>`);
-      group.addLayer(mStart);
-
-      // 4. Draggable Marker B (Destination)
-      const endIcon = L.divIcon({
-        className: 'route-end-icon',
-        html: `<div style="background: #6366f1; color: white; font-weight: 900; font-size: 12px; border-radius: 9999px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border: 2.5px solid white; box-shadow: 0 0 14px #6366f1; cursor: grab;">B</div>`,
-        iconSize: [30, 30],
-        iconAnchor: [15, 15]
-      });
-      const mEnd = L.marker(customEnd, { icon: endIcon, draggable: true, pane: 'coolRoutesPane' });
-      mEnd.on('dragend', (e) => {
-        const p = e.target.getLatLng();
-        setCustomEnd([Number(p.lat.toFixed(5)), Number(p.lng.toFixed(5))]);
-        setCustomEndLabel(`Point B (${p.lat.toFixed(3)}, ${p.lng.toFixed(3)})`);
-      });
-      mEnd.bindPopup(`<b>Destination (B):</b> ${customEndLabel}<br/><span style="font-size:10px; color:#64748b;">(Drag marker to move destination)</span>`);
-      group.addLayer(mEnd);
-
-      // 5. Water Kiosks along cool route
-      (res.cool_route.water_stops || []).forEach(ws => {
-        const waterIcon = L.divIcon({
-          className: 'route-water-icon',
-          html: `<div style="background: #0284c7; color: white; font-size: 14px; border-radius: 9999px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border: 2px solid #bae6fd; box-shadow: 0 0 10px #38bdf8; cursor: pointer;">💧</div>`,
-          iconSize: [26, 26],
-          iconAnchor: [13, 13]
-        });
-        const wm = L.marker([ws.lat, ws.lon], { icon: waterIcon, pane: 'coolRoutesPane' });
-        wm.bindPopup(`
-          <div style="font-family: system-ui; padding: 4px; font-size: 11px;">
-            <b style="color: #0284c7;">💧 ${ws.name}</b><br/>
-            <span>${ws.desc}</span>
-            ${ws.distanceMeters != null ? `<div style="color:#64748b; font-size:10px; margin-top:2px;">~${ws.distanceMeters}m from cool route</div>` : ''}
-          </div>
-        `);
-        group.addLayer(wm);
-      });
-
-      group.addTo(map);
-      routesLayerRef.current = group;
-
-      const allCoords = [
-        ...res.cool_route.coordinates,
-        ...res.direct_route.coordinates
-      ];
-      if (allCoords.length > 0) {
-        const bounds = L.latLngBounds(allCoords);
-        map.fitBounds(bounds, { padding: [60, 60], maxZoom: 14, animate: true });
+      if (routesLayerRef.current) {
+        map.removeLayer(routesLayerRef.current);
+        routesLayerRef.current = null;
       }
 
-    } else if (routeTab === 'PRESET') {
-      const corridor = driverCorridors.find(c => c.id === activeCorridorId) || driverCorridors[0];
-      if (corridor) {
-        // Direct
-        const directLine = L.polyline(corridor.direct_route.coordinates, {
+      if (!showCoolRoutes) return;
+
+      const group = L.layerGroup();
+
+      if (routeTab === 'CUSTOM' && customRouteResult) {
+        const res = customRouteResult;
+
+        // 1. Direct Asphalt Route (Red dashed line)
+        const directLine = L.polyline(res.direct_route.coordinates, {
           color: '#ef4444',
           weight: 5,
           dashArray: '10, 10',
-          opacity: 0.95,
-          pane: 'coolRoutesPane'
+          opacity: 0.95
         });
         directLine.bindTooltip(`
           <div style="font-family: system-ui; padding: 5px; font-size: 11px;">
-            <b style="color: #ef4444;">🔴 Direct Asphalt Route (Heat Trap)</b><br/>
-            Road Surface Temp: <b>${corridor.direct_route.surface_temp_c}°C</b><br/>
-            WBGT Heat Strain: <b>${corridor.direct_route.wbgt_c}°C</b><br/>
-            Zero shade • High vehicle exhaust
+            <b style="color: #ef4444;">🔴 Direct Asphalt Route (Solar Heat Trap)</b><br/>
+            Distance: <b>${res.direct_route.distance_km || '10.5'} km</b> • ETA: <b>${res.direct_route.duration_mins} mins</b><br/>
+            Road Surface Temp: <b>${res.direct_route.surface_temp_c}°C</b><br/>
+            WBGT Heat Strain: <b>${res.direct_route.wbgt_c}°C</b><br/>
+            Canopy Shade: <b>${res.direct_route.canopy_shade_pct}%</b>
           </div>
         `, { sticky: true });
         group.addLayer(directLine);
 
-        // Cool
-        const coolGlow = L.polyline(corridor.cool_route.coordinates, {
+        // 2. Recommended Cool Route: Glowing background halo + solid emerald line
+        const coolGlow = L.polyline(res.cool_route.coordinates, {
           color: '#34d399',
           weight: 12,
-          opacity: 0.4,
-          pane: 'coolRoutesPane'
+          opacity: 0.4
         });
         group.addLayer(coolGlow);
 
-        const coolLine = L.polyline(corridor.cool_route.coordinates, {
+        const coolLine = L.polyline(res.cool_route.coordinates, {
           color: '#10b981',
           weight: 6,
-          opacity: 1.0,
-          pane: 'coolRoutesPane'
+          opacity: 1.0
         });
         coolLine.bindTooltip(`
           <div style="font-family: system-ui; padding: 5px; font-size: 11px;">
             <b style="color: #10b981;">🟢 Recommended Cool Respite Route</b><br/>
-            Road Temp: <b>${corridor.cool_route.surface_temp_c}°C (-${Math.abs(corridor.cool_route.temp_savings_c)}°C Relief)</b><br/>
-            Canopy Shade: <b>${corridor.cool_route.canopy_shade_pct}%</b> • Water Posts: <b>${corridor.cool_route.water_stops_count}</b><br/>
-            Leaves asphalt corridors for tree-lined avenues
+            <span style="color:#059669; font-weight:600;">${res.via_name}</span><br/>
+            Distance: <b>${res.cool_route.distance_km || '13.8'} km</b> • ETA: <b>${res.cool_route.duration_mins} mins</b><br/>
+            Road Temp: <b>${res.cool_route.surface_temp_c}°C (-${Math.abs(res.cool_route.temp_savings_c)}°C Relief)</b><br/>
+            Canopy Shade: <b>${res.cool_route.canopy_shade_pct}%</b> • Hydration Stops: <b>${res.cool_route.water_stops_count}</b>
           </div>
         `, { sticky: true });
         group.addLayer(coolLine);
 
-        // Markers A and B
-        const startCoord = corridor.cool_route.coordinates[0];
-        const endCoord = corridor.cool_route.coordinates[corridor.cool_route.coordinates.length - 1];
-
+        // 3. Draggable Marker A (Origin)
         const startIcon = L.divIcon({
           className: 'route-start-icon',
-          html: `<div style="background: #10b981; color: white; font-weight: 900; font-size: 11px; border-radius: 9999px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border: 2.5px solid white; box-shadow: 0 0 12px #10b981;">A</div>`,
-          iconSize: [28, 28],
-          iconAnchor: [14, 14]
+          html: `<div style="background: #10b981; color: white; font-weight: 900; font-size: 12px; border-radius: 9999px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border: 2.5px solid white; box-shadow: 0 0 14px #10b981; cursor: grab;">A</div>`,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15]
         });
-        const endIcon = L.divIcon({
-          className: 'route-end-icon',
-          html: `<div style="background: #6366f1; color: white; font-weight: 900; font-size: 11px; border-radius: 9999px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border: 2.5px solid white; box-shadow: 0 0 12px #6366f1;">B</div>`,
-          iconSize: [28, 28],
-          iconAnchor: [14, 14]
+        const mStart = L.marker(customStart, { icon: startIcon, draggable: true });
+        mStart.on('dragend', (e) => {
+          const p = e.target.getLatLng();
+          setCustomStart([Number(p.lat.toFixed(5)), Number(p.lng.toFixed(5))]);
+          setCustomStartLabel(`Point A (${p.lat.toFixed(3)}, ${p.lng.toFixed(3)})`);
         });
-
-        const mStart = L.marker(startCoord, { icon: startIcon, pane: 'coolRoutesPane' });
-        mStart.bindPopup(`<b>Start Location:</b> ${corridor.title.split('→')[0]}`);
+        mStart.bindPopup(`<b>Start (A):</b> ${customStartLabel}<br/><span style="font-size:10px; color:#64748b;">(Drag marker to move origin)</span>`);
         group.addLayer(mStart);
 
-        const mEnd = L.marker(endCoord, { icon: endIcon, pane: 'coolRoutesPane' });
-        mEnd.bindPopup(`<b>Destination:</b> ${corridor.title.split('→')[1]}`);
+        // 4. Draggable Marker B (Destination)
+        const endIcon = L.divIcon({
+          className: 'route-end-icon',
+          html: `<div style="background: #6366f1; color: white; font-weight: 900; font-size: 12px; border-radius: 9999px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border: 2.5px solid white; box-shadow: 0 0 14px #6366f1; cursor: grab;">B</div>`,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15]
+        });
+        const mEnd = L.marker(customEnd, { icon: endIcon, draggable: true });
+        mEnd.on('dragend', (e) => {
+          const p = e.target.getLatLng();
+          setCustomEnd([Number(p.lat.toFixed(5)), Number(p.lng.toFixed(5))]);
+          setCustomEndLabel(`Point B (${p.lat.toFixed(3)}, ${p.lng.toFixed(3)})`);
+        });
+        mEnd.bindPopup(`<b>Destination (B):</b> ${customEndLabel}<br/><span style="font-size:10px; color:#64748b;">(Drag marker to move destination)</span>`);
         group.addLayer(mEnd);
 
-        // Water stops
-        (corridor.cool_route.water_stops || []).forEach(ws => {
+        // 5. Water Kiosks along cool route
+        (res.cool_route.water_stops || []).forEach(ws => {
           const waterIcon = L.divIcon({
             className: 'route-water-icon',
             html: `<div style="background: #0284c7; color: white; font-size: 14px; border-radius: 9999px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border: 2px solid #bae6fd; box-shadow: 0 0 10px #38bdf8; cursor: pointer;">💧</div>`,
             iconSize: [26, 26],
             iconAnchor: [13, 13]
           });
-          const wm = L.marker([ws.lat, ws.lon], { icon: waterIcon, pane: 'coolRoutesPane' });
+          const wm = L.marker([ws.lat, ws.lon], { icon: waterIcon });
           wm.bindPopup(`
             <div style="font-family: system-ui; padding: 4px; font-size: 11px;">
               <b style="color: #0284c7;">💧 ${ws.name}</b><br/>
               <span>${ws.desc}</span>
+              ${ws.distanceMeters != null ? `<div style="color:#64748b; font-size:10px; margin-top:2px;">~${ws.distanceMeters}m from cool route</div>` : ''}
             </div>
           `);
           group.addLayer(wm);
@@ -659,13 +550,138 @@ export default function WardMap({
         group.addTo(map);
         routesLayerRef.current = group;
 
+        // Bring route elements above ward polygons
+        if (coolGlow.bringToFront) coolGlow.bringToFront();
+        if (coolLine.bringToFront) coolLine.bringToFront();
+        if (directLine.bringToFront) directLine.bringToFront();
+
         const allCoords = [
-          ...corridor.cool_route.coordinates,
-          ...corridor.direct_route.coordinates
+          ...res.cool_route.coordinates,
+          ...res.direct_route.coordinates
         ];
-        const bounds = L.latLngBounds(allCoords);
-        map.fitBounds(bounds, { padding: [60, 60], maxZoom: 14, animate: true });
+        if (allCoords.length > 0) {
+          try {
+            const bounds = L.latLngBounds(allCoords);
+            if (bounds.isValid()) {
+              map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14, animate: false });
+            }
+          } catch (err) {
+            console.warn('fitBounds error:', err);
+          }
+        }
+
+      } else if (routeTab === 'PRESET') {
+        const corridor = driverCorridors.find(c => c.id === activeCorridorId) || driverCorridors[0];
+        if (corridor) {
+          // Direct
+          const directLine = L.polyline(corridor.direct_route.coordinates, {
+            color: '#ef4444',
+            weight: 5,
+            dashArray: '10, 10',
+            opacity: 0.95
+          });
+          directLine.bindTooltip(`
+            <div style="font-family: system-ui; padding: 5px; font-size: 11px;">
+              <b style="color: #ef4444;">🔴 Direct Asphalt Route (Heat Trap)</b><br/>
+              Road Surface Temp: <b>${corridor.direct_route.surface_temp_c}°C</b><br/>
+              WBGT Heat Strain: <b>${corridor.direct_route.wbgt_c}°C</b><br/>
+              Zero shade • High vehicle exhaust
+            </div>
+          `, { sticky: true });
+          group.addLayer(directLine);
+
+          // Cool
+          const coolGlow = L.polyline(corridor.cool_route.coordinates, {
+            color: '#34d399',
+            weight: 12,
+            opacity: 0.4
+          });
+          group.addLayer(coolGlow);
+
+          const coolLine = L.polyline(corridor.cool_route.coordinates, {
+            color: '#10b981',
+            weight: 6,
+            opacity: 1.0
+          });
+          coolLine.bindTooltip(`
+            <div style="font-family: system-ui; padding: 5px; font-size: 11px;">
+              <b style="color: #10b981;">🟢 Recommended Cool Respite Route</b><br/>
+              Road Temp: <b>${corridor.cool_route.surface_temp_c}°C (-${Math.abs(corridor.cool_route.temp_savings_c)}°C Relief)</b><br/>
+              Canopy Shade: <b>${corridor.cool_route.canopy_shade_pct}%</b> • Water Posts: <b>${corridor.cool_route.water_stops_count}</b><br/>
+              Leaves asphalt corridors for tree-lined avenues
+            </div>
+          `, { sticky: true });
+          group.addLayer(coolLine);
+
+          // Markers A and B
+          const startCoord = corridor.cool_route.coordinates[0];
+          const endCoord = corridor.cool_route.coordinates[corridor.cool_route.coordinates.length - 1];
+
+          const startIcon = L.divIcon({
+            className: 'route-start-icon',
+            html: `<div style="background: #10b981; color: white; font-weight: 900; font-size: 11px; border-radius: 9999px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border: 2.5px solid white; box-shadow: 0 0 12px #10b981;">A</div>`,
+            iconSize: [28, 28],
+            iconAnchor: [14, 14]
+          });
+          const endIcon = L.divIcon({
+            className: 'route-end-icon',
+            html: `<div style="background: #6366f1; color: white; font-weight: 900; font-size: 11px; border-radius: 9999px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border: 2.5px solid white; box-shadow: 0 0 12px #6366f1;">B</div>`,
+            iconSize: [28, 28],
+            iconAnchor: [14, 14]
+          });
+
+          const mStart = L.marker(startCoord, { icon: startIcon });
+          mStart.bindPopup(`<b>Start Location:</b> ${corridor.title.split('→')[0]}`);
+          group.addLayer(mStart);
+
+          const mEnd = L.marker(endCoord, { icon: endIcon });
+          mEnd.bindPopup(`<b>Destination:</b> ${corridor.title.split('→')[1]}`);
+          group.addLayer(mEnd);
+
+          // Water stops
+          (corridor.cool_route.water_stops || []).forEach(ws => {
+            const waterIcon = L.divIcon({
+              className: 'route-water-icon',
+              html: `<div style="background: #0284c7; color: white; font-size: 14px; border-radius: 9999px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border: 2px solid #bae6fd; box-shadow: 0 0 10px #38bdf8; cursor: pointer;">💧</div>`,
+              iconSize: [26, 26],
+              iconAnchor: [13, 13]
+            });
+            const wm = L.marker([ws.lat, ws.lon], { icon: waterIcon });
+            wm.bindPopup(`
+              <div style="font-family: system-ui; padding: 4px; font-size: 11px;">
+                <b style="color: #0284c7;">💧 ${ws.name}</b><br/>
+                <span>${ws.desc}</span>
+              </div>
+            `);
+            group.addLayer(wm);
+          });
+
+          group.addTo(map);
+          routesLayerRef.current = group;
+
+          // Bring route elements above ward polygons
+          if (coolGlow.bringToFront) coolGlow.bringToFront();
+          if (coolLine.bringToFront) coolLine.bringToFront();
+          if (directLine.bringToFront) directLine.bringToFront();
+
+          const allCoords = [
+            ...corridor.cool_route.coordinates,
+            ...corridor.direct_route.coordinates
+          ];
+          if (allCoords.length > 0) {
+            try {
+              const bounds = L.latLngBounds(allCoords);
+              if (bounds.isValid()) {
+                map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14, animate: false });
+              }
+            } catch (err) {
+              console.warn('fitBounds error:', err);
+            }
+          }
+        }
       }
+    } catch (err) {
+      console.error('Failed to render routes layer:', err);
     }
   }, [showCoolRoutes, routeTab, activeCorridorId, customRouteResult, customStart, customEnd, customStartLabel, customEndLabel]);
 
