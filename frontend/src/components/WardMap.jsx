@@ -130,9 +130,9 @@ export default function WardMap({
   };
   onMapClickRef.current = handleMapClick;
 
-  // Calculate dynamic Point-to-Point Cool Route whenever customStart or customEnd changes
+  // Calculate dynamic Point-to-Point Cool Route on mount and whenever customStart or customEnd changes
   useEffect(() => {
-    if (!showCoolRoutes || routeTab !== 'CUSTOM' || !customStart || !customEnd) return;
+    if (routeTab !== 'CUSTOM' || !customStart || !customEnd) return;
 
     let isMounted = true;
     setIsCalculatingRoute(true);
@@ -152,7 +152,7 @@ export default function WardMap({
     return () => {
       isMounted = false;
     };
-  }, [customStart, customEnd, showCoolRoutes, routeTab, shelters]);
+  }, [customStart, customEnd, routeTab, shelters]);
 
   // Invalidate Map size when Maximized or Minimized
   useEffect(() => {
@@ -475,7 +475,7 @@ export default function WardMap({
           <b style="color: #10b981;">🟢 Recommended Cool Respite Route</b><br/>
           <span style="color:#059669; font-weight:600;">${res.via_name}</span><br/>
           Distance: <b>${res.cool_route.distance_km} km</b> • ETA: <b>${res.cool_route.duration_mins} mins</b><br/>
-          Road Temp: <b>${res.cool_route.surface_temp_c}°C (${res.cool_route.temp_savings_c}°C Relief)</b><br/>
+          Road Temp: <b>${res.cool_route.surface_temp_c}°C (-${Math.abs(res.cool_route.temp_savings_c)}°C Relief)</b><br/>
           Canopy Shade: <b>${res.cool_route.canopy_shade_pct}%</b> • Hydration Stops: <b>${res.cool_route.water_stops_count}</b>
         </div>
       `, { sticky: true });
@@ -583,7 +583,7 @@ export default function WardMap({
         coolLine.bindTooltip(`
           <div style="font-family: system-ui; padding: 5px; font-size: 11px;">
             <b style="color: #10b981;">🟢 Recommended Cool Respite Route</b><br/>
-            Road Temp: <b>${corridor.cool_route.surface_temp_c}°C (${corridor.cool_route.temp_savings_c}°C Relief)</b><br/>
+            Road Temp: <b>${corridor.cool_route.surface_temp_c}°C (-${Math.abs(corridor.cool_route.temp_savings_c)}°C Relief)</b><br/>
             Canopy Shade: <b>${corridor.cool_route.canopy_shade_pct}%</b> • Water Posts: <b>${corridor.cool_route.water_stops_count}</b><br/>
             Leaves asphalt corridors for tree-lined avenues
           </div>
@@ -1002,7 +1002,7 @@ export default function WardMap({
                   {/* Via Banner */}
                   <div className="text-[10px] font-medium text-emerald-300 bg-emerald-950/60 px-2.5 py-1 rounded-lg border border-emerald-500/30 flex items-center justify-between">
                     <span className="truncate">🌿 {t.coolRoutes?.via || 'Via'}: <b>{customRouteResult.via_name}</b></span>
-                    <span className="font-mono font-bold shrink-0 text-emerald-200">-{customRouteResult.cool_route.temp_savings_c}°C {t.coolRoutes?.cooler || 'Relief'}</span>
+                    <span className="font-mono font-bold shrink-0 text-emerald-200">-${Math.abs(customRouteResult.cool_route.temp_savings_c)}°C {t.coolRoutes?.cooler || 'Relief'}</span>
                   </div>
 
                   {/* Direct vs Cool Comparison Cards */}
@@ -1029,7 +1029,7 @@ export default function WardMap({
                         {t.coolRoutes?.recommendedCool || '🟢 Cool Respite'}
                       </div>
                       <div className="text-sm font-extrabold text-emerald-400 font-mono">
-                        {customRouteResult.cool_route.surface_temp_c}°C <span className="text-[10px]">(-{customRouteResult.cool_route.temp_savings_c}°C)</span>
+                        {customRouteResult.cool_route.surface_temp_c}°C <span className="text-[10px]">(-${Math.abs(customRouteResult.cool_route.temp_savings_c)}°C)</span>
                       </div>
                       <div className="text-[9px] text-slate-300">
                         {customRouteResult.cool_route.distance_km} km • {customRouteResult.cool_route.duration_mins} min
@@ -1070,7 +1070,7 @@ export default function WardMap({
                     }`}
                   >
                     <div className="truncate font-semibold">{c.title}</div>
-                    <div className="text-[9px] text-emerald-300 opacity-90 font-mono">-{c.cool_route.temp_savings_c}°C Cooler</div>
+                    <div className="text-[9px] text-emerald-300 opacity-90 font-mono">-${Math.abs(c.cool_route.temp_savings_c)}°C Cooler</div>
                   </button>
                 ))}
               </div>
@@ -1090,7 +1090,7 @@ export default function WardMap({
                       <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 space-y-1">
                         <div className="text-[10px] font-bold text-emerald-300 uppercase">🟢 Recommended Cool Route</div>
                         <div className="text-sm font-extrabold text-emerald-400 font-mono">
-                          {activeCorridor.cool_route.surface_temp_c}°C <span className="text-[10px]">({activeCorridor.cool_route.temp_savings_c}°C)</span>
+                          {activeCorridor.cool_route.surface_temp_c}°C <span className="text-[10px]">(-${Math.abs(activeCorridor.cool_route.temp_savings_c)}°C)</span>
                         </div>
                         <div className="text-[9px] text-slate-300">
                           {activeCorridor.cool_route.canopy_shade_pct}% Tree Shade • {activeCorridor.cool_route.water_stops_count} Free Water Posts
