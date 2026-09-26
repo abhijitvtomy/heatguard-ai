@@ -30,9 +30,10 @@ code, .font-mono {
   background: rgba(148, 163, 184, 0.6);
 }
 
-/* Leaflet Dark Map Tile Inversion & Filter */
+/* Leaflet Map Styling */
 .dark-tiles .leaflet-tile {
-  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+  /* CartoDB Dark Matter tiles are natively dark; no harsh contrast/invert filters */
+  opacity: 0.95;
 }
 
 /* Rain Effect Overlay */

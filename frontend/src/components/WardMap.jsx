@@ -37,7 +37,17 @@ export default function WardMap({
   const [customStartLabel, setCustomStartLabel] = useState('Majestic Kempegowda Bus Station');
   const [customEndLabel, setCustomEndLabel] = useState('Indiranagar 100ft Road');
   const [pickMode, setPickMode] = useState(null); // null | 'A' | 'B'
-  const [customRouteResult, setCustomRouteResult] = useState(null);
+  const [customRouteResult, setCustomRouteResult] = useState(() => {
+    const corridor = driverCorridors[0];
+    if (!corridor) return null;
+    return {
+      origin: { label: 'Majestic Kempegowda Bus Station', coords: [12.9772, 77.5713] },
+      destination: { label: 'Indiranagar 100ft Road', coords: [12.9784, 77.6434] },
+      via_name: 'Cubbon Park West Promenade & Tree-Canopy Boulevard',
+      direct_route: corridor.direct_route,
+      cool_route: corridor.cool_route
+    };
+  });
   const [isCalculatingRoute, setIsCalculatingRoute] = useState(false);
 
   const pickModeRef = useRef(null);
@@ -84,11 +94,31 @@ export default function WardMap({
         markersPane.style.zIndex = '670';
       }
 
-      // 100% Free OpenStreetMap tiles
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      // Native High-Contrast Dark Tiles (CartoDB Dark Matter) - Crisp streets, zero pitch-black filter
+      const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        subdomains: 'abcd',
         maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+      });
+      tileLayer.on('tileerror', function(error, tile) {
+        if (tile && !tile._fallback) {
+          tile._fallback = true;
+          tile.src = `https://tile.openstreetmap.org/${error.coords.z}/${error.coords.x}/${error.coords.y}.png`;
+        }
+      });
+      tileLayer.addTo(map);
+
+      // Crucial: Invalidate size after layout completes to guarantee tiles render immediately
+      setTimeout(() => {
+        if (mapInstanceRef.current) {
+          mapInstanceRef.current.invalidateSize();
+        }
+      }, 100);
+      setTimeout(() => {
+        if (mapInstanceRef.current) {
+          mapInstanceRef.current.invalidateSize();
+        }
+      }, 400);
 
       // Listen for map clicks for interactive A -> B cool route picking
       map.on('click', (e) => {
@@ -154,15 +184,15 @@ export default function WardMap({
     };
   }, [customStart, customEnd, routeTab, shelters]);
 
-  // Invalidate Map size when Maximized or Minimized
+  // Invalidate Map size when Maximized, Minimized, or toggling Cool Routes
   useEffect(() => {
     if (mapInstanceRef.current) {
       const timer = setTimeout(() => {
         mapInstanceRef.current?.invalidateSize();
-      }, 250);
+      }, 150);
       return () => clearTimeout(timer);
     }
-  }, [isMaximized]);
+  }, [isMaximized, showCoolRoutes]);
 
   // Update Ward Polygons when GeoJSON or Language changes
   useEffect(() => {
