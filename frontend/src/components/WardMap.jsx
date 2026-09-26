@@ -94,17 +94,10 @@ export default function WardMap({
         markersPane.style.zIndex = '670';
       }
 
-      // Native High-Contrast Dark Tiles (CartoDB Dark Matter) - Crisp streets, zero pitch-black filter
-      const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        subdomains: 'abcd',
+      // 100% Free Official OpenStreetMap Tiles (Zero API Key, Zero Watermark)
+      const tileLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
-      });
-      tileLayer.on('tileerror', function(error, tile) {
-        if (tile && !tile._fallback) {
-          tile._fallback = true;
-          tile.src = `https://tile.openstreetmap.org/${error.coords.z}/${error.coords.x}/${error.coords.y}.png`;
-        }
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> contributors'
       });
       tileLayer.addTo(map);
 

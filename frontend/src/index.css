@@ -32,8 +32,8 @@ code, .font-mono {
 
 /* Leaflet Map Styling */
 .dark-tiles .leaflet-tile {
-  /* CartoDB Dark Matter tiles are natively dark; no harsh contrast/invert filters */
-  opacity: 0.95;
+  /* Clean, gentle contrast for OpenStreetMap tiles */
+  filter: brightness(0.9) contrast(1.05);
 }
 
 /* Rain Effect Overlay */
