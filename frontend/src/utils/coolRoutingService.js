@@ -74,11 +74,10 @@ export async function fetchOSRMRoute(waypoints) {
   const url = `https://router.project-osrm.org/route/v1/driving/${wpStr}?overview=full&geometries=geojson`;
   
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 6000);
+  const timeoutId = setTimeout(() => controller.abort(), 12000);
 
   try {
     const res = await fetch(url, { signal: controller.signal });
-    clearTimeout(timeoutId);
     const data = await res.json();
     if (data.code !== 'Ok' || !data.routes?.length) {
       throw new Error(data.message || 'Routing failed');
@@ -90,9 +89,8 @@ export async function fetchOSRMRoute(waypoints) {
       duration_mins: Math.max(1, Math.round(r.duration / 60)),
       coordinates: coords
     };
-  } catch (err) {
+  } finally {
     clearTimeout(timeoutId);
-    throw err;
   }
 }
 

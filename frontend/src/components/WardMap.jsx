@@ -29,6 +29,7 @@ export default function WardMap({
   const [showCoolRoutes, setShowCoolRoutes] = useState(false);
   const [activeCorridorId, setActiveCorridorId] = useState(driverCorridors[0]?.id || 'majestic-indiranagar');
   const [isHotspotsExpanded, setIsHotspotsExpanded] = useState(false);
+  const [isDrawerCollapsed, setIsDrawerCollapsed] = useState(false);
 
   // Dynamic Point-to-Point A -> B Route States
   const [routeTab, setRouteTab] = useState('CUSTOM'); // 'CUSTOM' | 'PRESET'
@@ -94,8 +95,9 @@ export default function WardMap({
         markersPane.style.zIndex = '670';
       }
 
-      // 100% Free Official OpenStreetMap Tiles (Zero API Key, Zero Watermark)
-      const tileLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      // 100% Free Official OpenStreetMap Tiles (Distributed across mirrors, zero API key, zero watermark)
+      const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        subdomains: ['a', 'b', 'c'],
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> contributors'
       });
@@ -115,7 +117,7 @@ export default function WardMap({
 
       // Listen for map clicks for interactive A -> B cool route picking
       map.on('click', (e) => {
-        if (pickModeRef.current && onMapClickRef.current) {
+        if (pickModeRef.current && onMapClickRef.current && e?.latlng) {
           onMapClickRef.current(e.latlng);
         }
       });
@@ -133,7 +135,7 @@ export default function WardMap({
 
   // Map Click handler for interactive Origin (A) / Destination (B) selection
   const handleMapClick = (latlng) => {
-    if (!latlng) return;
+    if (!latlng || !Number.isFinite(latlng.lat) || !Number.isFinite(latlng.lng)) return;
     const lat = Number(latlng.lat.toFixed(5));
     const lon = Number(latlng.lng.toFixed(5));
 
@@ -187,6 +189,17 @@ export default function WardMap({
     }
   }, [isMaximized]);
 
+  const getColor = (tier) => {
+    switch (tier) {
+      case 'RED': return '#dc2626';
+      case 'ORANGE': return '#ea580c';
+      case 'YELLOW': return '#eab308';
+      case 'BLUE': return '#0284c7';
+      case 'GREEN':
+      default: return '#16a34a';
+    }
+  };
+
   // Update Ward Polygons when GeoJSON or Language changes
   useEffect(() => {
     const map = mapInstanceRef.current;
@@ -199,17 +212,6 @@ export default function WardMap({
       map.removeLayer(labelsLayerRef.current);
       labelsLayerRef.current = null;
     }
-
-    const getColor = (tier) => {
-      switch (tier) {
-        case 'RED': return '#dc2626';
-        case 'ORANGE': return '#ea580c';
-        case 'YELLOW': return '#eab308';
-        case 'BLUE': return '#0284c7';
-        case 'GREEN':
-        default: return '#16a34a';
-      }
-    };
 
     const layer = L.geoJSON(wardsGeojson, {
       style: (feature) => {
@@ -235,7 +237,7 @@ export default function WardMap({
         // Interactive hover & selection
         l.on({
           click: (e) => {
-            if (pickModeRef.current && onMapClickRef.current) {
+            if (pickModeRef.current && onMapClickRef.current && e?.latlng) {
               L.DomEvent.stopPropagation(e);
               onMapClickRef.current(e.latlng);
               return;
@@ -276,7 +278,7 @@ export default function WardMap({
     const labelsGroup = L.layerGroup();
     wardsGeojson.features.forEach((feature) => {
       const props = feature.properties || {};
-      if (props.center) {
+      if (props.center && Array.isArray(props.center) && Number.isFinite(props.center[0]) && Number.isFinite(props.center[1])) {
         const wardNum = props.ward_id.replace('BBMP-', '');
         const labelIcon = L.divIcon({
           className: 'ward-map-label',
@@ -306,12 +308,37 @@ export default function WardMap({
 
     labelsGroup.addTo(map);
     labelsLayerRef.current = labelsGroup;
+  }, [wardsGeojson, language]);
 
-    // Pan to selected ward if chosen
-    if (selectedWard && selectedWard.center) {
-      map.flyTo(selectedWard.center, 12, { duration: 0.8 });
+  // Smoothly update ward selection highlight & fly to centroid without destroying layers
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map) return;
+
+    if (geojsonLayerRef.current) {
+      geojsonLayerRef.current.setStyle((feature) => {
+        const props = feature.properties || {};
+        const isSelected = selectedWard && selectedWard.ward_id === props.ward_id;
+        const tier = props.effective_alert_tier || props.health_risk?.alert_tier || 'GREEN';
+
+        return {
+          fillColor: getColor(tier),
+          weight: isSelected ? 3.5 : 1.8,
+          opacity: 0.9,
+          color: isSelected ? '#ffffff' : '#0f172a',
+          fillOpacity: isSelected ? 0.75 : 0.52
+        };
+      });
     }
-  }, [wardsGeojson, selectedWard, language]);
+
+    if (selectedWard?.center && Array.isArray(selectedWard.center) && Number.isFinite(selectedWard.center[0]) && Number.isFinite(selectedWard.center[1])) {
+      try {
+        map.flyTo(selectedWard.center, Math.max(map.getZoom(), 12), { duration: 0.6 });
+      } catch (err) {
+        console.warn('flyTo ward center failed:', err);
+      }
+    }
+  }, [selectedWard]);
 
   // Render Shelters & Water Points
   useEffect(() => {
@@ -556,10 +583,11 @@ export default function WardMap({
         if (directLine.bringToFront) directLine.bringToFront();
 
         const allCoords = [
-          ...res.cool_route.coordinates,
-          ...res.direct_route.coordinates
-        ];
-        if (allCoords.length > 0) {
+          ...(res.cool_route?.coordinates || []),
+          ...(res.direct_route?.coordinates || [])
+        ].filter(c => Array.isArray(c) && Number.isFinite(c[0]) && Number.isFinite(c[1]));
+
+        if (allCoords.length > 1) {
           try {
             const bounds = L.latLngBounds(allCoords);
             if (bounds.isValid()) {
@@ -665,10 +693,11 @@ export default function WardMap({
           if (directLine.bringToFront) directLine.bringToFront();
 
           const allCoords = [
-            ...corridor.cool_route.coordinates,
-            ...corridor.direct_route.coordinates
-          ];
-          if (allCoords.length > 0) {
+            ...(corridor.cool_route?.coordinates || []),
+            ...(corridor.direct_route?.coordinates || [])
+          ].filter(c => Array.isArray(c) && Number.isFinite(c[0]) && Number.isFinite(c[1]));
+
+          if (allCoords.length > 1) {
             try {
               const bounds = L.latLngBounds(allCoords);
               if (bounds.isValid()) {
@@ -685,10 +714,17 @@ export default function WardMap({
     }
   }, [showCoolRoutes, routeTab, activeCorridorId, customRouteResult, customStart, customEnd, customStartLabel, customEndLabel]);
 
+  // Auto-collapse route drawer while picking a point so the full map is visible and easy to click
+  useEffect(() => {
+    if (pickMode) {
+      setIsDrawerCollapsed(true);
+    }
+  }, [pickMode]);
+
   return (
-    <div className={`relative w-full ${isMaximized ? 'h-[740px]' : 'h-[560px]'} rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-950 transition-all duration-300`}>
-      {/* Leaflet Map Canvas */}
-      <div ref={mapContainerRef} className={`w-full h-full z-10 dark-tiles ${pickMode ? 'cursor-crosshair' : ''}`} />
+    <div className={`relative w-full ${isMaximized ? 'h-[740px]' : 'h-[560px]'} rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-950 transition-all duration-300 ${pickMode ? 'cursor-crosshair' : ''}`}>
+      {/* Leaflet Map Canvas - Never dynamic className so React never wipes Leaflet internal classes */}
+      <div ref={mapContainerRef} className="w-full h-full z-10" />
 
       {/* Top Floating Navigation Bar: Single cohesive, non-wrapping row across map */}
       <div className="absolute top-3 left-3 right-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
@@ -843,28 +879,47 @@ export default function WardMap({
 
       {/* Floating Driver Cool Route Navigation Comparison Drawer */}
       {showCoolRoutes && (
-        <div className="absolute bottom-3 left-3 right-3 sm:right-auto sm:max-w-[440px] max-h-[85%] overflow-y-auto z-30 bg-slate-950/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-emerald-500/50 shadow-2xl text-xs space-y-3 animate-in fade-in slide-in-from-bottom-3 duration-200">
+        <div className={`absolute bottom-3 left-3 right-3 sm:right-auto sm:max-w-[440px] ${isDrawerCollapsed ? 'max-h-14 overflow-hidden' : 'max-h-[85%] overflow-y-auto'} z-30 bg-slate-950/95 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-emerald-500/50 shadow-2xl text-xs space-y-3 animate-in fade-in slide-in-from-bottom-3 duration-200`}>
           {/* Header */}
           <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-            <div className="flex items-center gap-2">
+            <div 
+              className="flex items-center gap-2 cursor-pointer select-none"
+              onClick={() => setIsDrawerCollapsed(!isDrawerCollapsed)}
+            >
               <Navigation className="w-4 h-4 text-emerald-400" />
               <span className="font-bold text-white uppercase text-[11px] tracking-wide">
                 {t.coolRoutes?.title || 'Cool Respite Route Navigation'}
               </span>
+              {isDrawerCollapsed && (
+                <span className="text-[10px] text-emerald-400 font-medium px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-500/30">
+                  {routeTab === 'CUSTOM' ? 'A → B' : 'Corridor'}
+                </span>
+              )}
             </div>
-            <button
-              onClick={() => {
-                setShowCoolRoutes(false);
-                setPickMode(null);
-              }}
-              className="text-slate-400 hover:text-white p-1 rounded-md bg-slate-800 hover:bg-slate-700 transition"
-              title="Close cool routes"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={() => setIsDrawerCollapsed(!isDrawerCollapsed)}
+                className="text-slate-400 hover:text-white p-1 rounded-md bg-slate-800 hover:bg-slate-700 transition"
+                title={isDrawerCollapsed ? "Expand route panel" : "Collapse route panel"}
+              >
+                {isDrawerCollapsed ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+              </button>
+              <button
+                onClick={() => {
+                  setShowCoolRoutes(false);
+                  setPickMode(null);
+                }}
+                className="text-slate-400 hover:text-white p-1 rounded-md bg-slate-800 hover:bg-slate-700 transition"
+                title="Close cool routes"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
-          {/* Mode Switcher Tabs */}
+          {!isDrawerCollapsed && (
+            <>
+              {/* Mode Switcher Tabs */}
           <div className="grid grid-cols-2 p-0.5 rounded-xl bg-slate-900 border border-slate-800">
             <button
               onClick={() => {
@@ -1147,6 +1202,8 @@ export default function WardMap({
               })()}
             </div>
           )}
+          </>
+        )}
         </div>
       )}
 

@@ -30,10 +30,24 @@ code, .font-mono {
   background: rgba(148, 163, 184, 0.6);
 }
 
-/* Leaflet Map Styling */
-.dark-tiles .leaflet-tile {
-  /* Clean, gentle contrast for OpenStreetMap tiles */
-  filter: brightness(0.9) contrast(1.05);
+/* Leaflet Map Styling & Tailwind Preflight Protection */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #0b132b !important;
+}
+
+.leaflet-tile {
+  max-width: none !important;
+  max-height: none !important;
+  width: 256px !important;
+  height: 256px !important;
+  filter: brightness(0.92) contrast(1.05);
+}
+
+.leaflet-container .leaflet-tile {
+  max-width: none !important;
+  max-height: none !important;
 }
 
 /* Rain Effect Overlay */
