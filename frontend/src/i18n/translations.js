@@ -72,6 +72,25 @@ export const translations = {
       wardsAvailable: "30 BBMP Wards Monitored",
       climaticTitle: "Hyperlocal Climatic Telemetry & Heat Stress",
       selectPrompt: "Search or select any ward to view real-time microclimate and heat stress data."
+    },
+    coolRoutes: {
+      title: "Cool Respite Route Navigation",
+      mapsMode: "Custom A → B Routing",
+      presetMode: "Metropolitan Arteries",
+      pickOnMap: "Pick on Map",
+      originA: "Origin (Point A)",
+      destB: "Destination (Point B)",
+      pickStartPrompt: "📍 Click anywhere on the map to set Start (Point A)...",
+      pickDestPrompt: "🏁 Click anywhere on the map to set Destination (Point B)...",
+      cancel: "Cancel",
+      calculating: "Calculating shaded route...",
+      directHighway: "Direct Asphalt Route",
+      recommendedCool: "Recommended Cool Route",
+      via: "Via",
+      dragHint: "Tip: Drag pins A & B on the map to update the route live!",
+      swapPoints: "Swap Start & Destination",
+      waterStops: "Hydration Stops",
+      cooler: "Cooler Surface"
     }
   },
   kn: {
@@ -147,6 +166,25 @@ export const translations = {
       wardsAvailable: "30 ಬಿಬಿಎಂಪಿ ವಾರ್ಡ್‌ಗಳು",
       climaticTitle: "ಸ್ಥಳೀಯ ಹವಾಮಾನ ಮತ್ತು ಉಷ್ಣ ಒತ್ತಡ ಮಾಪಕಗಳು",
       selectPrompt: "ಲೈವ್ ಹವಾಮಾನ ಮತ್ತು ಉಷ್ಣ ಒತ್ತಡ ಡೇಟಾ ನೋಡಲು ವಾರ್ಡ್ ಹುಡುಕಿ ಅಥವಾ ಆಯ್ಕೆಮಾಡಿ."
+    },
+    coolRoutes: {
+      title: "ಶೀತಲ ನೆರಳು ಮಾರ್ಗ ಯೋಜಕ",
+      mapsMode: "ನಕ್ಷೆಯಲ್ಲಿ A → B ಮಾರ್ಗ",
+      presetMode: "ಪ್ರಮುಖ ಕಾರಿಡಾರ್‌ಗಳು",
+      pickOnMap: "ನಕ್ಷೆಯಲ್ಲಿ ಆಯ್ಕೆಮಾಡಿ",
+      originA: "ಆರಂಭಿಕ ಸ್ಥಳ (A)",
+      destB: "ಗಮ್ಯಸ್ಥಾನ (B)",
+      pickStartPrompt: "📍 ಆರಂಭಿಕ ಸ್ಥಳವನ್ನು (A) ಆಯ್ಕೆಮಾಡಲು ನಕ್ಷೆಯ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ...",
+      pickDestPrompt: "🏁 ಗಮ್ಯಸ್ಥಾನವನ್ನು (B) ಆಯ್ಕೆಮಾಡಲು ನಕ್ಷೆಯ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ...",
+      cancel: "ರದ್ದುಮಾಡಿ",
+      calculating: "ನೆರಳು ಮಾರ್ಗವನ್ನು ಲೆಕ್ಕಹಾಕಲಾಗುತ್ತಿದೆ...",
+      directHighway: "ನೇರ ಹೆದ್ದಾರಿ ಮಾರ್ಗ",
+      recommendedCool: "ಶಿಫಾರಸು ಮಾಡಿದ ಶೀತಲ ಮಾರ್ಗ",
+      via: "ಮೂಲಕ",
+      dragHint: "ಸುಳಿವು: ನಕ್ಷೆಯಲ್ಲಿ A ಮತ್ತು B ಪಿನ್‌ಗಳನ್ನು ಸರಿಸಿ ಲೈವ್ ಮಾರ್ಗ ಬದಲಾಯಿಸಬಹುದು!",
+      swapPoints: "ಸ್ಥಳಗಳನ್ನು ಅದಲುಬದಲು ಮಾಡಿ",
+      waterStops: "ಕುಡಿಯುವ ನೀರಿನ ಕೇಂದ್ರಗಳು",
+      cooler: "ಕಡಿಮೆ ತಾಪಮಾನ"
     }
   },
   hi: {
@@ -222,6 +260,25 @@ export const translations = {
       wardsAvailable: "30 बीबीएमपी वार्ड",
       climaticTitle: "अति-स्थानीय सूक्ष्म जलवायु और हीट स्ट्रेस डेटा",
       selectPrompt: "लाइव मौसम व हीट स्ट्रेस डेटा देखने के लिए वार्ड खोजें या चुनें।"
+    },
+    coolRoutes: {
+      title: "कूल रेस्पाइट रूट नेविगेशन",
+      mapsMode: "मैप पर A → B रूट",
+      presetMode: "प्रमुख कॉरिडोर",
+      pickOnMap: "मैप पर चुनें",
+      originA: "आरंभिक बिंदु (A)",
+      destB: "गंतव्य बिंदु (B)",
+      pickStartPrompt: "📍 आरंभिक बिंदु (A) सेट करने के लिए मैप पर कहीं भी क्लिक करें...",
+      pickDestPrompt: "🏁 गंतव्य बिंदु (B) सेट करने के लिए मैप पर कहीं भी क्लिक करें...",
+      cancel: "रद्द करें",
+      calculating: "शीतल मार्ग की गणना की जा रही है...",
+      directHighway: "सीधा डामर/हाईवे रूट",
+      recommendedCool: "सुझाया गया कूल रेस्पाइट रूट",
+      via: "द्वारा",
+      dragHint: "सुझाव: लाइव रूट बदलने के लिए मैप पर पिन A और B को ड्रैग कर सकते हैं!",
+      swapPoints: "बिंदु बदलें",
+      waterStops: "शीतल जल केंद्र",
+      cooler: "तापमान में राहत"
     }
   }
 };
