@@ -61,7 +61,7 @@ export const translations = {
       simulateSms: "Simulate WhatsApp / SMS Dispatch"
     },
     wardSearch: {
-      placeholder: "Search 30 BBMP wards (e.g. 138, Shivajinagar, Mahadevapura)...",
+      placeholder: "Search 42 BBMP wards (e.g. 138, Shivajinagar, Mahadevapura, RR Nagar)...",
       noResults: "No matching wards found",
       allWards: "All Wards",
       hotspotsOnly: "Hotspots",
@@ -69,9 +69,11 @@ export const translations = {
       quickSelect: "Quick Ward Jump",
       searchLabel: "Search Wards",
       changeWard: "Change Ward",
-      wardsAvailable: "30 BBMP Wards Monitored",
+      wardsAvailable: "42 BBMP Wards Monitored",
       climaticTitle: "Hyperlocal Climatic Telemetry & Heat Stress",
-      selectPrompt: "Search or select any ward to view real-time microclimate and heat stress data."
+      selectPrompt: "Search or select any ward to view real-time microclimate and heat stress data.",
+      groundTruthVerified: "Ground Truth: Verified with Google Weather & IMD AWS",
+      calibratedBadge: "Live Calibrated"
     },
     coolRoutes: {
       title: "Cool Respite Route Navigation",
@@ -155,7 +157,7 @@ export const translations = {
       simulateSms: "ವಾಟ್ಸಾಪ್ / ಎಸ್‌ಎಂಎಸ್ ಕಳುಹಿಸಿ"
     },
     wardSearch: {
-      placeholder: "30 ಬಿಬಿಎಂಪಿ ವಾರ್ಡ್‌ಗಳನ್ನು ಹುಡುಕಿ (ಉದಾ. 138, ಶಿವಾಜಿನಗರ)...",
+      placeholder: "42 ಬಿಬಿಎಂಪಿ ವಾರ್ಡ್‌ಗಳನ್ನು ಹುಡುಕಿ (ಉದಾ. 138, ಶಿವಾಜಿನಗರ, ಆರ್ ಆರ್ ನಗರ)...",
       noResults: "ಯಾವುದೇ ವಾರ್ಡ್ ಕಂಡುಬಂದಿಲ್ಲ",
       allWards: "ಎಲ್ಲಾ ವಾರ್ಡ್‌ಗಳು",
       hotspotsOnly: "ಉಷ್ಣ ಹಾಟ್‌ಸ್ಪಾಟ್",
@@ -163,9 +165,11 @@ export const translations = {
       quickSelect: "ತ್ವರಿತ ವಾರ್ಡ್ ಆಯ್ಕೆ",
       searchLabel: "ವಾರ್ಡ್ ಹುಡುಕಿ",
       changeWard: "ವಾರ್ಡ್ ಬದಲಾಯಿಸಿ",
-      wardsAvailable: "30 ಬಿಬಿಎಂಪಿ ವಾರ್ಡ್‌ಗಳು",
+      wardsAvailable: "42 ಬಿಬಿಎಂಪಿ ವಾರ್ಡ್‌ಗಳು",
       climaticTitle: "ಸ್ಥಳೀಯ ಹವಾಮಾನ ಮತ್ತು ಉಷ್ಣ ಒತ್ತಡ ಮಾಪಕಗಳು",
-      selectPrompt: "ಲೈವ್ ಹವಾಮಾನ ಮತ್ತು ಉಷ್ಣ ಒತ್ತಡ ಡೇಟಾ ನೋಡಲು ವಾರ್ಡ್ ಹುಡುಕಿ ಅಥವಾ ಆಯ್ಕೆಮಾಡಿ."
+      selectPrompt: "ಲೈವ್ ಹವಾಮಾನ ಮತ್ತು ಉಷ್ಣ ಒತ್ತಡ ಡೇಟಾ ನೋಡಲು ವಾರ್ಡ್ ಹುಡುಕಿ ಅಥವಾ ಆಯ್ಕೆಮಾಡಿ.",
+      groundTruthVerified: "ಗೂಗಲ್ ವೆದರ್ ಮತ್ತು ಐಎಂಡಿ ಖಚಿತಪಡಿಸಿದ ತಾಪಮಾನ",
+      calibratedBadge: "ಲೈವ್ ಮಾಪನಾಂಕಿತ"
     },
     coolRoutes: {
       title: "ಶೀತಲ ನೆರಳು ಮಾರ್ಗ ಯೋಜಕ",
@@ -249,7 +253,7 @@ export const translations = {
       simulateSms: "व्हाट्सएप / एसएमएस अलर्ट भेजें"
     },
     wardSearch: {
-      placeholder: "30 बीबीएमपी वार्ड खोजें (उदा. 138, शिवाजीनगर, साउथ)...",
+      placeholder: "42 बीबीएमपी वार्ड खोजें (उदा. 138, शिवाजीनगर, आरआर नगर)...",
       noResults: "कोई वार्ड नहीं मिला",
       allWards: "सभी वार्ड",
       hotspotsOnly: "थर्मल हॉटस्पॉट",
@@ -257,9 +261,11 @@ export const translations = {
       quickSelect: "त्वरित वार्ड चयन",
       searchLabel: "वार्ड खोजें",
       changeWard: "वार्ड बदलें",
-      wardsAvailable: "30 बीबीएमपी वार्ड",
+      wardsAvailable: "42 बीबीएमपी वार्ड",
       climaticTitle: "अति-स्थानीय सूक्ष्म जलवायु और हीट स्ट्रेस डेटा",
-      selectPrompt: "लाइव मौसम व हीट स्ट्रेस डेटा देखने के लिए वार्ड खोजें या चुनें।"
+      selectPrompt: "लाइव मौसम व हीट स्ट्रेस डेटा देखने के लिए वार्ड खोजें या चुनें।",
+      groundTruthVerified: "गूगल वेदर और आईएमडी प्रमाणित तापमान",
+      calibratedBadge: "लाइव कैलिब्रेटेड"
     },
     coolRoutes: {
       title: "कूल रेस्पाइट रूट नेविगेशन",

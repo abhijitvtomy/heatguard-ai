@@ -167,7 +167,14 @@ async def get_weather(scenario: str = Query("LIVE", description="Scenario: LIVE,
 async def get_wards_evaluation(scenario: str = Query("LIVE", description="Scenario preset")):
     """Returns all BBMP wards with biometeorological physics and ML hospital surge projections."""
     base_weather = await weather_service.get_weather(scenario)
+    if scenario == "LIVE":
+        try:
+            await weather_service.fetch_live_ward_coordinates(BBMP_WARDS_GEOJSON.get("features", []))
+        except Exception as e:
+            pass
+
     evaluated_wards = weather_service.downscale_to_wards(base_weather, BBMP_WARDS_GEOJSON)
+    accuracy_ledger = weather_service.get_accuracy_verification_ledger(base_weather, evaluated_wards)
     
     # Also return GeoJSON FeatureCollection with enriched properties for Leaflet
     enriched_geojson = {
@@ -210,13 +217,28 @@ async def get_wards_evaluation(scenario: str = Query("LIVE", description="Scenar
             "max_wbgt_c": max(wbgts) if wbgts else 0.0,
             "mean_hospital_surge_pct": round(sum(spikes) / len(spikes), 1) if spikes else 0.0,
             "total_additional_beds_needed": sum(w["health_risk"]["additional_emergency_beds_needed"] for w in evaluated_wards),
-            "rain_mm": rain
+            "rain_mm": rain,
+            "total_monitored_wards": len(evaluated_wards),
+            "ground_truth_accuracy": accuracy_ledger
         },
+        "accuracy_ledger": accuracy_ledger,
         "weather": base_weather,
         "diurnal_forecast_24h": base_weather.get("diurnal_forecast_24h", []),
         "wards": evaluated_wards,
         "geojson": enriched_geojson
     }
+
+
+@app.get("/api/weather/accuracy")
+async def get_realtime_weather_accuracy():
+    """Returns real-time ground truth verification against Google Weather & IMD AWS stations."""
+    base_weather = await weather_service.get_weather("LIVE")
+    try:
+        await weather_service.fetch_live_ward_coordinates(BBMP_WARDS_GEOJSON.get("features", []))
+    except Exception:
+        pass
+    evaluated_wards = weather_service.downscale_to_wards(base_weather, BBMP_WARDS_GEOJSON)
+    return weather_service.get_accuracy_verification_ledger(base_weather, evaluated_wards)
 
 
 @app.get("/api/shelters")

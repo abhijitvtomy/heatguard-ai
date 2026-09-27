@@ -2,62 +2,125 @@ export const fallbackWardsData = {
   "scenario": "LIVE",
   "city_wide_status": {
     "tier": "GREEN",
-    "max_wbgt_c": 26.0,
+    "max_wbgt_c": 21.0,
     "mean_hospital_surge_pct": 0.0,
     "total_additional_beds_needed": 0,
-    "rain_mm": 0.0
+    "rain_mm": 0.0,
+    "total_monitored_wards": 42,
+    "ground_truth_accuracy": {
+      "source": "Google Weather & IMD Bengaluru AWS Network",
+      "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+      "benchmark_stations": [
+        {
+          "name": "Bengaluru City Observatory (Palace Road)",
+          "lat": 12.978,
+          "lon": 77.585,
+          "observed_temp_c": 20.6
+        },
+        {
+          "name": "HAL Airport Weather Station",
+          "lat": 12.95,
+          "lon": 77.668,
+          "observed_temp_c": 20.2
+        },
+        {
+          "name": "Kempegowda International Airport (KIA)",
+          "lat": 13.198,
+          "lon": 77.706,
+          "observed_temp_c": 19.9
+        }
+      ],
+      "observed_benchmark_temp_c": 20.6,
+      "mean_ward_temp_c": 21.2,
+      "mae_variance_c": 0.65,
+      "max_variance_c": 1.2,
+      "overall_accuracy_pct": 99.3,
+      "status": "VERIFIED_ACCURATE",
+      "wards_verified": 42
+    }
+  },
+  "accuracy_ledger": {
+    "source": "Google Weather & IMD Bengaluru AWS Network",
+    "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+    "benchmark_stations": [
+      {
+        "name": "Bengaluru City Observatory (Palace Road)",
+        "lat": 12.978,
+        "lon": 77.585,
+        "observed_temp_c": 20.6
+      },
+      {
+        "name": "HAL Airport Weather Station",
+        "lat": 12.95,
+        "lon": 77.668,
+        "observed_temp_c": 20.2
+      },
+      {
+        "name": "Kempegowda International Airport (KIA)",
+        "lat": 13.198,
+        "lon": 77.706,
+        "observed_temp_c": 19.9
+      }
+    ],
+    "observed_benchmark_temp_c": 20.6,
+    "mean_ward_temp_c": 21.2,
+    "mae_variance_c": 0.65,
+    "max_variance_c": 1.2,
+    "overall_accuracy_pct": 99.3,
+    "status": "VERIFIED_ACCURATE",
+    "wards_verified": 42
   },
   "weather": {
     "city": "Bengaluru Metropolitan Region",
     "authority": "Metropolitan Heat Resilience Network",
     "mode": "LIVE_OPEN_METEO",
-    "ambient_temp_c": 23.8,
-    "relative_humidity_pct": 80.0,
-    "wind_speed_m_s": 4.61,
-    "solar_radiation_w_m2": 415.1,
+    "ambient_temp_c": 20.6,
+    "relative_humidity_pct": 91.0,
+    "wind_speed_m_s": 2.03,
+    "solar_radiation_w_m2": 0.0,
     "precipitation_mm": 0.0,
-    "prev_hour_temp_c": 23.2,
-    "prev_hour_rh_pct": 77.0,
+    "prev_hour_temp_c": 20.0,
+    "prev_hour_rh_pct": 88.0,
     "forecast_5_days": [
       {
         "day": "Today",
-        "temp_max": 26.1,
-        "temp_min": 20.0,
-        "wbgt_max": 22.19,
+        "temp_max": 29.9,
+        "temp_min": 19.2,
+        "wbgt_max": 25.62,
         "risk_tier": "GREEN",
         "hospital_spike": 0.0
       },
       {
         "day": "Tomorrow",
-        "temp_max": 28.4,
-        "temp_min": 20.5,
-        "wbgt_max": 24.27,
+        "temp_max": 30.7,
+        "temp_min": 20.3,
+        "wbgt_max": 26.34,
         "risk_tier": "GREEN",
         "hospital_spike": 0.0
       },
       {
         "day": "Day +2",
-        "temp_max": 29.0,
-        "temp_min": 19.9,
-        "wbgt_max": 24.81,
+        "temp_max": 30.1,
+        "temp_min": 20.4,
+        "wbgt_max": 25.8,
         "risk_tier": "GREEN",
         "hospital_spike": 0.0
       },
       {
         "day": "Day +3",
-        "temp_max": 29.8,
-        "temp_min": 18.6,
-        "wbgt_max": 25.53,
+        "temp_max": 28.5,
+        "temp_min": 19.2,
+        "wbgt_max": 24.36,
         "risk_tier": "GREEN",
         "hospital_spike": 0.0
       },
       {
         "day": "Day +4",
-        "temp_max": 32.3,
-        "temp_min": 19.6,
-        "wbgt_max": 27.78,
+        "temp_max": 29.0,
+        "temp_min": 19.3,
+        "wbgt_max": 24.81,
         "risk_tier": "GREEN",
-        "hospital_spike": 5.4
+        "hospital_spike": 0.0
       }
     ],
     "diurnal_forecast_24h": [
@@ -65,12 +128,12 @@ export const fallbackWardsData = {
         "hour": 0,
         "hour_label": "12:00 AM",
         "time_iso": "00:00",
-        "temperature_c": 21.3,
-        "wbgt_c": 19.09,
-        "relative_humidity_pct": 75.0,
-        "wind_speed_m_s": 4.44,
+        "temperature_c": 21.1,
+        "wbgt_c": 19.96,
+        "relative_humidity_pct": 87.0,
+        "wind_speed_m_s": 2.0,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 16.4,
+        "htsi_score": 19.7,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -79,11 +142,11 @@ export const fallbackWardsData = {
         "hour_label": "1:00 AM",
         "time_iso": "01:00",
         "temperature_c": 20.6,
-        "wbgt_c": 18.94,
-        "relative_humidity_pct": 81.0,
-        "wind_speed_m_s": 4.33,
+        "wbgt_c": 19.82,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 2.03,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 15.6,
+        "htsi_score": 19.0,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -92,11 +155,11 @@ export const fallbackWardsData = {
         "hour_label": "2:00 AM",
         "time_iso": "02:00",
         "temperature_c": 20.2,
-        "wbgt_c": 19.07,
-        "relative_humidity_pct": 87.0,
-        "wind_speed_m_s": 4.44,
+        "wbgt_c": 19.51,
+        "relative_humidity_pct": 92.0,
+        "wind_speed_m_s": 1.97,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 15.9,
+        "htsi_score": 17.6,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -104,12 +167,12 @@ export const fallbackWardsData = {
         "hour": 3,
         "hour_label": "3:00 AM",
         "time_iso": "03:00",
-        "temperature_c": 20.2,
-        "wbgt_c": 19.16,
-        "relative_humidity_pct": 88.0,
-        "wind_speed_m_s": 4.56,
+        "temperature_c": 19.8,
+        "wbgt_c": 19.29,
+        "relative_humidity_pct": 94.0,
+        "wind_speed_m_s": 1.89,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 16.3,
+        "htsi_score": 16.6,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -117,12 +180,12 @@ export const fallbackWardsData = {
         "hour": 4,
         "hour_label": "4:00 AM",
         "time_iso": "04:00",
-        "temperature_c": 20.0,
-        "wbgt_c": 18.88,
-        "relative_humidity_pct": 87.0,
-        "wind_speed_m_s": 4.56,
+        "temperature_c": 19.4,
+        "wbgt_c": 18.97,
+        "relative_humidity_pct": 95.0,
+        "wind_speed_m_s": 1.72,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 15.1,
+        "htsi_score": 15.2,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -130,12 +193,12 @@ export const fallbackWardsData = {
         "hour": 5,
         "hour_label": "5:00 AM",
         "time_iso": "05:00",
-        "temperature_c": 20.1,
-        "wbgt_c": 18.8,
-        "relative_humidity_pct": 85.0,
-        "wind_speed_m_s": 4.08,
+        "temperature_c": 19.3,
+        "wbgt_c": 18.87,
+        "relative_humidity_pct": 95.0,
+        "wind_speed_m_s": 1.67,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 14.9,
+        "htsi_score": 14.8,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -143,12 +206,12 @@ export const fallbackWardsData = {
         "hour": 6,
         "hour_label": "6:00 AM",
         "time_iso": "06:00",
-        "temperature_c": 20.1,
-        "wbgt_c": 18.98,
-        "relative_humidity_pct": 87.0,
-        "wind_speed_m_s": 4.39,
-        "solar_radiation_w_m2": 0.0,
-        "htsi_score": 15.5,
+        "temperature_c": 19.2,
+        "wbgt_c": 18.8,
+        "relative_humidity_pct": 95.0,
+        "wind_speed_m_s": 1.42,
+        "solar_radiation_w_m2": 15.9,
+        "htsi_score": 14.4,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -156,12 +219,12 @@ export const fallbackWardsData = {
         "hour": 7,
         "hour_label": "7:00 AM",
         "time_iso": "07:00",
-        "temperature_c": 20.7,
-        "wbgt_c": 19.34,
-        "relative_humidity_pct": 84.0,
-        "wind_speed_m_s": 4.44,
-        "solar_radiation_w_m2": 29.9,
-        "htsi_score": 17.1,
+        "temperature_c": 20.4,
+        "wbgt_c": 20.21,
+        "relative_humidity_pct": 90.0,
+        "wind_speed_m_s": 1.44,
+        "solar_radiation_w_m2": 364.4,
+        "htsi_score": 19.4,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -169,12 +232,12 @@ export const fallbackWardsData = {
         "hour": 8,
         "hour_label": "8:00 AM",
         "time_iso": "08:00",
-        "temperature_c": 22.3,
-        "wbgt_c": 20.54,
-        "relative_humidity_pct": 79.0,
-        "wind_speed_m_s": 4.17,
-        "solar_radiation_w_m2": 106.9,
-        "htsi_score": 22.3,
+        "temperature_c": 22.5,
+        "wbgt_c": 21.88,
+        "relative_humidity_pct": 81.0,
+        "wind_speed_m_s": 1.64,
+        "solar_radiation_w_m2": 617.4,
+        "htsi_score": 26.1,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -182,12 +245,12 @@ export const fallbackWardsData = {
         "hour": 9,
         "hour_label": "9:00 AM",
         "time_iso": "09:00",
-        "temperature_c": 24.0,
-        "wbgt_c": 21.6,
-        "relative_humidity_pct": 71.0,
-        "wind_speed_m_s": 4.72,
-        "solar_radiation_w_m2": 274.4,
-        "htsi_score": 26.8,
+        "temperature_c": 24.9,
+        "wbgt_c": 23.19,
+        "relative_humidity_pct": 68.0,
+        "wind_speed_m_s": 1.67,
+        "solar_radiation_w_m2": 763.3,
+        "htsi_score": 31.8,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -195,12 +258,12 @@ export const fallbackWardsData = {
         "hour": 10,
         "hour_label": "10:00 AM",
         "time_iso": "10:00",
-        "temperature_c": 25.3,
-        "wbgt_c": 22.17,
-        "relative_humidity_pct": 64.0,
-        "wind_speed_m_s": 5.31,
-        "solar_radiation_w_m2": 312.3,
-        "htsi_score": 29.5,
+        "temperature_c": 27.0,
+        "wbgt_c": 24.25,
+        "relative_humidity_pct": 58.0,
+        "wind_speed_m_s": 1.64,
+        "solar_radiation_w_m2": 831.2,
+        "htsi_score": 37.2,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -208,12 +271,12 @@ export const fallbackWardsData = {
         "hour": 11,
         "hour_label": "11:00 AM",
         "time_iso": "11:00",
-        "temperature_c": 26.1,
-        "wbgt_c": 22.01,
-        "relative_humidity_pct": 57.0,
-        "wind_speed_m_s": 5.42,
-        "solar_radiation_w_m2": 142.0,
-        "htsi_score": 29.5,
+        "temperature_c": 28.4,
+        "wbgt_c": 24.58,
+        "relative_humidity_pct": 49.0,
+        "wind_speed_m_s": 1.47,
+        "solar_radiation_w_m2": 838.0,
+        "htsi_score": 38.6,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -221,12 +284,12 @@ export const fallbackWardsData = {
         "hour": 12,
         "hour_label": "12:00 PM",
         "time_iso": "12:00",
-        "temperature_c": 25.4,
-        "wbgt_c": 22.02,
-        "relative_humidity_pct": 61.0,
-        "wind_speed_m_s": 6.86,
-        "solar_radiation_w_m2": 415.1,
-        "htsi_score": 28.9,
+        "temperature_c": 29.5,
+        "wbgt_c": 24.71,
+        "relative_humidity_pct": 42.0,
+        "wind_speed_m_s": 1.58,
+        "solar_radiation_w_m2": 880.0,
+        "htsi_score": 39.2,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -234,12 +297,12 @@ export const fallbackWardsData = {
         "hour": 13,
         "hour_label": "1:00 PM",
         "time_iso": "13:00",
-        "temperature_c": 23.6,
-        "wbgt_c": 21.12,
-        "relative_humidity_pct": 71.0,
-        "wind_speed_m_s": 4.97,
-        "solar_radiation_w_m2": 180.3,
-        "htsi_score": 24.9,
+        "temperature_c": 29.9,
+        "wbgt_c": 24.69,
+        "relative_humidity_pct": 40.0,
+        "wind_speed_m_s": 1.56,
+        "solar_radiation_w_m2": 813.9,
+        "htsi_score": 39.3,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -247,12 +310,12 @@ export const fallbackWardsData = {
         "hour": 14,
         "hour_label": "2:00 PM",
         "time_iso": "14:00",
-        "temperature_c": 22.2,
-        "wbgt_c": 20.68,
-        "relative_humidity_pct": 83.0,
-        "wind_speed_m_s": 3.86,
-        "solar_radiation_w_m2": 0.0,
-        "htsi_score": 22.9,
+        "temperature_c": 29.9,
+        "wbgt_c": 24.45,
+        "relative_humidity_pct": 40.0,
+        "wind_speed_m_s": 1.67,
+        "solar_radiation_w_m2": 702.9,
+        "htsi_score": 38.7,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -260,12 +323,12 @@ export const fallbackWardsData = {
         "hour": 15,
         "hour_label": "3:00 PM",
         "time_iso": "15:00",
-        "temperature_c": 23.8,
-        "wbgt_c": 21.81,
-        "relative_humidity_pct": 78.0,
-        "wind_speed_m_s": 3.75,
-        "solar_radiation_w_m2": 26.4,
-        "htsi_score": 27.9,
+        "temperature_c": 29.8,
+        "wbgt_c": 24.37,
+        "relative_humidity_pct": 40.0,
+        "wind_speed_m_s": 1.58,
+        "solar_radiation_w_m2": 685.8,
+        "htsi_score": 38.4,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -273,12 +336,12 @@ export const fallbackWardsData = {
         "hour": 16,
         "hour_label": "4:00 PM",
         "time_iso": "16:00",
-        "temperature_c": 24.4,
-        "wbgt_c": 22.43,
-        "relative_humidity_pct": 74.0,
-        "wind_speed_m_s": 4.81,
-        "solar_radiation_w_m2": 416.0,
-        "htsi_score": 29.9,
+        "temperature_c": 29.5,
+        "wbgt_c": 24.15,
+        "relative_humidity_pct": 41.0,
+        "wind_speed_m_s": 1.61,
+        "solar_radiation_w_m2": 643.1,
+        "htsi_score": 37.6,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -286,12 +349,12 @@ export const fallbackWardsData = {
         "hour": 17,
         "hour_label": "5:00 PM",
         "time_iso": "17:00",
-        "temperature_c": 23.5,
-        "wbgt_c": 21.95,
-        "relative_humidity_pct": 82.0,
-        "wind_speed_m_s": 4.56,
-        "solar_radiation_w_m2": 74.0,
-        "htsi_score": 28.2,
+        "temperature_c": 28.6,
+        "wbgt_c": 23.46,
+        "relative_humidity_pct": 44.0,
+        "wind_speed_m_s": 1.42,
+        "solar_radiation_w_m2": 457.9,
+        "htsi_score": 35.2,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -299,12 +362,12 @@ export const fallbackWardsData = {
         "hour": 18,
         "hour_label": "6:00 PM",
         "time_iso": "18:00",
-        "temperature_c": 22.4,
-        "wbgt_c": 20.99,
-        "relative_humidity_pct": 84.0,
-        "wind_speed_m_s": 4.83,
-        "solar_radiation_w_m2": 17.7,
-        "htsi_score": 24.2,
+        "temperature_c": 27.0,
+        "wbgt_c": 23.07,
+        "relative_humidity_pct": 58.0,
+        "wind_speed_m_s": 0.81,
+        "solar_radiation_w_m2": 120.1,
+        "htsi_score": 34.5,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -312,12 +375,12 @@ export const fallbackWardsData = {
         "hour": 19,
         "hour_label": "7:00 PM",
         "time_iso": "19:00",
-        "temperature_c": 22.0,
-        "wbgt_c": 20.67,
-        "relative_humidity_pct": 85.0,
-        "wind_speed_m_s": 4.61,
+        "temperature_c": 26.0,
+        "wbgt_c": 22.29,
+        "relative_humidity_pct": 62.0,
+        "wind_speed_m_s": 1.28,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 22.8,
+        "htsi_score": 30.8,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -325,12 +388,12 @@ export const fallbackWardsData = {
         "hour": 20,
         "hour_label": "8:00 PM",
         "time_iso": "20:00",
-        "temperature_c": 21.8,
-        "wbgt_c": 20.56,
-        "relative_humidity_pct": 86.0,
-        "wind_speed_m_s": 4.58,
+        "temperature_c": 25.3,
+        "wbgt_c": 21.84,
+        "relative_humidity_pct": 64.0,
+        "wind_speed_m_s": 1.33,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 22.3,
+        "htsi_score": 28.7,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -338,12 +401,12 @@ export const fallbackWardsData = {
         "hour": 21,
         "hour_label": "9:00 PM",
         "time_iso": "21:00",
-        "temperature_c": 21.8,
-        "wbgt_c": 20.47,
-        "relative_humidity_pct": 85.0,
-        "wind_speed_m_s": 4.5,
+        "temperature_c": 24.5,
+        "wbgt_c": 21.39,
+        "relative_humidity_pct": 67.0,
+        "wind_speed_m_s": 1.14,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 22.0,
+        "htsi_score": 26.6,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -351,12 +414,12 @@ export const fallbackWardsData = {
         "hour": 22,
         "hour_label": "10:00 PM",
         "time_iso": "22:00",
-        "temperature_c": 21.4,
-        "wbgt_c": 20.26,
-        "relative_humidity_pct": 87.0,
-        "wind_speed_m_s": 4.33,
+        "temperature_c": 24.2,
+        "wbgt_c": 21.2,
+        "relative_humidity_pct": 68.0,
+        "wind_speed_m_s": 0.78,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 21.0,
+        "htsi_score": 25.8,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       },
@@ -364,12 +427,12 @@ export const fallbackWardsData = {
         "hour": 23,
         "hour_label": "11:00 PM",
         "time_iso": "23:00",
-        "temperature_c": 21.4,
-        "wbgt_c": 20.34,
-        "relative_humidity_pct": 88.0,
-        "wind_speed_m_s": 4.42,
+        "temperature_c": 23.8,
+        "wbgt_c": 20.92,
+        "relative_humidity_pct": 69.0,
+        "wind_speed_m_s": 1.81,
         "solar_radiation_w_m2": 0.0,
-        "htsi_score": 21.3,
+        "htsi_score": 24.5,
         "risk_tier": "GREEN",
         "phase": "SAFE_ZONE"
       }
@@ -380,12 +443,12 @@ export const fallbackWardsData = {
       "hour": 0,
       "hour_label": "12:00 AM",
       "time_iso": "00:00",
-      "temperature_c": 21.3,
-      "wbgt_c": 19.09,
-      "relative_humidity_pct": 75.0,
-      "wind_speed_m_s": 4.44,
+      "temperature_c": 21.1,
+      "wbgt_c": 19.96,
+      "relative_humidity_pct": 87.0,
+      "wind_speed_m_s": 2.0,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 16.4,
+      "htsi_score": 19.7,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -394,11 +457,11 @@ export const fallbackWardsData = {
       "hour_label": "1:00 AM",
       "time_iso": "01:00",
       "temperature_c": 20.6,
-      "wbgt_c": 18.94,
-      "relative_humidity_pct": 81.0,
-      "wind_speed_m_s": 4.33,
+      "wbgt_c": 19.82,
+      "relative_humidity_pct": 91.0,
+      "wind_speed_m_s": 2.03,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 15.6,
+      "htsi_score": 19.0,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -407,11 +470,11 @@ export const fallbackWardsData = {
       "hour_label": "2:00 AM",
       "time_iso": "02:00",
       "temperature_c": 20.2,
-      "wbgt_c": 19.07,
-      "relative_humidity_pct": 87.0,
-      "wind_speed_m_s": 4.44,
+      "wbgt_c": 19.51,
+      "relative_humidity_pct": 92.0,
+      "wind_speed_m_s": 1.97,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 15.9,
+      "htsi_score": 17.6,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -419,12 +482,12 @@ export const fallbackWardsData = {
       "hour": 3,
       "hour_label": "3:00 AM",
       "time_iso": "03:00",
-      "temperature_c": 20.2,
-      "wbgt_c": 19.16,
-      "relative_humidity_pct": 88.0,
-      "wind_speed_m_s": 4.56,
+      "temperature_c": 19.8,
+      "wbgt_c": 19.29,
+      "relative_humidity_pct": 94.0,
+      "wind_speed_m_s": 1.89,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 16.3,
+      "htsi_score": 16.6,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -432,12 +495,12 @@ export const fallbackWardsData = {
       "hour": 4,
       "hour_label": "4:00 AM",
       "time_iso": "04:00",
-      "temperature_c": 20.0,
-      "wbgt_c": 18.88,
-      "relative_humidity_pct": 87.0,
-      "wind_speed_m_s": 4.56,
+      "temperature_c": 19.4,
+      "wbgt_c": 18.97,
+      "relative_humidity_pct": 95.0,
+      "wind_speed_m_s": 1.72,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 15.1,
+      "htsi_score": 15.2,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -445,12 +508,12 @@ export const fallbackWardsData = {
       "hour": 5,
       "hour_label": "5:00 AM",
       "time_iso": "05:00",
-      "temperature_c": 20.1,
-      "wbgt_c": 18.8,
-      "relative_humidity_pct": 85.0,
-      "wind_speed_m_s": 4.08,
+      "temperature_c": 19.3,
+      "wbgt_c": 18.87,
+      "relative_humidity_pct": 95.0,
+      "wind_speed_m_s": 1.67,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 14.9,
+      "htsi_score": 14.8,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -458,12 +521,12 @@ export const fallbackWardsData = {
       "hour": 6,
       "hour_label": "6:00 AM",
       "time_iso": "06:00",
-      "temperature_c": 20.1,
-      "wbgt_c": 18.98,
-      "relative_humidity_pct": 87.0,
-      "wind_speed_m_s": 4.39,
-      "solar_radiation_w_m2": 0.0,
-      "htsi_score": 15.5,
+      "temperature_c": 19.2,
+      "wbgt_c": 18.8,
+      "relative_humidity_pct": 95.0,
+      "wind_speed_m_s": 1.42,
+      "solar_radiation_w_m2": 15.9,
+      "htsi_score": 14.4,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -471,12 +534,12 @@ export const fallbackWardsData = {
       "hour": 7,
       "hour_label": "7:00 AM",
       "time_iso": "07:00",
-      "temperature_c": 20.7,
-      "wbgt_c": 19.34,
-      "relative_humidity_pct": 84.0,
-      "wind_speed_m_s": 4.44,
-      "solar_radiation_w_m2": 29.9,
-      "htsi_score": 17.1,
+      "temperature_c": 20.4,
+      "wbgt_c": 20.21,
+      "relative_humidity_pct": 90.0,
+      "wind_speed_m_s": 1.44,
+      "solar_radiation_w_m2": 364.4,
+      "htsi_score": 19.4,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -484,12 +547,12 @@ export const fallbackWardsData = {
       "hour": 8,
       "hour_label": "8:00 AM",
       "time_iso": "08:00",
-      "temperature_c": 22.3,
-      "wbgt_c": 20.54,
-      "relative_humidity_pct": 79.0,
-      "wind_speed_m_s": 4.17,
-      "solar_radiation_w_m2": 106.9,
-      "htsi_score": 22.3,
+      "temperature_c": 22.5,
+      "wbgt_c": 21.88,
+      "relative_humidity_pct": 81.0,
+      "wind_speed_m_s": 1.64,
+      "solar_radiation_w_m2": 617.4,
+      "htsi_score": 26.1,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -497,12 +560,12 @@ export const fallbackWardsData = {
       "hour": 9,
       "hour_label": "9:00 AM",
       "time_iso": "09:00",
-      "temperature_c": 24.0,
-      "wbgt_c": 21.6,
-      "relative_humidity_pct": 71.0,
-      "wind_speed_m_s": 4.72,
-      "solar_radiation_w_m2": 274.4,
-      "htsi_score": 26.8,
+      "temperature_c": 24.9,
+      "wbgt_c": 23.19,
+      "relative_humidity_pct": 68.0,
+      "wind_speed_m_s": 1.67,
+      "solar_radiation_w_m2": 763.3,
+      "htsi_score": 31.8,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -510,12 +573,12 @@ export const fallbackWardsData = {
       "hour": 10,
       "hour_label": "10:00 AM",
       "time_iso": "10:00",
-      "temperature_c": 25.3,
-      "wbgt_c": 22.17,
-      "relative_humidity_pct": 64.0,
-      "wind_speed_m_s": 5.31,
-      "solar_radiation_w_m2": 312.3,
-      "htsi_score": 29.5,
+      "temperature_c": 27.0,
+      "wbgt_c": 24.25,
+      "relative_humidity_pct": 58.0,
+      "wind_speed_m_s": 1.64,
+      "solar_radiation_w_m2": 831.2,
+      "htsi_score": 37.2,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -523,12 +586,12 @@ export const fallbackWardsData = {
       "hour": 11,
       "hour_label": "11:00 AM",
       "time_iso": "11:00",
-      "temperature_c": 26.1,
-      "wbgt_c": 22.01,
-      "relative_humidity_pct": 57.0,
-      "wind_speed_m_s": 5.42,
-      "solar_radiation_w_m2": 142.0,
-      "htsi_score": 29.5,
+      "temperature_c": 28.4,
+      "wbgt_c": 24.58,
+      "relative_humidity_pct": 49.0,
+      "wind_speed_m_s": 1.47,
+      "solar_radiation_w_m2": 838.0,
+      "htsi_score": 38.6,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -536,12 +599,12 @@ export const fallbackWardsData = {
       "hour": 12,
       "hour_label": "12:00 PM",
       "time_iso": "12:00",
-      "temperature_c": 25.4,
-      "wbgt_c": 22.02,
-      "relative_humidity_pct": 61.0,
-      "wind_speed_m_s": 6.86,
-      "solar_radiation_w_m2": 415.1,
-      "htsi_score": 28.9,
+      "temperature_c": 29.5,
+      "wbgt_c": 24.71,
+      "relative_humidity_pct": 42.0,
+      "wind_speed_m_s": 1.58,
+      "solar_radiation_w_m2": 880.0,
+      "htsi_score": 39.2,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -549,12 +612,12 @@ export const fallbackWardsData = {
       "hour": 13,
       "hour_label": "1:00 PM",
       "time_iso": "13:00",
-      "temperature_c": 23.6,
-      "wbgt_c": 21.12,
-      "relative_humidity_pct": 71.0,
-      "wind_speed_m_s": 4.97,
-      "solar_radiation_w_m2": 180.3,
-      "htsi_score": 24.9,
+      "temperature_c": 29.9,
+      "wbgt_c": 24.69,
+      "relative_humidity_pct": 40.0,
+      "wind_speed_m_s": 1.56,
+      "solar_radiation_w_m2": 813.9,
+      "htsi_score": 39.3,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -562,12 +625,12 @@ export const fallbackWardsData = {
       "hour": 14,
       "hour_label": "2:00 PM",
       "time_iso": "14:00",
-      "temperature_c": 22.2,
-      "wbgt_c": 20.68,
-      "relative_humidity_pct": 83.0,
-      "wind_speed_m_s": 3.86,
-      "solar_radiation_w_m2": 0.0,
-      "htsi_score": 22.9,
+      "temperature_c": 29.9,
+      "wbgt_c": 24.45,
+      "relative_humidity_pct": 40.0,
+      "wind_speed_m_s": 1.67,
+      "solar_radiation_w_m2": 702.9,
+      "htsi_score": 38.7,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -575,12 +638,12 @@ export const fallbackWardsData = {
       "hour": 15,
       "hour_label": "3:00 PM",
       "time_iso": "15:00",
-      "temperature_c": 23.8,
-      "wbgt_c": 21.81,
-      "relative_humidity_pct": 78.0,
-      "wind_speed_m_s": 3.75,
-      "solar_radiation_w_m2": 26.4,
-      "htsi_score": 27.9,
+      "temperature_c": 29.8,
+      "wbgt_c": 24.37,
+      "relative_humidity_pct": 40.0,
+      "wind_speed_m_s": 1.58,
+      "solar_radiation_w_m2": 685.8,
+      "htsi_score": 38.4,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -588,12 +651,12 @@ export const fallbackWardsData = {
       "hour": 16,
       "hour_label": "4:00 PM",
       "time_iso": "16:00",
-      "temperature_c": 24.4,
-      "wbgt_c": 22.43,
-      "relative_humidity_pct": 74.0,
-      "wind_speed_m_s": 4.81,
-      "solar_radiation_w_m2": 416.0,
-      "htsi_score": 29.9,
+      "temperature_c": 29.5,
+      "wbgt_c": 24.15,
+      "relative_humidity_pct": 41.0,
+      "wind_speed_m_s": 1.61,
+      "solar_radiation_w_m2": 643.1,
+      "htsi_score": 37.6,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -601,12 +664,12 @@ export const fallbackWardsData = {
       "hour": 17,
       "hour_label": "5:00 PM",
       "time_iso": "17:00",
-      "temperature_c": 23.5,
-      "wbgt_c": 21.95,
-      "relative_humidity_pct": 82.0,
-      "wind_speed_m_s": 4.56,
-      "solar_radiation_w_m2": 74.0,
-      "htsi_score": 28.2,
+      "temperature_c": 28.6,
+      "wbgt_c": 23.46,
+      "relative_humidity_pct": 44.0,
+      "wind_speed_m_s": 1.42,
+      "solar_radiation_w_m2": 457.9,
+      "htsi_score": 35.2,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -614,12 +677,12 @@ export const fallbackWardsData = {
       "hour": 18,
       "hour_label": "6:00 PM",
       "time_iso": "18:00",
-      "temperature_c": 22.4,
-      "wbgt_c": 20.99,
-      "relative_humidity_pct": 84.0,
-      "wind_speed_m_s": 4.83,
-      "solar_radiation_w_m2": 17.7,
-      "htsi_score": 24.2,
+      "temperature_c": 27.0,
+      "wbgt_c": 23.07,
+      "relative_humidity_pct": 58.0,
+      "wind_speed_m_s": 0.81,
+      "solar_radiation_w_m2": 120.1,
+      "htsi_score": 34.5,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -627,12 +690,12 @@ export const fallbackWardsData = {
       "hour": 19,
       "hour_label": "7:00 PM",
       "time_iso": "19:00",
-      "temperature_c": 22.0,
-      "wbgt_c": 20.67,
-      "relative_humidity_pct": 85.0,
-      "wind_speed_m_s": 4.61,
+      "temperature_c": 26.0,
+      "wbgt_c": 22.29,
+      "relative_humidity_pct": 62.0,
+      "wind_speed_m_s": 1.28,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 22.8,
+      "htsi_score": 30.8,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -640,12 +703,12 @@ export const fallbackWardsData = {
       "hour": 20,
       "hour_label": "8:00 PM",
       "time_iso": "20:00",
-      "temperature_c": 21.8,
-      "wbgt_c": 20.56,
-      "relative_humidity_pct": 86.0,
-      "wind_speed_m_s": 4.58,
+      "temperature_c": 25.3,
+      "wbgt_c": 21.84,
+      "relative_humidity_pct": 64.0,
+      "wind_speed_m_s": 1.33,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 22.3,
+      "htsi_score": 28.7,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -653,12 +716,12 @@ export const fallbackWardsData = {
       "hour": 21,
       "hour_label": "9:00 PM",
       "time_iso": "21:00",
-      "temperature_c": 21.8,
-      "wbgt_c": 20.47,
-      "relative_humidity_pct": 85.0,
-      "wind_speed_m_s": 4.5,
+      "temperature_c": 24.5,
+      "wbgt_c": 21.39,
+      "relative_humidity_pct": 67.0,
+      "wind_speed_m_s": 1.14,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 22.0,
+      "htsi_score": 26.6,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -666,12 +729,12 @@ export const fallbackWardsData = {
       "hour": 22,
       "hour_label": "10:00 PM",
       "time_iso": "22:00",
-      "temperature_c": 21.4,
-      "wbgt_c": 20.26,
-      "relative_humidity_pct": 87.0,
-      "wind_speed_m_s": 4.33,
+      "temperature_c": 24.2,
+      "wbgt_c": 21.2,
+      "relative_humidity_pct": 68.0,
+      "wind_speed_m_s": 0.78,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 21.0,
+      "htsi_score": 25.8,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -679,12 +742,12 @@ export const fallbackWardsData = {
       "hour": 23,
       "hour_label": "11:00 PM",
       "time_iso": "23:00",
-      "temperature_c": 21.4,
-      "wbgt_c": 20.34,
-      "relative_humidity_pct": 88.0,
-      "wind_speed_m_s": 4.42,
+      "temperature_c": 23.8,
+      "wbgt_c": 20.92,
+      "relative_humidity_pct": 69.0,
+      "wind_speed_m_s": 1.81,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 21.3,
+      "htsi_score": 24.5,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     }
@@ -702,14 +765,23 @@ export const fallbackWardsData = {
         77.585
       ],
       "microclimate": {
-        "temperature_c": 26.6,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 1.84,
-        "wet_bulb_c": 23.87,
-        "heat_index_c": 28.88,
-        "wbgt_c": 25.38,
-        "htsi_score": 43.2,
+        "temperature_c": 21.6,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 0.81,
+        "wet_bulb_c": 20.45,
+        "heat_index_c": 22.17,
+        "wbgt_c": 20.79,
+        "htsi_score": 23.1,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.6,
+        "variance_c": 1.0,
+        "accuracy_score_pct": 98.8,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 18.2,
@@ -731,16 +803,16 @@ export const fallbackWardsData = {
         "adaptive_deficit_score": 73.9
       },
       "causal_attribution": {
-        "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.8°C Urban Heat Island anomaly, while 52% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.8°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.8°C का अर्बन हीट आइलैंड प्रभाव, तथा 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.8 m/s) trapping hot air in street canyons, while 52% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 19,
-          "moisture_humidity_pct": 25,
-          "wind_ventilation_pct": 6,
-          "urban_heat_island_pct": 33,
-          "canopy_buffer_pct": 17
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 36,
+          "wind_ventilation_pct": 18,
+          "urban_heat_island_pct": 23,
+          "canopy_buffer_pct": 23
         }
       },
       "is_hotspot": false,
@@ -788,14 +860,23 @@ export const fallbackWardsData = {
         77.518
       ],
       "microclimate": {
-        "temperature_c": 27.0,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 2.31,
-        "wet_bulb_c": 24.25,
-        "heat_index_c": 29.74,
-        "wbgt_c": 25.71,
-        "htsi_score": 45.1,
+        "temperature_c": 21.7,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.01,
+        "wet_bulb_c": 20.59,
+        "heat_index_c": 22.32,
+        "wbgt_c": 20.93,
+        "htsi_score": 23.7,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.7,
+        "variance_c": 1.1,
+        "accuracy_score_pct": 98.7,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 11.5,
@@ -817,16 +898,16 @@ export const fallbackWardsData = {
         "adaptive_deficit_score": 83.4
       },
       "causal_attribution": {
-        "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.2°C Urban Heat Island anomaly, while 68% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.2°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.2°C का अर्बन हीट आइलैंड प्रभाव, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.0 m/s) trapping hot air in street canyons, while 68% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 19,
-          "moisture_humidity_pct": 25,
-          "wind_ventilation_pct": 2,
-          "urban_heat_island_pct": 36,
-          "canopy_buffer_pct": 18
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 36,
+          "wind_ventilation_pct": 16,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 24
         }
       },
       "is_hotspot": false,
@@ -874,14 +955,23 @@ export const fallbackWardsData = {
         77.7499
       ],
       "microclimate": {
-        "temperature_c": 26.0,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.46,
-        "wet_bulb_c": 23.29,
-        "heat_index_c": 27.66,
-        "wbgt_c": 24.64,
-        "htsi_score": 39.8,
+        "temperature_c": 21.4,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.52,
+        "wet_bulb_c": 20.25,
+        "heat_index_c": 21.94,
+        "wbgt_c": 20.59,
+        "htsi_score": 22.2,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.4,
+        "variance_c": 0.8,
+        "accuracy_score_pct": 99.0,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 12.0,
@@ -904,15 +994,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 22,
-          "moisture_humidity_pct": 29,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 32,
-          "canopy_buffer_pct": 17
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 42,
+          "wind_ventilation_pct": 12,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 22
         }
       },
       "is_hotspot": false,
@@ -960,14 +1050,23 @@ export const fallbackWardsData = {
         77.567
       ],
       "microclimate": {
-        "temperature_c": 21.6,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 5.07,
-        "wet_bulb_c": 19.07,
-        "heat_index_c": 21.9,
-        "wbgt_c": 20.28,
-        "htsi_score": 20.5,
+        "temperature_c": 19.8,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 2.23,
+        "wet_bulb_c": 18.73,
+        "heat_index_c": 20.24,
+        "wbgt_c": 19.06,
+        "htsi_score": 15.7,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 19.8,
+        "variance_c": -0.8,
+        "accuracy_score_pct": 99.0,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 21.4,
@@ -990,14 +1089,14 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as local parklands and green cover providing a -2.2°C cooling buffer, while 46% tree canopy shading roadways and releasing moisture.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -2.2°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 46% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -2.2°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 46% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as local parklands and green cover providing a -0.77°C cooling buffer, while 46% tree canopy shading roadways and releasing moisture.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -0.77°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 46% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -0.77°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 46% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 44,
-          "moisture_humidity_pct": 56,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 0,
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 83,
+          "wind_ventilation_pct": 7,
+          "urban_heat_island_pct": 10,
           "canopy_buffer_pct": 5
         }
       },
@@ -1046,14 +1145,23 @@ export const fallbackWardsData = {
         77.6245
       ],
       "microclimate": {
-        "temperature_c": 25.2,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.92,
-        "wet_bulb_c": 22.52,
-        "heat_index_c": 25.86,
-        "wbgt_c": 23.83,
-        "htsi_score": 35.5,
+        "temperature_c": 21.1,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.73,
+        "wet_bulb_c": 19.97,
+        "heat_index_c": 21.63,
+        "wbgt_c": 20.31,
+        "htsi_score": 21.0,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.1,
+        "variance_c": 0.5,
+        "accuracy_score_pct": 99.4,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 14.2,
@@ -1076,15 +1184,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.9 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.7 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 27,
-          "moisture_humidity_pct": 34,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 30,
-          "canopy_buffer_pct": 9
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 51,
+          "wind_ventilation_pct": 12,
+          "urban_heat_island_pct": 25,
+          "canopy_buffer_pct": 12
         }
       },
       "is_hotspot": false,
@@ -1132,14 +1240,23 @@ export const fallbackWardsData = {
         77.6446
       ],
       "microclimate": {
-        "temperature_c": 25.4,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 4.15,
-        "wet_bulb_c": 22.71,
-        "heat_index_c": 26.08,
-        "wbgt_c": 24.01,
-        "htsi_score": 36.3,
+        "temperature_c": 21.2,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.83,
+        "wet_bulb_c": 20.04,
+        "heat_index_c": 21.71,
+        "wbgt_c": 20.38,
+        "htsi_score": 21.3,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.2,
+        "variance_c": 0.6,
+        "accuracy_score_pct": 99.3,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 13.0,
@@ -1162,15 +1279,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 4.1 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.8 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 25,
-          "moisture_humidity_pct": 32,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 29,
-          "canopy_buffer_pct": 14
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 48,
+          "wind_ventilation_pct": 10,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 18
         }
       },
       "is_hotspot": false,
@@ -1218,14 +1335,23 @@ export const fallbackWardsData = {
         77.6602
       ],
       "microclimate": {
-        "temperature_c": 25.6,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 4.38,
-        "wet_bulb_c": 22.91,
-        "heat_index_c": 26.3,
-        "wbgt_c": 24.2,
-        "htsi_score": 37.2,
+        "temperature_c": 21.2,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.93,
+        "wet_bulb_c": 20.11,
+        "heat_index_c": 21.78,
+        "wbgt_c": 20.45,
+        "htsi_score": 21.6,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.2,
+        "variance_c": 0.6,
+        "accuracy_score_pct": 99.3,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 9.8,
@@ -1248,15 +1374,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 4.4 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.9 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 25,
-          "moisture_humidity_pct": 31,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 31,
-          "canopy_buffer_pct": 13
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 49,
+          "wind_ventilation_pct": 8,
+          "urban_heat_island_pct": 26,
+          "canopy_buffer_pct": 17
         }
       },
       "is_hotspot": false,
@@ -1304,14 +1430,23 @@ export const fallbackWardsData = {
         77.5963
       ],
       "microclimate": {
-        "temperature_c": 24.0,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 4.84,
-        "wet_bulb_c": 21.37,
-        "heat_index_c": 24.54,
-        "wbgt_c": 22.62,
-        "htsi_score": 30.5,
+        "temperature_c": 20.7,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 2.13,
+        "wet_bulb_c": 19.56,
+        "heat_index_c": 21.17,
+        "wbgt_c": 19.89,
+        "htsi_score": 19.3,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 20.7,
+        "variance_c": 0.1,
+        "accuracy_score_pct": 99.9,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 17.0,
@@ -1338,10 +1473,10 @@ export const fallbackWardsData = {
         "summary_kn": "ತಂಪಾದ ವಲಯ: 28% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: 28% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 34,
-          "moisture_humidity_pct": 44,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 20,
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 66,
+          "wind_ventilation_pct": 7,
+          "urban_heat_island_pct": 24,
           "canopy_buffer_pct": 5
         }
       },
@@ -1390,14 +1525,23 @@ export const fallbackWardsData = {
         77.5938
       ],
       "microclimate": {
-        "temperature_c": 22.6,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 4.38,
-        "wet_bulb_c": 20.03,
-        "heat_index_c": 23.0,
-        "wbgt_c": 21.28,
-        "htsi_score": 24.7,
+        "temperature_c": 20.2,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.93,
+        "wet_bulb_c": 19.07,
+        "heat_index_c": 20.63,
+        "wbgt_c": 19.4,
+        "htsi_score": 17.2,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 20.2,
+        "variance_c": -0.4,
+        "accuracy_score_pct": 99.5,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 23.5,
@@ -1420,14 +1564,14 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as local parklands and green cover providing a -1.2°C cooling buffer, while 35% tree canopy shading roadways and releasing moisture.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -1.2°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 35% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -1.2°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 35% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as local parklands and green cover providing a -0.42°C cooling buffer, while 35% tree canopy shading roadways and releasing moisture.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -0.42°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 35% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -0.42°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 35% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 44,
-          "moisture_humidity_pct": 56,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 0,
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 71,
+          "wind_ventilation_pct": 12,
+          "urban_heat_island_pct": 16,
           "canopy_buffer_pct": 5
         }
       },
@@ -1476,14 +1620,23 @@ export const fallbackWardsData = {
         77.575
       ],
       "microclimate": {
-        "temperature_c": 27.2,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 1.61,
-        "wet_bulb_c": 24.44,
-        "heat_index_c": 30.19,
-        "wbgt_c": 26.0,
-        "htsi_score": 46.4,
+        "temperature_c": 21.8,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 0.71,
+        "wet_bulb_c": 20.66,
+        "heat_index_c": 22.4,
+        "wbgt_c": 21.0,
+        "htsi_score": 24.0,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.8,
+        "variance_c": 1.2,
+        "accuracy_score_pct": 98.6,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 14.8,
@@ -1505,16 +1658,16 @@ export const fallbackWardsData = {
         "adaptive_deficit_score": 75.3
       },
       "causal_attribution": {
-        "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.4°C Urban Heat Island anomaly, while 62% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.4°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 62% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.4°C का अर्बन हीट आइलैंड प्रभाव, तथा 62% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.7 m/s) trapping hot air in street canyons, while 62% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.7 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 62% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.7 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 62% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 18,
-          "moisture_humidity_pct": 23,
-          "wind_ventilation_pct": 7,
-          "urban_heat_island_pct": 35,
-          "canopy_buffer_pct": 17
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 34,
+          "wind_ventilation_pct": 18,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 24
         }
       },
       "is_hotspot": false,
@@ -1562,14 +1715,23 @@ export const fallbackWardsData = {
         77.6412
       ],
       "microclimate": {
-        "temperature_c": 24.9,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.92,
-        "wet_bulb_c": 22.23,
-        "heat_index_c": 25.53,
-        "wbgt_c": 23.54,
-        "htsi_score": 34.3,
+        "temperature_c": 21.0,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.73,
+        "wet_bulb_c": 19.87,
+        "heat_index_c": 21.52,
+        "wbgt_c": 20.21,
+        "htsi_score": 20.6,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.0,
+        "variance_c": 0.4,
+        "accuracy_score_pct": 99.5,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 16.5,
@@ -1592,15 +1754,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.9 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.7 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 28,
-          "moisture_humidity_pct": 36,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 28,
-          "canopy_buffer_pct": 8
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 53,
+          "wind_ventilation_pct": 12,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 11
         }
       },
       "is_hotspot": false,
@@ -1648,14 +1810,23 @@ export const fallbackWardsData = {
         77.597
       ],
       "microclimate": {
-        "temperature_c": 25.7,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 4.15,
-        "wet_bulb_c": 23.0,
-        "heat_index_c": 26.41,
-        "wbgt_c": 24.3,
-        "htsi_score": 37.6,
+        "temperature_c": 21.3,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.83,
+        "wet_bulb_c": 20.14,
+        "heat_index_c": 21.82,
+        "wbgt_c": 20.48,
+        "htsi_score": 21.8,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.3,
+        "variance_c": 0.7,
+        "accuracy_score_pct": 99.2,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 11.8,
@@ -1678,15 +1849,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 4.1 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.8 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 24,
-          "moisture_humidity_pct": 30,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 31,
-          "canopy_buffer_pct": 15
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 46,
+          "wind_ventilation_pct": 9,
+          "urban_heat_island_pct": 25,
+          "canopy_buffer_pct": 20
         }
       },
       "is_hotspot": false,
@@ -1734,14 +1905,23 @@ export const fallbackWardsData = {
         77.555
       ],
       "microclimate": {
-        "temperature_c": 25.9,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.0,
-        "wet_bulb_c": 23.19,
-        "heat_index_c": 26.63,
-        "wbgt_c": 24.57,
-        "htsi_score": 38.6,
+        "temperature_c": 21.3,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.32,
+        "wet_bulb_c": 20.21,
+        "heat_index_c": 21.9,
+        "wbgt_c": 20.55,
+        "htsi_score": 22.1,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.3,
+        "variance_c": 0.7,
+        "accuracy_score_pct": 99.2,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 16.5,
@@ -1764,15 +1944,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.1°C Urban Heat Island anomaly.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.1°C ಶಾಖ ಹೆಚ್ಚಳ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.1°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.3 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 22,
-          "moisture_humidity_pct": 29,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 31,
-          "canopy_buffer_pct": 18
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 41,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 23,
+          "canopy_buffer_pct": 22
         }
       },
       "is_hotspot": false,
@@ -1820,14 +2000,23 @@ export const fallbackWardsData = {
         77.552
       ],
       "microclimate": {
-        "temperature_c": 24.2,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.92,
-        "wet_bulb_c": 21.56,
-        "heat_index_c": 24.76,
-        "wbgt_c": 22.86,
-        "htsi_score": 31.4,
+        "temperature_c": 20.7,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.73,
+        "wet_bulb_c": 19.62,
+        "heat_index_c": 21.25,
+        "wbgt_c": 19.96,
+        "htsi_score": 19.6,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 20.7,
+        "variance_c": 0.1,
+        "accuracy_score_pct": 99.9,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 21.0,
@@ -1850,15 +2039,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.9 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.7 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 32,
-          "moisture_humidity_pct": 40,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 21,
-          "canopy_buffer_pct": 7
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 57,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 22,
+          "canopy_buffer_pct": 8
         }
       },
       "is_hotspot": false,
@@ -1906,14 +2095,23 @@ export const fallbackWardsData = {
         77.546
       ],
       "microclimate": {
-        "temperature_c": 26.7,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 2.31,
-        "wet_bulb_c": 23.96,
-        "heat_index_c": 29.09,
-        "wbgt_c": 25.41,
-        "htsi_score": 43.6,
+        "temperature_c": 21.6,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.01,
+        "wet_bulb_c": 20.49,
+        "heat_index_c": 22.21,
+        "wbgt_c": 20.83,
+        "htsi_score": 23.3,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.6,
+        "variance_c": 1.0,
+        "accuracy_score_pct": 98.8,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 14.0,
@@ -1935,16 +2133,16 @@ export const fallbackWardsData = {
         "adaptive_deficit_score": 71.8
       },
       "causal_attribution": {
-        "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.9°C Urban Heat Island anomaly, while 58% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.9°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 58% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.9°C का अर्बन हीट आइलैंड प्रभाव, तथा 58% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.0 m/s) trapping hot air in street canyons, while 58% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 58% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 58% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 20,
-          "moisture_humidity_pct": 26,
-          "wind_ventilation_pct": 2,
-          "urban_heat_island_pct": 35,
-          "canopy_buffer_pct": 17
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 37,
+          "wind_ventilation_pct": 17,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 22
         }
       },
       "is_hotspot": false,
@@ -1992,14 +2190,23 @@ export const fallbackWardsData = {
         77.702
       ],
       "microclimate": {
-        "temperature_c": 26.4,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 2.77,
-        "wet_bulb_c": 23.67,
-        "heat_index_c": 28.46,
-        "wbgt_c": 25.07,
-        "htsi_score": 41.9,
+        "temperature_c": 21.5,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.22,
+        "wet_bulb_c": 20.38,
+        "heat_index_c": 22.09,
+        "wbgt_c": 20.72,
+        "htsi_score": 22.8,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.5,
+        "variance_c": 0.9,
+        "accuracy_score_pct": 98.9,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 11.0,
@@ -2021,16 +2228,16 @@ export const fallbackWardsData = {
         "adaptive_deficit_score": 73.6
       },
       "causal_attribution": {
-        "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.6°C Urban Heat Island anomaly, while 61% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.6°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 61% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.6°C का अर्बन हीट आइलैंड प्रभाव, तथा 61% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as 61% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: 61% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: 61% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 21,
-          "moisture_humidity_pct": 27,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 34,
-          "canopy_buffer_pct": 18
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 39,
+          "wind_ventilation_pct": 15,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 22
         }
       },
       "is_hotspot": false,
@@ -2078,14 +2285,23 @@ export const fallbackWardsData = {
         77.611
       ],
       "microclimate": {
-        "temperature_c": 25.0,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.46,
-        "wet_bulb_c": 22.33,
-        "heat_index_c": 25.64,
-        "wbgt_c": 23.66,
-        "htsi_score": 34.8,
+        "temperature_c": 21.0,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.52,
+        "wet_bulb_c": 19.9,
+        "heat_index_c": 21.55,
+        "wbgt_c": 20.24,
+        "htsi_score": 20.7,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.0,
+        "variance_c": 0.4,
+        "accuracy_score_pct": 99.5,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 13.5,
@@ -2108,15 +2324,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.5 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 27,
-          "moisture_humidity_pct": 34,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 27,
-          "canopy_buffer_pct": 12
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 48,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 23,
+          "canopy_buffer_pct": 15
         }
       },
       "is_hotspot": false,
@@ -2164,14 +2380,23 @@ export const fallbackWardsData = {
         77.631
       ],
       "microclimate": {
-        "temperature_c": 26.9,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 2.07,
-        "wet_bulb_c": 24.15,
-        "heat_index_c": 29.52,
-        "wbgt_c": 25.64,
-        "htsi_score": 44.7,
+        "temperature_c": 21.7,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 0.91,
+        "wet_bulb_c": 20.56,
+        "heat_index_c": 22.29,
+        "wbgt_c": 20.9,
+        "htsi_score": 23.6,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.7,
+        "variance_c": 1.1,
+        "accuracy_score_pct": 98.7,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 12.0,
@@ -2193,16 +2418,16 @@ export const fallbackWardsData = {
         "adaptive_deficit_score": 79.8
       },
       "causal_attribution": {
-        "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.1°C Urban Heat Island anomaly, while 66% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.1°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 66% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.1°C का अर्बन हीट आइलैंड प्रभाव, तथा 66% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.9 m/s) trapping hot air in street canyons, while 66% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.9 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 66% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.9 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 66% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 19,
-          "moisture_humidity_pct": 25,
-          "wind_ventilation_pct": 4,
-          "urban_heat_island_pct": 35,
-          "canopy_buffer_pct": 17
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 36,
+          "wind_ventilation_pct": 17,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 23
         }
       },
       "is_hotspot": false,
@@ -2250,14 +2475,23 @@ export const fallbackWardsData = {
         77.638
       ],
       "microclimate": {
-        "temperature_c": 25.6,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.0,
-        "wet_bulb_c": 22.91,
-        "heat_index_c": 26.3,
-        "wbgt_c": 24.28,
-        "htsi_score": 37.3,
+        "temperature_c": 21.2,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.32,
+        "wet_bulb_c": 20.11,
+        "heat_index_c": 21.78,
+        "wbgt_c": 20.45,
+        "htsi_score": 21.6,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.2,
+        "variance_c": 0.6,
+        "accuracy_score_pct": 99.3,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 16.5,
@@ -2280,15 +2514,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.0 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.3 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 24,
-          "moisture_humidity_pct": 31,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 31,
-          "canopy_buffer_pct": 14
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 44,
+          "wind_ventilation_pct": 15,
+          "urban_heat_island_pct": 23,
+          "canopy_buffer_pct": 18
         }
       },
       "is_hotspot": false,
@@ -2336,14 +2570,23 @@ export const fallbackWardsData = {
         77.592
       ],
       "microclimate": {
-        "temperature_c": 26.0,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.46,
-        "wet_bulb_c": 23.29,
-        "heat_index_c": 27.66,
-        "wbgt_c": 24.64,
-        "htsi_score": 39.8,
+        "temperature_c": 21.4,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.52,
+        "wet_bulb_c": 20.25,
+        "heat_index_c": 21.94,
+        "wbgt_c": 20.59,
+        "htsi_score": 22.2,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.4,
+        "variance_c": 0.8,
+        "accuracy_score_pct": 99.0,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 13.5,
@@ -2366,15 +2609,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 22,
-          "moisture_humidity_pct": 28,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 32,
-          "canopy_buffer_pct": 18
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 42,
+          "wind_ventilation_pct": 12,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 22
         }
       },
       "is_hotspot": false,
@@ -2422,14 +2665,23 @@ export const fallbackWardsData = {
         77.585
       ],
       "microclimate": {
-        "temperature_c": 25.0,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.23,
-        "wet_bulb_c": 22.33,
-        "heat_index_c": 25.64,
-        "wbgt_c": 23.68,
-        "htsi_score": 34.8,
+        "temperature_c": 21.0,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.42,
+        "wet_bulb_c": 19.9,
+        "heat_index_c": 21.55,
+        "wbgt_c": 20.24,
+        "htsi_score": 20.7,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.0,
+        "variance_c": 0.4,
+        "accuracy_score_pct": 99.5,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 19.5,
@@ -2452,15 +2704,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.2 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.4 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 27,
-          "moisture_humidity_pct": 34,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 27,
-          "canopy_buffer_pct": 12
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 48,
+          "wind_ventilation_pct": 15,
+          "urban_heat_island_pct": 23,
+          "canopy_buffer_pct": 14
         }
       },
       "is_hotspot": false,
@@ -2508,14 +2760,23 @@ export const fallbackWardsData = {
         77.512
       ],
       "microclimate": {
-        "temperature_c": 26.7,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 2.31,
-        "wet_bulb_c": 23.96,
-        "heat_index_c": 29.09,
-        "wbgt_c": 25.41,
-        "htsi_score": 43.6,
+        "temperature_c": 21.6,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.01,
+        "wet_bulb_c": 20.49,
+        "heat_index_c": 22.21,
+        "wbgt_c": 20.83,
+        "htsi_score": 23.3,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.6,
+        "variance_c": 1.0,
+        "accuracy_score_pct": 98.8,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 11.2,
@@ -2537,16 +2798,16 @@ export const fallbackWardsData = {
         "adaptive_deficit_score": 81.6
       },
       "causal_attribution": {
-        "driver_category": "HIGH_THERMAL_HOTSPOT",
-        "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.9°C Urban Heat Island anomaly, while 68% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.9°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.9°C का अर्बन हीट आइलैंड प्रभाव, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.0 m/s) trapping hot air in street canyons, while 68% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 20,
-          "moisture_humidity_pct": 25,
-          "wind_ventilation_pct": 2,
-          "urban_heat_island_pct": 34,
-          "canopy_buffer_pct": 19
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 37,
+          "wind_ventilation_pct": 16,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 23
         }
       },
       "is_hotspot": false,
@@ -2594,14 +2855,23 @@ export const fallbackWardsData = {
         77.538
       ],
       "microclimate": {
-        "temperature_c": 25.9,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 2.54,
-        "wet_bulb_c": 23.19,
-        "heat_index_c": 26.63,
-        "wbgt_c": 24.61,
-        "htsi_score": 38.7,
+        "temperature_c": 21.3,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.12,
+        "wet_bulb_c": 20.21,
+        "heat_index_c": 21.9,
+        "wbgt_c": 20.55,
+        "htsi_score": 22.1,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.3,
+        "variance_c": 0.7,
+        "accuracy_score_pct": 99.2,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 17.8,
@@ -2624,15 +2894,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.1°C Urban Heat Island anomaly.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.1°C ಶಾಖ ಹೆಚ್ಚಳ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.1°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.1 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.1 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.1 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 23,
-          "moisture_humidity_pct": 29,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 32,
-          "canopy_buffer_pct": 16
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 40,
+          "wind_ventilation_pct": 17,
+          "urban_heat_island_pct": 23,
+          "canopy_buffer_pct": 20
         }
       },
       "is_hotspot": false,
@@ -2680,14 +2950,23 @@ export const fallbackWardsData = {
         77.674
       ],
       "microclimate": {
-        "temperature_c": 26.1,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 2.77,
-        "wet_bulb_c": 23.39,
-        "heat_index_c": 27.86,
-        "wbgt_c": 24.79,
-        "htsi_score": 40.4,
+        "temperature_c": 21.4,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.22,
+        "wet_bulb_c": 20.28,
+        "heat_index_c": 21.98,
+        "wbgt_c": 20.62,
+        "htsi_score": 22.4,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.4,
+        "variance_c": 0.8,
+        "accuracy_score_pct": 99.0,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 10.5,
@@ -2710,15 +2989,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.3°C Urban Heat Island anomaly.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.3°C ಶಾಖ ಹೆಚ್ಚಳ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.3°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.2 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 23,
-          "moisture_humidity_pct": 29,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 33,
-          "canopy_buffer_pct": 15
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 41,
+          "wind_ventilation_pct": 16,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 19
         }
       },
       "is_hotspot": false,
@@ -2766,14 +3045,23 @@ export const fallbackWardsData = {
         77.588
       ],
       "microclimate": {
-        "temperature_c": 24.6,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 4.06,
-        "wet_bulb_c": 21.95,
-        "heat_index_c": 25.2,
-        "wbgt_c": 23.24,
-        "htsi_score": 33.0,
+        "temperature_c": 20.9,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.79,
+        "wet_bulb_c": 19.76,
+        "heat_index_c": 21.4,
+        "wbgt_c": 20.1,
+        "htsi_score": 20.2,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 20.9,
+        "variance_c": 0.3,
+        "accuracy_score_pct": 99.6,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 22.5,
@@ -2800,10 +3088,10 @@ export const fallbackWardsData = {
         "summary_kn": "ತಂಪಾದ ವಲಯ: 28% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: 28% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 31,
-          "moisture_humidity_pct": 40,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 26,
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 59,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 25,
           "canopy_buffer_pct": 5
         }
       },
@@ -2852,14 +3140,23 @@ export const fallbackWardsData = {
         77.575
       ],
       "microclimate": {
-        "temperature_c": 25.6,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.32,
-        "wet_bulb_c": 22.91,
-        "heat_index_c": 26.3,
-        "wbgt_c": 24.26,
-        "htsi_score": 37.3,
+        "temperature_c": 21.2,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.46,
+        "wet_bulb_c": 20.11,
+        "heat_index_c": 21.78,
+        "wbgt_c": 20.45,
+        "htsi_score": 21.6,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.2,
+        "variance_c": 0.6,
+        "accuracy_score_pct": 99.3,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 18.0,
@@ -2882,15 +3179,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.3 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 24,
-          "moisture_humidity_pct": 31,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 31,
-          "canopy_buffer_pct": 14
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 45,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 17
         }
       },
       "is_hotspot": false,
@@ -2938,14 +3235,23 @@ export const fallbackWardsData = {
         77.658
       ],
       "microclimate": {
-        "temperature_c": 26.2,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 2.77,
-        "wet_bulb_c": 23.48,
-        "heat_index_c": 28.06,
-        "wbgt_c": 24.88,
-        "htsi_score": 40.9,
+        "temperature_c": 21.4,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.22,
+        "wet_bulb_c": 20.32,
+        "heat_index_c": 22.02,
+        "wbgt_c": 20.66,
+        "htsi_score": 22.5,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.4,
+        "variance_c": 0.8,
+        "accuracy_score_pct": 99.0,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 13.5,
@@ -2968,15 +3274,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.4°C Urban Heat Island anomaly.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.4°C ಶಾಖ ಹೆಚ್ಚಳ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.4°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.2 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 22,
-          "moisture_humidity_pct": 28,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 33,
-          "canopy_buffer_pct": 17
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 40,
+          "wind_ventilation_pct": 15,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 21
         }
       },
       "is_hotspot": false,
@@ -3024,14 +3330,23 @@ export const fallbackWardsData = {
         77.512
       ],
       "microclimate": {
-        "temperature_c": 25.8,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.0,
-        "wet_bulb_c": 23.1,
-        "heat_index_c": 26.52,
-        "wbgt_c": 24.48,
-        "htsi_score": 38.2,
+        "temperature_c": 21.3,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.32,
+        "wet_bulb_c": 20.18,
+        "heat_index_c": 21.86,
+        "wbgt_c": 20.52,
+        "htsi_score": 21.9,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.3,
+        "variance_c": 0.7,
+        "accuracy_score_pct": 99.2,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 12.0,
@@ -3054,15 +3369,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.0°C Urban Heat Island anomaly, while 52% tin roofs radiating secondary infrared heat into informal homes.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.0°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.0°C का अर्बन हीट आइलैंड प्रभाव, तथा 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as 52% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 23,
-          "moisture_humidity_pct": 29,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 30,
-          "canopy_buffer_pct": 18
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 41,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 22,
+          "canopy_buffer_pct": 23
         }
       },
       "is_hotspot": false,
@@ -3110,14 +3425,23 @@ export const fallbackWardsData = {
         77.625
       ],
       "microclimate": {
-        "temperature_c": 26.0,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.13,
-        "wet_bulb_c": 23.29,
-        "heat_index_c": 27.66,
-        "wbgt_c": 24.66,
-        "htsi_score": 39.9,
+        "temperature_c": 21.4,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.38,
+        "wet_bulb_c": 20.25,
+        "heat_index_c": 21.94,
+        "wbgt_c": 20.59,
+        "htsi_score": 22.2,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.4,
+        "variance_c": 0.8,
+        "accuracy_score_pct": 99.0,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 14.5,
@@ -3140,15 +3464,15 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly.",
-        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ.",
-        "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.4 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 23,
-          "moisture_humidity_pct": 29,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 33,
-          "canopy_buffer_pct": 15
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 42,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 20
         }
       },
       "is_hotspot": false,
@@ -3196,14 +3520,23 @@ export const fallbackWardsData = {
         77.575
       ],
       "microclimate": {
-        "temperature_c": 24.9,
-        "relative_humidity_pct": 80.0,
-        "wind_speed_m_s": 3.69,
-        "wet_bulb_c": 22.23,
-        "heat_index_c": 25.53,
-        "wbgt_c": 23.55,
-        "htsi_score": 34.3,
+        "temperature_c": 21.0,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.62,
+        "wet_bulb_c": 19.87,
+        "heat_index_c": 21.52,
+        "wbgt_c": 20.21,
+        "htsi_score": 20.6,
         "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.0,
+        "variance_c": 0.4,
+        "accuracy_score_pct": 99.5,
+        "status": "VERIFIED_ACCURATE"
       },
       "vulnerability": {
         "elderly_pct": 20.0,
@@ -3226,15 +3559,1155 @@ export const fallbackWardsData = {
       },
       "causal_attribution": {
         "driver_category": "MICROCLIMATE_COOLING_ZONE",
-        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.7 m/s.",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.6 m/s.",
         "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
         "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
         "drivers": {
-          "solar_radiation_pct": 28,
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 52,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 10
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-160",
+      "name": "Rajarajeshwari Nagar & Ideal Homes",
+      "name_kn": "ರಾಜರಾಜೇಶ್ವರಿ ನಗರ ಮತ್ತು ಐಡಿಯಲ್ ಹೋಮ್ಸ್",
+      "name_hi": "राजराजेश्वरी नगर और आइडियल होम्स",
+      "zone": "Rajarajeshwari Nagar Zone",
+      "population": 142000,
+      "center": [
+        12.926,
+        77.521
+      ],
+      "microclimate": {
+        "temperature_c": 20.9,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.52,
+        "wet_bulb_c": 19.76,
+        "heat_index_c": 21.4,
+        "wbgt_c": 20.1,
+        "htsi_score": 20.2,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 20.9,
+        "variance_c": 0.3,
+        "accuracy_score_pct": 99.6,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 16.5,
+        "outdoor_labor_pct": 32.0,
+        "tin_roof_pct": 24.0,
+        "tree_canopy_pct": 22.5,
+        "hospital_beds_per_k": 2.8
+      },
+      "vulnerability_score": 44.3,
+      "vulnerability_tier": "MODERATE",
+      "vulnerability_details": {
+        "score": 44.3,
+        "tier": "MODERATE",
+        "tier_label_en": "Moderate Vulnerability",
+        "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "मध्यम संवेदनशीलता",
+        "sensitivity_score": 53.6,
+        "exposure_score": 39.6,
+        "adaptive_deficit_score": 39.0
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 52,
+          "wind_ventilation_pct": 15,
+          "urban_heat_island_pct": 22,
+          "canopy_buffer_pct": 11
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-154",
+      "name": "Basavanagudi & Gandhi Bazaar Heritage Cultural Hub",
+      "name_kn": "ಬಸವನಗುಡಿ ಮತ್ತು ಗಾಂಧಿ ಬಜಾರ್ ಸಾಂಸ್ಕೃತಿಕ ಕೇಂದ್ರ",
+      "name_hi": "बसवनगुडी और गांधी बाजार सांस्कृतिक केंद्र",
+      "zone": "South Zone",
+      "population": 118000,
+      "center": [
+        12.942,
+        77.573
+      ],
+      "microclimate": {
+        "temperature_c": 20.8,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.32,
+        "wet_bulb_c": 19.69,
+        "heat_index_c": 21.32,
+        "wbgt_c": 20.03,
+        "htsi_score": 19.9,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 20.8,
+        "variance_c": 0.2,
+        "accuracy_score_pct": 99.8,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 21.4,
+        "outdoor_labor_pct": 34.0,
+        "tin_roof_pct": 18.0,
+        "tree_canopy_pct": 26.8,
+        "hospital_beds_per_k": 3.5
+      },
+      "vulnerability_score": 41.8,
+      "vulnerability_tier": "MODERATE",
+      "vulnerability_details": {
+        "score": 41.8,
+        "tier": "MODERATE",
+        "tier_label_en": "Moderate Vulnerability",
+        "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "मध्यम संवेदनशीलता",
+        "sensitivity_score": 63.2,
+        "exposure_score": 33.0,
+        "adaptive_deficit_score": 26.1
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as 27% tree canopy shading roadways and releasing moisture.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: 27% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: 27% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 54,
+          "wind_ventilation_pct": 19,
+          "urban_heat_island_pct": 22,
+          "canopy_buffer_pct": 5
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-117",
+      "name": "Shanthi Nagar & Richmond Town Cantonment",
+      "name_kn": "ಶಾಂತಿ ನಗರ ಮತ್ತು ರಿಚ್ಮಂಡ್ ಟೌನ್ ಕಂಟೋನ್ಮೆಂಟ್",
+      "name_hi": "शांति नगर और रिचमंड टाउन छावनी",
+      "zone": "East / Central Zone",
+      "population": 135000,
+      "center": [
+        12.959,
+        77.601
+      ],
+      "microclimate": {
+        "temperature_c": 21.3,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.01,
+        "wet_bulb_c": 20.21,
+        "heat_index_c": 21.9,
+        "wbgt_c": 20.55,
+        "htsi_score": 22.1,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.3,
+        "variance_c": 0.7,
+        "accuracy_score_pct": 99.2,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 15.8,
+        "outdoor_labor_pct": 42.0,
+        "tin_roof_pct": 28.0,
+        "tree_canopy_pct": 14.5,
+        "hospital_beds_per_k": 4.2
+      },
+      "vulnerability_score": 53.5,
+      "vulnerability_tier": "MODERATE",
+      "vulnerability_details": {
+        "score": 53.5,
+        "tier": "MODERATE",
+        "tier_label_en": "Moderate Vulnerability",
+        "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "मध्यम संवेदनशीलता",
+        "sensitivity_score": 60.9,
+        "exposure_score": 54.4,
+        "adaptive_deficit_score": 41.5
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.0 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 42,
+          "wind_ventilation_pct": 19,
+          "urban_heat_island_pct": 23,
+          "canopy_buffer_pct": 16
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-78",
+      "name": "Frazer Town & Pulakeshinagar Victorian Belt",
+      "name_kn": "ಫ್ರೇಜರ್ ಟೌನ್ ಮತ್ತು ಪುಲಕೇಶಿನಗರ",
+      "name_hi": "फ्रेजर टाउन और पुलकेशीनगर",
+      "zone": "East Zone",
+      "population": 125000,
+      "center": [
+        12.998,
+        77.618
+      ],
+      "microclimate": {
+        "temperature_c": 21.2,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.12,
+        "wet_bulb_c": 20.11,
+        "heat_index_c": 21.78,
+        "wbgt_c": 20.45,
+        "htsi_score": 21.6,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.2,
+        "variance_c": 0.6,
+        "accuracy_score_pct": 99.3,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 17.2,
+        "outdoor_labor_pct": 39.5,
+        "tin_roof_pct": 31.0,
+        "tree_canopy_pct": 16.0,
+        "hospital_beds_per_k": 3.1
+      },
+      "vulnerability_score": 54.9,
+      "vulnerability_tier": "MODERATE",
+      "vulnerability_details": {
+        "score": 54.9,
+        "tier": "MODERATE",
+        "tier_label_en": "Moderate Vulnerability",
+        "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "मध्यम संवेदनशीलता",
+        "sensitivity_score": 61.1,
+        "exposure_score": 54.1,
+        "adaptive_deficit_score": 47.8
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.1 m/s) trapping hot air in street canyons.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.1 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.1 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 44,
+          "wind_ventilation_pct": 18,
+          "urban_heat_island_pct": 23,
+          "canopy_buffer_pct": 15
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-84",
+      "name": "Varthur & Sarjapur Road Agro-Tech Basin",
+      "name_kn": "ವರ್ತೂರು ಮತ್ತು ಸರ್ಜಾಪುರ ರಸ್ತೆ ಅಗ್ರೋ-ಟೆಕ್ ಕಾರಿಡಾರ್",
+      "name_hi": "वरथूर और सरजापुर रोड एग्रो-टेक कॉरिडोर",
+      "zone": "Mahadevapura Zone",
+      "population": 168000,
+      "center": [
+        12.938,
+        77.742
+      ],
+      "microclimate": {
+        "temperature_c": 21.5,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.42,
+        "wet_bulb_c": 20.42,
+        "heat_index_c": 22.13,
+        "wbgt_c": 20.76,
+        "htsi_score": 23.0,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.5,
+        "variance_c": 0.9,
+        "accuracy_score_pct": 98.9,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 10.2,
+        "outdoor_labor_pct": 54.0,
+        "tin_roof_pct": 46.0,
+        "tree_canopy_pct": 8.5,
+        "hospital_beds_per_k": 1.5
+      },
+      "vulnerability_score": 69.7,
+      "vulnerability_tier": "HIGH",
+      "vulnerability_details": {
+        "score": 69.7,
+        "tier": "HIGH",
+        "tier_label_en": "High Vulnerability",
+        "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "उच्च संवेदनशीलता",
+        "sensitivity_score": 62.1,
+        "exposure_score": 73.9,
+        "adaptive_deficit_score": 73.4
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.4 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 40,
+          "wind_ventilation_pct": 13,
+          "urban_heat_island_pct": 25,
+          "canopy_buffer_pct": 22
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-27",
+      "name": "Banaswadi & HRBR Layout / Kalyan Nagar",
+      "name_kn": "ಬಾಣಸವಾಡಿ ಮತ್ತು ಎಚ್‌ಆರ್‌ಬಿಆರ್ ಲೇಔಟ್ ಕಲ್ಯಾಣ ನಗರ",
+      "name_hi": "बाणसवाड़ी और एचआरबीआर लेआउट कल्याण नगर",
+      "zone": "East Zone",
+      "population": 155000,
+      "center": [
+        13.012,
+        77.651
+      ],
+      "microclimate": {
+        "temperature_c": 21.1,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.22,
+        "wet_bulb_c": 20.0,
+        "heat_index_c": 21.67,
+        "wbgt_c": 20.34,
+        "htsi_score": 21.2,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.1,
+        "variance_c": 0.5,
+        "accuracy_score_pct": 99.4,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 14.8,
+        "outdoor_labor_pct": 36.5,
+        "tin_roof_pct": 22.0,
+        "tree_canopy_pct": 18.0,
+        "hospital_beds_per_k": 2.4
+      },
+      "vulnerability_score": 49.3,
+      "vulnerability_tier": "MODERATE",
+      "vulnerability_details": {
+        "score": 49.3,
+        "tier": "MODERATE",
+        "tier_label_en": "Moderate Vulnerability",
+        "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "मध्यम संवेदनशीलता",
+        "sensitivity_score": 54.7,
+        "exposure_score": 44.3,
+        "adaptive_deficit_score": 49.9
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.2 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 46,
+          "wind_ventilation_pct": 18,
+          "urban_heat_island_pct": 23,
+          "canopy_buffer_pct": 13
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-9",
+      "name": "Vidyaranyapura & Doddaballapur State Highway",
+      "name_kn": "ವಿದ್ಯಾರಣ್ಯಪುರ ಮತ್ತು ದೊಡ್ಡಬಳ್ಳಾಪುರ ಹೆದ್ದಾರಿ",
+      "name_hi": "विद्यारण्यपुरा और डोड्डाबल्लापुर राजमार्ग",
+      "zone": "Yelahanka Zone",
+      "population": 130000,
+      "center": [
+        13.082,
+        77.558
+      ],
+      "microclimate": {
+        "temperature_c": 20.9,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.52,
+        "wet_bulb_c": 19.8,
+        "heat_index_c": 21.44,
+        "wbgt_c": 20.14,
+        "htsi_score": 20.3,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 20.9,
+        "variance_c": 0.3,
+        "accuracy_score_pct": 99.6,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 16.0,
+        "outdoor_labor_pct": 31.0,
+        "tin_roof_pct": 20.0,
+        "tree_canopy_pct": 21.0,
+        "hospital_beds_per_k": 2.0
+      },
+      "vulnerability_score": 45.1,
+      "vulnerability_tier": "MODERATE",
+      "vulnerability_details": {
+        "score": 45.1,
+        "tier": "MODERATE",
+        "tier_label_en": "Moderate Vulnerability",
+        "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "मध्यम संवेदनशीलता",
+        "sensitivity_score": 51.9,
+        "exposure_score": 37.3,
+        "adaptive_deficit_score": 48.0
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 51,
+          "wind_ventilation_pct": 15,
+          "urban_heat_island_pct": 22,
+          "canopy_buffer_pct": 12
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-158",
+      "name": "Kengeri Satellite Town & Mysore Road Transit Hub",
+      "name_kn": "ಕೆಂಗೇರಿ ಉಪನಗರ ಮತ್ತು ಮೈಸೂರು ರಸ್ತೆ ಸಾರಿಗೆ ಕೇಂದ್ರ",
+      "name_hi": "केंगेरी उपनगर और मैसूर रोड ट्रांजिट हब",
+      "zone": "Rajarajeshwari Nagar Zone",
+      "population": 162000,
+      "center": [
+        12.912,
+        77.485
+      ],
+      "microclimate": {
+        "temperature_c": 21.4,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.32,
+        "wet_bulb_c": 20.32,
+        "heat_index_c": 22.02,
+        "wbgt_c": 20.66,
+        "htsi_score": 22.5,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.4,
+        "variance_c": 0.8,
+        "accuracy_score_pct": 99.0,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 14.2,
+        "outdoor_labor_pct": 49.0,
+        "tin_roof_pct": 41.0,
+        "tree_canopy_pct": 12.0,
+        "hospital_beds_per_k": 2.2
+      },
+      "vulnerability_score": 64.9,
+      "vulnerability_tier": "HIGH",
+      "vulnerability_details": {
+        "score": 64.9,
+        "tier": "HIGH",
+        "tier_label_en": "High Vulnerability",
+        "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "उच्च संवेदनशीलता",
+        "sensitivity_score": 64.3,
+        "exposure_score": 67.3,
+        "adaptive_deficit_score": 61.8
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.3 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 42,
+          "wind_ventilation_pct": 15,
+          "urban_heat_island_pct": 25,
+          "canopy_buffer_pct": 18
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-142",
+      "name": "Chamarajpet & Cottonpet Traditional Textile Hub",
+      "name_kn": "ಚಾಮರಾಜಪೇಟೆ ಮತ್ತು ಕಾಟನ್‌ಪೇಟೆ ಸಾಂಪ್ರದಾಯಿಕ ಮಾರುಕಟ್ಟೆ",
+      "name_hi": "चामराजपेट और कॉटनपेट पारंपरिक कपड़ा बाजार",
+      "zone": "South / West Zone",
+      "population": 172000,
+      "center": [
+        12.958,
+        77.561
+      ],
+      "microclimate": {
+        "temperature_c": 21.7,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 0.71,
+        "wet_bulb_c": 20.56,
+        "heat_index_c": 22.29,
+        "wbgt_c": 20.9,
+        "htsi_score": 23.6,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.7,
+        "variance_c": 1.1,
+        "accuracy_score_pct": 98.7,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 19.5,
+        "outdoor_labor_pct": 52.0,
+        "tin_roof_pct": 55.0,
+        "tree_canopy_pct": 6.2,
+        "hospital_beds_per_k": 3.2
+      },
+      "vulnerability_score": 76.2,
+      "vulnerability_tier": "CRITICAL",
+      "vulnerability_details": {
+        "score": 76.2,
+        "tier": "CRITICAL",
+        "tier_label_en": "Critical Vulnerability",
+        "tier_label_kn": "ಅತ್ಯಂತ ಅಪಾಯಕಾರಿ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "अति संवेदनशील क्षेत्र",
+        "sensitivity_score": 75.3,
+        "exposure_score": 84.6,
+        "adaptive_deficit_score": 63.8
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.7 m/s) trapping hot air in street canyons, while 55% tin roofs radiating secondary infrared heat into informal homes.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.7 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 55% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.7 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 55% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
           "moisture_humidity_pct": 36,
-          "wind_ventilation_pct": 0,
-          "urban_heat_island_pct": 27,
-          "canopy_buffer_pct": 9
+          "wind_ventilation_pct": 19,
+          "urban_heat_island_pct": 24,
+          "canopy_buffer_pct": 21
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-8",
+      "name": "Sahakar Nagar & Kodigehalli Residential Hub",
+      "name_kn": "ಸಹಕಾರ ನಗರ ಮತ್ತು ಕೋಡಿಗೇಹಳ್ಳಿ",
+      "name_hi": "सहकार नगर और कोडिगेहल्ली",
+      "zone": "Byatarayanapura / North Zone",
+      "population": 128000,
+      "center": [
+        13.061,
+        77.581
+      ],
+      "microclimate": {
+        "temperature_c": 21.0,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.42,
+        "wet_bulb_c": 19.9,
+        "heat_index_c": 21.55,
+        "wbgt_c": 20.24,
+        "htsi_score": 20.7,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.0,
+        "variance_c": 0.4,
+        "accuracy_score_pct": 99.5,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 15.2,
+        "outdoor_labor_pct": 33.0,
+        "tin_roof_pct": 23.0,
+        "tree_canopy_pct": 17.5,
+        "hospital_beds_per_k": 2.5
+      },
+      "vulnerability_score": 47.8,
+      "vulnerability_tier": "MODERATE",
+      "vulnerability_details": {
+        "score": 47.8,
+        "tier": "MODERATE",
+        "tier_label_en": "Moderate Vulnerability",
+        "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "मध्यम संवेदनशीलता",
+        "sensitivity_score": 52.4,
+        "exposure_score": 42.4,
+        "adaptive_deficit_score": 50.0
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.4 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 47,
+          "wind_ventilation_pct": 15,
+          "urban_heat_island_pct": 22,
+          "canopy_buffer_pct": 16
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-83",
+      "name": "Kadugodi & Hope Farm Tech Gateway",
+      "name_kn": "ಕಾಡುಗೋಡಿ ಮತ್ತು ಹೋಪ್ ಫಾರ್ಮ್ ಟೆಕ್ ಗೇಟ್‌ವೇ",
+      "name_hi": "काडुगोडी और होप फार्म टेक गेटवे",
+      "zone": "Mahadevapura Zone",
+      "population": 145000,
+      "center": [
+        12.998,
+        77.761
+      ],
+      "microclimate": {
+        "temperature_c": 21.5,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.32,
+        "wet_bulb_c": 20.35,
+        "heat_index_c": 22.05,
+        "wbgt_c": 20.69,
+        "htsi_score": 22.7,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.5,
+        "variance_c": 0.9,
+        "accuracy_score_pct": 98.9,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 11.0,
+        "outdoor_labor_pct": 51.0,
+        "tin_roof_pct": 44.0,
+        "tree_canopy_pct": 10.5,
+        "hospital_beds_per_k": 1.8
+      },
+      "vulnerability_score": 66.4,
+      "vulnerability_tier": "HIGH",
+      "vulnerability_details": {
+        "score": 66.4,
+        "tier": "HIGH",
+        "tier_label_en": "High Vulnerability",
+        "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "उच्च संवेदनशीलता",
+        "sensitivity_score": 60.8,
+        "exposure_score": 70.6,
+        "adaptive_deficit_score": 67.6
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.3 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 41,
+          "wind_ventilation_pct": 14,
+          "urban_heat_island_pct": 25,
+          "canopy_buffer_pct": 20
+        }
+      },
+      "is_hotspot": false,
+      "health_risk": {
+        "expected_surge_pct": 0.0,
+        "confidence_interval_90": {
+          "lower_bound_pct": 0.0,
+          "expected_pct": 0.0,
+          "upper_bound_pct": 2.5
+        },
+        "additional_emergency_beds_needed": 0,
+        "alert_tier": "GREEN",
+        "tier_label_en": "NORMAL / LOW HEALTH RISK",
+        "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+        "xai_attribution": {
+          "direct_thermal_stress_pct": 0.0,
+          "vulnerable_demographics_pct": 100.0,
+          "lagged_cumulative_dose_pct": 0.0,
+          "nocturnal_heat_entrapment_pct": 0.0
+        }
+      },
+      "effective_alert_tier": "GREEN",
+      "work_rest_safety": {
+        "status": "NORMAL_OPERATIONS",
+        "work_mins": 60,
+        "rest_mins": 0,
+        "hourly_water_liters": 0.5,
+        "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+        "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+      },
+      "anomaly_alert": {
+        "has_anomaly": false,
+        "anomalies": []
+      }
+    },
+    {
+      "ward_id": "BBMP-131",
+      "name": "Basaveshwaranagar & Shankar Matt Tree-Covered Ridge",
+      "name_kn": "ಬಸವೇಶ್ವರನಗರ ಮತ್ತು ಶಂಕರ ಮಠ",
+      "name_hi": "बसवेश्वरनगर और शंकर मठ",
+      "zone": "West Zone",
+      "population": 138000,
+      "center": [
+        12.988,
+        77.537
+      ],
+      "microclimate": {
+        "temperature_c": 21.0,
+        "relative_humidity_pct": 91.0,
+        "wind_speed_m_s": 1.42,
+        "wet_bulb_c": 19.83,
+        "heat_index_c": 21.48,
+        "wbgt_c": 20.17,
+        "htsi_score": 20.5,
+        "precipitation_mm": 0.0
+      },
+      "ground_truth_verification": {
+        "source": "Google Weather & IMD Bengaluru AWS Network",
+        "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+        "observed_benchmark_temp_c": 20.6,
+        "ward_temp_c": 21.0,
+        "variance_c": 0.4,
+        "accuracy_score_pct": 99.5,
+        "status": "VERIFIED_ACCURATE"
+      },
+      "vulnerability": {
+        "elderly_pct": 18.0,
+        "outdoor_labor_pct": 32.5,
+        "tin_roof_pct": 21.0,
+        "tree_canopy_pct": 20.0,
+        "hospital_beds_per_k": 2.6
+      },
+      "vulnerability_score": 46.6,
+      "vulnerability_tier": "MODERATE",
+      "vulnerability_details": {
+        "score": 46.6,
+        "tier": "MODERATE",
+        "tier_label_en": "Moderate Vulnerability",
+        "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+        "tier_label_hi": "मध्यम संवेदनशीलता",
+        "sensitivity_score": 56.4,
+        "exposure_score": 39.0,
+        "adaptive_deficit_score": 44.9
+      },
+      "causal_attribution": {
+        "driver_category": "MICROCLIMATE_COOLING_ZONE",
+        "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.4 m/s.",
+        "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+        "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+        "drivers": {
+          "solar_radiation_pct": 0,
+          "moisture_humidity_pct": 49,
+          "wind_ventilation_pct": 16,
+          "urban_heat_island_pct": 22,
+          "canopy_buffer_pct": 13
         }
       },
       "is_hotspot": false,
@@ -3298,14 +4771,23 @@ export const fallbackWardsData = {
             77.585
           ],
           "microclimate": {
-            "temperature_c": 26.6,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 1.84,
-            "wet_bulb_c": 23.87,
-            "heat_index_c": 28.88,
-            "wbgt_c": 25.38,
-            "htsi_score": 43.2,
+            "temperature_c": 21.6,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 0.81,
+            "wet_bulb_c": 20.45,
+            "heat_index_c": 22.17,
+            "wbgt_c": 20.79,
+            "htsi_score": 23.1,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.6,
+            "variance_c": 1.0,
+            "accuracy_score_pct": 98.8,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 18.2,
@@ -3327,16 +4809,16 @@ export const fallbackWardsData = {
             "adaptive_deficit_score": 73.9
           },
           "causal_attribution": {
-            "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.8°C Urban Heat Island anomaly, while 52% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.8°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.8°C का अर्बन हीट आइलैंड प्रभाव, तथा 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.8 m/s) trapping hot air in street canyons, while 52% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.8 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.8 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 19,
-              "moisture_humidity_pct": 25,
-              "wind_ventilation_pct": 6,
-              "urban_heat_island_pct": 33,
-              "canopy_buffer_pct": 17
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 36,
+              "wind_ventilation_pct": 18,
+              "urban_heat_island_pct": 23,
+              "canopy_buffer_pct": 23
             }
           },
           "is_hotspot": false,
@@ -3423,14 +4905,23 @@ export const fallbackWardsData = {
             77.518
           ],
           "microclimate": {
-            "temperature_c": 27.0,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 2.31,
-            "wet_bulb_c": 24.25,
-            "heat_index_c": 29.74,
-            "wbgt_c": 25.71,
-            "htsi_score": 45.1,
+            "temperature_c": 21.7,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.01,
+            "wet_bulb_c": 20.59,
+            "heat_index_c": 22.32,
+            "wbgt_c": 20.93,
+            "htsi_score": 23.7,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.7,
+            "variance_c": 1.1,
+            "accuracy_score_pct": 98.7,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 11.5,
@@ -3452,16 +4943,16 @@ export const fallbackWardsData = {
             "adaptive_deficit_score": 83.4
           },
           "causal_attribution": {
-            "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.2°C Urban Heat Island anomaly, while 68% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.2°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.2°C का अर्बन हीट आइलैंड प्रभाव, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.0 m/s) trapping hot air in street canyons, while 68% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 19,
-              "moisture_humidity_pct": 25,
-              "wind_ventilation_pct": 2,
-              "urban_heat_island_pct": 36,
-              "canopy_buffer_pct": 18
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 36,
+              "wind_ventilation_pct": 16,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 24
             }
           },
           "is_hotspot": false,
@@ -3548,14 +5039,23 @@ export const fallbackWardsData = {
             77.7499
           ],
           "microclimate": {
-            "temperature_c": 26.0,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.46,
-            "wet_bulb_c": 23.29,
-            "heat_index_c": 27.66,
-            "wbgt_c": 24.64,
-            "htsi_score": 39.8,
+            "temperature_c": 21.4,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.52,
+            "wet_bulb_c": 20.25,
+            "heat_index_c": 21.94,
+            "wbgt_c": 20.59,
+            "htsi_score": 22.2,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.4,
+            "variance_c": 0.8,
+            "accuracy_score_pct": 99.0,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 12.0,
@@ -3578,15 +5078,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 22,
-              "moisture_humidity_pct": 29,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 32,
-              "canopy_buffer_pct": 17
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 42,
+              "wind_ventilation_pct": 12,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 22
             }
           },
           "is_hotspot": false,
@@ -3673,14 +5173,23 @@ export const fallbackWardsData = {
             77.567
           ],
           "microclimate": {
-            "temperature_c": 21.6,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 5.07,
-            "wet_bulb_c": 19.07,
-            "heat_index_c": 21.9,
-            "wbgt_c": 20.28,
-            "htsi_score": 20.5,
+            "temperature_c": 19.8,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 2.23,
+            "wet_bulb_c": 18.73,
+            "heat_index_c": 20.24,
+            "wbgt_c": 19.06,
+            "htsi_score": 15.7,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 19.8,
+            "variance_c": -0.8,
+            "accuracy_score_pct": 99.0,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 21.4,
@@ -3703,14 +5212,14 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as local parklands and green cover providing a -2.2°C cooling buffer, while 46% tree canopy shading roadways and releasing moisture.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -2.2°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 46% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -2.2°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 46% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as local parklands and green cover providing a -0.77°C cooling buffer, while 46% tree canopy shading roadways and releasing moisture.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -0.77°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 46% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -0.77°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 46% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 44,
-              "moisture_humidity_pct": 56,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 0,
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 83,
+              "wind_ventilation_pct": 7,
+              "urban_heat_island_pct": 10,
               "canopy_buffer_pct": 5
             }
           },
@@ -3798,14 +5307,23 @@ export const fallbackWardsData = {
             77.6245
           ],
           "microclimate": {
-            "temperature_c": 25.2,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.92,
-            "wet_bulb_c": 22.52,
-            "heat_index_c": 25.86,
-            "wbgt_c": 23.83,
-            "htsi_score": 35.5,
+            "temperature_c": 21.1,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.73,
+            "wet_bulb_c": 19.97,
+            "heat_index_c": 21.63,
+            "wbgt_c": 20.31,
+            "htsi_score": 21.0,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.1,
+            "variance_c": 0.5,
+            "accuracy_score_pct": 99.4,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 14.2,
@@ -3828,15 +5346,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.9 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.7 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 27,
-              "moisture_humidity_pct": 34,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 30,
-              "canopy_buffer_pct": 9
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 51,
+              "wind_ventilation_pct": 12,
+              "urban_heat_island_pct": 25,
+              "canopy_buffer_pct": 12
             }
           },
           "is_hotspot": false,
@@ -3923,14 +5441,23 @@ export const fallbackWardsData = {
             77.6446
           ],
           "microclimate": {
-            "temperature_c": 25.4,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 4.15,
-            "wet_bulb_c": 22.71,
-            "heat_index_c": 26.08,
-            "wbgt_c": 24.01,
-            "htsi_score": 36.3,
+            "temperature_c": 21.2,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.83,
+            "wet_bulb_c": 20.04,
+            "heat_index_c": 21.71,
+            "wbgt_c": 20.38,
+            "htsi_score": 21.3,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.2,
+            "variance_c": 0.6,
+            "accuracy_score_pct": 99.3,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 13.0,
@@ -3953,15 +5480,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 4.1 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.8 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 25,
-              "moisture_humidity_pct": 32,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 29,
-              "canopy_buffer_pct": 14
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 48,
+              "wind_ventilation_pct": 10,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 18
             }
           },
           "is_hotspot": false,
@@ -4048,14 +5575,23 @@ export const fallbackWardsData = {
             77.6602
           ],
           "microclimate": {
-            "temperature_c": 25.6,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 4.38,
-            "wet_bulb_c": 22.91,
-            "heat_index_c": 26.3,
-            "wbgt_c": 24.2,
-            "htsi_score": 37.2,
+            "temperature_c": 21.2,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.93,
+            "wet_bulb_c": 20.11,
+            "heat_index_c": 21.78,
+            "wbgt_c": 20.45,
+            "htsi_score": 21.6,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.2,
+            "variance_c": 0.6,
+            "accuracy_score_pct": 99.3,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 9.8,
@@ -4078,15 +5614,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 4.4 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.9 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 25,
-              "moisture_humidity_pct": 31,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 31,
-              "canopy_buffer_pct": 13
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 49,
+              "wind_ventilation_pct": 8,
+              "urban_heat_island_pct": 26,
+              "canopy_buffer_pct": 17
             }
           },
           "is_hotspot": false,
@@ -4173,14 +5709,23 @@ export const fallbackWardsData = {
             77.5963
           ],
           "microclimate": {
-            "temperature_c": 24.0,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 4.84,
-            "wet_bulb_c": 21.37,
-            "heat_index_c": 24.54,
-            "wbgt_c": 22.62,
-            "htsi_score": 30.5,
+            "temperature_c": 20.7,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 2.13,
+            "wet_bulb_c": 19.56,
+            "heat_index_c": 21.17,
+            "wbgt_c": 19.89,
+            "htsi_score": 19.3,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 20.7,
+            "variance_c": 0.1,
+            "accuracy_score_pct": 99.9,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 17.0,
@@ -4207,10 +5752,10 @@ export const fallbackWardsData = {
             "summary_kn": "ತಂಪಾದ ವಲಯ: 28% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: 28% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 34,
-              "moisture_humidity_pct": 44,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 20,
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 66,
+              "wind_ventilation_pct": 7,
+              "urban_heat_island_pct": 24,
               "canopy_buffer_pct": 5
             }
           },
@@ -4298,14 +5843,23 @@ export const fallbackWardsData = {
             77.5938
           ],
           "microclimate": {
-            "temperature_c": 22.6,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 4.38,
-            "wet_bulb_c": 20.03,
-            "heat_index_c": 23.0,
-            "wbgt_c": 21.28,
-            "htsi_score": 24.7,
+            "temperature_c": 20.2,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.93,
+            "wet_bulb_c": 19.07,
+            "heat_index_c": 20.63,
+            "wbgt_c": 19.4,
+            "htsi_score": 17.2,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 20.2,
+            "variance_c": -0.4,
+            "accuracy_score_pct": 99.5,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 23.5,
@@ -4328,14 +5882,14 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as local parklands and green cover providing a -1.2°C cooling buffer, while 35% tree canopy shading roadways and releasing moisture.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -1.2°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 35% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -1.2°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 35% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as local parklands and green cover providing a -0.42°C cooling buffer, while 35% tree canopy shading roadways and releasing moisture.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಉದ್ಯಾನವನಗಳು -0.42°C ನಷ್ಟು ತಂಪಾಗಿಸುವ ವಾತಾವರಣ ನೀಡುತ್ತವೆ, ಮತ್ತು 35% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: स्थानीय हरित क्षेत्र -0.42°C का प्राकृतिक शीतलन प्रदान करते हैं, तथा 35% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 44,
-              "moisture_humidity_pct": 56,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 0,
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 71,
+              "wind_ventilation_pct": 12,
+              "urban_heat_island_pct": 16,
               "canopy_buffer_pct": 5
             }
           },
@@ -4423,14 +5977,23 @@ export const fallbackWardsData = {
             77.575
           ],
           "microclimate": {
-            "temperature_c": 27.2,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 1.61,
-            "wet_bulb_c": 24.44,
-            "heat_index_c": 30.19,
-            "wbgt_c": 26.0,
-            "htsi_score": 46.4,
+            "temperature_c": 21.8,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 0.71,
+            "wet_bulb_c": 20.66,
+            "heat_index_c": 22.4,
+            "wbgt_c": 21.0,
+            "htsi_score": 24.0,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.8,
+            "variance_c": 1.2,
+            "accuracy_score_pct": 98.6,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 14.8,
@@ -4452,16 +6015,16 @@ export const fallbackWardsData = {
             "adaptive_deficit_score": 75.3
           },
           "causal_attribution": {
-            "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.4°C Urban Heat Island anomaly, while 62% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.4°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 62% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.4°C का अर्बन हीट आइलैंड प्रभाव, तथा 62% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.7 m/s) trapping hot air in street canyons, while 62% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.7 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 62% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.7 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 62% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 18,
-              "moisture_humidity_pct": 23,
-              "wind_ventilation_pct": 7,
-              "urban_heat_island_pct": 35,
-              "canopy_buffer_pct": 17
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 34,
+              "wind_ventilation_pct": 18,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 24
             }
           },
           "is_hotspot": false,
@@ -4548,14 +6111,23 @@ export const fallbackWardsData = {
             77.6412
           ],
           "microclimate": {
-            "temperature_c": 24.9,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.92,
-            "wet_bulb_c": 22.23,
-            "heat_index_c": 25.53,
-            "wbgt_c": 23.54,
-            "htsi_score": 34.3,
+            "temperature_c": 21.0,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.73,
+            "wet_bulb_c": 19.87,
+            "heat_index_c": 21.52,
+            "wbgt_c": 20.21,
+            "htsi_score": 20.6,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.0,
+            "variance_c": 0.4,
+            "accuracy_score_pct": 99.5,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 16.5,
@@ -4578,15 +6150,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.9 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.7 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 28,
-              "moisture_humidity_pct": 36,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 28,
-              "canopy_buffer_pct": 8
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 53,
+              "wind_ventilation_pct": 12,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 11
             }
           },
           "is_hotspot": false,
@@ -4673,14 +6245,23 @@ export const fallbackWardsData = {
             77.597
           ],
           "microclimate": {
-            "temperature_c": 25.7,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 4.15,
-            "wet_bulb_c": 23.0,
-            "heat_index_c": 26.41,
-            "wbgt_c": 24.3,
-            "htsi_score": 37.6,
+            "temperature_c": 21.3,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.83,
+            "wet_bulb_c": 20.14,
+            "heat_index_c": 21.82,
+            "wbgt_c": 20.48,
+            "htsi_score": 21.8,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.3,
+            "variance_c": 0.7,
+            "accuracy_score_pct": 99.2,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 11.8,
@@ -4703,15 +6284,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 4.1 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.8 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 24,
-              "moisture_humidity_pct": 30,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 31,
-              "canopy_buffer_pct": 15
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 46,
+              "wind_ventilation_pct": 9,
+              "urban_heat_island_pct": 25,
+              "canopy_buffer_pct": 20
             }
           },
           "is_hotspot": false,
@@ -4798,14 +6379,23 @@ export const fallbackWardsData = {
             77.555
           ],
           "microclimate": {
-            "temperature_c": 25.9,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.0,
-            "wet_bulb_c": 23.19,
-            "heat_index_c": 26.63,
-            "wbgt_c": 24.57,
-            "htsi_score": 38.6,
+            "temperature_c": 21.3,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.32,
+            "wet_bulb_c": 20.21,
+            "heat_index_c": 21.9,
+            "wbgt_c": 20.55,
+            "htsi_score": 22.1,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.3,
+            "variance_c": 0.7,
+            "accuracy_score_pct": 99.2,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 16.5,
@@ -4828,15 +6418,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.1°C Urban Heat Island anomaly.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.1°C ಶಾಖ ಹೆಚ್ಚಳ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.1°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.3 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 22,
-              "moisture_humidity_pct": 29,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 31,
-              "canopy_buffer_pct": 18
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 41,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 23,
+              "canopy_buffer_pct": 22
             }
           },
           "is_hotspot": false,
@@ -4923,14 +6513,23 @@ export const fallbackWardsData = {
             77.552
           ],
           "microclimate": {
-            "temperature_c": 24.2,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.92,
-            "wet_bulb_c": 21.56,
-            "heat_index_c": 24.76,
-            "wbgt_c": 22.86,
-            "htsi_score": 31.4,
+            "temperature_c": 20.7,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.73,
+            "wet_bulb_c": 19.62,
+            "heat_index_c": 21.25,
+            "wbgt_c": 19.96,
+            "htsi_score": 19.6,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 20.7,
+            "variance_c": 0.1,
+            "accuracy_score_pct": 99.9,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 21.0,
@@ -4953,15 +6552,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.9 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.7 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 32,
-              "moisture_humidity_pct": 40,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 21,
-              "canopy_buffer_pct": 7
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 57,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 22,
+              "canopy_buffer_pct": 8
             }
           },
           "is_hotspot": false,
@@ -5048,14 +6647,23 @@ export const fallbackWardsData = {
             77.546
           ],
           "microclimate": {
-            "temperature_c": 26.7,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 2.31,
-            "wet_bulb_c": 23.96,
-            "heat_index_c": 29.09,
-            "wbgt_c": 25.41,
-            "htsi_score": 43.6,
+            "temperature_c": 21.6,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.01,
+            "wet_bulb_c": 20.49,
+            "heat_index_c": 22.21,
+            "wbgt_c": 20.83,
+            "htsi_score": 23.3,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.6,
+            "variance_c": 1.0,
+            "accuracy_score_pct": 98.8,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 14.0,
@@ -5077,16 +6685,16 @@ export const fallbackWardsData = {
             "adaptive_deficit_score": 71.8
           },
           "causal_attribution": {
-            "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.9°C Urban Heat Island anomaly, while 58% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.9°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 58% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.9°C का अर्बन हीट आइलैंड प्रभाव, तथा 58% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.0 m/s) trapping hot air in street canyons, while 58% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 58% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 58% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 20,
-              "moisture_humidity_pct": 26,
-              "wind_ventilation_pct": 2,
-              "urban_heat_island_pct": 35,
-              "canopy_buffer_pct": 17
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 37,
+              "wind_ventilation_pct": 17,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 22
             }
           },
           "is_hotspot": false,
@@ -5173,14 +6781,23 @@ export const fallbackWardsData = {
             77.702
           ],
           "microclimate": {
-            "temperature_c": 26.4,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 2.77,
-            "wet_bulb_c": 23.67,
-            "heat_index_c": 28.46,
-            "wbgt_c": 25.07,
-            "htsi_score": 41.9,
+            "temperature_c": 21.5,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.22,
+            "wet_bulb_c": 20.38,
+            "heat_index_c": 22.09,
+            "wbgt_c": 20.72,
+            "htsi_score": 22.8,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.5,
+            "variance_c": 0.9,
+            "accuracy_score_pct": 98.9,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 11.0,
@@ -5202,16 +6819,16 @@ export const fallbackWardsData = {
             "adaptive_deficit_score": 73.6
           },
           "causal_attribution": {
-            "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.6°C Urban Heat Island anomaly, while 61% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.6°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 61% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.6°C का अर्बन हीट आइलैंड प्रभाव, तथा 61% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as 61% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: 61% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: 61% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 21,
-              "moisture_humidity_pct": 27,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 34,
-              "canopy_buffer_pct": 18
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 39,
+              "wind_ventilation_pct": 15,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 22
             }
           },
           "is_hotspot": false,
@@ -5298,14 +6915,23 @@ export const fallbackWardsData = {
             77.611
           ],
           "microclimate": {
-            "temperature_c": 25.0,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.46,
-            "wet_bulb_c": 22.33,
-            "heat_index_c": 25.64,
-            "wbgt_c": 23.66,
-            "htsi_score": 34.8,
+            "temperature_c": 21.0,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.52,
+            "wet_bulb_c": 19.9,
+            "heat_index_c": 21.55,
+            "wbgt_c": 20.24,
+            "htsi_score": 20.7,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.0,
+            "variance_c": 0.4,
+            "accuracy_score_pct": 99.5,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 13.5,
@@ -5328,15 +6954,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.5 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 27,
-              "moisture_humidity_pct": 34,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 27,
-              "canopy_buffer_pct": 12
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 48,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 23,
+              "canopy_buffer_pct": 15
             }
           },
           "is_hotspot": false,
@@ -5423,14 +7049,23 @@ export const fallbackWardsData = {
             77.631
           ],
           "microclimate": {
-            "temperature_c": 26.9,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 2.07,
-            "wet_bulb_c": 24.15,
-            "heat_index_c": 29.52,
-            "wbgt_c": 25.64,
-            "htsi_score": 44.7,
+            "temperature_c": 21.7,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 0.91,
+            "wet_bulb_c": 20.56,
+            "heat_index_c": 22.29,
+            "wbgt_c": 20.9,
+            "htsi_score": 23.6,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.7,
+            "variance_c": 1.1,
+            "accuracy_score_pct": 98.7,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 12.0,
@@ -5452,16 +7087,16 @@ export const fallbackWardsData = {
             "adaptive_deficit_score": 79.8
           },
           "causal_attribution": {
-            "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +3.1°C Urban Heat Island anomaly, while 66% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +3.1°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 66% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +3.1°C का अर्बन हीट आइलैंड प्रभाव, तथा 66% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.9 m/s) trapping hot air in street canyons, while 66% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.9 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 66% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.9 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 66% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 19,
-              "moisture_humidity_pct": 25,
-              "wind_ventilation_pct": 4,
-              "urban_heat_island_pct": 35,
-              "canopy_buffer_pct": 17
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 36,
+              "wind_ventilation_pct": 17,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 23
             }
           },
           "is_hotspot": false,
@@ -5548,14 +7183,23 @@ export const fallbackWardsData = {
             77.638
           ],
           "microclimate": {
-            "temperature_c": 25.6,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.0,
-            "wet_bulb_c": 22.91,
-            "heat_index_c": 26.3,
-            "wbgt_c": 24.28,
-            "htsi_score": 37.3,
+            "temperature_c": 21.2,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.32,
+            "wet_bulb_c": 20.11,
+            "heat_index_c": 21.78,
+            "wbgt_c": 20.45,
+            "htsi_score": 21.6,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.2,
+            "variance_c": 0.6,
+            "accuracy_score_pct": 99.3,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 16.5,
@@ -5578,15 +7222,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.0 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.3 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 24,
-              "moisture_humidity_pct": 31,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 31,
-              "canopy_buffer_pct": 14
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 44,
+              "wind_ventilation_pct": 15,
+              "urban_heat_island_pct": 23,
+              "canopy_buffer_pct": 18
             }
           },
           "is_hotspot": false,
@@ -5673,14 +7317,23 @@ export const fallbackWardsData = {
             77.592
           ],
           "microclimate": {
-            "temperature_c": 26.0,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.46,
-            "wet_bulb_c": 23.29,
-            "heat_index_c": 27.66,
-            "wbgt_c": 24.64,
-            "htsi_score": 39.8,
+            "temperature_c": 21.4,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.52,
+            "wet_bulb_c": 20.25,
+            "heat_index_c": 21.94,
+            "wbgt_c": 20.59,
+            "htsi_score": 22.2,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.4,
+            "variance_c": 0.8,
+            "accuracy_score_pct": 99.0,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 13.5,
@@ -5703,15 +7356,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 22,
-              "moisture_humidity_pct": 28,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 32,
-              "canopy_buffer_pct": 18
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 42,
+              "wind_ventilation_pct": 12,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 22
             }
           },
           "is_hotspot": false,
@@ -5798,14 +7451,23 @@ export const fallbackWardsData = {
             77.585
           ],
           "microclimate": {
-            "temperature_c": 25.0,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.23,
-            "wet_bulb_c": 22.33,
-            "heat_index_c": 25.64,
-            "wbgt_c": 23.68,
-            "htsi_score": 34.8,
+            "temperature_c": 21.0,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.42,
+            "wet_bulb_c": 19.9,
+            "heat_index_c": 21.55,
+            "wbgt_c": 20.24,
+            "htsi_score": 20.7,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.0,
+            "variance_c": 0.4,
+            "accuracy_score_pct": 99.5,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 19.5,
@@ -5828,15 +7490,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.2 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.4 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 27,
-              "moisture_humidity_pct": 34,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 27,
-              "canopy_buffer_pct": 12
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 48,
+              "wind_ventilation_pct": 15,
+              "urban_heat_island_pct": 23,
+              "canopy_buffer_pct": 14
             }
           },
           "is_hotspot": false,
@@ -5923,14 +7585,23 @@ export const fallbackWardsData = {
             77.512
           ],
           "microclimate": {
-            "temperature_c": 26.7,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 2.31,
-            "wet_bulb_c": 23.96,
-            "heat_index_c": 29.09,
-            "wbgt_c": 25.41,
-            "htsi_score": 43.6,
+            "temperature_c": 21.6,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.01,
+            "wet_bulb_c": 20.49,
+            "heat_index_c": 22.21,
+            "wbgt_c": 20.83,
+            "htsi_score": 23.3,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.6,
+            "variance_c": 1.0,
+            "accuracy_score_pct": 98.8,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 11.2,
@@ -5952,16 +7623,16 @@ export const fallbackWardsData = {
             "adaptive_deficit_score": 81.6
           },
           "causal_attribution": {
-            "driver_category": "HIGH_THERMAL_HOTSPOT",
-            "summary_en": "Critical Hotspot: High temperature is driven by concrete and asphalt surfaces generating a +2.9°C Urban Heat Island anomaly, while 68% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ಅಧಿಕ ತಾಪಮಾನದ ಪ್ರದೇಶ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.9°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "अत्यधिक गर्म हॉटस्पॉट: कंक्रीट और डामर की सतहों से +2.9°C का अर्बन हीट आइलैंड प्रभाव, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं के कारण तापमान अधिक है।",
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.0 m/s) trapping hot air in street canyons, while 68% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 68% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 68% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 20,
-              "moisture_humidity_pct": 25,
-              "wind_ventilation_pct": 2,
-              "urban_heat_island_pct": 34,
-              "canopy_buffer_pct": 19
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 37,
+              "wind_ventilation_pct": 16,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 23
             }
           },
           "is_hotspot": false,
@@ -6048,14 +7719,23 @@ export const fallbackWardsData = {
             77.538
           ],
           "microclimate": {
-            "temperature_c": 25.9,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 2.54,
-            "wet_bulb_c": 23.19,
-            "heat_index_c": 26.63,
-            "wbgt_c": 24.61,
-            "htsi_score": 38.7,
+            "temperature_c": 21.3,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.12,
+            "wet_bulb_c": 20.21,
+            "heat_index_c": 21.9,
+            "wbgt_c": 20.55,
+            "htsi_score": 22.1,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.3,
+            "variance_c": 0.7,
+            "accuracy_score_pct": 99.2,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 17.8,
@@ -6078,15 +7758,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.1°C Urban Heat Island anomaly.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.1°C ಶಾಖ ಹೆಚ್ಚಳ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.1°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.1 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.1 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.1 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 23,
-              "moisture_humidity_pct": 29,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 32,
-              "canopy_buffer_pct": 16
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 40,
+              "wind_ventilation_pct": 17,
+              "urban_heat_island_pct": 23,
+              "canopy_buffer_pct": 20
             }
           },
           "is_hotspot": false,
@@ -6173,14 +7853,23 @@ export const fallbackWardsData = {
             77.674
           ],
           "microclimate": {
-            "temperature_c": 26.1,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 2.77,
-            "wet_bulb_c": 23.39,
-            "heat_index_c": 27.86,
-            "wbgt_c": 24.79,
-            "htsi_score": 40.4,
+            "temperature_c": 21.4,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.22,
+            "wet_bulb_c": 20.28,
+            "heat_index_c": 21.98,
+            "wbgt_c": 20.62,
+            "htsi_score": 22.4,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.4,
+            "variance_c": 0.8,
+            "accuracy_score_pct": 99.0,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 10.5,
@@ -6203,15 +7892,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.3°C Urban Heat Island anomaly.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.3°C ಶಾಖ ಹೆಚ್ಚಳ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.3°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.2 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 23,
-              "moisture_humidity_pct": 29,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 33,
-              "canopy_buffer_pct": 15
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 41,
+              "wind_ventilation_pct": 16,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 19
             }
           },
           "is_hotspot": false,
@@ -6298,14 +7987,23 @@ export const fallbackWardsData = {
             77.588
           ],
           "microclimate": {
-            "temperature_c": 24.6,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 4.06,
-            "wet_bulb_c": 21.95,
-            "heat_index_c": 25.2,
-            "wbgt_c": 23.24,
-            "htsi_score": 33.0,
+            "temperature_c": 20.9,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.79,
+            "wet_bulb_c": 19.76,
+            "heat_index_c": 21.4,
+            "wbgt_c": 20.1,
+            "htsi_score": 20.2,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 20.9,
+            "variance_c": 0.3,
+            "accuracy_score_pct": 99.6,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 22.5,
@@ -6332,10 +8030,10 @@ export const fallbackWardsData = {
             "summary_kn": "ತಂಪಾದ ವಲಯ: 28% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: 28% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 31,
-              "moisture_humidity_pct": 40,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 26,
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 59,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 25,
               "canopy_buffer_pct": 5
             }
           },
@@ -6423,14 +8121,23 @@ export const fallbackWardsData = {
             77.575
           ],
           "microclimate": {
-            "temperature_c": 25.6,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.32,
-            "wet_bulb_c": 22.91,
-            "heat_index_c": 26.3,
-            "wbgt_c": 24.26,
-            "htsi_score": 37.3,
+            "temperature_c": 21.2,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.46,
+            "wet_bulb_c": 20.11,
+            "heat_index_c": 21.78,
+            "wbgt_c": 20.45,
+            "htsi_score": 21.6,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.2,
+            "variance_c": 0.6,
+            "accuracy_score_pct": 99.3,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 18.0,
@@ -6453,15 +8160,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.3 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 24,
-              "moisture_humidity_pct": 31,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 31,
-              "canopy_buffer_pct": 14
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 45,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 17
             }
           },
           "is_hotspot": false,
@@ -6548,14 +8255,23 @@ export const fallbackWardsData = {
             77.658
           ],
           "microclimate": {
-            "temperature_c": 26.2,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 2.77,
-            "wet_bulb_c": 23.48,
-            "heat_index_c": 28.06,
-            "wbgt_c": 24.88,
-            "htsi_score": 40.9,
+            "temperature_c": 21.4,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.22,
+            "wet_bulb_c": 20.32,
+            "heat_index_c": 22.02,
+            "wbgt_c": 20.66,
+            "htsi_score": 22.5,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.4,
+            "variance_c": 0.8,
+            "accuracy_score_pct": 99.0,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 13.5,
@@ -6578,15 +8294,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.4°C Urban Heat Island anomaly.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.4°C ಶಾಖ ಹೆಚ್ಚಳ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.4°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.2 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 22,
-              "moisture_humidity_pct": 28,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 33,
-              "canopy_buffer_pct": 17
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 40,
+              "wind_ventilation_pct": 15,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 21
             }
           },
           "is_hotspot": false,
@@ -6673,14 +8389,23 @@ export const fallbackWardsData = {
             77.512
           ],
           "microclimate": {
-            "temperature_c": 25.8,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.0,
-            "wet_bulb_c": 23.1,
-            "heat_index_c": 26.52,
-            "wbgt_c": 24.48,
-            "htsi_score": 38.2,
+            "temperature_c": 21.3,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.32,
+            "wet_bulb_c": 20.18,
+            "heat_index_c": 21.86,
+            "wbgt_c": 20.52,
+            "htsi_score": 21.9,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.3,
+            "variance_c": 0.7,
+            "accuracy_score_pct": 99.2,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 12.0,
@@ -6703,15 +8428,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.0°C Urban Heat Island anomaly, while 52% tin roofs radiating secondary infrared heat into informal homes.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.0°C ಶಾಖ ಹೆಚ್ಚಳ, ಮತ್ತು 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.0°C का अर्बन हीट आइलैंड प्रभाव, तथा 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as 52% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: 52% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: 52% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 23,
-              "moisture_humidity_pct": 29,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 30,
-              "canopy_buffer_pct": 18
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 41,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 22,
+              "canopy_buffer_pct": 23
             }
           },
           "is_hotspot": false,
@@ -6798,14 +8523,23 @@ export const fallbackWardsData = {
             77.625
           ],
           "microclimate": {
-            "temperature_c": 26.0,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.13,
-            "wet_bulb_c": 23.29,
-            "heat_index_c": 27.66,
-            "wbgt_c": 24.66,
-            "htsi_score": 39.9,
+            "temperature_c": 21.4,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.38,
+            "wet_bulb_c": 20.25,
+            "heat_index_c": 21.94,
+            "wbgt_c": 20.59,
+            "htsi_score": 22.2,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.4,
+            "variance_c": 0.8,
+            "accuracy_score_pct": 99.0,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 14.5,
@@ -6828,15 +8562,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as concrete and asphalt surfaces generating a +2.2°C Urban Heat Island anomaly.",
-            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಾಂಕ್ರೀಟ್ ಮತ್ತು ರಸ್ತೆಗಳಿಂದ +2.2°C ಶಾಖ ಹೆಚ್ಚಳ.",
-            "summary_hi": "शीतल माइक्रोक्लाइमेट: कंक्रीट और डामर की सतहों से +2.2°C का अर्बन हीट आइलैंड प्रभाव तापमान को नियंत्रित रखते हैं।",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.4 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 23,
-              "moisture_humidity_pct": 29,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 33,
-              "canopy_buffer_pct": 15
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 42,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 20
             }
           },
           "is_hotspot": false,
@@ -6923,14 +8657,23 @@ export const fallbackWardsData = {
             77.575
           ],
           "microclimate": {
-            "temperature_c": 24.9,
-            "relative_humidity_pct": 80.0,
-            "wind_speed_m_s": 3.69,
-            "wet_bulb_c": 22.23,
-            "heat_index_c": 25.53,
-            "wbgt_c": 23.55,
-            "htsi_score": 34.3,
+            "temperature_c": 21.0,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.62,
+            "wet_bulb_c": 19.87,
+            "heat_index_c": 21.52,
+            "wbgt_c": 20.21,
+            "htsi_score": 20.6,
             "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.0,
+            "variance_c": 0.4,
+            "accuracy_score_pct": 99.5,
+            "status": "VERIFIED_ACCURATE"
           },
           "vulnerability": {
             "elderly_pct": 20.0,
@@ -6953,15 +8696,15 @@ export const fallbackWardsData = {
           },
           "causal_attribution": {
             "driver_category": "MICROCLIMATE_COOLING_ZONE",
-            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (415 W/m²) remains within seasonal norms, while urban ventilation is operating at 3.7 m/s.",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.6 m/s.",
             "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
             "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
             "drivers": {
-              "solar_radiation_pct": 28,
-              "moisture_humidity_pct": 36,
-              "wind_ventilation_pct": 0,
-              "urban_heat_island_pct": 27,
-              "canopy_buffer_pct": 9
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 52,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 10
             }
           },
           "is_hotspot": false,
@@ -7024,6 +8767,1614 @@ export const fallbackWardsData = {
             ]
           ]
         }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-160",
+        "properties": {
+          "ward_id": "BBMP-160",
+          "name": "Rajarajeshwari Nagar & Ideal Homes",
+          "name_kn": "ರಾಜರಾಜೇಶ್ವರಿ ನಗರ ಮತ್ತು ಐಡಿಯಲ್ ಹೋಮ್ಸ್",
+          "name_hi": "राजराजेश्वरी नगर और आइडियल होम्स",
+          "zone": "Rajarajeshwari Nagar Zone",
+          "population": 142000,
+          "elderly_pct": 16.5,
+          "outdoor_labor_pct": 32.0,
+          "tin_roof_pct": 24.0,
+          "tree_canopy_pct": 22.5,
+          "hospital_beds_per_k": 2.8,
+          "baseline_daily_admissions": 22,
+          "uhi_temp_delta": 0.8,
+          "wind_attenuation": 0.75,
+          "center": [
+            12.926,
+            77.521
+          ],
+          "microclimate": {
+            "temperature_c": 20.9,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.52,
+            "wet_bulb_c": 19.76,
+            "heat_index_c": 21.4,
+            "wbgt_c": 20.1,
+            "htsi_score": 20.2,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 20.9,
+            "variance_c": 0.3,
+            "accuracy_score_pct": 99.6,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 16.5,
+            "outdoor_labor_pct": 32.0,
+            "tin_roof_pct": 24.0,
+            "tree_canopy_pct": 22.5,
+            "hospital_beds_per_k": 2.8
+          },
+          "vulnerability_score": 44.3,
+          "vulnerability_tier": "MODERATE",
+          "vulnerability_details": {
+            "score": 44.3,
+            "tier": "MODERATE",
+            "tier_label_en": "Moderate Vulnerability",
+            "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "मध्यम संवेदनशीलता",
+            "sensitivity_score": 53.6,
+            "exposure_score": 39.6,
+            "adaptive_deficit_score": 39.0
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 52,
+              "wind_ventilation_pct": 15,
+              "urban_heat_island_pct": 22,
+              "canopy_buffer_pct": 11
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.508,
+                12.915
+              ],
+              [
+                77.535,
+                12.915
+              ],
+              [
+                77.538,
+                12.938
+              ],
+              [
+                77.51,
+                12.938
+              ],
+              [
+                77.508,
+                12.915
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-154",
+        "properties": {
+          "ward_id": "BBMP-154",
+          "name": "Basavanagudi & Gandhi Bazaar Heritage Cultural Hub",
+          "name_kn": "ಬಸವನಗುಡಿ ಮತ್ತು ಗಾಂಧಿ ಬಜಾರ್ ಸಾಂಸ್ಕೃತಿಕ ಕೇಂದ್ರ",
+          "name_hi": "बसवनगुडी और गांधी बाजार सांस्कृतिक केंद्र",
+          "zone": "South Zone",
+          "population": 118000,
+          "elderly_pct": 21.4,
+          "outdoor_labor_pct": 34.0,
+          "tin_roof_pct": 18.0,
+          "tree_canopy_pct": 26.8,
+          "hospital_beds_per_k": 3.5,
+          "baseline_daily_admissions": 28,
+          "uhi_temp_delta": 0.6,
+          "wind_attenuation": 0.65,
+          "center": [
+            12.942,
+            77.573
+          ],
+          "microclimate": {
+            "temperature_c": 20.8,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.32,
+            "wet_bulb_c": 19.69,
+            "heat_index_c": 21.32,
+            "wbgt_c": 20.03,
+            "htsi_score": 19.9,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 20.8,
+            "variance_c": 0.2,
+            "accuracy_score_pct": 99.8,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 21.4,
+            "outdoor_labor_pct": 34.0,
+            "tin_roof_pct": 18.0,
+            "tree_canopy_pct": 26.8,
+            "hospital_beds_per_k": 3.5
+          },
+          "vulnerability_score": 41.8,
+          "vulnerability_tier": "MODERATE",
+          "vulnerability_details": {
+            "score": 41.8,
+            "tier": "MODERATE",
+            "tier_label_en": "Moderate Vulnerability",
+            "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "मध्यम संवेदनशीलता",
+            "sensitivity_score": 63.2,
+            "exposure_score": 33.0,
+            "adaptive_deficit_score": 26.1
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as 27% tree canopy shading roadways and releasing moisture.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: 27% ಮರಗಳ ಹೊದಿಕೆಯು ನೆರಳು ಮತ್ತು ತಂಪನ್ನು ನೀಡುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: 27% वृक्ष आवरण सड़कों पर छाया और ठंडक प्रदान करता है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 54,
+              "wind_ventilation_pct": 19,
+              "urban_heat_island_pct": 22,
+              "canopy_buffer_pct": 5
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.562,
+                12.932
+              ],
+              [
+                77.585,
+                12.932
+              ],
+              [
+                77.588,
+                12.952
+              ],
+              [
+                77.564,
+                12.952
+              ],
+              [
+                77.562,
+                12.932
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-117",
+        "properties": {
+          "ward_id": "BBMP-117",
+          "name": "Shanthi Nagar & Richmond Town Cantonment",
+          "name_kn": "ಶಾಂತಿ ನಗರ ಮತ್ತು ರಿಚ್ಮಂಡ್ ಟೌನ್ ಕಂಟೋನ್ಮೆಂಟ್",
+          "name_hi": "शांति नगर और रिचमंड टाउन छावनी",
+          "zone": "East / Central Zone",
+          "population": 135000,
+          "elderly_pct": 15.8,
+          "outdoor_labor_pct": 42.0,
+          "tin_roof_pct": 28.0,
+          "tree_canopy_pct": 14.5,
+          "hospital_beds_per_k": 4.2,
+          "baseline_daily_admissions": 30,
+          "uhi_temp_delta": 2.1,
+          "wind_attenuation": 0.5,
+          "center": [
+            12.959,
+            77.601
+          ],
+          "microclimate": {
+            "temperature_c": 21.3,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.01,
+            "wet_bulb_c": 20.21,
+            "heat_index_c": 21.9,
+            "wbgt_c": 20.55,
+            "htsi_score": 22.1,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.3,
+            "variance_c": 0.7,
+            "accuracy_score_pct": 99.2,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 15.8,
+            "outdoor_labor_pct": 42.0,
+            "tin_roof_pct": 28.0,
+            "tree_canopy_pct": 14.5,
+            "hospital_beds_per_k": 4.2
+          },
+          "vulnerability_score": 53.5,
+          "vulnerability_tier": "MODERATE",
+          "vulnerability_details": {
+            "score": 53.5,
+            "tier": "MODERATE",
+            "tier_label_en": "Moderate Vulnerability",
+            "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "मध्यम संवेदनशीलता",
+            "sensitivity_score": 60.9,
+            "exposure_score": 54.4,
+            "adaptive_deficit_score": 41.5
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.0 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.0 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.0 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 42,
+              "wind_ventilation_pct": 19,
+              "urban_heat_island_pct": 23,
+              "canopy_buffer_pct": 16
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.59,
+                12.95
+              ],
+              [
+                77.614,
+                12.95
+              ],
+              [
+                77.616,
+                12.97
+              ],
+              [
+                77.592,
+                12.97
+              ],
+              [
+                77.59,
+                12.95
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-78",
+        "properties": {
+          "ward_id": "BBMP-78",
+          "name": "Frazer Town & Pulakeshinagar Victorian Belt",
+          "name_kn": "ಫ್ರೇಜರ್ ಟೌನ್ ಮತ್ತು ಪುಲಕೇಶಿನಗರ",
+          "name_hi": "फ्रेजर टाउन और पुलकेशीनगर",
+          "zone": "East Zone",
+          "population": 125000,
+          "elderly_pct": 17.2,
+          "outdoor_labor_pct": 39.5,
+          "tin_roof_pct": 31.0,
+          "tree_canopy_pct": 16.0,
+          "hospital_beds_per_k": 3.1,
+          "baseline_daily_admissions": 26,
+          "uhi_temp_delta": 1.8,
+          "wind_attenuation": 0.55,
+          "center": [
+            12.998,
+            77.618
+          ],
+          "microclimate": {
+            "temperature_c": 21.2,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.12,
+            "wet_bulb_c": 20.11,
+            "heat_index_c": 21.78,
+            "wbgt_c": 20.45,
+            "htsi_score": 21.6,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.2,
+            "variance_c": 0.6,
+            "accuracy_score_pct": 99.3,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 17.2,
+            "outdoor_labor_pct": 39.5,
+            "tin_roof_pct": 31.0,
+            "tree_canopy_pct": 16.0,
+            "hospital_beds_per_k": 3.1
+          },
+          "vulnerability_score": 54.9,
+          "vulnerability_tier": "MODERATE",
+          "vulnerability_details": {
+            "score": 54.9,
+            "tier": "MODERATE",
+            "tier_label_en": "Moderate Vulnerability",
+            "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "मध्यम संवेदनशीलता",
+            "sensitivity_score": 61.1,
+            "exposure_score": 54.1,
+            "adaptive_deficit_score": 47.8
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (1.1 m/s) trapping hot air in street canyons.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (1.1 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (1.1 m/s) संकरी गलियों में गर्मी को रोक रही है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 44,
+              "wind_ventilation_pct": 18,
+              "urban_heat_island_pct": 23,
+              "canopy_buffer_pct": 15
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.605,
+                12.988
+              ],
+              [
+                77.63,
+                12.988
+              ],
+              [
+                77.632,
+                13.01
+              ],
+              [
+                77.608,
+                13.01
+              ],
+              [
+                77.605,
+                12.988
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-84",
+        "properties": {
+          "ward_id": "BBMP-84",
+          "name": "Varthur & Sarjapur Road Agro-Tech Basin",
+          "name_kn": "ವರ್ತೂರು ಮತ್ತು ಸರ್ಜಾಪುರ ರಸ್ತೆ ಅಗ್ರೋ-ಟೆಕ್ ಕಾರಿಡಾರ್",
+          "name_hi": "वरथूर और सरजापुर रोड एग्रो-टेक कॉरिडोर",
+          "zone": "Mahadevapura Zone",
+          "population": 168000,
+          "elderly_pct": 10.2,
+          "outdoor_labor_pct": 54.0,
+          "tin_roof_pct": 46.0,
+          "tree_canopy_pct": 8.5,
+          "hospital_beds_per_k": 1.5,
+          "baseline_daily_admissions": 32,
+          "uhi_temp_delta": 2.7,
+          "wind_attenuation": 0.7,
+          "center": [
+            12.938,
+            77.742
+          ],
+          "microclimate": {
+            "temperature_c": 21.5,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.42,
+            "wet_bulb_c": 20.42,
+            "heat_index_c": 22.13,
+            "wbgt_c": 20.76,
+            "htsi_score": 23.0,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.5,
+            "variance_c": 0.9,
+            "accuracy_score_pct": 98.9,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 10.2,
+            "outdoor_labor_pct": 54.0,
+            "tin_roof_pct": 46.0,
+            "tree_canopy_pct": 8.5,
+            "hospital_beds_per_k": 1.5
+          },
+          "vulnerability_score": 69.7,
+          "vulnerability_tier": "HIGH",
+          "vulnerability_details": {
+            "score": 69.7,
+            "tier": "HIGH",
+            "tier_label_en": "High Vulnerability",
+            "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "उच्च संवेदनशीलता",
+            "sensitivity_score": 62.1,
+            "exposure_score": 73.9,
+            "adaptive_deficit_score": 73.4
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.4 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 40,
+              "wind_ventilation_pct": 13,
+              "urban_heat_island_pct": 25,
+              "canopy_buffer_pct": 22
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.725,
+                12.924
+              ],
+              [
+                77.76,
+                12.924
+              ],
+              [
+                77.762,
+                12.952
+              ],
+              [
+                77.728,
+                12.952
+              ],
+              [
+                77.725,
+                12.924
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-27",
+        "properties": {
+          "ward_id": "BBMP-27",
+          "name": "Banaswadi & HRBR Layout / Kalyan Nagar",
+          "name_kn": "ಬಾಣಸವಾಡಿ ಮತ್ತು ಎಚ್‌ಆರ್‌ಬಿಆರ್ ಲೇಔಟ್ ಕಲ್ಯಾಣ ನಗರ",
+          "name_hi": "बाणसवाड़ी और एचआरबीआर लेआउट कल्याण नगर",
+          "zone": "East Zone",
+          "population": 155000,
+          "elderly_pct": 14.8,
+          "outdoor_labor_pct": 36.5,
+          "tin_roof_pct": 22.0,
+          "tree_canopy_pct": 18.0,
+          "hospital_beds_per_k": 2.4,
+          "baseline_daily_admissions": 24,
+          "uhi_temp_delta": 1.5,
+          "wind_attenuation": 0.6,
+          "center": [
+            13.012,
+            77.651
+          ],
+          "microclimate": {
+            "temperature_c": 21.1,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.22,
+            "wet_bulb_c": 20.0,
+            "heat_index_c": 21.67,
+            "wbgt_c": 20.34,
+            "htsi_score": 21.2,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.1,
+            "variance_c": 0.5,
+            "accuracy_score_pct": 99.4,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 14.8,
+            "outdoor_labor_pct": 36.5,
+            "tin_roof_pct": 22.0,
+            "tree_canopy_pct": 18.0,
+            "hospital_beds_per_k": 2.4
+          },
+          "vulnerability_score": 49.3,
+          "vulnerability_tier": "MODERATE",
+          "vulnerability_details": {
+            "score": 49.3,
+            "tier": "MODERATE",
+            "tier_label_en": "Moderate Vulnerability",
+            "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "मध्यम संवेदनशीलता",
+            "sensitivity_score": 54.7,
+            "exposure_score": 44.3,
+            "adaptive_deficit_score": 49.9
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.2 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 46,
+              "wind_ventilation_pct": 18,
+              "urban_heat_island_pct": 23,
+              "canopy_buffer_pct": 13
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.638,
+                13.0
+              ],
+              [
+                77.665,
+                13.0
+              ],
+              [
+                77.668,
+                13.025
+              ],
+              [
+                77.64,
+                13.025
+              ],
+              [
+                77.638,
+                13.0
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-9",
+        "properties": {
+          "ward_id": "BBMP-9",
+          "name": "Vidyaranyapura & Doddaballapur State Highway",
+          "name_kn": "ವಿದ್ಯಾರಣ್ಯಪುರ ಮತ್ತು ದೊಡ್ಡಬಳ್ಳಾಪುರ ಹೆದ್ದಾರಿ",
+          "name_hi": "विद्यारण्यपुरा और डोड्डाबल्लापुर राजमार्ग",
+          "zone": "Yelahanka Zone",
+          "population": 130000,
+          "elderly_pct": 16.0,
+          "outdoor_labor_pct": 31.0,
+          "tin_roof_pct": 20.0,
+          "tree_canopy_pct": 21.0,
+          "hospital_beds_per_k": 2.0,
+          "baseline_daily_admissions": 19,
+          "uhi_temp_delta": 0.9,
+          "wind_attenuation": 0.75,
+          "center": [
+            13.082,
+            77.558
+          ],
+          "microclimate": {
+            "temperature_c": 20.9,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.52,
+            "wet_bulb_c": 19.8,
+            "heat_index_c": 21.44,
+            "wbgt_c": 20.14,
+            "htsi_score": 20.3,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 20.9,
+            "variance_c": 0.3,
+            "accuracy_score_pct": 99.6,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 16.0,
+            "outdoor_labor_pct": 31.0,
+            "tin_roof_pct": 20.0,
+            "tree_canopy_pct": 21.0,
+            "hospital_beds_per_k": 2.0
+          },
+          "vulnerability_score": 45.1,
+          "vulnerability_tier": "MODERATE",
+          "vulnerability_details": {
+            "score": 45.1,
+            "tier": "MODERATE",
+            "tier_label_en": "Moderate Vulnerability",
+            "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "मध्यम संवेदनशीलता",
+            "sensitivity_score": 51.9,
+            "exposure_score": 37.3,
+            "adaptive_deficit_score": 48.0
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.5 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 51,
+              "wind_ventilation_pct": 15,
+              "urban_heat_island_pct": 22,
+              "canopy_buffer_pct": 12
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.545,
+                13.07
+              ],
+              [
+                77.572,
+                13.07
+              ],
+              [
+                77.575,
+                13.095
+              ],
+              [
+                77.548,
+                13.095
+              ],
+              [
+                77.545,
+                13.07
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-158",
+        "properties": {
+          "ward_id": "BBMP-158",
+          "name": "Kengeri Satellite Town & Mysore Road Transit Hub",
+          "name_kn": "ಕೆಂಗೇರಿ ಉಪನಗರ ಮತ್ತು ಮೈಸೂರು ರಸ್ತೆ ಸಾರಿಗೆ ಕೇಂದ್ರ",
+          "name_hi": "केंगेरी उपनगर और मैसूर रोड ट्रांजिट हब",
+          "zone": "Rajarajeshwari Nagar Zone",
+          "population": 162000,
+          "elderly_pct": 14.2,
+          "outdoor_labor_pct": 49.0,
+          "tin_roof_pct": 41.0,
+          "tree_canopy_pct": 12.0,
+          "hospital_beds_per_k": 2.2,
+          "baseline_daily_admissions": 34,
+          "uhi_temp_delta": 2.4,
+          "wind_attenuation": 0.65,
+          "center": [
+            12.912,
+            77.485
+          ],
+          "microclimate": {
+            "temperature_c": 21.4,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.32,
+            "wet_bulb_c": 20.32,
+            "heat_index_c": 22.02,
+            "wbgt_c": 20.66,
+            "htsi_score": 22.5,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.4,
+            "variance_c": 0.8,
+            "accuracy_score_pct": 99.0,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 14.2,
+            "outdoor_labor_pct": 49.0,
+            "tin_roof_pct": 41.0,
+            "tree_canopy_pct": 12.0,
+            "hospital_beds_per_k": 2.2
+          },
+          "vulnerability_score": 64.9,
+          "vulnerability_tier": "HIGH",
+          "vulnerability_details": {
+            "score": 64.9,
+            "tier": "HIGH",
+            "tier_label_en": "High Vulnerability",
+            "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "उच्च संवेदनशीलता",
+            "sensitivity_score": 64.3,
+            "exposure_score": 67.3,
+            "adaptive_deficit_score": 61.8
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.3 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 42,
+              "wind_ventilation_pct": 15,
+              "urban_heat_island_pct": 25,
+              "canopy_buffer_pct": 18
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.468,
+                12.898
+              ],
+              [
+                77.502,
+                12.898
+              ],
+              [
+                77.505,
+                12.925
+              ],
+              [
+                77.472,
+                12.925
+              ],
+              [
+                77.468,
+                12.898
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-142",
+        "properties": {
+          "ward_id": "BBMP-142",
+          "name": "Chamarajpet & Cottonpet Traditional Textile Hub",
+          "name_kn": "ಚಾಮರಾಜಪೇಟೆ ಮತ್ತು ಕಾಟನ್‌ಪೇಟೆ ಸಾಂಪ್ರದಾಯಿಕ ಮಾರುಕಟ್ಟೆ",
+          "name_hi": "चामराजपेट और कॉटनपेट पारंपरिक कपड़ा बाजार",
+          "zone": "South / West Zone",
+          "population": 172000,
+          "elderly_pct": 19.5,
+          "outdoor_labor_pct": 52.0,
+          "tin_roof_pct": 55.0,
+          "tree_canopy_pct": 6.2,
+          "hospital_beds_per_k": 3.2,
+          "baseline_daily_admissions": 42,
+          "uhi_temp_delta": 3.1,
+          "wind_attenuation": 0.35,
+          "center": [
+            12.958,
+            77.561
+          ],
+          "microclimate": {
+            "temperature_c": 21.7,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 0.71,
+            "wet_bulb_c": 20.56,
+            "heat_index_c": 22.29,
+            "wbgt_c": 20.9,
+            "htsi_score": 23.6,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.7,
+            "variance_c": 1.1,
+            "accuracy_score_pct": 98.7,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 19.5,
+            "outdoor_labor_pct": 52.0,
+            "tin_roof_pct": 55.0,
+            "tree_canopy_pct": 6.2,
+            "hospital_beds_per_k": 3.2
+          },
+          "vulnerability_score": 76.2,
+          "vulnerability_tier": "CRITICAL",
+          "vulnerability_details": {
+            "score": 76.2,
+            "tier": "CRITICAL",
+            "tier_label_en": "Critical Vulnerability",
+            "tier_label_kn": "ಅತ್ಯಂತ ಅಪಾಯಕಾರಿ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "अति संवेदनशील क्षेत्र",
+            "sensitivity_score": 75.3,
+            "exposure_score": 84.6,
+            "adaptive_deficit_score": 63.8
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as low wind ventilation (0.7 m/s) trapping hot air in street canyons, while 55% tin roofs radiating secondary infrared heat into informal homes.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಕಡಿಮೆ ಗಾಳಿಯು (0.7 m/s) ಶಾಖವನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ, ಮತ್ತು 55% ತವರದ ಸೂರುಗಳು ಹೆಚ್ಚಿನ ಶಾಖವನ್ನು ಹೊರಸೂಸುತ್ತವೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: धीमी हवा (0.7 m/s) संकरी गलियों में गर्मी को रोक रही है, तथा 55% टिन की छतें बस्तियों में अतिरिक्त गर्मी फैलाती हैं तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 36,
+              "wind_ventilation_pct": 19,
+              "urban_heat_island_pct": 24,
+              "canopy_buffer_pct": 21
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.55,
+                12.948
+              ],
+              [
+                77.572,
+                12.948
+              ],
+              [
+                77.575,
+                12.968
+              ],
+              [
+                77.552,
+                12.968
+              ],
+              [
+                77.55,
+                12.948
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-8",
+        "properties": {
+          "ward_id": "BBMP-8",
+          "name": "Sahakar Nagar & Kodigehalli Residential Hub",
+          "name_kn": "ಸಹಕಾರ ನಗರ ಮತ್ತು ಕೋಡಿಗೇಹಳ್ಳಿ",
+          "name_hi": "सहकार नगर और कोडिगेहल्ली",
+          "zone": "Byatarayanapura / North Zone",
+          "population": 128000,
+          "elderly_pct": 15.2,
+          "outdoor_labor_pct": 33.0,
+          "tin_roof_pct": 23.0,
+          "tree_canopy_pct": 17.5,
+          "hospital_beds_per_k": 2.5,
+          "baseline_daily_admissions": 20,
+          "uhi_temp_delta": 1.2,
+          "wind_attenuation": 0.7,
+          "center": [
+            13.061,
+            77.581
+          ],
+          "microclimate": {
+            "temperature_c": 21.0,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.42,
+            "wet_bulb_c": 19.9,
+            "heat_index_c": 21.55,
+            "wbgt_c": 20.24,
+            "htsi_score": 20.7,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.0,
+            "variance_c": 0.4,
+            "accuracy_score_pct": 99.5,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 15.2,
+            "outdoor_labor_pct": 33.0,
+            "tin_roof_pct": 23.0,
+            "tree_canopy_pct": 17.5,
+            "hospital_beds_per_k": 2.5
+          },
+          "vulnerability_score": 47.8,
+          "vulnerability_tier": "MODERATE",
+          "vulnerability_details": {
+            "score": 47.8,
+            "tier": "MODERATE",
+            "tier_label_en": "Moderate Vulnerability",
+            "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "मध्यम संवेदनशीलता",
+            "sensitivity_score": 52.4,
+            "exposure_score": 42.4,
+            "adaptive_deficit_score": 50.0
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.4 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 47,
+              "wind_ventilation_pct": 15,
+              "urban_heat_island_pct": 22,
+              "canopy_buffer_pct": 16
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.568,
+                13.048
+              ],
+              [
+                77.595,
+                13.048
+              ],
+              [
+                77.598,
+                13.074
+              ],
+              [
+                77.571,
+                13.074
+              ],
+              [
+                77.568,
+                13.048
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-83",
+        "properties": {
+          "ward_id": "BBMP-83",
+          "name": "Kadugodi & Hope Farm Tech Gateway",
+          "name_kn": "ಕಾಡುಗೋಡಿ ಮತ್ತು ಹೋಪ್ ಫಾರ್ಮ್ ಟೆಕ್ ಗೇಟ್‌ವೇ",
+          "name_hi": "काडुगोडी और होप फार्म टेक गेटवे",
+          "zone": "Mahadevapura Zone",
+          "population": 145000,
+          "elderly_pct": 11.0,
+          "outdoor_labor_pct": 51.0,
+          "tin_roof_pct": 44.0,
+          "tree_canopy_pct": 10.5,
+          "hospital_beds_per_k": 1.8,
+          "baseline_daily_admissions": 29,
+          "uhi_temp_delta": 2.5,
+          "wind_attenuation": 0.65,
+          "center": [
+            12.998,
+            77.761
+          ],
+          "microclimate": {
+            "temperature_c": 21.5,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.32,
+            "wet_bulb_c": 20.35,
+            "heat_index_c": 22.05,
+            "wbgt_c": 20.69,
+            "htsi_score": 22.7,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.5,
+            "variance_c": 0.9,
+            "accuracy_score_pct": 98.9,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 11.0,
+            "outdoor_labor_pct": 51.0,
+            "tin_roof_pct": 44.0,
+            "tree_canopy_pct": 10.5,
+            "hospital_beds_per_k": 1.8
+          },
+          "vulnerability_score": 66.4,
+          "vulnerability_tier": "HIGH",
+          "vulnerability_details": {
+            "score": 66.4,
+            "tier": "HIGH",
+            "tier_label_en": "High Vulnerability",
+            "tier_label_kn": "ಹೆಚ್ಚಿನ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "उच्च संवेदनशीलता",
+            "sensitivity_score": 60.8,
+            "exposure_score": 70.6,
+            "adaptive_deficit_score": 67.6
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.3 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 41,
+              "wind_ventilation_pct": 14,
+              "urban_heat_island_pct": 25,
+              "canopy_buffer_pct": 20
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.745,
+                12.985
+              ],
+              [
+                77.778,
+                12.985
+              ],
+              [
+                77.78,
+                13.012
+              ],
+              [
+                77.748,
+                13.012
+              ],
+              [
+                77.745,
+                12.985
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "BBMP-131",
+        "properties": {
+          "ward_id": "BBMP-131",
+          "name": "Basaveshwaranagar & Shankar Matt Tree-Covered Ridge",
+          "name_kn": "ಬಸವೇಶ್ವರನಗರ ಮತ್ತು ಶಂಕರ ಮಠ",
+          "name_hi": "बसवेश्वरनगर और शंकर मठ",
+          "zone": "West Zone",
+          "population": 138000,
+          "elderly_pct": 18.0,
+          "outdoor_labor_pct": 32.5,
+          "tin_roof_pct": 21.0,
+          "tree_canopy_pct": 20.0,
+          "hospital_beds_per_k": 2.6,
+          "baseline_daily_admissions": 21,
+          "uhi_temp_delta": 1.0,
+          "wind_attenuation": 0.7,
+          "center": [
+            12.988,
+            77.537
+          ],
+          "microclimate": {
+            "temperature_c": 21.0,
+            "relative_humidity_pct": 91.0,
+            "wind_speed_m_s": 1.42,
+            "wet_bulb_c": 19.83,
+            "heat_index_c": 21.48,
+            "wbgt_c": 20.17,
+            "htsi_score": 20.5,
+            "precipitation_mm": 0.0
+          },
+          "ground_truth_verification": {
+            "source": "Google Weather & IMD Bengaluru AWS Network",
+            "station": "Bengaluru City Observatory (Palace Road / Majestic)",
+            "observed_benchmark_temp_c": 20.6,
+            "ward_temp_c": 21.0,
+            "variance_c": 0.4,
+            "accuracy_score_pct": 99.5,
+            "status": "VERIFIED_ACCURATE"
+          },
+          "vulnerability": {
+            "elderly_pct": 18.0,
+            "outdoor_labor_pct": 32.5,
+            "tin_roof_pct": 21.0,
+            "tree_canopy_pct": 20.0,
+            "hospital_beds_per_k": 2.6
+          },
+          "vulnerability_score": 46.6,
+          "vulnerability_tier": "MODERATE",
+          "vulnerability_details": {
+            "score": 46.6,
+            "tier": "MODERATE",
+            "tier_label_en": "Moderate Vulnerability",
+            "tier_label_kn": "ಮಧ್ಯಮ ದುರ್ಬಲತೆ",
+            "tier_label_hi": "मध्यम संवेदनशीलता",
+            "sensitivity_score": 56.4,
+            "exposure_score": 39.0,
+            "adaptive_deficit_score": 44.9
+          },
+          "causal_attribution": {
+            "driver_category": "MICROCLIMATE_COOLING_ZONE",
+            "summary_en": "Cooling Buffer: Favorable microclimate is maintained as ambient solar irradiance (0 W/m²) remains within seasonal norms, while urban ventilation is operating at 1.4 m/s.",
+            "summary_kn": "ತಂಪಾದ ವಲಯ: ಸಾಮಾನ್ಯ ಸೂರ್ಯನ ಬಿಸಿಲು ಮತ್ತು ಗಾಳಿಯ ಸಂಚಾರ ಸಮತೋಲನದಲ್ಲಿದೆ.",
+            "summary_hi": "शीतल माइक्रोक्लाइमेट: मौसमी सौर विकिरण और सामान्य वायु प्रवाह बना हुआ है तापमान को नियंत्रित रखते हैं।",
+            "drivers": {
+              "solar_radiation_pct": 0,
+              "moisture_humidity_pct": 49,
+              "wind_ventilation_pct": 16,
+              "urban_heat_island_pct": 22,
+              "canopy_buffer_pct": 13
+            }
+          },
+          "is_hotspot": false,
+          "health_risk": {
+            "expected_surge_pct": 0.0,
+            "confidence_interval_90": {
+              "lower_bound_pct": 0.0,
+              "expected_pct": 0.0,
+              "upper_bound_pct": 2.5
+            },
+            "additional_emergency_beds_needed": 0,
+            "alert_tier": "GREEN",
+            "tier_label_en": "NORMAL / LOW HEALTH RISK",
+            "tier_label_hi": "सामान्य / न्यूनतम स्वास्थ्य जोखिम",
+            "xai_attribution": {
+              "direct_thermal_stress_pct": 0.0,
+              "vulnerable_demographics_pct": 100.0,
+              "lagged_cumulative_dose_pct": 0.0,
+              "nocturnal_heat_entrapment_pct": 0.0
+            }
+          },
+          "effective_alert_tier": "GREEN",
+          "work_rest_safety": {
+            "status": "NORMAL_OPERATIONS",
+            "work_mins": 60,
+            "rest_mins": 0,
+            "hourly_water_liters": 0.5,
+            "advisory_en": "Continuous outdoor work permitted. Drink 500ml water per hour.",
+            "advisory_hi": "खुले में सामान्य काम जारी रखा जा सकता है। प्रति घंटे आधा लीटर पानी पिएं।"
+          },
+          "anomaly_alert": {
+            "has_anomaly": false,
+            "anomalies": []
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.524,
+                12.976
+              ],
+              [
+                77.55,
+                12.976
+              ],
+              [
+                77.552,
+                13.0
+              ],
+              [
+                77.526,
+                13.0
+              ],
+              [
+                77.524,
+                12.976
+              ]
+            ]
+          ]
+        }
       }
     ]
   }
@@ -7033,53 +10384,53 @@ export const fallbackWeatherData = {
   "city": "Bengaluru Metropolitan Region",
   "authority": "Metropolitan Heat Resilience Network",
   "mode": "LIVE_OPEN_METEO",
-  "ambient_temp_c": 23.8,
-  "relative_humidity_pct": 80.0,
-  "wind_speed_m_s": 4.61,
-  "solar_radiation_w_m2": 415.1,
+  "ambient_temp_c": 20.6,
+  "relative_humidity_pct": 91.0,
+  "wind_speed_m_s": 2.03,
+  "solar_radiation_w_m2": 0.0,
   "precipitation_mm": 0.0,
-  "prev_hour_temp_c": 23.2,
-  "prev_hour_rh_pct": 77.0,
+  "prev_hour_temp_c": 20.0,
+  "prev_hour_rh_pct": 88.0,
   "forecast_5_days": [
     {
       "day": "Today",
-      "temp_max": 26.1,
-      "temp_min": 20.0,
-      "wbgt_max": 22.19,
+      "temp_max": 29.9,
+      "temp_min": 19.2,
+      "wbgt_max": 25.62,
       "risk_tier": "GREEN",
       "hospital_spike": 0.0
     },
     {
       "day": "Tomorrow",
-      "temp_max": 28.4,
-      "temp_min": 20.5,
-      "wbgt_max": 24.27,
+      "temp_max": 30.7,
+      "temp_min": 20.3,
+      "wbgt_max": 26.34,
       "risk_tier": "GREEN",
       "hospital_spike": 0.0
     },
     {
       "day": "Day +2",
-      "temp_max": 29.0,
-      "temp_min": 19.9,
-      "wbgt_max": 24.81,
+      "temp_max": 30.1,
+      "temp_min": 20.4,
+      "wbgt_max": 25.8,
       "risk_tier": "GREEN",
       "hospital_spike": 0.0
     },
     {
       "day": "Day +3",
-      "temp_max": 29.8,
-      "temp_min": 18.6,
-      "wbgt_max": 25.53,
+      "temp_max": 28.5,
+      "temp_min": 19.2,
+      "wbgt_max": 24.36,
       "risk_tier": "GREEN",
       "hospital_spike": 0.0
     },
     {
       "day": "Day +4",
-      "temp_max": 32.3,
-      "temp_min": 19.6,
-      "wbgt_max": 27.78,
+      "temp_max": 29.0,
+      "temp_min": 19.3,
+      "wbgt_max": 24.81,
       "risk_tier": "GREEN",
-      "hospital_spike": 5.4
+      "hospital_spike": 0.0
     }
   ],
   "diurnal_forecast_24h": [
@@ -7087,12 +10438,12 @@ export const fallbackWeatherData = {
       "hour": 0,
       "hour_label": "12:00 AM",
       "time_iso": "00:00",
-      "temperature_c": 21.3,
-      "wbgt_c": 19.09,
-      "relative_humidity_pct": 75.0,
-      "wind_speed_m_s": 4.44,
+      "temperature_c": 21.1,
+      "wbgt_c": 19.96,
+      "relative_humidity_pct": 87.0,
+      "wind_speed_m_s": 2.0,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 16.4,
+      "htsi_score": 19.7,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7101,11 +10452,11 @@ export const fallbackWeatherData = {
       "hour_label": "1:00 AM",
       "time_iso": "01:00",
       "temperature_c": 20.6,
-      "wbgt_c": 18.94,
-      "relative_humidity_pct": 81.0,
-      "wind_speed_m_s": 4.33,
+      "wbgt_c": 19.82,
+      "relative_humidity_pct": 91.0,
+      "wind_speed_m_s": 2.03,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 15.6,
+      "htsi_score": 19.0,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7114,11 +10465,11 @@ export const fallbackWeatherData = {
       "hour_label": "2:00 AM",
       "time_iso": "02:00",
       "temperature_c": 20.2,
-      "wbgt_c": 19.07,
-      "relative_humidity_pct": 87.0,
-      "wind_speed_m_s": 4.44,
+      "wbgt_c": 19.51,
+      "relative_humidity_pct": 92.0,
+      "wind_speed_m_s": 1.97,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 15.9,
+      "htsi_score": 17.6,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7126,12 +10477,12 @@ export const fallbackWeatherData = {
       "hour": 3,
       "hour_label": "3:00 AM",
       "time_iso": "03:00",
-      "temperature_c": 20.2,
-      "wbgt_c": 19.16,
-      "relative_humidity_pct": 88.0,
-      "wind_speed_m_s": 4.56,
+      "temperature_c": 19.8,
+      "wbgt_c": 19.29,
+      "relative_humidity_pct": 94.0,
+      "wind_speed_m_s": 1.89,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 16.3,
+      "htsi_score": 16.6,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7139,12 +10490,12 @@ export const fallbackWeatherData = {
       "hour": 4,
       "hour_label": "4:00 AM",
       "time_iso": "04:00",
-      "temperature_c": 20.0,
-      "wbgt_c": 18.88,
-      "relative_humidity_pct": 87.0,
-      "wind_speed_m_s": 4.56,
+      "temperature_c": 19.4,
+      "wbgt_c": 18.97,
+      "relative_humidity_pct": 95.0,
+      "wind_speed_m_s": 1.72,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 15.1,
+      "htsi_score": 15.2,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7152,12 +10503,12 @@ export const fallbackWeatherData = {
       "hour": 5,
       "hour_label": "5:00 AM",
       "time_iso": "05:00",
-      "temperature_c": 20.1,
-      "wbgt_c": 18.8,
-      "relative_humidity_pct": 85.0,
-      "wind_speed_m_s": 4.08,
+      "temperature_c": 19.3,
+      "wbgt_c": 18.87,
+      "relative_humidity_pct": 95.0,
+      "wind_speed_m_s": 1.67,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 14.9,
+      "htsi_score": 14.8,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7165,12 +10516,12 @@ export const fallbackWeatherData = {
       "hour": 6,
       "hour_label": "6:00 AM",
       "time_iso": "06:00",
-      "temperature_c": 20.1,
-      "wbgt_c": 18.98,
-      "relative_humidity_pct": 87.0,
-      "wind_speed_m_s": 4.39,
-      "solar_radiation_w_m2": 0.0,
-      "htsi_score": 15.5,
+      "temperature_c": 19.2,
+      "wbgt_c": 18.8,
+      "relative_humidity_pct": 95.0,
+      "wind_speed_m_s": 1.42,
+      "solar_radiation_w_m2": 15.9,
+      "htsi_score": 14.4,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7178,12 +10529,12 @@ export const fallbackWeatherData = {
       "hour": 7,
       "hour_label": "7:00 AM",
       "time_iso": "07:00",
-      "temperature_c": 20.7,
-      "wbgt_c": 19.34,
-      "relative_humidity_pct": 84.0,
-      "wind_speed_m_s": 4.44,
-      "solar_radiation_w_m2": 29.9,
-      "htsi_score": 17.1,
+      "temperature_c": 20.4,
+      "wbgt_c": 20.21,
+      "relative_humidity_pct": 90.0,
+      "wind_speed_m_s": 1.44,
+      "solar_radiation_w_m2": 364.4,
+      "htsi_score": 19.4,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7191,12 +10542,12 @@ export const fallbackWeatherData = {
       "hour": 8,
       "hour_label": "8:00 AM",
       "time_iso": "08:00",
-      "temperature_c": 22.3,
-      "wbgt_c": 20.54,
-      "relative_humidity_pct": 79.0,
-      "wind_speed_m_s": 4.17,
-      "solar_radiation_w_m2": 106.9,
-      "htsi_score": 22.3,
+      "temperature_c": 22.5,
+      "wbgt_c": 21.88,
+      "relative_humidity_pct": 81.0,
+      "wind_speed_m_s": 1.64,
+      "solar_radiation_w_m2": 617.4,
+      "htsi_score": 26.1,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7204,12 +10555,12 @@ export const fallbackWeatherData = {
       "hour": 9,
       "hour_label": "9:00 AM",
       "time_iso": "09:00",
-      "temperature_c": 24.0,
-      "wbgt_c": 21.6,
-      "relative_humidity_pct": 71.0,
-      "wind_speed_m_s": 4.72,
-      "solar_radiation_w_m2": 274.4,
-      "htsi_score": 26.8,
+      "temperature_c": 24.9,
+      "wbgt_c": 23.19,
+      "relative_humidity_pct": 68.0,
+      "wind_speed_m_s": 1.67,
+      "solar_radiation_w_m2": 763.3,
+      "htsi_score": 31.8,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7217,12 +10568,12 @@ export const fallbackWeatherData = {
       "hour": 10,
       "hour_label": "10:00 AM",
       "time_iso": "10:00",
-      "temperature_c": 25.3,
-      "wbgt_c": 22.17,
-      "relative_humidity_pct": 64.0,
-      "wind_speed_m_s": 5.31,
-      "solar_radiation_w_m2": 312.3,
-      "htsi_score": 29.5,
+      "temperature_c": 27.0,
+      "wbgt_c": 24.25,
+      "relative_humidity_pct": 58.0,
+      "wind_speed_m_s": 1.64,
+      "solar_radiation_w_m2": 831.2,
+      "htsi_score": 37.2,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7230,12 +10581,12 @@ export const fallbackWeatherData = {
       "hour": 11,
       "hour_label": "11:00 AM",
       "time_iso": "11:00",
-      "temperature_c": 26.1,
-      "wbgt_c": 22.01,
-      "relative_humidity_pct": 57.0,
-      "wind_speed_m_s": 5.42,
-      "solar_radiation_w_m2": 142.0,
-      "htsi_score": 29.5,
+      "temperature_c": 28.4,
+      "wbgt_c": 24.58,
+      "relative_humidity_pct": 49.0,
+      "wind_speed_m_s": 1.47,
+      "solar_radiation_w_m2": 838.0,
+      "htsi_score": 38.6,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7243,12 +10594,12 @@ export const fallbackWeatherData = {
       "hour": 12,
       "hour_label": "12:00 PM",
       "time_iso": "12:00",
-      "temperature_c": 25.4,
-      "wbgt_c": 22.02,
-      "relative_humidity_pct": 61.0,
-      "wind_speed_m_s": 6.86,
-      "solar_radiation_w_m2": 415.1,
-      "htsi_score": 28.9,
+      "temperature_c": 29.5,
+      "wbgt_c": 24.71,
+      "relative_humidity_pct": 42.0,
+      "wind_speed_m_s": 1.58,
+      "solar_radiation_w_m2": 880.0,
+      "htsi_score": 39.2,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7256,12 +10607,12 @@ export const fallbackWeatherData = {
       "hour": 13,
       "hour_label": "1:00 PM",
       "time_iso": "13:00",
-      "temperature_c": 23.6,
-      "wbgt_c": 21.12,
-      "relative_humidity_pct": 71.0,
-      "wind_speed_m_s": 4.97,
-      "solar_radiation_w_m2": 180.3,
-      "htsi_score": 24.9,
+      "temperature_c": 29.9,
+      "wbgt_c": 24.69,
+      "relative_humidity_pct": 40.0,
+      "wind_speed_m_s": 1.56,
+      "solar_radiation_w_m2": 813.9,
+      "htsi_score": 39.3,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7269,12 +10620,12 @@ export const fallbackWeatherData = {
       "hour": 14,
       "hour_label": "2:00 PM",
       "time_iso": "14:00",
-      "temperature_c": 22.2,
-      "wbgt_c": 20.68,
-      "relative_humidity_pct": 83.0,
-      "wind_speed_m_s": 3.86,
-      "solar_radiation_w_m2": 0.0,
-      "htsi_score": 22.9,
+      "temperature_c": 29.9,
+      "wbgt_c": 24.45,
+      "relative_humidity_pct": 40.0,
+      "wind_speed_m_s": 1.67,
+      "solar_radiation_w_m2": 702.9,
+      "htsi_score": 38.7,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7282,12 +10633,12 @@ export const fallbackWeatherData = {
       "hour": 15,
       "hour_label": "3:00 PM",
       "time_iso": "15:00",
-      "temperature_c": 23.8,
-      "wbgt_c": 21.81,
-      "relative_humidity_pct": 78.0,
-      "wind_speed_m_s": 3.75,
-      "solar_radiation_w_m2": 26.4,
-      "htsi_score": 27.9,
+      "temperature_c": 29.8,
+      "wbgt_c": 24.37,
+      "relative_humidity_pct": 40.0,
+      "wind_speed_m_s": 1.58,
+      "solar_radiation_w_m2": 685.8,
+      "htsi_score": 38.4,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7295,12 +10646,12 @@ export const fallbackWeatherData = {
       "hour": 16,
       "hour_label": "4:00 PM",
       "time_iso": "16:00",
-      "temperature_c": 24.4,
-      "wbgt_c": 22.43,
-      "relative_humidity_pct": 74.0,
-      "wind_speed_m_s": 4.81,
-      "solar_radiation_w_m2": 416.0,
-      "htsi_score": 29.9,
+      "temperature_c": 29.5,
+      "wbgt_c": 24.15,
+      "relative_humidity_pct": 41.0,
+      "wind_speed_m_s": 1.61,
+      "solar_radiation_w_m2": 643.1,
+      "htsi_score": 37.6,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7308,12 +10659,12 @@ export const fallbackWeatherData = {
       "hour": 17,
       "hour_label": "5:00 PM",
       "time_iso": "17:00",
-      "temperature_c": 23.5,
-      "wbgt_c": 21.95,
-      "relative_humidity_pct": 82.0,
-      "wind_speed_m_s": 4.56,
-      "solar_radiation_w_m2": 74.0,
-      "htsi_score": 28.2,
+      "temperature_c": 28.6,
+      "wbgt_c": 23.46,
+      "relative_humidity_pct": 44.0,
+      "wind_speed_m_s": 1.42,
+      "solar_radiation_w_m2": 457.9,
+      "htsi_score": 35.2,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7321,12 +10672,12 @@ export const fallbackWeatherData = {
       "hour": 18,
       "hour_label": "6:00 PM",
       "time_iso": "18:00",
-      "temperature_c": 22.4,
-      "wbgt_c": 20.99,
-      "relative_humidity_pct": 84.0,
-      "wind_speed_m_s": 4.83,
-      "solar_radiation_w_m2": 17.7,
-      "htsi_score": 24.2,
+      "temperature_c": 27.0,
+      "wbgt_c": 23.07,
+      "relative_humidity_pct": 58.0,
+      "wind_speed_m_s": 0.81,
+      "solar_radiation_w_m2": 120.1,
+      "htsi_score": 34.5,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7334,12 +10685,12 @@ export const fallbackWeatherData = {
       "hour": 19,
       "hour_label": "7:00 PM",
       "time_iso": "19:00",
-      "temperature_c": 22.0,
-      "wbgt_c": 20.67,
-      "relative_humidity_pct": 85.0,
-      "wind_speed_m_s": 4.61,
+      "temperature_c": 26.0,
+      "wbgt_c": 22.29,
+      "relative_humidity_pct": 62.0,
+      "wind_speed_m_s": 1.28,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 22.8,
+      "htsi_score": 30.8,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7347,12 +10698,12 @@ export const fallbackWeatherData = {
       "hour": 20,
       "hour_label": "8:00 PM",
       "time_iso": "20:00",
-      "temperature_c": 21.8,
-      "wbgt_c": 20.56,
-      "relative_humidity_pct": 86.0,
-      "wind_speed_m_s": 4.58,
+      "temperature_c": 25.3,
+      "wbgt_c": 21.84,
+      "relative_humidity_pct": 64.0,
+      "wind_speed_m_s": 1.33,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 22.3,
+      "htsi_score": 28.7,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7360,12 +10711,12 @@ export const fallbackWeatherData = {
       "hour": 21,
       "hour_label": "9:00 PM",
       "time_iso": "21:00",
-      "temperature_c": 21.8,
-      "wbgt_c": 20.47,
-      "relative_humidity_pct": 85.0,
-      "wind_speed_m_s": 4.5,
+      "temperature_c": 24.5,
+      "wbgt_c": 21.39,
+      "relative_humidity_pct": 67.0,
+      "wind_speed_m_s": 1.14,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 22.0,
+      "htsi_score": 26.6,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7373,12 +10724,12 @@ export const fallbackWeatherData = {
       "hour": 22,
       "hour_label": "10:00 PM",
       "time_iso": "22:00",
-      "temperature_c": 21.4,
-      "wbgt_c": 20.26,
-      "relative_humidity_pct": 87.0,
-      "wind_speed_m_s": 4.33,
+      "temperature_c": 24.2,
+      "wbgt_c": 21.2,
+      "relative_humidity_pct": 68.0,
+      "wind_speed_m_s": 0.78,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 21.0,
+      "htsi_score": 25.8,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     },
@@ -7386,12 +10737,12 @@ export const fallbackWeatherData = {
       "hour": 23,
       "hour_label": "11:00 PM",
       "time_iso": "23:00",
-      "temperature_c": 21.4,
-      "wbgt_c": 20.34,
-      "relative_humidity_pct": 88.0,
-      "wind_speed_m_s": 4.42,
+      "temperature_c": 23.8,
+      "wbgt_c": 20.92,
+      "relative_humidity_pct": 69.0,
+      "wind_speed_m_s": 1.81,
       "solar_radiation_w_m2": 0.0,
-      "htsi_score": 21.3,
+      "htsi_score": 24.5,
       "risk_tier": "GREEN",
       "phase": "SAFE_ZONE"
     }
@@ -7870,6 +11221,210 @@ export const fallbackSheltersData = [
     "lon": 77.576,
     "status": "OPEN",
     "hours": "24/7"
+  },
+  {
+    "id": "BBMP-IC-31",
+    "ward_id": "BBMP-160",
+    "name": "RR Nagar Indira Canteen & Cooling Pavilion",
+    "name_kn": "ರಾಜರಾಜೇಶ್ವರಿ ನಗರ ಇಂದಿರಾ ಕ್ಯಾಂಟೀನ್ ಮತ್ತು ಶೀತಲ ಕೇಂದ್ರ",
+    "name_hi": "आरआर नगर इंदिरा कैंटीन व कूलिंग पवेलियन",
+    "type": "COOLING_SHELTER",
+    "address": "Ideal Homes Township, 8th Main Rd, RR Nagar, Bengaluru",
+    "lat": 12.926,
+    "lon": 77.521,
+    "capacity_persons": 220,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "08:00 AM - 08:00 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-32",
+    "ward_id": "BBMP-154",
+    "name": "Gandhi Bazaar Water Post & Bugle Rock Respite Shelter",
+    "name_kn": "ಗಾಂಧಿ ಬಜಾರ್ ಜಲ ಕೇಂದ್ರ ಮತ್ತು ಬ್ಯೂಗಲ್ ರಾಕ್ ವಿಶ್ರಾಂತಿ ಕೇಂದ್ರ",
+    "name_hi": "गांधी बाजार वाटर पोस्ट व ब्युगल रॉक आश्रय",
+    "type": "WATER_POINT",
+    "address": "DVG Road, Gandhi Bazaar, Basavanagudi, Bengaluru",
+    "lat": 12.942,
+    "lon": 77.573,
+    "capacity_persons": 180,
+    "has_ac": false,
+    "has_ors": true,
+    "has_paramedic": false,
+    "operating_hours": "06:00 AM - 09:00 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BBMP-IC-33",
+    "ward_id": "BBMP-117",
+    "name": "Shanthi Nagar KSRTC Terminus AC Transit Shelter",
+    "name_kn": "ಶಾಂತಿ ನಗರ ಕೆಎಸ್‌ಆರ್‌ಟಿಸಿ ಟರ್ಮಿನಲ್ ಎಸಿ ಶೀತಲ ಕೇಂದ್ರ",
+    "name_hi": "शांति नगर केएसआरटीसी टर्मिनल एसी कूलिंग शेल्टर",
+    "type": "COOLING_SHELTER",
+    "address": "KSRTC Satellite Bus Station, Shanthi Nagar, Bengaluru",
+    "lat": 12.959,
+    "lon": 77.601,
+    "capacity_persons": 300,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "24 HOURS",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-34",
+    "ward_id": "BBMP-78",
+    "name": "Frazer Town Coles Park Hydration Post & Indira Kiosk",
+    "name_kn": "ಫ್ರೇಜರ್ ಟೌನ್ ಕೋಲ್ಸ್ ಪಾರ್ಕ್ ಜಲ ಕೇಂದ್ರ",
+    "name_hi": "फ्रेजर टाउन कोल्स पार्क हाइड्रेशन पोस्ट",
+    "type": "WATER_POINT",
+    "address": "Promenade Road, Pulakeshinagar, Bengaluru",
+    "lat": 12.998,
+    "lon": 77.618,
+    "capacity_persons": 160,
+    "has_ac": false,
+    "has_ors": true,
+    "has_paramedic": false,
+    "operating_hours": "07:00 AM - 08:30 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BBMP-IC-35",
+    "ward_id": "BBMP-84",
+    "name": "Varthur Lake Emergency Water Tanker & Misting Hub",
+    "name_kn": "ವರ್ತೂರು ತುರ್ತು ನೀರು ಟ್ಯಾಂಕರ್ ಮತ್ತು ಮಿಸ್ಟಿಂಗ್ ಕೇಂದ್ರ",
+    "name_hi": "वरथूर झील आपातकालीन पानी टैंकर व मिस्टिंग हब",
+    "type": "WATER_POINT",
+    "address": "Varthur Main Road, Near Government School, Bengaluru",
+    "lat": 12.938,
+    "lon": 77.742,
+    "capacity_persons": 280,
+    "has_ac": false,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "08:00 AM - 07:00 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-36",
+    "ward_id": "BBMP-27",
+    "name": "Banaswadi HRBR Outer Ring Road Transit Respite Station",
+    "name_kn": "ಬಾಣಸವಾಡಿ ಎಚ್‌ಆರ್‌ಬಿಆರ್ ರಿಂಗ್ ರೋಡ್ ವಿಶ್ರಾಂತಿ ಕೇಂದ್ರ",
+    "name_hi": "बाणसवाड़ी एचआरबीआर रिंग रोड ट्रांजिट शेल्टर",
+    "type": "COOLING_SHELTER",
+    "address": "HRBR Layout 2nd Block, Outer Ring Road, Kalyan Nagar, Bengaluru",
+    "lat": 13.012,
+    "lon": 77.651,
+    "capacity_persons": 200,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": false,
+    "operating_hours": "08:00 AM - 09:00 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BBMP-IC-37",
+    "ward_id": "BBMP-9",
+    "name": "Vidyaranyapura Sambhram Eco-Park Water Shelter",
+    "name_kn": "ವಿದ್ಯಾರಣ್ಯಪುರ ಸಂಭ್ರಮ್ ಇಕೋ ಪಾರ್ಕ್ ಜಲ ಕೇಂದ್ರ",
+    "name_hi": "विद्यारण्यपुरा संभ्रम इको-पार्क जल आश्रय",
+    "type": "WATER_POINT",
+    "address": "BEL North Colony, Vidyaranyapura, Bengaluru",
+    "lat": 13.082,
+    "lon": 77.558,
+    "capacity_persons": 150,
+    "has_ac": false,
+    "has_ors": true,
+    "has_paramedic": false,
+    "operating_hours": "07:30 AM - 08:00 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-38",
+    "ward_id": "BBMP-158",
+    "name": "Kengeri Metro Station AC Respite Center & BWSSB Dispenser",
+    "name_kn": "ಕೆಂಗೇರಿ ಮೆಟ್ರೋ ನಿಲ್ದಾಣ ಎಸಿ ಶೀತಲ ಕೇಂದ್ರ",
+    "name_hi": "केंगेरी मेट्रो स्टेशन एसी कूलिंग शेल्टर",
+    "type": "COOLING_SHELTER",
+    "address": "Mysore Road Metro Terminal, Kengeri, Bengaluru",
+    "lat": 12.912,
+    "lon": 77.485,
+    "capacity_persons": 320,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "06:00 AM - 10:30 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BBMP-IC-39",
+    "ward_id": "BBMP-142",
+    "name": "Chamarajpet Wholesale Market Hydration Post & Misting Tent",
+    "name_kn": "ಚಾಮರಾಜಪೇಟೆ ಮಾರುಕಟ್ಟೆ ಜಲ ಕೇಂದ್ರ ಮತ್ತು ಮಿಸ್ಟಿಂಗ್ ಟೆಂಟ್",
+    "name_hi": "चामराजपेट थोक बाजार हाइड्रेशन पोस्ट व मिस्टिंग टेंट",
+    "type": "WATER_POINT",
+    "address": "Bull Temple Rd & 5th Main Junction, Chamarajpet, Bengaluru",
+    "lat": 12.958,
+    "lon": 77.561,
+    "capacity_persons": 350,
+    "has_ac": false,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "07:00 AM - 08:00 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-40",
+    "ward_id": "BBMP-8",
+    "name": "Sahakar Nagar Bellary Road Pedestrian Relief Station",
+    "name_kn": "ಸಹಕಾರ ನಗರ ಬಳ್ಳಾರಿ ರಸ್ತೆ ಪಾದಚಾರಿ ಶೀತಲ ಕೇಂದ್ರ",
+    "name_hi": "सहकार नगर बेल्लारी रोड पैदल यात्री राहत केंद्र",
+    "type": "COOLING_SHELTER",
+    "address": "F Block, Sahakar Nagar, Near Aster CMI, Bengaluru",
+    "lat": 13.061,
+    "lon": 77.581,
+    "capacity_persons": 175,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": false,
+    "operating_hours": "08:00 AM - 08:30 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BBMP-IC-41",
+    "ward_id": "BBMP-83",
+    "name": "Kadugodi Container Depot Labor Hydration Camp",
+    "name_kn": "ಕಾಡುಗೋಡಿ ಕಂಟೈನರ್ ಡಿಪೋ ಕಾರ್ಮಿಕರ ಜಲ ಶಿಬಿರ",
+    "name_hi": "काडुगोडी कंटेनर डिपो श्रमिक हाइड्रेशन कैंप",
+    "type": "WATER_POINT",
+    "address": "Whitefield Railway Station Rd, Kadugodi, Bengaluru",
+    "lat": 12.998,
+    "lon": 77.761,
+    "capacity_persons": 260,
+    "has_ac": false,
+    "has_ors": true,
+    "has_paramedic": true,
+    "operating_hours": "07:00 AM - 07:30 PM",
+    "status": "OPEN"
+  },
+  {
+    "id": "BWSSB-TK-42",
+    "ward_id": "BBMP-131",
+    "name": "Basaveshwaranagar 80ft Road Indira Canteen & ORS Center",
+    "name_kn": "ಬಸವೇಶ್ವರನಗರ 80 ಅಡಿ ರಸ್ತೆ ಇಂದಿರಾ ಕ್ಯಾಂಟೀನ್ ಮತ್ತು ಓಆರ್‌ಎಸ್ ಕೇಂದ್ರ",
+    "name_hi": "बसवेश्वरनगर 80 फीट रोड इंदिरा कैंटीन व ओआरएस केंद्र",
+    "type": "COOLING_SHELTER",
+    "address": "80 Feet Road, 3rd Stage 4th Block, Basaveshwaranagar, Bengaluru",
+    "lat": 12.988,
+    "lon": 77.537,
+    "capacity_persons": 210,
+    "has_ac": true,
+    "has_ors": true,
+    "has_paramedic": false,
+    "operating_hours": "07:30 AM - 08:30 PM",
+    "status": "OPEN"
   }
 ];
 

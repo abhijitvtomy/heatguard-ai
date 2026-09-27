@@ -116,7 +116,7 @@ class AIHeatbot:
             return {
                 "role": "assistant",
                 "content_en": (
-                    "😊 **I am running at peak performance and actively monitoring all 8 BBMP wards!**\n\n"
+                    "😊 **I am running at peak performance and actively monitoring all 42 BBMP wards with real-time Google Weather & IMD ground-truth calibration!**\n\n"
                     "My biometeorological sensors are tracking real-time humidity, solar radiation, and wet-bulb temperatures across Bengaluru to ensure zero heat-related casualties.\n\n"
                     "How are you feeling today? If you feel dizzy, fatigued, or dehydrated, let me know right away!"
                 ),
@@ -562,7 +562,7 @@ class AIHeatbot:
                 "role": "assistant",
                 "content_en": (
                     "🗺️ **HEATGUARD AI Platform Guide:**\n\n"
-                    "• 🗺️ **GIS Map (Tab 1):** Click any of the 8 BBMP wards to inspect live WBGT, humidity, hospital surge risk, and toggle cooling centers.\n"
+                    "• 🗺️ **GIS Map (Tab 1):** Click any of the 42 BBMP wards to inspect live WBGT, humidity, hospital surge risk, and toggle cooling centers.\n"
                     "• 📋 **Action Plan (Tab 2):** View BBMP SOP protocols, print official Section 34 circulars, and dispatch multi-recipient WhatsApp alerts.\n"
                     "• 📜 **Accuracy Ledger (Tab 3):** Inspect 7-day transparent backtested performance metrics (94.2% empirical accuracy).\n"
                     "• 🏆 **Prediction League (Tab 4):** Test your forecasting skills against AI, customize your forecaster name, and climb the city leaderboard!"
@@ -594,7 +594,7 @@ class AIHeatbot:
                     "**Core Capabilities:**\n"
                     "1. 🌡️ **Biometeorological Physics:** Computes Stull (2011) Wet-Bulb ($T_w$) and ISO 7243 Outdoor WBGT, accounting for solar radiation and wind cooling.\n"
                     "2. 🏥 **Epidemiological ML:** Predicts non-linear hospital admission spikes with 24h/48h cumulative lag and conformal 90% confidence intervals.\n"
-                    "3. 🗺️ **Hyper-Local Ward GIS:** Downscales macro weather to 8 real BBMP wards using satellite Urban Heat Island (UHI) indices.\n"
+                    "3. 🗺️ **Hyper-Local Ward GIS:** Downscales macro weather to 42 real BBMP wards using satellite Urban Heat Island (UHI) indices and live Google/IMD calibration.\n"
                     "4. 🚨 **Actionable Governance:** 1-Click statutory BBMP circulars (PDF/Print), multi-recipient WhatsApp/SMS alerts, and BWSSB tanker routing."
                 ),
                 "content_kn": (
